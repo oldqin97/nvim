@@ -17,7 +17,7 @@ null_ls.setup({
     -- StyLua
     formatting.stylua,
     -- frontend
-    formatting.prettier.with({ -- 比默认少了 markdown
+    formatting.prettier.with({
       filetypes = {
         "javascript",
         "javascriptreact",
@@ -31,8 +31,17 @@ null_ls.setup({
         "json",
         "yaml",
         "graphql",
+        "markdown",
+        "handlebars",
       },
       prefer_local = "node_modules/.bin",
+      extra_args = {
+        "--jsx-single-quote",
+        "--single-quote",
+        "--use-tabs",
+        "--print-width:70",
+        "--arrow-parens:avoid",
+      },
     }),
     -- rustfmt
     -- rustup component add rustfmt
