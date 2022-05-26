@@ -32,6 +32,7 @@ require("plugin-config.nvim-context")
 require("plugin-config.undotree")
 require("plugin-config.illuminate")
 require("plugin-config.nvim-spellsitter")
+require("plugin-config.gitsigns")
 
 -- 内置LSP
 require("lsp.setup")
