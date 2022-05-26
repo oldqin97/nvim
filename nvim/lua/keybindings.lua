@@ -243,6 +243,7 @@ pluginKeys.mapLSP = function(mapbuf)
   mapbuf("n", "<C-s>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
   mapbuf("v", "<C-s>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
   mapbuf("i", "<C-s>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+
   -- 未用
   -- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   -- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
