@@ -39,7 +39,7 @@ null_ls.setup({
         "--jsx-single-quote",
         "--single-quote",
         "--use-tabs",
-        "--print-width:70",
+        "--print-width:90",
         "--arrow-parens:avoid",
       },
     }),
