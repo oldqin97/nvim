@@ -44,7 +44,10 @@ packer.startup({
     use("ethanholz/nvim-lastplace")
 
     -- 自动会话管理
-    use("rmagatti/auto-session")
+    -- use("rmagatti/auto-session")
+
+    -- auto-tag
+    use("windwp/nvim-ts-autotag")
 
     -- 显示滚动条
     use("petertriho/nvim-scrollbar")
@@ -140,6 +143,7 @@ packer.startup({
     use("b0o/schemastore.nvim")
     -- Rust 增强
     use("simrat39/rust-tools.nvim")
+
     --------------------- colorschemes --------------------
     -- tokyonight
     -- use("folke/tokyonight.nvim")

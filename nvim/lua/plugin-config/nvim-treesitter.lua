@@ -7,14 +7,16 @@ end
 treesitter.setup({
   -- 安装 language parser
   -- :TSInstallInfo 命令查看支持的语言
-  ensure_installed = { "json", "html", "css", "vim", "lua", "javascript", "typescript", "tsx" },
-  -- ensure_installed = "maintained",
+  -- ensure_installed = { "json", "html", "css", "vim", "lua", "javascript", "typescript", "tsx" },
+  ensure_installed = "all",
 
   -- 启用代码高亮模块
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
+    use_languagetree = true,
   },
+
   -- 启用增量选择模块
   incremental_selection = {
     enable = true,
