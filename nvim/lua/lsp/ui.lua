@@ -54,6 +54,8 @@ lspkind.init({
     Event = "",
     Operator = "",
     TypeParameter = "",
+    Look = "Look",
+    Emoji = "Emoji",
   },
 })
 

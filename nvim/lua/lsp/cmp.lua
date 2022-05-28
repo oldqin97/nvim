@@ -11,33 +11,27 @@ cmp.setup({
     expand = function(args)
       -- For `vsnip` users.
       vim.fn["vsnip#anonymous"](args.body)
-
-      -- For `luasnip` users.
-      -- require('luasnip').lsp_expand(args.body)
-
-      -- For `ultisnips` users.
-      -- vim.fn["UltiSnips#Anon"](args.body)
-
-      -- For `snippy` users.
-      -- require'snippy'.expand_snippet(args.body)
     end,
   },
   -- 来源
-
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },
-    -- For vsnip users.
     { name = "vsnip" },
     { name = "buffer" },
     { name = "path" },
     { name = "spell" },
     {
       name = "look",
-      priority = 90,
       keyword_length = 5,
+      option = {
+        convert_case = true,
+        loud = true,
+        --dict = '/usr/share/dict/words'
+      },
     },
     { emoji = "emoji", inset = true },
+    { name = "cmp_tabnine" },
   }),
 
   -- 快捷键

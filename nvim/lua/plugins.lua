@@ -56,7 +56,7 @@ packer.startup({
     use("norcalli/nvim-colorizer.lua") -- nvim-tree
 
     -- 文本
-    use("haringsrob/nvim_context_vt")
+    -- use("haringsrob/nvim_context_vt")
 
     -- 移动文本
     use("booperlv/nvim-gomove")
@@ -126,6 +126,10 @@ packer.startup({
     use("f3fora/cmp-spell")
     use("octaltree/cmp-look")
     use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
+    use({
+      "tzachar/cmp-tabnine",
+      run = "./install.sh",
+    })
 
     -- 常见编程语言代码段
     use("rafamadriz/friendly-snippets")
@@ -145,23 +149,8 @@ packer.startup({
     use("simrat39/rust-tools.nvim")
 
     --------------------- colorschemes --------------------
-    -- tokyonight
-    -- use("folke/tokyonight.nvim")
-    -- OceanicNext
-    -- use("mhartington/oceanic-next")
-    -- gruvbox
-    -- use({
-    --   "ellisonleao/gruvbox.nvim",
-    --   requires = { "rktjmp/lush.nvim" },
-    -- })
-    -- zephyr
-    -- use("glepnir/zephyr-nvim")
-    -- nord
-    -- use("shaunsingh/nord.nvim")
     -- onedark
     use("ful1e5/onedark.nvim")
-    -- nightfox
-    -- use("EdenEast/nightfox.nvim")
 
     -------------------------------------------------------
     use({ "akinsho/toggleterm.nvim" })
