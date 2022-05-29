@@ -1,5 +1,3 @@
--- https://github.com/kyazdani42/nvim-tree.lua
--- local nvim_tree = require'nvim-tree'
 local status, nvim_tree = pcall(require, "nvim-tree")
 if not status then
   vim.notify("没有找到 nvim-tree")
@@ -30,7 +28,7 @@ nvim_tree.setup({
   },
   view = {
     -- 宽度
-    width = 34,
+    width = 20,
     -- 也可以 'right'
     side = "left",
     -- 隐藏根目录
