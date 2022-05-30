@@ -34,6 +34,8 @@ require("plugin-config.undotree")
 require("plugin-config.illuminate")
 require("plugin-config.nvim-spellsitter")
 require("plugin-config.gitsigns")
+require("plugin-config.todo-comments")
+require("plugin-config.nvim-tmux")
 
 -- 内置LSP
 require("lsp.setup")

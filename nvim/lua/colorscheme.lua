@@ -4,6 +4,14 @@ vim.o.background = "dark"
 vim.g.tokyonight_transparent = true
 vim.g.tokyonight_transparent_sidebar = true
 
+require("onedark").setup({
+  comment_style = "NONE",
+  keyword_style = "NONE",
+  function_style = "NONE",
+  variable_style = "NONE",
+  highlight_linenumber = true,
+})
+
 local colorscheme = "onedark"
 -- tokyonight
 -- OceanicNext

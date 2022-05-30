@@ -37,6 +37,19 @@ packer.startup({
     use("wbthomason/packer.nvim")
     -------------------------- plugins -------------------------------------------
 
+    -- 添加头文件
+    use("ahonn/vim-fileheader")
+
+    -- jsdoc
+    use("kkoomen/vim-doge")
+
+    -- tmux
+    use("aserowy/tmux.nvim")
+
+    -- bookmark
+    use("MattesGroeger/vim-bookmarks")
+    use("tom-anders/telescope-vim-bookmarks.nvim")
+
     -- 自动保存
     use("Pocco81/AutoSave.nvim")
 
@@ -66,6 +79,9 @@ packer.startup({
 
     -- use 显示光标下相同词汇
     use("RRethy/vim-illuminate")
+
+    -- TODO
+    use("folke/todo-comments.nvim")
 
     -- spell
     use("lewis6991/spellsitter.nvim")
@@ -124,7 +140,6 @@ packer.startup({
     use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
     use("hrsh7th/cmp-emoji")
     use("f3fora/cmp-spell")
-    use("octaltree/cmp-look")
     use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
     use({
       "tzachar/cmp-tabnine",

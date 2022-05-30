@@ -6,6 +6,13 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- NOTE
+-- TODO
+-- FIX
+-- HACK
+-- WARN
+-- PERF
+
 -- leader key 为空
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -19,6 +26,10 @@ local opt = {
 local map = vim.api.nvim_set_keymap
 
 map("i", "jj", "<Esc>", opt)
+
+-- markbooks
+map("n", "ma", "<cmd>Telescope vim_bookmarks current_file<cr>", opt)
+map("n", "mA", "<cmd>Telescope vim_bookmarks all<cr>", opt)
 
 -- $跳到行尾不带空格 (交换$ 和 g_)
 map("v", "H", "^", opt)
@@ -67,7 +78,7 @@ map("n", "<S-k>", "<Plug>GoNSMUp", opt)
 map("v", "p", '"_dP', opt)
 
 -- 退出
-map("n", "qq", ":qa!<CR>", opt)
+map("n", "qq", ":q!<CR>", opt)
 map("n", "<C-c>", ":qa!<CR>", opt)
 map("n", "<leader>q", ":qa!<CR>", opt)
 
@@ -87,7 +98,7 @@ map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
 map("n", "so", "<C-w>o", opt) -- close others
 
--- 左右比例控制
+-- 左右比例控制keykeykey
 map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
 map("n", "s,", ":vertical resize -10<CR>", opt)
@@ -103,8 +114,18 @@ map("n", "s=", "<C-w>=", opt)
 -- Terminal相关
 map("n", "st", ":sp | terminal<CR>", opt)
 map("n", "stv", ":vsp | terminal<CR>", opt)
+
 -- Esc 回 Normal 模式
 map("t", "<Esc>", "<C-\\><C-n>", opt)
+
+map("n", "<F1>", ":AddFileHeader<CR>", opt)
+map("i", "<F1>", ":AddFileHeader<CR>", opt)
+map("v", "<F1>", ":AddFileHeader<CR>", opt)
+
+map("n", "<F2>", ":DogeGenerate jsdoc<CR>", opt)
+map("i", "<F2>", ":DogeGenerate jsdoc<CR>", opt)
+map("v", "<F2>", ":DogeGenerate jsdoc<CR>", opt)
+
 --------------------------------------------------------------------
 -- 插件快捷键
 local pluginKeys = {}

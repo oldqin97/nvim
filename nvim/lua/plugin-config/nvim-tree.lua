@@ -36,7 +36,7 @@ nvim_tree.setup({
     -- 自定义列表中快捷键
     mappings = {
       -- 只用内置快捷键
-      custom_only = true,
+      custom_only = false,
       list = list_keys,
     },
     -- 不显示行数
