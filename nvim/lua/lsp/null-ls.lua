@@ -38,7 +38,6 @@ null_ls.setup({
       extra_args = {
         "--jsx-single-quote",
         "--single-quote",
-        "--use-tabs=2",
         "--print-width=90",
         "--arrow-parens=avoid",
         "--trailing-comma=all",

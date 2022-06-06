@@ -166,6 +166,7 @@ packer.startup({
     --------------------- colorschemes --------------------
     -- onedark
     use("ful1e5/onedark.nvim")
+    use("LunarVim/darkplus.nvim")
 
     -------------------------------------------------------
     use({ "akinsho/toggleterm.nvim" })

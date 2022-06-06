@@ -119,11 +119,9 @@ map("n", "stv", ":vsp | terminal<CR>", opt)
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 
 map("n", "<F1>", ":AddFileHeader<CR>", opt)
-map("i", "<F1>", ":AddFileHeader<CR>", opt)
 map("v", "<F1>", ":AddFileHeader<CR>", opt)
 
 map("n", "<F2>", ":DogeGenerate jsdoc<CR>", opt)
-map("i", "<F2>", ":DogeGenerate jsdoc<CR>", opt)
 map("v", "<F2>", ":DogeGenerate jsdoc<CR>", opt)
 
 --------------------------------------------------------------------
@@ -219,8 +217,8 @@ pluginKeys.comment = {
   },
 }
 -- ctrl + /
-map("n", "<C-_>", "gcc", { noremap = false })
-map("v", "<C-_>", "gcc", { noremap = false })
+map("n", "<C-_>", "gcc<Esc>", { noremap = false })
+map("v", "<C-_>", "gcc<Esc>", { noremap = false })
 
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)

@@ -23,5 +23,26 @@
 			""
 		],
 		"description": "html5"
+	},
+	"vue": {
+		"prefix": "vue",
+		"body": [
+			"<template>",
+			"  <div>",
+			"  ",
+			"  </div>",
+			"</template>",
+			"",
+			"<script>",
+			"import { defineComponent } from 'vue';",
+			"",
+			"export default defineComponent({",
+			"  name: '${TM_FILENAME_BASE}'",
+			"});",
+			"</script>",
+			"",
+			"<style lang=\"scss\" scoped></style>"
+		],
+		"description": ""
 	}
 }

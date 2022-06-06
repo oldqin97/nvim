@@ -24,7 +24,20 @@ autocmd("TermOpen", {
 -- 保存时自动格式化
 -- autocmd("BufWritePre", {
 --   group = myAutoGroup,
---   pattern = { "*.lua", "*.py", "*.sh" },
+--   pattern = {
+--     "*.lua",
+--     "*.py",
+--     "*.sh",
+--     "*.js",
+--     "*.ts",
+--     "*.jsx",
+--     "*.tsx",
+--     "*.html",
+--     "*.css",
+--     "*.scss",
+--     "*.less",
+--     "*.vue",
+--   },
 --   callback = vim.lsp.buf.formatting_sync,
 -- })
 
@@ -57,5 +70,23 @@ autocmd("BufEnter", {
     vim.opt.formatoptions = vim.opt.formatoptions
       - "o" -- O and o, don't continue comments
       + "r" -- But do continue when pressing enter.
+  end,
+})
+
+-- 进入Insert模式切换为绝对行号
+autocmd("InsertEnter", {
+  group = myAutoGroup,
+  pattern = "*",
+  callback = function()
+    vim.wo.relativenumber = false
+  end,
+})
+
+-- 退出Insert模式切换为相对行号
+autocmd("InsertLeave", {
+  group = myAutoGroup,
+  pattern = "*",
+  callback = function()
+    vim.wo.relativenumber = true
   end,
 })
