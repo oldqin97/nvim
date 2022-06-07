@@ -13,10 +13,6 @@
 -- WARN
 -- PERF
 
--- leader key 为空
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 local opt = {
   noremap = true,
   silent = true,
@@ -24,6 +20,10 @@ local opt = {
 
 -- 本地变量
 local map = vim.api.nvim_set_keymap
+
+-- leader key 为空
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 map("i", "jj", "<Esc>", opt)
 
