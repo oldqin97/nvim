@@ -6,4 +6,4 @@ unzip
 tar 
 curl 
 git 
-
+pip3

@@ -1,48 +1,48 @@
 {
-	"uuid": {
-		"prefix": "uuid",
-		"body": [
-			"${VIM:system('python3 -c \"import uuid, sys;sys.stdout.write(str(uuid.uuid4()))\"')}"
-		]
-	},
-	"html5": {
-		"prefix": "!",
-		"body": [
-			"<!DOCTYPE html>",
-			"<html lang=\"zh\">",
-			"<head>",
-			"  <meta charset=\"UTF-8\">",
-			"  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-			"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
-			"  <title>Document</title>",
-			"</head>",
-			"<body>",
-			"  ",
-			"</body>",
-			"</html>",
-			""
-		],
-		"description": "html5"
-	},
-	"vue": {
-		"prefix": "vue",
-		"body": [
-			"<template>",
-			"  <div>",
-			"  ",
-			"  </div>",
-			"</template>",
-			"",
-			"<script>",
-			"import { defineComponent } from 'vue';",
-			"",
-			"export default defineComponent({",
-			"  name: '${TM_FILENAME_BASE}'",
-			"});",
-			"</script>",
-			"",
-			"<style lang=\"scss\" scoped></style>"
-		],
-		"description": ""
-	}
+  "uuid": {
+    "prefix": "uuid",
+    "body": [
+      "${VIM:system('python3 -c \"import uuid, sys;sys.stdout.write(str(uuid.uuid4()))\"')}"
+    ]
+  },
+  "html5": {
+    "prefix": "!",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"zh\">",
+      "<head>",
+      "  <meta charset=\"UTF-8\">",
+      "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
+      "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "  <title>Document</title>",
+      "</head>",
+      "<body>",
+      "  ",
+      "</body>",
+      "</html>",
+      ""
+    ],
+    "description": "html5"
+  },
+  "vue": {
+    "prefix": "vue",
+    "body": [
+      "<template>",
+      "  <div>",
+      "  ",
+      "  </div>",
+      "</template>",
+      "",
+      "<script>",
+      "import { defineComponent } from 'vue';",
+      "",
+      "export default defineComponent({",
+      "  name: '${TM_FILENAME_BASE}'",
+      "});",
+      "</script>",
+      "",
+      "<style lang=\"scss\" scoped></style>"
+    ],
+    "description": ""
+  }
 }

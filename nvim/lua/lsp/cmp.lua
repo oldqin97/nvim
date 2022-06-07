@@ -21,16 +21,6 @@ cmp.setup({
     { name = "buffer" },
     { name = "path" },
     { name = "spell" },
-    {
-      name = "look",
-      keyword_length = 5,
-      option = {
-        convert_case = true,
-        loud = true,
-        --dict = '/usr/share/dict/words'
-      },
-    },
-    { emoji = "emoji", inset = true },
     { name = "cmp_tabnine" },
   }),
 
