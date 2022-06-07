@@ -1,7 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/oq/.config
-- /home/oq/project/manage-web
 - /home/oq/project/business-web
+- /home/oq/project/manage-web
 - /home/oq/.config/nvim
 startuppopupversion: 4
