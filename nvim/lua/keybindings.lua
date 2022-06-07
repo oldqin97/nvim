@@ -383,10 +383,10 @@ end
 -- 特殊lazygit 窗口，需要安装lazygit
 -- <leader>tg lazygit
 pluginKeys.mapToggleTerm = function(toggleterm)
-  vim.keymap.set({ "n", "t" }, "<leader>ta", toggleterm.toggleA)
-  vim.keymap.set({ "n", "t" }, "<leader>tb", toggleterm.toggleB)
-  vim.keymap.set({ "n", "t" }, "<leader>tc", toggleterm.toggleC)
-  vim.keymap.set({ "n", "t" }, "<leader>tg", toggleterm.toggleG)
+  vim.keymap.set({ "n" }, "<leader>ta", toggleterm.toggleA)
+  vim.keymap.set({ "n" }, "<leader>tb", toggleterm.toggleB)
+  vim.keymap.set({ "n" }, "<leader>tc", toggleterm.toggleC)
+  vim.keymap.set({ "n" }, "<leader>tg", toggleterm.toggleG)
 end
 
 -- gitsigns
