@@ -10,8 +10,7 @@
 - pip3
 
 | Column1  | Column2   | Column3   |
-|-------------- | -------------- | -------------- |
 | Item1    | Item1     | Item1     |
-
+| Item1    | Item1     | Item1     |
 
 
