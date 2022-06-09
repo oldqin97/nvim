@@ -40,11 +40,15 @@ packer.startup({
     -- 添加头文件
     use("ahonn/vim-fileheader")
 
+    -- gielens
+    use("APZelos/blamer.nvim")
+
     -- jsdoc
     use("kkoomen/vim-doge")
 
     -- tmux
     use("aserowy/tmux.nvim")
+    --use('hkupty/nvimux')
 
     -- bookmark
     use("MattesGroeger/vim-bookmarks")

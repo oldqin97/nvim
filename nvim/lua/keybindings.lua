@@ -106,8 +106,8 @@ map("n", "s.", ":vertical resize +10<CR>", opt)
 -- 上下比例
 map("n", "sj", ":resize +10<CR>", opt)
 map("n", "sk", ":resize -10<CR>", opt)
-map("n", "<C-Down>", ":resize +2<CR>", opt)
-map("n", "<C-Up>", ":resize -2<CR>", opt)
+map("n", "<C-Down>", ":resize -2<CR>", opt)
+map("n", "<C-Up>", ":resize +2<CR>", opt)
 -- 相等比例
 map("n", "s=", "<C-w>=", opt)
 
@@ -133,7 +133,7 @@ map("n", "zz", ":foldclose<CR>", opt)
 map("n", "Z", ":foldopen<CR>", opt)
 
 -- nvim-tree
-map("n", "<C-b>", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹

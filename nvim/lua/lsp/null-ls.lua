@@ -43,6 +43,7 @@ null_ls.setup({
         "--trailing-comma=all",
         "--jsx-bracket-same-line=true",
         "--vue-indent-script-and-style=true",
+        "--bracket-same-line"
       },
     }),
     -- rustfmt

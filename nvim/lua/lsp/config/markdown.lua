@@ -1,6 +1,10 @@
 local opts = {
-  flags = {
-    debounce_text_changes = 150,
+  cmd = {
+    "zk",
+    "lsp",
+  },
+  filetypes = {
+    "markdown",
   },
   on_attach = function(client, bufnr)
     local function buf_set_keymap(...)

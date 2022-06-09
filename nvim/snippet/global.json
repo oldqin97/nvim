@@ -5,6 +5,30 @@
       "${VIM:system('python3 -c \"import uuid, sys;sys.stdout.write(str(uuid.uuid4()))\"')}"
     ]
   },
+  "fn": {
+    "prefix": "fn",
+    "body": [
+      "${VIM:system('python3 -c \"from faker import Faker;import sys;sys.stdout.write(Faker().name())\"')}"
+    ]
+  },
+  "email": {
+    "prefix": "fe",
+    "body": [
+      "${VIM:system('python3 -c \"from faker import Faker;import sys;sys.stdout.write(Faker().email())\"')}"
+    ]
+  },
+  "paragraph": {
+    "prefix": "ft",
+    "body": [
+      "${VIM:system('python3 -c \"from faker import Faker;import sys;sys.stdout.write(Faker().text(max_nb_chars=500))\"')}"
+    ]
+  },
+  "number": {
+    "prefix": "fp",
+    "body": [
+      "${VIM:system('python3 -c \"from faker import Faker;import sys;sys.stdout.write(Faker().phone_number())\"')}"
+    ]
+  },
   "html5": {
     "prefix": "!",
     "body": [
@@ -41,7 +65,26 @@
       "});",
       "</script>",
       "",
-      "<style lang=\"scss\" scoped></style>"
+      "<style lang=\"less\" scoped></style>"
+    ],
+    "description": ""
+  },
+  "vue2": {
+    "prefix": "vue2",
+    "body": [
+      "<template>",
+      "  <div>",
+      "  ",
+      "  </div>",
+      "</template>",
+      "",
+      "<script>",
+      "export default {",
+      "  name: '${TM_FILENAME_BASE}'",
+      "};",
+      "</script>",
+      "",
+      "<style lang=\"less\" scoped></style>"
     ],
     "description": ""
   }

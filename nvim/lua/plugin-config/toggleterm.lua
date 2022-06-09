@@ -44,6 +44,8 @@ local lazygit = Terminal:new({
   end,
 })
 
+
+
 local ta = Terminal:new({
   direction = "float",
   close_on_exit = true,
@@ -96,4 +98,3 @@ M.toggleG = function()
 end
 
 require("keybindings").mapToggleTerm(M)
-
