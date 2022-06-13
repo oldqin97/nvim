@@ -102,6 +102,12 @@ packer.startup({
     -- use 显示光标下相同词汇
     use("RRethy/vim-illuminate")
 
+    -- multiple operator
+    use("mg979/vim-visual-multi")
+
+    -- translate
+    use("voldikss/vim-translator")
+
     -- TODO
     use("folke/todo-comments.nvim")
 

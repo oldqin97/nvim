@@ -31,6 +31,9 @@ map("i", "jj", "<Esc>", opt)
 map("n", "ma", "<cmd>Telescope vim_bookmarks current_file<cr>", opt)
 map("n", "mA", "<cmd>Telescope vim_bookmarks all<cr>", opt)
 
+-- translate
+map("n", "th", "<cmd>TranslateW<cr>",opt)
+
 -- $跳到行尾不带空格 (交换$ 和 g_)
 map("v", "H", "^", opt)
 map("v", "L", "$", opt)
