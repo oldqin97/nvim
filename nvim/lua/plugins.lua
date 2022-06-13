@@ -40,6 +40,24 @@ packer.startup({
     -- 添加头文件
     use("ahonn/vim-fileheader")
 
+    -- markdown
+    -- install without yarn or npm
+    use({
+      "iamcco/markdown-preview.nvim",
+      run = function()
+        vim.fn["mkdp#util#install"]()
+      end,
+    })
+
+    use({
+      "iamcco/markdown-preview.nvim",
+      run = "cd app && npm install",
+      setup = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = { "markdown" },
+    })
+
     -- gielens
     use("APZelos/blamer.nvim")
 
@@ -110,8 +128,11 @@ packer.startup({
     -- telescope
     use({
       "nvim-telescope/telescope.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
+      requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
     })
+
+    use("nvim-telescope/telescope-media-files.nvim")
+
     -- telescope extensions
     use("LinArcX/telescope-env.nvim")
     use("nvim-telescope/telescope-ui-select.nvim")

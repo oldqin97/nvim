@@ -3,7 +3,7 @@ return {
     server.setup({
       capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
       flags = {
-        debounce_text_changes = 150,
+        debounce_text_changes = 50,
       },
       on_attach = function(client, bufnr)
         -- 禁用格式化功能，交给专门插件插件处理
