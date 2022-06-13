@@ -32,13 +32,16 @@ map("n", "ma", "<cmd>Telescope vim_bookmarks current_file<cr>", opt)
 map("n", "mA", "<cmd>Telescope vim_bookmarks all<cr>", opt)
 
 -- translate
-map("n", "th", "<cmd>TranslateW<cr>",opt)
+map("n", "th", "<cmd>TranslateW<cr>", opt)
 
 -- $跳到行尾不带空格 (交换$ 和 g_)
 map("v", "H", "^", opt)
 map("v", "L", "$", opt)
 map("n", "H", "^", opt)
 map("n", "L", "$", opt)
+
+-- hop
+map("n", "fw", "<cmd>HopWord<cr>", opt)
 
 -- 命令行下 Ctrl+j/k  上一个下一个
 map("c", "<A-j>", "<C-n>", { noremap = false })
@@ -115,8 +118,8 @@ map("n", "<C-Up>", ":resize +2<CR>", opt)
 map("n", "s=", "<C-w>=", opt)
 
 -- Terminal相关
-map("n", "st", ":sp | terminal<CR>", opt)
-map("n", "stv", ":vsp | terminal<CR>", opt)
+--map("n", "st", ":sp | terminal<CR>", opt)
+--map("n", "stv", ":vsp | terminal<CR>", opt)
 
 -- Esc 回 Normal 模式
 map("t", "<Esc>", "<C-\\><C-n>", opt)
@@ -137,7 +140,7 @@ map("n", "Z", ":foldopen<CR>", opt)
 
 -- nvim-tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
-map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
+map("n", "<A-e>", ":NvimTreeToggle<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = { "o", "<2-LeftMouse>", "<CR>" }, action = "edit" },

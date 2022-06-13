@@ -37,6 +37,7 @@ require("plugin-config.gitsigns")
 require("plugin-config.todo-comments")
 require("plugin-config.nvim-tmux")
 require("plugin-config.gitlens")
+require("plugin-config.nvim-hop")
 
 -- 内置LSP
 require("lsp.setup")

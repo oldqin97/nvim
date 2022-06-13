@@ -108,6 +108,9 @@ packer.startup({
     -- translate
     use("voldikss/vim-translator")
 
+    -- hop
+    use("phaazon/hop.nvim")
+
     -- TODO
     use("folke/todo-comments.nvim")
 
