@@ -44,19 +44,8 @@ packer.startup({
 
     use("shime/vim-livedown")
 
-    -- use({
-    --   "iamcco/markdown-preview.nvim",
-    --   run = function()
-    --     vim.fn["mkdp#util#install"]()
-    --   end,
-    --   run = "cd app && npm install",
-    --   setup = function()
-    --     vim.g.mkdp_filetypes = { "markdown" }
-    --   end,
-    --   ft = { "markdown" },
-    -- })
-
     -- rest
+
     use("NTBBloodbath/rest.nvim")
 
     -- gielens
@@ -64,10 +53,6 @@ packer.startup({
 
     -- jsdoc
     use("kkoomen/vim-doge")
-
-    -- tmux
-    use("aserowy/tmux.nvim")
-    --use('hkupty/nvimux')
 
     -- bookmark
     use("MattesGroeger/vim-bookmarks")
@@ -85,11 +70,11 @@ packer.startup({
     -- auto-tag
     use("windwp/nvim-ts-autotag")
 
-    -- 显示滚动条
-    use("petertriho/nvim-scrollbar")
-
     -- 显示颜色
     use("norcalli/nvim-colorizer.lua") -- nvim-tree
+
+    -- spell
+    use("kamykn/spelunker.vim")
 
     -- 文本
     -- use("haringsrob/nvim_context_vt")
@@ -125,11 +110,16 @@ packer.startup({
       "kyazdani42/nvim-tree.lua",
       requires = "kyazdani42/nvim-web-devicons",
     })
+
+    -- editconfig
+    use("editorconfig/editorconfig-vim")
+
     -- bufferline
     use({
       "akinsho/bufferline.nvim",
       requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" },
     })
+
     -- lualine
     use({
       "nvim-lualine/lualine.nvim",
@@ -144,24 +134,28 @@ packer.startup({
       requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
     })
 
-    use("nvim-telescope/telescope-media-files.nvim")
-
     -- telescope extensions
     use("LinArcX/telescope-env.nvim")
     use("nvim-telescope/telescope-ui-select.nvim")
+
     -- dashboard-nvim
     use("glepnir/dashboard-nvim")
+
     -- project
     use("ahmedkhalf/project.nvim")
+
     -- treesitter
     use({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
     })
+
     use({
       "nvim-treesitter/nvim-treesitter-context",
       run = ":TSContextEnable",
     })
+
+    -- reg
     use({
       "bennypowers/nvim-regexplainer",
       requires = {
@@ -170,8 +164,10 @@ packer.startup({
     })
 
     use("p00f/nvim-ts-rainbow")
+
     -- indent-blankline
     use("lukas-reineke/indent-blankline.nvim")
+
     --------------------- LSP --------------------
     -- use({ "williamboman/nvim-lsp-installer", commit = "36b44679f7cc73968dbb3b09246798a19f7c14e0" })
     use({ "williamboman/nvim-lsp-installer" })
@@ -185,6 +181,7 @@ packer.startup({
     use("hrsh7th/cmp-vsnip")
     use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
     use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
+
     use("hrsh7th/cmp-path") -- { name = 'path' }
     use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
     use("hrsh7th/cmp-emoji")

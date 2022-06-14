@@ -27,7 +27,6 @@ require("plugin-config.lastplace")
 --require("plugin-config.auto-session")
 require("plugin-config.autotag")
 require("plugin-config.colorizer")
-require("plugin-config.scrollbar")
 require("plugin-config.gomove")
 --require("plugin-config.nvim-context")
 require("plugin-config.undotree")
@@ -46,6 +45,7 @@ require("plugin-config.nvim-rest")
 
 -- 内置LSP
 require("lsp.setup")
+
 require("lsp.cmp")
 require("lsp.ui")
 -- 格式化

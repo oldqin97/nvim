@@ -9,6 +9,7 @@
 - curl 
 - git 
 - pip3
+- jq
 
 | Column1    | Column2    | Column3    |
 |----------- | ---------- | ---------- |

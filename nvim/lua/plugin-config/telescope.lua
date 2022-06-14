@@ -25,11 +25,11 @@ telescope.setup({
         -- even more opts
       }),
     },
-    media_files = {
+    ["media_files"] = {
       -- filetypes whitelist
       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
       filetypes = { "png", "webp", "jpg", "jpeg", "pdf", "webm" },
-      find_cmd = "rg", -- find command (defaults to `fd`)
+      find_cmd = "fd", -- find command (defaults to `fd`)
     },
   },
 })
@@ -39,3 +39,4 @@ pcall(telescope.load_extension, "env")
 -- load_extension, somewhere after setup function:
 pcall(telescope.load_extension, "ui-select")
 pcall(telescope.load_extension("vim_bookmarks"))
+pcall(telescope.load_extension("media_files"))
