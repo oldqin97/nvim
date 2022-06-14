@@ -42,6 +42,7 @@ require("plugin-config.search-hlslens")
 require("plugin-config.treesitter-ctx")
 require("plugin-config.reg")
 require("plugin-config.dictionary")
+require("plugin-config.nvim-rest")
 
 -- 内置LSP
 require("lsp.setup")

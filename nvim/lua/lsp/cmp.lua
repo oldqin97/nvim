@@ -46,13 +46,13 @@ cmp.setup({
     { name = "buffer" },
     { name = "path" },
 
-    { name = "spell" },
+    -- { name = "spell" },
     { name = "cmp_tabnine" },
     { name = "emoji" },
-    {
-      name = "dictionary",
-      keyword_length = 2,
-    },
+    -- {
+    --   name = "dictionary",
+    --   keyword_length = 2,
+    -- },
   }),
 
   -- 快捷键

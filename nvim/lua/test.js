@@ -1,9 +1,7 @@
 function test(q, w, e) {
   for (let i = 0; i < 10; i++) {
-    console.log('');
+    console.log('123', q, w, e);
   }
 }
 
 ('👆');
-
-/a{1}b{2,}c{3,5}d*e+/;

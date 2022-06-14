@@ -54,9 +54,9 @@ map("n", "<leader>wq", ":wqa!<CR>", opt)
 
 -- 按键绑定，查看 undotree
 map("n", "<leader>3", ":UndotreeToggle<CR>", opt)
--- fix :set wrap
--- vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
--- vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
+-- rest
+map("n", "<F3>", "<Plug>RestNvim", opt)
 
 -- 上下滚动浏览
 -- ctrl u / ctrl + d  只移动9行，默认移动半屏

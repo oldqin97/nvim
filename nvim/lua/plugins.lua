@@ -41,22 +41,23 @@ packer.startup({
     use("ahonn/vim-fileheader")
 
     -- markdown
-    -- install without yarn or npm
+
+    use("shime/vim-livedown")
+
     -- use({
     --   "iamcco/markdown-preview.nvim",
+    --   run = function()
+    --     vim.fn["mkdp#util#install"]()
+    --   end,
+    --   run = "cd app && npm install",
+    --   setup = function()
+    --     vim.g.mkdp_filetypes = { "markdown" }
+    --   end,
+    --   ft = { "markdown" },
     -- })
 
-    use({
-      "iamcco/markdown-preview.nvim",
-      run = function()
-        vim.fn["mkdp#util#install"]()
-      end,
-      run = "cd app && npm install",
-      setup = function()
-        vim.g.mkdp_filetypes = { "markdown" }
-      end,
-      ft = { "markdown" },
-    })
+    -- rest
+    use("NTBBloodbath/rest.nvim")
 
     -- gielens
     use("APZelos/blamer.nvim")
@@ -201,10 +202,9 @@ packer.startup({
     use("onsails/lspkind-nvim")
     use("tami5/lspsaga.nvim")
     -- 代码格式化
-    use("mhartington/formatter.nvim")
-    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+    use("jose-elias-alvarez/null-ls.nvim")
     -- TypeScript 增强
-    use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
+    use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
     -- Lua 增强
     use("folke/lua-dev.nvim")
