@@ -42,15 +42,15 @@ packer.startup({
 
     -- markdown
     -- install without yarn or npm
+    -- use({
+    --   "iamcco/markdown-preview.nvim",
+    -- })
+
     use({
       "iamcco/markdown-preview.nvim",
       run = function()
         vim.fn["mkdp#util#install"]()
       end,
-    })
-
-    use({
-      "iamcco/markdown-preview.nvim",
       run = "cd app && npm install",
       setup = function()
         vim.g.mkdp_filetypes = { "markdown" }
@@ -95,6 +95,9 @@ packer.startup({
 
     -- 移动文本
     use("booperlv/nvim-gomove")
+
+    -- 搜索文本
+    use({ "kevinhwang91/nvim-hlslens" })
 
     -- 记录历史变更
     use("mbbill/undotree")
@@ -154,6 +157,17 @@ packer.startup({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
     })
+    use({
+      "nvim-treesitter/nvim-treesitter-context",
+      run = ":TSContextEnable",
+    })
+    use({
+      "bennypowers/nvim-regexplainer",
+      requires = {
+        "MunifTanjim/nui.nvim",
+      },
+    })
+
     use("p00f/nvim-ts-rainbow")
     -- indent-blankline
     use("lukas-reineke/indent-blankline.nvim")
@@ -179,6 +193,7 @@ packer.startup({
       "tzachar/cmp-tabnine",
       run = "./install.sh",
     })
+    use("uga-rosa/cmp-dictionary")
 
     -- 常见编程语言代码段
     use("rafamadriz/friendly-snippets")
@@ -190,6 +205,7 @@ packer.startup({
     use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
     -- TypeScript 增强
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
+
     -- Lua 增强
     use("folke/lua-dev.nvim")
     -- JSON 增强

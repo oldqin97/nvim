@@ -42,8 +42,10 @@ map("n", "L", "$", opt)
 
 -- hop
 map("n", "fw", "<cmd>HopWord<cr>", opt)
+map("n", "fs", "<cmd>HopChar2<cr>", opt)
 
 -- 命令行下 Ctrl+j/k  上一个下一个
+
 map("c", "<A-j>", "<C-n>", { noremap = false })
 map("c", "<A-k>", "<C-p>", { noremap = false })
 

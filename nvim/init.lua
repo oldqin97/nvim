@@ -38,6 +38,10 @@ require("plugin-config.todo-comments")
 require("plugin-config.nvim-tmux")
 require("plugin-config.gitlens")
 require("plugin-config.nvim-hop")
+require("plugin-config.search-hlslens")
+require("plugin-config.treesitter-ctx")
+require("plugin-config.reg")
+require("plugin-config.dictionary")
 
 -- 内置LSP
 require("lsp.setup")

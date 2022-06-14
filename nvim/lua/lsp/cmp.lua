@@ -45,8 +45,14 @@ cmp.setup({
     { name = "vsnip" },
     { name = "buffer" },
     { name = "path" },
+
     { name = "spell" },
     { name = "cmp_tabnine" },
+    { name = "emoji" },
+    {
+      name = "dictionary",
+      keyword_length = 2,
+    },
   }),
 
   -- 快捷键
