@@ -35,16 +35,22 @@ map("n", "mA", "<cmd>Telescope vim_bookmarks all<cr>", opt)
 map("n", "th", "<cmd>TranslateW<cr>", opt)
 
 -- $跳到行尾不带空格 (交换$ 和 g_)
+
 map("v", "H", "^", opt)
 map("v", "L", "$", opt)
 map("n", "H", "^", opt)
 map("n", "L", "$", opt)
 
+map("n", "<C-h>", "<C-w>h", opt)
+map("n", "<C-l>", "<C-w>l", opt)
+map("n", "<C-j>", "<C-w>j", opt)
+map("n", "<C-k>", "<C-w>k", opt)
+
 -- hop
 map("n", "fw", "<cmd>HopWord<cr>", opt)
 map("n", "fs", "<cmd>HopChar2<cr>", opt)
 
--- 命令行下 Ctrl+j/k  上一个下一个
+-- 命令行下 Alt+j/k  上一个下一个
 
 map("c", "<A-j>", "<C-n>", { noremap = false })
 map("c", "<A-k>", "<C-p>", { noremap = false })
@@ -87,7 +93,7 @@ map("v", "p", '"_dP', opt)
 
 -- 退出
 map("n", "qq", ":q!<CR>", opt)
-map("n", "<C-c>", ":qa!<CR>", opt)
+map("n", "<C-c>", ":q!<CR>", opt)
 map("n", "<leader>q", ":qa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
@@ -143,6 +149,7 @@ map("n", "Z", ":foldopen<CR>", opt)
 -- nvim-tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
 map("n", "<A-e>", ":NvimTreeToggle<CR>", opt)
+
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = { "o", "<2-LeftMouse>", "<CR>" }, action = "edit" },
@@ -192,6 +199,7 @@ map("n", "<C-q>", ":Bdelete!<CR>", opt)
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
+
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
   i = {

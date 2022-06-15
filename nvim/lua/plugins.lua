@@ -37,6 +37,8 @@ packer.startup({
     use("wbthomason/packer.nvim")
     -------------------------- plugins -------------------------------------------
 
+    use("rcarriga/nvim-notify")
+
     -- 添加头文件
     use("ahonn/vim-fileheader")
 
@@ -249,7 +251,7 @@ packer.startup({
     -- 这里锁定插件版本在v1，不会继续更新插件
     snapshot = "v1",
 
-    -- 最大并发数
+    -- 最大并发数plu
     max_jobs = 16,
     -- 自定义源
     git = {

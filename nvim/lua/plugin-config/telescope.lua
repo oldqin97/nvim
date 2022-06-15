@@ -25,18 +25,10 @@ telescope.setup({
         -- even more opts
       }),
     },
-    ["media_files"] = {
-      -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = { "png", "webp", "jpg", "jpeg", "pdf", "webm" },
-      find_cmd = "fd", -- find command (defaults to `fd`)
-    },
+    ["notify"] = {},
   },
 })
 
 pcall(telescope.load_extension, "env")
--- To get ui-select loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
 pcall(telescope.load_extension, "ui-select")
 pcall(telescope.load_extension("vim_bookmarks"))
-pcall(telescope.load_extension("media_files"))
