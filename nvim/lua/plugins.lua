@@ -37,7 +37,13 @@ packer.startup({
     use("wbthomason/packer.nvim")
     -------------------------- plugins -------------------------------------------
 
+    -- notify
     use("rcarriga/nvim-notify")
+
+    -- 大纲
+    use("simrat39/symbols-outline.nvim")
+
+    use("dinhhuy258/vim-local-history")
 
     -- 添加头文件
     use("ahonn/vim-fileheader")
@@ -74,11 +80,11 @@ packer.startup({
     -- 显示颜色
     use("norcalli/nvim-colorizer.lua") -- nvim-tree
 
-    -- spell
-    --use("kamykn/spelunker.vim")
-
     -- 文本
-    -- use("haringsrob/nvim_context_vt")
+    use("haringsrob/nvim_context_vt")
+
+    -- diff
+    use("sindrets/diffview.nvim")
 
     -- 移动文本
     use("booperlv/nvim-gomove")
@@ -103,9 +109,6 @@ packer.startup({
 
     -- TODO
     use("folke/todo-comments.nvim")
-
-    -- spell
-    use("lewis6991/spellsitter.nvim")
 
     use({
       "kyazdani42/nvim-tree.lua",

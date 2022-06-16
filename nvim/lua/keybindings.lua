@@ -60,9 +60,13 @@ map("n", "<leader>wq", ":wqa!<CR>", opt)
 
 -- 按键绑定，查看 undotree
 map("n", "<leader>3", ":UndotreeToggle<CR>", opt)
+map("n", "<leader>2", ":LocalHistoryToggle<CR>", opt)
 
 -- rest
 map("n", "<F3>", "<Plug>RestNvim", opt)
+
+-- outline
+map("n", "<F4>", "<cmd>SymbolsOutline<cr>", opt)
 
 -- 上下滚动浏览
 -- ctrl u / ctrl + d  只移动9行，默认移动半屏

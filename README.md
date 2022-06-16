@@ -10,6 +10,8 @@
 - git 
 - pip3
 - jq
+- pyneovim
+- nveovim(node)
 
 
 | Column1    | Column2    | Column3    |

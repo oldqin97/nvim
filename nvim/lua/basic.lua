@@ -1,7 +1,7 @@
 vim.opt.spell = true
 vim.opt.spelllang = { "en_us" }
 
-vim.g.vsnip_snippet_dir = "~/.config/nvim/snippet"
+vim.g.vsnip_snippet_dir = "../snippet"
 vim.g.undotree_dir = "~/.cache/nvim/undodir"
 
 -- utf8
