@@ -1,7 +1,5 @@
-function qwe(q, w, e) {
+function qwe(q) {
   for (let i = 0; i < 10; i++) {
-    console.log('123');
+    console.log(q);
   }
 }
-
-test

@@ -47,7 +47,6 @@ packer.startup({
     use("shime/vim-livedown")
 
     -- rest
-
     use("NTBBloodbath/rest.nvim")
 
     -- gielens
@@ -67,7 +66,7 @@ packer.startup({
     use("ethanholz/nvim-lastplace")
 
     -- 自动会话管理
-    use("rmagatti/auto-session")
+    --use("rmagatti/auto-session")
 
     -- auto-tag
     use("windwp/nvim-ts-autotag")
@@ -76,7 +75,7 @@ packer.startup({
     use("norcalli/nvim-colorizer.lua") -- nvim-tree
 
     -- spell
-    use("kamykn/spelunker.vim")
+    --use("kamykn/spelunker.vim")
 
     -- 文本
     -- use("haringsrob/nvim_context_vt")
@@ -151,6 +150,7 @@ packer.startup({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
     })
+    use("SmiteshP/nvim-gps")
 
     use({
       "nvim-treesitter/nvim-treesitter-context",
@@ -187,7 +187,7 @@ packer.startup({
     use("hrsh7th/cmp-path") -- { name = 'path' }
     use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
     use("hrsh7th/cmp-emoji")
-    use("f3fora/cmp-spell")
+    --use("f3fora/cmp-spell")
     use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
     use({
       "tzachar/cmp-tabnine",

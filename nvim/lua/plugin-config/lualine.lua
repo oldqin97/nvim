@@ -3,6 +3,7 @@ if not status then
   vim.notify("没有找到 lualine")
   return
 end
+local gps = require("nvim-gps")
 
 lualine.setup({
   options = {
@@ -29,6 +30,7 @@ lualine.setup({
       --   "lsp_progress",
       --   spinner_symbols = { " ", " ", " ", " ", " ", " " },
       -- },
+      { gps.get_location, cond = gps.is_available },
     },
     lualine_x = {
       "filesize",
