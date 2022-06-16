@@ -67,7 +67,7 @@ packer.startup({
     use("ethanholz/nvim-lastplace")
 
     -- 自动会话管理
-    -- use("rmagatti/auto-session")
+    use("rmagatti/auto-session")
 
     -- auto-tag
     use("windwp/nvim-ts-autotag")
@@ -193,7 +193,6 @@ packer.startup({
       "tzachar/cmp-tabnine",
       run = "./install.sh",
     })
-    use("uga-rosa/cmp-dictionary")
 
     -- 常见编程语言代码段
     use("rafamadriz/friendly-snippets")

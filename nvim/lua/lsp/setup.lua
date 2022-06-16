@@ -9,6 +9,7 @@ local lspconfig = require("lspconfig")
 -- { key: 服务器名， value: 配置文件 }
 -- key 必须为下列网址列出的 server name，不可以随便写
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
+
 local servers = {
   sumneko_lua = require("lsp.config.lua"), -- lua/lsp/config/lua.lua
   bashls = require("lsp.config.bash"),

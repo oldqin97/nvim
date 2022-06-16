@@ -70,8 +70,8 @@ map("n", "<C-u>", "10k", opt)
 map("n", "<C-d>", "10j", opt)
 
 -- magic search
-map("n", "/", "/\\v", { noremap = true, silent = false })
-map("v", "/", "/\\v", { noremap = true, silent = false })
+-- map("n", "/", "/\\v", { noremap = true, silent = false })
+-- map("v", "/", "/\\v", { noremap = true, silent = false })
 
 -- 正常模式下按 ESC 取消高亮显示
 map("n", "<ESC>", ":nohlsearch<CR>", opt)

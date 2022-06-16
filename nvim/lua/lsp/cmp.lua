@@ -1,9 +1,10 @@
--- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+-- https://github.com/neovim/nvim-lspconfig/wiki/autocompletion
 -- https://github.com/hrsh7th/nvim-cmp
 -- https://github.com/onsails/lspkind-nvim
 
 --local lspkind = require("lspkind")
 local cmp = require("cmp")
+
 local lspkind_comparator = function(conf)
   local lsp_types = require("cmp.types").lsp
   return function(entry1, entry2)
@@ -38,22 +39,24 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
+
   -- 来源
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },
     { name = "vsnip" },
     { name = "buffer" },
-    { name = "path" },
 
+    { name = "path" },
     -- { name = "spell" },
     { name = "cmp_tabnine" },
     { name = "emoji" },
-    -- {
-    --   name = "dictionary",
-    --   keyword_length = 2,
-    -- },
   }),
+
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
 
   -- 快捷键
   mapping = require("keybindings").cmp(cmp),
@@ -98,6 +101,7 @@ cmp.setup({
 
 -- Use buffer source for `/`.
 cmp.setup.cmdline("/", {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = "buffer" },
   },

@@ -24,7 +24,7 @@ require("plugin-config.nvim-autopairs")
 require("plugin-config.fidget")
 require("plugin-config.autosave")
 require("plugin-config.lastplace")
---require("plugin-config.auto-session")init
+require("plugin-config.auto-session")
 require("plugin-config.autotag")
 require("plugin-config.colorizer")
 require("plugin-config.gomove")
@@ -39,7 +39,6 @@ require("plugin-config.nvim-hop")
 require("plugin-config.search-hlslens")
 require("plugin-config.treesitter-ctx")
 require("plugin-config.reg")
-require("plugin-config.dictionary")
 require("plugin-config.nvim-rest")
 
 -- 内置LSP

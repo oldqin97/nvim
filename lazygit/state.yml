@@ -1,6 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/oq/.config
+- /home/oq/project/source/eslint-test
 - /home/oq/project/business-web
 - /home/oq/project/manage-web
 - /home/oq/.config/nvim
