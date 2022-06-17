@@ -37,10 +37,10 @@ local lazygit = Terminal:new({
   end,
   on_close = function(_)
     -- 添加回来
-    vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {
-      noremap = true,
-      silent = true,
-    })
+    -- vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {
+    --   noremap = true,
+    --   silent = true,
+    -- })
   end,
 })
 

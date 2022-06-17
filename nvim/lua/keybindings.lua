@@ -26,6 +26,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 map("i", "jj", "<Esc>", opt)
+map("v", "u", "<Esc>", opt)
 
 -- markbooks
 map("n", "ma", "<cmd>Telescope vim_bookmarks current_file<cr>", opt)
@@ -101,16 +102,17 @@ map("n", "<C-c>", ":q!<CR>", opt)
 map("n", "<leader>q", ":qa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
--- map("i", "<C-h>", "<ESC>I", opt)
--- map("i", "<C-l>", "<ESC>A", opt)
+-- map("i", "<c-h>", "<esc>i", opt)
+-- map("i", "<c-l>", "<esc>a", opt)
 
 ------------------------------------------------------------------
 -- windows 分屏快捷键
 ------------------------------------------------------------------
 -- 取消 s 默认功能
 map("n", "s", "", opt)
-map("n", "sv", ":vsp<CR>", opt)
-map("n", "sh", ":sp<CR>", opt)
+-- map("n", "sv", ":vsp<cr>", opt)
+-- map("n", "sh", ":sp<CR>", opt)
+
 -- 关闭当前
 map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
@@ -134,7 +136,7 @@ map("n", "s=", "<C-w>=", opt)
 --map("n", "stv", ":vsp | terminal<CR>", opt)
 
 -- Esc 回 Normal 模式
-map("t", "<Esc>", "<C-\\><C-n>", opt)
+--map("t", "<Esc>", "<C-\\><C-n>", opt)
 
 map("n", "<F1>", ":AddFileHeader<CR>", opt)
 map("v", "<F1>", ":AddFileHeader<CR>", opt)
@@ -350,10 +352,10 @@ pluginKeys.cmp = function(cmp)
     -- 出现补全
     ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     -- 取消
-    ["<Esc>"] = cmp.mapping({
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
-    }),
+    -- ["<Esc>"] = cmp.mapping({
+    --   i = cmp.mapping.abort(),
+    --   c = cmp.mapping.close(),
+    -- }),
     ["<C-c>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -403,9 +405,9 @@ end
 -- 特殊lazygit 窗口，需要安装lazygit
 -- <leader>tg lazygit
 pluginKeys.mapToggleTerm = function(toggleterm)
-  vim.keymap.set({ "n" }, "<leader>ta", toggleterm.toggleA)
-  vim.keymap.set({ "n" }, "<leader>tb", toggleterm.toggleB)
-  vim.keymap.set({ "n" }, "<leader>tc", toggleterm.toggleC)
+  -- vim.keymap.set({ "n" }, "<leader>ta", toggleterm.toggleA)
+  -- vim.keymap.set({ "n" }, "<leader>tb", toggleterm.toggleB)
+  -- vim.keymap.set({ "n" }, "<leader>tc", toggleterm.toggleC)
   vim.keymap.set({ "n" }, "<leader>tg", toggleterm.toggleG)
 end
 
