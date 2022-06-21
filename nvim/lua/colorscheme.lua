@@ -13,7 +13,7 @@ require("onedark").setup({
 
   overrides = function(c)
     return {
-      Comment = { fg = "#f26522" },
+      Comment = { fg = "#72baa7" },
     }
   end,
 })
