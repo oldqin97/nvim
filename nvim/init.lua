@@ -44,8 +44,9 @@ require("plugin-config.notify")
 require("plugin-config.nvim-gps")
 require("plugin-config.outline")
 
-require("plugin-config.nvim-diff")
+--require("plugin-config.nvim-diff")
 
+--require("plugin-config.quick-list")
 -- 内置LSP
 require("lsp.setup")
 

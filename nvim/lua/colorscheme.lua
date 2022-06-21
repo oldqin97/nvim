@@ -10,6 +10,12 @@ require("onedark").setup({
   function_style = "NONE",
   variable_style = "NONE",
   highlight_linenumber = true,
+
+  overrides = function(c)
+    return {
+      Comment = { fg = "#f26522" },
+    }
+  end,
 })
 
 local colorscheme = "onedark"

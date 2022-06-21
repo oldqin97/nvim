@@ -118,8 +118,12 @@ map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
 map("n", "so", "<C-w>o", opt) -- close others
 
+-- Highlight variable
+map("n", "<leader>w", ":lua require'mywords'.hl_toggle()<cr>", opt)
+map("n", "<leader>c", ":lua require'mywords'.uhl_all()<cr>", opt)
+
 -- 左右比例控制keykeykey
-map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
+map("n", "<C-Left>", ":vertical resize -3<CR>", opt)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
 map("n", "s,", ":vertical resize -10<CR>", opt)
 map("n", "s.", ":vertical resize +10<CR>", opt)

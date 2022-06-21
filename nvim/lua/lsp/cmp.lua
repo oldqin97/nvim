@@ -31,6 +31,10 @@ local label_comparator = function(entry1, entry2)
   return entry1.completion_item.label < entry2.completion_item.label
 end
 
+vim.cmd([[
+  let g:vsnip_snippet_dir = '/home/oq/.config/nvim/snippet/'
+]])
+
 cmp.setup({
   -- 指定 snippet 引擎
   snippet = {

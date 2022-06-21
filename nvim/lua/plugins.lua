@@ -40,16 +40,18 @@ packer.startup({
     -- notify
     use("rcarriga/nvim-notify")
 
+    -- hightlight Variable
+    use("dwrdx/mywords.nvim")
+
     -- 大纲
     use("simrat39/symbols-outline.nvim")
 
-    use("dinhhuy258/vim-local-history")
+    --use("dinhhuy258/vim-local-history")
 
     -- 添加头文件
     use("ahonn/vim-fileheader")
 
     -- markdown
-
     use("shime/vim-livedown")
 
     -- rest
@@ -84,7 +86,7 @@ packer.startup({
     use("haringsrob/nvim_context_vt")
 
     -- diff
-    use("sindrets/diffview.nvim")
+    --use("sindrets/diffview.nvim")
 
     -- 移动文本
     use("booperlv/nvim-gomove")
@@ -181,7 +183,6 @@ packer.startup({
     -- 补全引擎
     use("hrsh7th/nvim-cmp")
     -- Snippet 引擎
-    use("hrsh7th/vim-vsnip")
     -- 补全源
     use("hrsh7th/cmp-vsnip")
     use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
@@ -213,6 +214,9 @@ packer.startup({
     use("b0o/schemastore.nvim")
     -- Rust 增强
     use("simrat39/rust-tools.nvim")
+
+    -- quickstart
+    --use("kevinhwang91/nvim-bqf")
 
     --------------------- colorschemes --------------------
     -- onedark

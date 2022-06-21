@@ -27,7 +27,7 @@ unbind '"'
 unbind %
 unbind 'V'
 unbind 'H'
-bind - splitw -v -c '#{pane_current_path}' # 垂直方向新增面板，默认进入当前目录
+bind = splitw -v -c '#{pane_current_path}' # 垂直方向新增面板，默认进入当前目录
 bind =  splitw -h -c '#{pane_current_path}' # 水平方向新增面板，默认进入当前目录
 
 bind -r C-k resizep -U 5 # 绑定Ctrl+k为往↑调整面板边缘5个单元格
