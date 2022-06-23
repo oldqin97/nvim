@@ -52,7 +52,7 @@ cmp.setup({
     { name = "buffer" },
 
     { name = "path" },
-    -- { name = "spell" },
+    --{ name = "spell" },
     { name = "cmp_tabnine", priority = 8 },
     { name = "emoji" },
   }),

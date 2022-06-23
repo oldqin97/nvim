@@ -51,6 +51,7 @@ packer.startup({
     -- 添加头文件
     use("ahonn/vim-fileheader")
 
+
     -- markdown
     use("shime/vim-livedown")
 
@@ -197,6 +198,7 @@ packer.startup({
       "tzachar/cmp-tabnine",
       run = "./install.sh",
     })
+    use("hrsh7th/vim-vsnip")
 
     -- 常见编程语言代码段
     use("rafamadriz/friendly-snippets")

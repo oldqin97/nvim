@@ -53,6 +53,8 @@ nvim_tree.setup({
     dotfiles = false,
     -- 隐藏 node_modules 文件夹
     -- custom = { "node_modules" },
+    custom = {},
+    exclude = { "node_modules", ".nuxt" },
   },
   view = {
     -- 宽度

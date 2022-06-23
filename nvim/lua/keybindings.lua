@@ -96,6 +96,9 @@ map("n", "<S-k>", "<Plug>GoNSMUp", opt)
 -- 在visual mode 里粘贴不要复制
 map("v", "p", '"_dP', opt)
 
+-- 预览md文件
+map("n", "<F5>", ":LivedownPreview<CR>", opt)
+
 -- 退出
 map("n", "qq", ":q!<CR>", opt)
 map("n", "<C-c>", ":q!<CR>", opt)
