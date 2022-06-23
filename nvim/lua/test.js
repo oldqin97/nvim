@@ -3,5 +3,3 @@ function test(q) {
     console.log(q);
   }
 }
-test();
-test();

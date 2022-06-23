@@ -41,7 +41,7 @@ null_ls.setup({
         "--print-width=90",
         "--arrow-parens=avoid",
         "--trailing-comma=all",
-        "--jsx-bracket-same-line=true",
+        "--bracket-same-line=true",
         "--vue-indent-script-and-style=true",
         "--bracket-same-line",
       },
