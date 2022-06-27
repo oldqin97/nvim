@@ -37,6 +37,10 @@ packer.startup({
     use("wbthomason/packer.nvim")
     -------------------------- plugins -------------------------------------------
 
+    -- gitgraph
+    use("tpope/vim-fugitive")
+    use("rbong/vim-flog")
+
     -- notify
     use("rcarriga/nvim-notify")
 
@@ -50,7 +54,6 @@ packer.startup({
 
     -- 添加头文件
     use("ahonn/vim-fileheader")
-
 
     -- markdown
     use("shime/vim-livedown")
@@ -242,9 +245,9 @@ packer.startup({
     -- vimspector
     use("puremourning/vimspector")
     ----------------------------------------------
-    use("mfussenegger/nvim-dap")
-    use("theHamsta/nvim-dap-virtual-text")
-    use("rcarriga/nvim-dap-ui")
+    --use("mfussenegger/nvim-dap")
+    --use("theHamsta/nvim-dap-virtual-text")
+    --use("rcarriga/nvim-dap-ui")
     -- use("Pocco81/DAPInstall.nvim")
     -- use("jbyuki/one-small-step-for-vimkind")
 

@@ -17,7 +17,6 @@ autocmd("BufEnter", {
   end,
 })
 
-
 -- 进入Terminal 自动进入插入模式
 autocmd("TermOpen", {
   group = myAutoGroup,
@@ -91,5 +90,14 @@ autocmd("InsertLeave", {
   pattern = "*",
   callback = function()
     vim.wo.relativenumber = true
+  end,
+})
+
+-- 退出关闭md预览服务器
+autocmd("QuitPre", {
+  group = myAutoGroup,
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_command("LivedownKill")
   end,
 })
