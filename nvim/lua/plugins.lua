@@ -41,6 +41,9 @@ packer.startup({
     use("tpope/vim-fugitive")
     use("rbong/vim-flog")
 
+    -- git configlict
+    use("rhysd/conflict-marker.vim")
+
     -- notify
     use("rcarriga/nvim-notify")
 
@@ -87,7 +90,7 @@ packer.startup({
     use("norcalli/nvim-colorizer.lua") -- nvim-tree
 
     -- 文本
-    use("haringsrob/nvim_context_vt")
+    --use("haringsrob/nvim_context_vt")
 
     -- diff
     --use("sindrets/diffview.nvim")

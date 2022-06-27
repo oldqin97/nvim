@@ -28,7 +28,7 @@ require("plugin-config.lastplace")
 require("plugin-config.autotag")
 require("plugin-config.colorizer")
 require("plugin-config.gomove")
-require("plugin-config.nvim-context")
+--require("plugin-config.nvim-context")
 require("plugin-config.undotree")
 require("plugin-config.vim-local-hitory")
 require("plugin-config.illuminate")
@@ -49,6 +49,7 @@ require("plugin-config.outline")
 --require("plugin-config.quick-list")
 
 require("plugin-config.live-md")
+require("plugin-config.nvim-confilict")
 -- 内置LSP
 require("lsp.setup")
 

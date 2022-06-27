@@ -54,6 +54,11 @@ map("n", "fs", "<cmd>HopChar2<cr>", opt)
 -- gitgraph
 map("n", "<F6>", "<cmd>:Flog<cr>", opt)
 
+-- git conflict
+map("n", "co", "<cmd>:ConflictMarkerOurselves<cr>", opt)
+map("n", "ct", "<cmd>:ConflictMarkerThemselves<cr>", opt)
+map("n", "cb", "<cmd>:ConflictMarkerBoth<cr>", opt)
+
 -- 命令行下 Alt+j/k  上一个下一个
 
 map("c", "<A-j>", "<C-n>", { noremap = false })
