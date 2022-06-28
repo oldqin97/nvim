@@ -271,8 +271,9 @@ pluginKeys.mapLSP = function(mapbuf)
 	-- mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
 	-- go xx
 
-	-- mapbuf("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opt)
-	mapbuf("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', })<CR>", opt)
+	mapbuf("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opt)
+	-- mapbuf("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', })<CR>", opt)
+
 	mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
 	-- mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
 	mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
