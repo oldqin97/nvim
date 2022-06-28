@@ -43,7 +43,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -64,7 +64,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -85,7 +85,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -106,7 +106,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -127,7 +127,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -148,7 +148,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -169,7 +169,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -190,7 +190,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -211,7 +211,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -232,7 +232,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -253,7 +253,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -274,7 +274,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
@@ -295,7 +295,7 @@ formatter.setup({
             "--trailing-comma=all",
             "--bracket-same-line=true",
             "--vue-indent-script-and-style=true",
-            "--bracket-same-line",
+            "--bracket-same-line=false",
           },
           stdin = true,
         }
