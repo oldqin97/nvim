@@ -213,9 +213,10 @@ packer.startup({
     use("tami5/lspsaga.nvim")
     -- 代码格式化
     use("jose-elias-alvarez/null-ls.nvim")
-    -- TypeScript 增强
-    use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
+    -- TypeScript 增强
+    --use("jose-elias-alvarez/nvim-lsp-ts-utils")
+    use("mhartington/formatter.nvim")
     -- Lua 增强
     use("folke/lua-dev.nvim")
     -- JSON 增强
