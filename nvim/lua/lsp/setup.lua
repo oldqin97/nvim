@@ -1,7 +1,7 @@
 -- local lsp_installer = require("nvim-lsp-installer")
 require("nvim-lsp-installer").setup({
-	-- 自动安装 Language Servers
-	automatic_installation = true,
+  -- 自动安装 Language Servers
+  automatic_installation = true,
 })
 local lspconfig = require("lspconfig")
 
@@ -11,32 +11,31 @@ local lspconfig = require("lspconfig")
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 
 local servers = {
-	sumneko_lua = require("lsp.config.lua"), -- lua/lsp/config/lua.lua
-	bashls = require("lsp.config.bash"),
-	pyright = require("lsp.config.pyright"),
-	html = require("lsp.config.html"),
-	cssls = require("lsp.config.css"),
-	emmet_ls = require("lsp.config.emmet"),
-	jsonls = require("lsp.config.json"),
-	tsserver = require("lsp.config.ts"),
-	rust_analyzer = require("lsp.config.rust"),
-	yamlls = require("lsp.config.yamlls"),
-	-- zk = require("lsp.config.markdown"),
-	-- remark_ls = require("lsp.config.markdown"),
-	volar = require("lsp.config.volar"),
-	vuels = require("lsp.config.vuels"),
-	cssmodules_ls = require("lsp.config.cssmodules"),
-	tailwindcss = require("lsp.config.tailwind"),
-	-- prosemd_lsp = require("lsp.config.markdown"),
-	grammarly = require("lsp.config.grammarly"),
+  sumneko_lua = require("lsp.config.lua"), -- lua/lsp/config/lua.lua
+  bashls = require("lsp.config.bash"),
+  pyright = require("lsp.config.pyright"),
+  html = require("lsp.config.html"),
+  cssls = require("lsp.config.css"),
+  emmet_ls = require("lsp.config.emmet"),
+  jsonls = require("lsp.config.json"),
+  tsserver = require("lsp.config.ts"),
+  rust_analyzer = require("lsp.config.rust"),
+  yamlls = require("lsp.config.yamlls"),
+  zk = require("lsp.config.markdown"),
+  volar = require("lsp.config.volar"),
+  vuels = require("lsp.config.vuels"),
+  cssmodules_ls = require("lsp.config.cssmodules"),
+  tailwindcss = require("lsp.config.tailwind"),
+  -- grammarly = require("lsp.config.grammarly"),
+  quick_lint_js = require("lsp.config.quick-js"),
 }
 
 for name, config in pairs(servers) do
-	if config ~= nil and type(config) == "table" then
-		-- 自定义初始化配置文件必须实现on_setup 方法
-		config.on_setup(lspconfig[name])
-	else
-		-- 使用默认参数
-		lspconfig[name].setup({})
-	end
+  if config ~= nil and type(config) == "table" then
+    -- 自定义初始化配置文件必须实现on_setup 方法
+    config.on_setup(lspconfig[name])
+  else
+    -- 使用默认参数
+    lspconfig[name].setup({})
+  end
 end

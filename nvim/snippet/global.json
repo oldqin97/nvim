@@ -89,7 +89,7 @@
     "description": ""
   },
   "log": {
-    "prefix": ["cl"],
+    "prefix": ["clg"],
     "body": "console.log(${1:$TM_SELECTED_TEXT});"
   }
 }

@@ -3,4 +3,3 @@ function test(q) {
     console.log(q);
   }
 }
-[].map()
