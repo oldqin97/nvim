@@ -1,5 +1,6 @@
 local keybindings = require("keybindings")
 local ts_utils = require("nvim-lsp-ts-utils")
+
 local opts = {
   flags = {
     debounce_text_changes = 50,
@@ -15,7 +16,7 @@ local opts = {
       includeInlayParameterNameHints = "all",
       includeInlayParameterNameHintsWhenArgumentMatchesName = true,
       includeInlayFunctionParameterTypeHints = true,
-      includeInlayVariableTypeHints = true,
+      includeInlayVariableTypeHints = false,
       includeInlayPropertyDeclarationTypeHints = true,
       includeInlayFunctionLikeReturnTypeHints = true,
       includeInlayEnumMemberValueHints = true,

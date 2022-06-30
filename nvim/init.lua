@@ -57,7 +57,7 @@ require("lsp.cmp")
 require("lsp.ui")
 -- 格式化
 require("lsp.formatter")
---require("lsp.null-ls")
+-- require("lsp.null-ls")
 -- DAP
 -- require("dap.vimspector")
 --require("dap.nvim-dap")
