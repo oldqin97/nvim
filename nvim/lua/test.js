@@ -3,7 +3,3 @@ const test = q => {
     console.log(q);
   }
 };
-
-const qqq = {
-  q: 1,
-};
