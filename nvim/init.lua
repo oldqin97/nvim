@@ -46,8 +46,6 @@ require("plugin-config.outline")
 
 --require("plugin-config.nvim-diff")
 
---require("plugin-config.quick-list")
-
 require("plugin-config.live-md")
 require("plugin-config.nvim-confilict")
 -- 内置LSP

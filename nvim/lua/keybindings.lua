@@ -51,9 +51,6 @@ map("n", "<C-k>", "<C-w>k", opt)
 map("n", "fw", "<cmd>HopWord<cr>", opt)
 map("n", "fs", "<cmd>HopChar2<cr>", opt)
 
--- gitgraph
-map("n", "<F6>", "<cmd>:Flog<cr>", opt)
-
 -- git conflict
 map("n", "co", "<cmd>:ConflictMarkerOurselves<cr>", opt)
 map("n", "ct", "<cmd>:ConflictMarkerThemselves<cr>", opt)
@@ -69,7 +66,9 @@ map("n", "<leader>wq", ":wqa!<CR>", opt)
 
 -- 按键绑定，查看 undotree
 map("n", "<leader>3", ":UndotreeToggle<CR>", opt)
-map("n", "<leader>2", ":LocalHistoryToggle<CR>", opt)
+
+-- gitgraph
+map("n", "<leader>2", ":<cmd>:Flog<cr>", opt)
 
 -- rest
 map("n", "<F3>", "<Plug>RestNvim", opt)
@@ -293,12 +292,12 @@ pluginKeys.mapLSP = function(mapbuf)
   -- 未用
   -- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   -- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-  -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
+  -- mapbuf("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opt)
   -- mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
-  -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
-  -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-  -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
-  -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+  -- mapbuf("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opt)
+  -- mapbuf("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opt)
+  -- mapbuf("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opt)
+  -- mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opt)
 end
 
 -- typescript 快捷键

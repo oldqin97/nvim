@@ -225,7 +225,6 @@ packer.startup({
     use("simrat39/rust-tools.nvim")
 
     -- quickstart
-    --use("kevinhwang91/nvim-bqf")
 
     --------------------- colorschemes --------------------
     -- onedark
