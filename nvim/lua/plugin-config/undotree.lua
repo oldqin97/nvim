@@ -10,5 +10,3 @@ if has("persistent_undo")
     let &undodir = target_path
     set undofile
 ]])
-
-

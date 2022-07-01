@@ -68,7 +68,7 @@ map("n", "<leader>wq", ":wqa!<CR>", opt)
 map("n", "<leader>3", ":UndotreeToggle<CR>", opt)
 
 -- gitgraph
-map("n", "<leader>2", ":<cmd>:Flog<cr>", opt)
+map("n", "<leader>2", "<cmd>Flog<cr>", opt)
 
 -- rest
 map("n", "<F3>", "<Plug>RestNvim", opt)
@@ -133,10 +133,10 @@ map("n", "<leader>w", ":lua require'mywords'.hl_toggle()<cr>", opt)
 map("n", "<leader>c", ":lua require'mywords'.uhl_all()<cr>", opt)
 
 -- 左右比例控制keykeykey
-map("n", "<C-Left>", ":vertical resize -3<CR>", opt)
+map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
-map("n", "s,", ":vertical resize -10<CR>", opt)
-map("n", "s.", ":vertical resize +10<CR>", opt)
+map("n", "sh", ":vertical resize -10<CR>", opt)
+map("n", "sl", ":vertical resize +10<CR>", opt)
 -- 上下比例
 map("n", "sj", ":resize +10<CR>", opt)
 map("n", "sk", ":resize -10<CR>", opt)
@@ -162,7 +162,7 @@ map("v", "<F2>", ":DogeGenerate jsdoc<CR>", opt)
 -- 插件快捷键
 local pluginKeys = {}
 
--- treesitter 折叠
+-- 折叠
 map("n", "zz", ":foldclose<CR>", opt)
 map("n", "Z", ":foldopen<CR>", opt)
 
@@ -195,6 +195,7 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = "gy", action = "copy_absolute_path" },
   { key = "I", action = "toggle_file_info" },
   { key = "n", action = "tabnew" },
+  { key = "<C-k>", action = "toggle_file_info" },
   -- 进入下一级
   { key = { "]" }, action = "cd" },
   -- 进入上一级

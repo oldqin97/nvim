@@ -44,8 +44,6 @@ local lazygit = Terminal:new({
   end,
 })
 
-
-
 local ta = Terminal:new({
   direction = "float",
   close_on_exit = true,
