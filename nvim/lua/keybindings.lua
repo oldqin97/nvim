@@ -28,6 +28,10 @@ vim.g.maplocalleader = " "
 map("i", "jj", "<Esc>", opt)
 map("v", "u", "<Esc>", opt)
 
+-- illuminate
+map("n", "an", '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
+map("n", "ap", '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { noremap = true })
+
 -- todo
 map("n", "to", "<cmd>TodoTelescope<cr>", opt)
 
@@ -256,6 +260,7 @@ pluginKeys.comment = {
     bock = "gb",
   },
 }
+
 -- ctrl + /
 map("n", "<C-_>", "gcc<Esc>", { noremap = false })
 map("v", "<C-_>", "gcc<Esc>", { noremap = false })
@@ -434,53 +439,4 @@ pluginKeys.mapToggleTerm = function(toggleterm)
   vim.keymap.set({ "n" }, "<leader>tg", toggleterm.toggleG)
 end
 
--- gitsigns
-pluginKeys.gitsigns_on_attach = function(bufnr)
-  local gs = package.loaded.gitsigns
-
-  local function map(mode, l, r, opts)
-    opts = opts or {}
-    opts.buffer = bufnr
-    vim.keymap.set(mode, l, r, opts)
-  end
-
-  -- Navigation
-  map("n", "<leader>gj", function()
-    if vim.wo.diff then
-      return "]c"
-    end
-    vim.schedule(function()
-      gs.next_hunk()
-    end)
-    return "<Ignore>"
-  end, { expr = true })
-
-  map("n", "<leader>gk", function()
-    if vim.wo.diff then
-      return "[c"
-    end
-    vim.schedule(function()
-      gs.prev_hunk()
-    end)
-    return "<Ignore>"
-  end, { expr = true })
-  map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>")
-  map("n", "<leader>gS", gs.stage_buffer)
-  map("n", "<leader>gu", gs.undo_stage_hunk)
-  map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>")
-  map("n", "<leader>gR", gs.reset_buffer)
-  map("n", "<leader>gp", gs.preview_hunk)
-  map("n", "<leader>gb", function()
-    gs.blame_line({ full = true })
-  end)
-  map("n", "<leader>gd", gs.diffthis)
-  map("n", "<leader>gD", function()
-    gs.diffthis("~")
-  end)
-  -- toggle
-  map("n", "<leader>gtd", gs.toggle_deleted)
-  map("n", "<leader>gtb", gs.toggle_current_line_blame)
-  -- Text object
-  map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>")
-end
 return pluginKeys

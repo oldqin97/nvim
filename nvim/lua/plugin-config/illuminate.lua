@@ -8,3 +8,4 @@ vim.g.Illuminate_ftblacklist = {
   "vista_kind",
   "toggleterm",
 }
+vim.g.Illuminate_highlightUnderCursor = 0

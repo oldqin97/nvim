@@ -5,11 +5,10 @@ if not status then
 end
 
 indent_blankline.setup({
-  -- 空行占位
-  space_char_blankline = " ",
   -- 用 treesitter 判断上下文
   show_current_context = true,
   show_current_context_start = true,
+
   context_patterns = {
     "class",
     "function",
@@ -23,6 +22,7 @@ indent_blankline.setup({
     "block",
     "arguments",
   },
+
   -- echo &filetype
   filetype_exclude = {
     "null-ls-info",
@@ -38,9 +38,9 @@ indent_blankline.setup({
     "toggleterm",
   },
   -- 竖线样式
-  -- char = '¦'
+  char = "¦",
   -- char = '┆'
   -- char = '│'
   -- char = "⎸",
-  char = "▏",
+  -- char = "▏",
 })

@@ -53,7 +53,6 @@ packer.startup({
     -- 大纲
     use("simrat39/symbols-outline.nvim")
 
-
     -- 添加头文件
     use("ahonn/vim-fileheader")
 
@@ -64,7 +63,7 @@ packer.startup({
     use("NTBBloodbath/rest.nvim")
 
     -- gielens
-    use("APZelos/blamer.nvim")
+    -- use("APZelos/blamer.nvim")
 
     -- jsdoc
     use("kkoomen/vim-doge")
@@ -92,7 +91,7 @@ packer.startup({
     --use("haringsrob/nvim_context_vt")
 
     -- diff
-    --use("sindrets/diffview.nvim")
+    -- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
     -- 移动文本
     use("booperlv/nvim-gomove")
