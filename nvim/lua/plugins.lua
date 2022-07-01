@@ -53,7 +53,6 @@ packer.startup({
     -- 大纲
     use("simrat39/symbols-outline.nvim")
 
-    --use("dinhhuy258/vim-local-history")
 
     -- 添加头文件
     use("ahonn/vim-fileheader")
@@ -116,7 +115,7 @@ packer.startup({
     -- hop
     use("phaazon/hop.nvim")
 
-    -- TODO
+    -- todo-comments
     use("folke/todo-comments.nvim")
 
     use({

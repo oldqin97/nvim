@@ -4,26 +4,21 @@ require("todo-comments").setup({
   -- keywords recognized as todo comments
   keywords = {
     FIX = {
-      icon = " ", -- icon used for the sign, and in search results
-      color = "error", -- can be a hex color, or a named color (see below)
+      icon = " ",
+      color = "#DC2626",
       alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
-      -- signs = false, -- configure signs for some keywords individually
     },
-    TODO = { icon = " ", color = "info" },
-    HACK = { icon = " ", color = "hack" },
-    WARN = { icon = " ", color = "wn", alt = { "WARN" } },
-    PERF = { icon = " ", color = "feat", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+    TODO = { icon = " ", color = "#2563EB" },
+    HACK = { icon = " ", color = "#FBBF24" },
+    WARN = { icon = " ", color = "#f56c6c", alt = { "WARN" } },
+    PERF = { icon = " ", color = "#7C3AED", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+    NOTE = { icon = " ", color = "#10B981", alt = { "INFO" } },
   },
-  merge_keywords = true, -- when true, custom keywords will be merged with the defaults
-  -- highlighting of the line containing the todo comment
-  -- * before: highlights before the keyword (typically comment characters)
-  -- * keyword: highlights of the keyword
-  -- * after: highlights after the keyword (todo text)
+  merge_keywords = true,
   highlight = {
     before = "", -- "fg" or "bg" or empty
     keyword = "bg", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
-    after = "fg", -- "fg" or "bg" or empty
+    after = "bg", -- "fg" or "bg" or empty
     pattern = [[.*<(KEYWORDS)\s*]], -- pattern or table of patterns, used for highlightng (vim regex)
     comments_only = true, -- uses treesitter to match keywords in comments only
     max_line_len = 400, -- ignore lines longer than this
@@ -31,14 +26,6 @@ require("todo-comments").setup({
   },
   -- list of named colors where we try to extract the guifg from the
   -- list of hilight groups or use the hex color if hl not found as a fallback
-  colors = {
-    error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-    wn = { "Warning", "WarningMsg", "#F56C6C" },
-    hack = { "DiagnosticHack", "HackMsg", "#FBBF24" },
-    info = { "DiagnosticInfo", "#2563EB" },
-    hint = { "DiagnosticHint", "#10B981" },
-    feat = { "Feature", "#7C3AED" },
-  },
   search = {
     command = "rg",
     args = {

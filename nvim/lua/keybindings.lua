@@ -28,6 +28,9 @@ vim.g.maplocalleader = " "
 map("i", "jj", "<Esc>", opt)
 map("v", "u", "<Esc>", opt)
 
+-- todo
+map("n", "to", "<cmd>TodoTelescope<cr>", opt)
+
 -- markbooks
 map("n", "ma", "<cmd>Telescope vim_bookmarks current_file<cr>", opt)
 map("n", "mA", "<cmd>Telescope vim_bookmarks all<cr>", opt)
@@ -461,7 +464,6 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
     end)
     return "<Ignore>"
   end, { expr = true })
-
   map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>")
   map("n", "<leader>gS", gs.stage_buffer)
   map("n", "<leader>gu", gs.undo_stage_hunk)
@@ -481,5 +483,4 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
   -- Text object
   map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>")
 end
-
 return pluginKeys
