@@ -28,10 +28,6 @@ vim.g.maplocalleader = " "
 map("i", "jj", "<Esc>", opt)
 map("v", "u", "<Esc>", opt)
 
--- illuminate
-map("n", "an", '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
-map("n", "ap", '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { noremap = true })
-
 -- todo
 map("n", "to", "<cmd>TodoTelescope<cr>", opt)
 

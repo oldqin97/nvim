@@ -63,14 +63,6 @@ null_ls.setup({
     diagnostics.eslint.with({
       prefer_local = "node_modules/.bin",
     }),
-    -- diagnostics.markdownlint,
-    -- markdownlint-cli2
-    -- diagnostics.markdownlint.with({
-    --   prefer_local = "node_modules/.bin",
-    --   command = "markdownlint-cli2",
-    --   args = { "$FILENAME", "#node_modules" },
-    -- }),
-    --
     -- code actions ---------------------
     code_actions.gitsigns,
     code_actions.eslint.with({

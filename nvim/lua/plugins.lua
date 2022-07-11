@@ -209,7 +209,7 @@ packer.startup({
     use("onsails/lspkind-nvim")
     use("tami5/lspsaga.nvim")
     -- 代码格式化
-    -- use("jose-elias-alvarez/null-ls.nvim")
+    use("jose-elias-alvarez/null-ls.nvim")
     use("mhartington/formatter.nvim")
 
     -- TypeScript 增强
