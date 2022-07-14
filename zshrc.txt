@@ -1,0 +1,79 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+export PATH=/home/oq/.cargo/bin:$PATH
+
+export PATH=/usr/local/nvim-linux64/bin:$PATH
+alias n='nvim'
+alias v='nvim'
+
+export host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
+alias proxy='
+        export http_proxy="http://$host_ip:10809";
+        export https_proxy="http://$host_ip:10809";
+'
+alias unproxy='
+        unset http_proxy;
+        unset https_proxy;
+'
+
+alias python='python3'
+alias python2='python3'
+
+alias tm='tmux'
+alias tnew='tmux new -s'
+alias tat='tmux attach -t'
+
+export PATH=/home/oq/bin/:$PATH
+
+ZSH_THEME="bira"
+
+# Fixing Bad Default Permissions
+if [ "$(umask)" = "000" ]; then
+  umask 022
+fi
+
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting z sudo extract)
+
+System32="/mnt/c/Windows/System32"
+export PATH=$PATH:$System32
+alias cmd="cmd.exe"
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+fortune | pokemonsay
