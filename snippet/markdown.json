@@ -1,0 +1,27 @@
+{
+  "shell": {
+    "prefix": "shell",
+    "body": [
+      "```shell",
+      "$1",
+      "```"
+    ],
+    "description": "shell"
+  },
+  "js": {
+    "prefix": "js",
+    "body": [
+      "```js",
+      "$1",
+      "```"
+    ],
+    "description": "js"
+  },
+  "mark": {
+    "prefix": "mark",
+    "body": [
+      "<mark>$1</mark>"
+    ],
+    "description": "mark"
+  }
+}

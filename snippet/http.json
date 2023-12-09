@@ -1,0 +1,7 @@
+{
+  "json": {
+    "prefix": "json",
+    "body": ["Content-type:application/json"],
+    "description": "application/json"
+  }
+}

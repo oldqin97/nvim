@@ -1,0 +1,44 @@
+{
+  "vue3": {
+    "prefix": "vue3",
+    "body": [
+      "<template>",
+      "  <div></div>",
+      "</template>",
+      "",
+      "<script>",
+      "export default {",
+      "  name: '${TM_FILENAME_BASE}'",
+      "};",
+      "</script>",
+      "<script setup>",
+      "",
+      "</script>",
+      "",
+      "<style lang=\"scss\" scoped></style>"
+    ],
+    "description": ""
+  },
+  "vue3-ts": {
+    "prefix": "vue3-Ts",
+    "body": [
+      "<template>",
+      "  <div></div>",
+      "</template>",
+      "",
+      "<script lang=\"ts\">",
+      "export default {",
+      "  name: '${TM_FILENAME_BASE}'",
+      "};",
+      "</script>",
+      "<script setup lang=\"ts\">",
+      "",
+      "</script>",
+      "",
+      "<style lang=\"scss\" scoped></style>",
+      "",
+      ""
+    ],
+    "description": "vue3-ts"
+  }
+}

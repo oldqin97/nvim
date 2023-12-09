@@ -1,0 +1,44 @@
+return {
+  -- "shellRaining/hlchunk.nvim",
+  -- event = "BufRead",
+  -- config = function()
+  --   require("hlchunk").setup({
+  --     chunk = {
+  --       enable = true,
+  --       notify = true, -- 在某些情况下弹出提示（比如连续两次使用 disableHLChunk 命令）
+  --       exclude_filetypes = {
+  --         aerial = true,
+  --         dashboard = true,
+  --       },
+  --       support_filetypes = {
+  --         "*.lua",
+  --         "*.js",
+  --         "*.ts",
+  --         "*.tsx",
+  --         "*.jsx",
+  --         "*.vue",
+  --       },
+  --       use_treesitter = true,
+  --       chars = {
+  --         horizontal_line = "─",
+  --         vertical_line = "│",
+  --         left_top = "╭",
+  --         left_bottom = "╰",
+  --         right_arrow = ">",
+  --       },
+  --       style = {
+  --         { fg = "#806d9c" },
+  --       },
+  --     },
+  --     blank = {
+  --       enable = false,
+  --     },
+  --     indent = {
+  --       enable = false,
+  --     },
+  --     line_num = {
+  --       enable = false,
+  --     },
+  --   })
+  -- end,
+}
