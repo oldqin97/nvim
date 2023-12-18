@@ -45,6 +45,7 @@ return {
         "svelte",
         "solidity",
         "http",
+        "dart",
       },
       auto_install = true,
       ignore_install = { "" },
@@ -57,10 +58,15 @@ return {
       autopairs = {
         enable = true,
       },
-
       context_commentstring = {
         enable = true,
         enable_autocmd = false,
+      },
+      indent = {
+        enable = true,
+        disable = {
+          "dart",
+        },
       },
     },
   },

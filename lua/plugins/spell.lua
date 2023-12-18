@@ -15,7 +15,7 @@ return {
       opts.sources = vim.list_extend(opts.sources or {}, {
         cspell.diagnostics.with({
           diagnostics_postprocess = function(diagnostic)
-            diagnostic.severity = vim.diagnostic.severity["HINT"] -- ERROR, WARN, INFO, HINT
+            diagnostic.severity = vim.diagnostic.severity["WARN"] -- ERROR, WARN, INFO, HINT
           end,
           config = cspell_files,
         }),

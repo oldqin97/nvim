@@ -12,10 +12,8 @@ session
 qwe.*
 test.*
 .DS_Store
-stylua.toml
-lazy-lock.json
 .dockerfile
+Dockerfile
+qqq.js
+.bookmarks
 .luarc.json
-.neoconf.json
-lazyvim.json
-package-lock.json

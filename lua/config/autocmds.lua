@@ -46,6 +46,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "python",
     "json",
     "markdown",
+    "c",
+    "cpp",
+    "yaml",
+    "dart",
   },
   callback = function()
     vim.b.autoformat = false

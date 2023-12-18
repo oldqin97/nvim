@@ -24,7 +24,11 @@ return {
     enabled = false,
   },
   {
-    "lukas-reineke/headlines.nvim",
+    "nvimdev/dashboard-nvim",
+    enabled = false,
+  },
+  {
+    "echasnovski/mini.ai",
     enabled = false,
   },
 }
