@@ -2,7 +2,10 @@ return {
   "simrat39/symbols-outline.nvim",
   event = "BufReadPost",
   cmd = "SymbolsOutline",
-  keys = { { "<A-o>", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+  keys = {
+    { "<A-o>", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" },
+    { "<leader>cs	", false },
+  },
   config = function()
     require("symbols-outline").setup({
       position = "left",

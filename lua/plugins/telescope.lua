@@ -2,7 +2,7 @@ local Util = require("lazyvim.util.init")
 return {
   "nvim-telescope/telescope.nvim",
   keys = {
-    { "<A-p>",            Util.telescope("files"), desc = "Find files" },
+    { "<A-p>", Util.telescope("files"), desc = "Find files" },
     {
       "<A-f>",
       Util.telescope("live_grep"),
@@ -18,11 +18,11 @@ return {
       Util.telescope("diagnostics"),
       desc = "spell suggest",
     },
-    { "<leader>/",        false },
+    { "<leader>/", false },
     { "<leader><leader>", false },
-    { "<leader>fc",       false },
-    { "<leader>sD",       false },
-    { "<leader>sm",       false },
+    { "<leader>fc", false },
+    { "<leader>sD", false },
+    { "<leader>sm", false },
   },
   opts = {
     extensions_list = { "bookmarks" },

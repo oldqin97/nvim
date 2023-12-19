@@ -28,6 +28,20 @@ return {
   config = function()
     require("bookmarks").setup({
       save_file = vim.fn.expand("~/.config/nvim/.bookmarks"),
+      signs = {
+        add = {
+          hl = "BookMarksAdd",
+          text = "🏷️",
+          numhl = "BookMarksAddNr",
+          linehl = "BookMarksAddLn",
+        },
+        ann = {
+          hl = "BookMarksAnn",
+          text = "󰷥",
+          numhl = "BookMarksAnnNr",
+          linehl = "BookMarksAnnLn",
+        },
+      },
     })
   end,
 }
