@@ -188,15 +188,15 @@ return {
       },
 
       sources = {
-        { name = "nvim_lsp", priority_weight = 10 },
-        { name = "luasnip", priority_weight = 5 },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "cmp_tabnine" },
         { name = "buffer" },
-        { name = "cmp_tabnine", priority_weight = 9 },
         { name = "nvim_lua" },
         { name = "path" },
         {
           name = "look",
-          keyword_length = 2,
+          keyword_length = 5,
           option = {
             convert_case = true,
             loud = true,

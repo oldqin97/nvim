@@ -31,4 +31,17 @@ return {
     "echasnovski/mini.ai",
     enabled = false,
   },
+  {
+
+    "mfussenegger/nvim-lint",
+    enabled = false,
+  },
+  {
+    "stevearc/conform.nvim",
+    enabled = false,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
+  },
 }
