@@ -59,7 +59,7 @@ return {
       startify.nvim_web_devicons.enabled = true
 
       startify.section.bottom_buttons.val = {
-        startify.button("q", "❌  Quit", ":qa<CR>"),
+        startify.button("q", "󰅙  Quit", ":qa<CR>"),
       }
 
       return startify

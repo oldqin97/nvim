@@ -1,6 +1,6 @@
 return {
   "williamboman/mason.nvim",
-  event = "VeryLazy",
+  -- event = "VeryLazy",
   cmd = "Mason",
   keys = {
     { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },

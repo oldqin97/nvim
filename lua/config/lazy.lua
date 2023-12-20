@@ -44,7 +44,7 @@ require("lazy").setup({
     version = false,
   },
 
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = true },
   performance = {
     rtp = {
       -- disable some rtp plugins

@@ -3,7 +3,7 @@
 -- ]])
 return { -- Multi Cursor
   "mg979/vim-visual-multi",
-  event = "VeryLazy",
+  event = "BufReadPost",
   init = function()
     -- vim.g.VM_leader = "\\"
     vim.g.VM_theme = "purplegray"

@@ -5,7 +5,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     optional = true,
-    event = "VeryLazy",
+    event = "BufReadPost",
     opts = {
       options = {
         theme = "onedark",

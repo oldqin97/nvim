@@ -1,6 +1,6 @@
 return {
   "linrongbin16/lsp-progress.nvim",
-  event = "VeryLazy",
+  event = "BufReadPost",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require("lsp-progress").setup({
@@ -21,7 +21,7 @@ return {
         --   end
         --   return " LSP:" .. client_count .. " "
         -- end
-        return ":" .. client_count .. " "
+        return "󰐏: " .. client_count .. " "
       end,
     })
   end,

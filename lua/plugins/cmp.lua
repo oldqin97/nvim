@@ -163,6 +163,19 @@ return {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-calc",
       "hrsh7th/nvim-cmp",
+      {
+        "tzachar/cmp-tabnine",
+        build = "./install.sh",
+        dependencies = "hrsh7th/nvim-cmp",
+        opts = {
+          max_lines = 1000,
+          max_num_results = 3,
+          sort = true,
+        },
+        config = function(_, opts)
+          require("cmp_tabnine.config"):setup(opts)
+        end,
+      },
     },
 
     opts = function(_, opts)
@@ -248,19 +261,6 @@ return {
           debounce_text_changes = 150,
         },
       }
-    end,
-  },
-  {
-    "tzachar/cmp-tabnine",
-    build = "./install.sh",
-    dependencies = "hrsh7th/nvim-cmp",
-    opts = {
-      max_lines = 1000,
-      max_num_results = 3,
-      sort = true,
-    },
-    config = function(_, opts)
-      require("cmp_tabnine.config"):setup(opts)
     end,
   },
 }

@@ -7,6 +7,7 @@ local cspell_files = {
 return {
   {
     "davidmh/cspell.nvim",
+    event = "BufReadPost",
   },
   {
     "nvimtools/none-ls.nvim",
