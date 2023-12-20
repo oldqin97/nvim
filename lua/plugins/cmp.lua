@@ -149,103 +149,118 @@ cmp.setup.cmdline(":", {
 })
 
 return {
-  "hrsh7th/nvim-cmp",
-  event = { "InsertEnter", "CmdlineEnter" },
-  dependencies = {
-    "saadparwaiz1/cmp_luasnip",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "octaltree/cmp-look",
-    "hrsh7th/cmp-emoji",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-calc",
+  {
     "hrsh7th/nvim-cmp",
-  },
+    event = { "InsertEnter", "CmdlineEnter" },
+    dependencies = {
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "octaltree/cmp-look",
+      "hrsh7th/cmp-emoji",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-calc",
+      "hrsh7th/nvim-cmp",
+    },
 
-  opts = function(_, opts)
-    setCompHL()
-    return {
-      completion = {
-        completeopt = "menu,menuone,noinsert",
-      },
-      snippet = {
-        expand = function(args)
-          require("luasnip").lsp_expand(args.body)
-        end,
-      },
-
-      window = {
+    opts = function(_, opts)
+      setCompHL()
+      return {
         completion = {
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None,CursorLine:CmpItemKindLine",
-          col_offset = -3,
-          side_padding = 0,
+          completeopt = "menu,menuone,noinsert",
         },
-        documentation = {
-          winhighlight = "Normal:CmpItemBG,FloatBorder:Pmenu,Search:None",
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
         },
-      },
 
-      sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "cmp_tabnine" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "path" },
-        {
-          name = "look",
-          keyword_length = 5,
-          option = {
-            convert_case = true,
-            loud = true,
+        window = {
+          completion = {
+            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None,CursorLine:CmpItemKindLine",
+            col_offset = -3,
+            side_padding = 0,
+          },
+          documentation = {
+            winhighlight = "Normal:CmpItemBG,FloatBorder:Pmenu,Search:None",
           },
         },
-        { name = "emoji" },
-        { name = "calc" },
-      },
-      mapping = cmp.mapping.preset.insert({
-        ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-        ["<A-p>"] = cmp.mapping.scroll_docs(-4),
-        ["<A-n>"] = cmp.mapping.scroll_docs(4),
-        ["<A-e>"] = cmp.mapping.abort(),
-        ["<Tab>"] = cmp.mapping({
-          i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+
+        sources = {
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+          { name = "cmp_tabnine" },
+          { name = "buffer" },
+          { name = "nvim_lua" },
+          { name = "path" },
+          {
+            name = "look",
+            keyword_length = 5,
+            option = {
+              convert_case = true,
+              loud = true,
+            },
+          },
+          { name = "emoji" },
+          { name = "calc" },
+        },
+        mapping = cmp.mapping.preset.insert({
+          ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<A-p>"] = cmp.mapping.scroll_docs(-4),
+          ["<A-n>"] = cmp.mapping.scroll_docs(4),
+          ["<A-e>"] = cmp.mapping.abort(),
+          ["<Tab>"] = cmp.mapping({
+            i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+          }),
+          ["<CR>"] = cmp.mapping({
+            i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+          }),
         }),
-        ["<CR>"] = cmp.mapping({
-          i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-        }),
-      }),
-      formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(_, item)
-          if icons[item.kind] then
-            item.kind = icons[item.kind] .. item.kind
-            local strings = vim.split(item.kind, "%s", { trimempty = true })
-            item.kind = " " .. (strings[1] or "") .. " "
-          end
-          item.menu = ({
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            look = "[Dic]",
-            cmp_tabnine = "[Tabnine]",
-            path = "[Path]",
-            emoji = "[Emoji]",
-            calc = "[Calculate]",
-            nvim_lua = "[Lua]",
-          })[_.source.name]
-          return item
-        end,
-      },
-      performance = {
-        throttle = 150,
-      },
-      flags = {
-        debounce_text_changes = 150,
-      },
-    }
-  end,
+        formatting = {
+          fields = { "kind", "abbr", "menu" },
+          format = function(_, item)
+            if icons[item.kind] then
+              item.kind = icons[item.kind] .. item.kind
+              local strings = vim.split(item.kind, "%s", { trimempty = true })
+              item.kind = " " .. (strings[1] or "") .. " "
+            end
+            item.menu = ({
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              buffer = "[Buffer]",
+              look = "[Dic]",
+              cmp_tabnine = "[Tabnine]",
+              path = "[Path]",
+              emoji = "[Emoji]",
+              calc = "[Calculate]",
+              nvim_lua = "[Lua]",
+            })[_.source.name]
+            return item
+          end,
+        },
+        performance = {
+          throttle = 150,
+        },
+        flags = {
+          debounce_text_changes = 150,
+        },
+      }
+    end,
+  },
+  {
+    "tzachar/cmp-tabnine",
+    build = "./install.sh",
+    dependencies = "hrsh7th/nvim-cmp",
+    opts = {
+      max_lines = 1000,
+      max_num_results = 3,
+      sort = true,
+    },
+    config = function(_, opts)
+      require("cmp_tabnine.config"):setup(opts)
+    end,
+  },
 }

@@ -39,7 +39,8 @@ local greeting = getGreeting(userName)
 return {
   {
     "goolord/alpha-nvim",
-    event = "VimEnter",
+    -- event = "VimEnter",
+    lazy = vim.fn.argc() ~= 0,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = function()
       local startify = require("alpha.themes.startify")

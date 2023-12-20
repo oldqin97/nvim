@@ -9,9 +9,11 @@ return {
   config = function()
     require("symbols-outline").setup({
       position = "left",
+      relative_width = true,
+      width = 35,
       keymaps = {
         goto_location = { "<Cr>", "o" },
-        -- focus_location = "<Tab>",
+        focus_location = "<Tab>",
       },
       highlight_hovered_item = false,
       symbols = {

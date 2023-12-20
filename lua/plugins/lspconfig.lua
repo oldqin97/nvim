@@ -96,7 +96,10 @@ return {
           },
         },
       },
-
+      tailwindcss = {
+        -- exclude a filetype from the default_config
+        filetypes_exclude = { "markdown", "javascript", "typescript" },
+      },
       volar = {
         settings = {
           vue = {
