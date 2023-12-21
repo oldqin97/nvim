@@ -56,11 +56,6 @@ map({ "x", "n", "s", "o" }, "b", "<cmd>lua require('spider').motion('b')<CR>", {
 map("n", "zz", "zc", { desc = "fold close" })
 map("n", "Z", "zR", { desc = "fold open" })
 
--- todo
-map("n", "<A-t>", "<cmd> TodoTelescope<CR>", { desc = "Todo list" })
--- bookmark
-map("n", "<A-b>", "<cmd> Telescope bookmarks list<CR>", { desc = "Todo list" })
-
 -- git conflict
 map("n", "<leader>co", "<cmd>ConflictMarkerOurselves<CR>", { desc = "Todo list" })
 map("n", "<leader>ct", "<cmd>ConflictMarkerThemselves<CR>", { desc = "Todo list" })

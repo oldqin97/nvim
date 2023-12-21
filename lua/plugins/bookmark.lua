@@ -24,6 +24,11 @@ return {
       end,
       desc = "bookmark_clean",
     },
+    {
+      "<A-b>",
+      "<cmd>Telescope bookmarks list<CR>",
+      { desc = "bookmark list" },
+    },
   },
   config = function()
     require("bookmarks").setup({

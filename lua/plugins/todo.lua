@@ -4,6 +4,7 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
     { "<leader>st", false },
+    { "<A-t>", "<cmd>TodoTelescope<CR>", { desc = "Todo list" } },
   },
   config = function()
     require("todo-comments").setup({

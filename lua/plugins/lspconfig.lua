@@ -54,7 +54,7 @@ return {
       rust_analyzer = {
         keys = {
           { "gh", "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
-          { "<leader>cr", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
+          { "<leader>ca", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
           { "<leader>dr", "<cmd>RustDebuggables<cr>", desc = "Run Debuggables (Rust)" },
         },
         settings = {

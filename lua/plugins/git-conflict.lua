@@ -1,6 +1,7 @@
 return {
   "rhysd/conflict-marker.vim",
-  event = "BufReadPost",
+  -- event = "BufReadPost",
+  cmd = { "ConflictMarkerOurselves", "ConflictMarkerThemselves", "ConflictMarkerBoth" },
   keys = {
     { "<leader>co", "<cmd>ConflictMarkerOurselves<CR>", desc = "git conflict apply themes" },
     { "<leader>ct", "<cmd>ConflictMarkerThemselves<CR>", desc = "git conflict apply ours" },

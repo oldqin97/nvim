@@ -8,9 +8,9 @@ return {
   build = ":MasonUpdate",
   opts = {
     ensure_installed = {
+      "sql-formatter",
+      "dart-debug-adapter",
       "node-debug2-adapter",
-      -- "ltex-ls",
-      -- "grammarly-languageserver",
       "svelte-language-server",
       "angular-language-server",
       "bash-language-server",
@@ -44,6 +44,12 @@ return {
       "vue-language-server",
       "yaml-language-server",
       "sqlls",
+      "codelldb",
+      "ruff-lsp",
+      "taplo",
+      "neocmakelsp",
+      "cmakelang",
+      "cmakelint",
     },
   },
   config = function(_, opts)

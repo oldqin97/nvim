@@ -4,7 +4,7 @@ return {
   cmd = "SymbolsOutline",
   keys = {
     { "<A-o>", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" },
-    { "<leader>cs	", false },
+    { "<leader>cs>", false },
   },
   config = function()
     require("symbols-outline").setup({
