@@ -1,16 +1,16 @@
 local Util = require("lazyvim.util")
 
 local function map(mode, lhs, rhs, opts)
-	local keys = require("lazy.core.handler").handlers.keys
+  local keys = require("lazy.core.handler").handlers.keys
 
-	if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-		opts = opts or {}
-		opts.silent = opts.silent ~= false
-		if opts.remap and not vim.g.vscode then
-			opts.remap = nil
-		end
-		vim.keymap.set(mode, lhs, rhs, opts)
-	end
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    if opts.remap and not vim.g.vscode then
+      opts.remap = nil
+    end
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
 end
 
 -- close page
@@ -25,17 +25,17 @@ map("v", "<S-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- map("i", "<S-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 
 -- 切换 buffer
-if Util.has("bufferline.nvim") then
-	map("n", "<A-9>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-	map("n", "<A-0>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
-else
-	map("n", "<A-9>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-	map("n", "<A-0>", "<cmd>bnext<cr>", { desc = "Next buffer" })
-end
+-- if Util.has("bufferline.nvim") then
+-- 	map("n", "<A-9>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+-- 	map("n", "<A-0>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+-- else
+-- 	map("n", "<A-9>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+-- 	map("n", "<A-0>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- end
 
 -- save
 map({ "i", "x", "n", "s" }, "<A-s>", function()
-	vim.lsp.buf.format()
+  vim.lsp.buf.format()
 end, { desc = "format file" })
 
 -- 移动光标
@@ -68,7 +68,7 @@ map("n", "<leader>cb", "<cmd>ConflictMarkerBoth<CR>", { desc = "Todo list" })
 
 -- rest
 map("n", "<F1>", function()
-	require("rest-nvim").run()
+  require("rest-nvim").run()
 end, { desc = "rest" })
 
 -- html
@@ -77,11 +77,11 @@ end, { desc = "rest" })
 
 -- flash
 map({ "x", "n", "o" }, "f", function()
-	require("flash").jump()
+  require("flash").jump()
 end, { desc = "Flash" })
 
 map({ "n", "o", "x" }, "R", function()
-	require("flash").treesitter()
+  require("flash").treesitter()
 end, { desc = "Toggle Flash Search" })
 
 map("n", "s", "=", { desc = "replace s" })
