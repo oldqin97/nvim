@@ -21,7 +21,11 @@ return {
         --   end
         --   return " LSP:" .. client_count .. " "
         -- end
-        return "󰐏: " .. client_count .. " "
+        for i, client in ipairs(active_clients) do
+          if client and client.name ~= "" then
+            return "󰐏: " .. client_count .. " " .. "" .. client.name
+          end
+        end
       end,
     })
   end,

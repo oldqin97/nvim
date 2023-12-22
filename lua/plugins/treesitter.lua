@@ -46,6 +46,7 @@ return {
         "solidity",
         "http",
         "dart",
+        "python",
       },
       auto_install = true,
       ignore_install = { "" },

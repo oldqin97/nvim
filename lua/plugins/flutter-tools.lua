@@ -13,6 +13,11 @@ return {
       outline = {
         auto_open = false,
       },
+      closing_tags = {
+        -- highlight = "ErrorMsg", -- highlight for the closing tag
+        -- prefix = ">", -- character to use for close tag e.g. > Widget
+        enabled = false, -- set to false to disable
+      },
       lsp = {
         color = {
           enabled = true,
