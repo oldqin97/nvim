@@ -9,11 +9,12 @@ api.nvim_create_autocmd("BufEnter", {
       - "r" -- But do continue when pressing enter.
   end,
 })
+
 vim.cmd([[ autocmd BufRead,BufNewFile *.org set filetype=org ]])
 
-api.nvim_create_autocmd("BufReadPost", {
-  command = "HlSearchLensDisable",
-})
+-- api.nvim_create_autocmd("BufReadPost", {
+--   command = "HlSearchLensDisable",
+-- })
 
 -- 进入Insert模式切换为绝对行号
 api.nvim_create_autocmd("InsertEnter", {

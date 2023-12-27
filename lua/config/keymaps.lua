@@ -1,5 +1,3 @@
-local Util = require("lazyvim.util")
-
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
 
@@ -14,7 +12,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- close page
-map("n", "qq", "<cmd>q <CR>", { desc = "close page" })
+map("n", "qq", "<cmd>q<CR>", { desc = "close page" })
 
 -- 移动行
 map("n", "<S-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
@@ -26,11 +24,11 @@ map("v", "<S-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- 切换 buffer
 -- if Util.has("bufferline.nvim") then
--- 	map("n", "<A-9>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
--- 	map("n", "<A-0>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+-- map("n", "<A-9>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+-- map("n", "<A-0>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 -- else
--- 	map("n", "<A-9>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
--- 	map("n", "<A-0>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- map("n", "<A-9>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+-- map("n", "<A-0>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 -- end
 
 -- save
