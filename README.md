@@ -15,3 +15,5 @@ function test() {
   return () => {};
 }
 ```
+
+![这是测试](assets/test.png)

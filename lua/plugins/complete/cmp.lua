@@ -183,14 +183,22 @@ return {
         },
 
         window = {
-          completion = {
+          completion = cmp.config.window.bordered({
             winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None,CursorLine:CmpItemKindLine",
             col_offset = -3,
             side_padding = 0,
-          },
-          documentation = {
+          }),
+          documentation = cmp.config.window.bordered({
             winhighlight = "Normal:CmpItemBG,FloatBorder:Pmenu,Search:None",
-          },
+          }),
+          -- completion = {
+          --   winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None,CursorLine:CmpItemKindLine",
+          --   col_offset = -3,
+          --   side_padding = 0,
+          -- },
+          -- documentation = {
+          --   winhighlight = "Normal:CmpItemBG,FloatBorder:Pmenu,Search:None",
+          -- },
         },
 
         sources = {

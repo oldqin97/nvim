@@ -1,5 +1,6 @@
 local util = require("lspconfig.util")
 
+local ltex_cmd = vim.fn.stdpath("data") .. "/mason/packages/ltex-ls/ltex-ls-16.0.0/bin/ltex-ls"
 local function get_typescript_server_path(root_dir)
   local global_ts = "/Users/qin/.nvm/versions/node/v21.5.0/lib/node_modules/typescript/lib"
   local found_ts = ""
@@ -49,13 +50,14 @@ return {
     keys[#keys + 1] = { "<leader>ca", false }
     keys[#keys + 1] = { "<leader>cl", false }
   end,
+
   opts = {
     servers = {
       rust_analyzer = {
         keys = {
-          { "gh", "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
-          { "<leader>ca", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
-          { "<leader>dr", "<cmd>RustDebuggables<cr>", desc = "Run Debuggables (Rust)" },
+          { "gh",         "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
+          { "<leader>ca", "<cmd>RustCodeAction<cr>",   desc = "Code Action (Rust)" },
+          { "<leader>dr", "<cmd>RustDebuggables<cr>",  desc = "Run Debuggables (Rust)" },
         },
         settings = {
           ["rust-analyzer"] = {
@@ -118,23 +120,10 @@ return {
             },
           },
         },
-
         on_new_config = function(new_config, new_root_dir)
           new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
         end,
       },
     },
   },
-
-  -- setup = {
-  --   volar = function(_, opts)
-  --     require("lspconfig").volar({
-  --       filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
-  --     })
-  --     opts.filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
-  --     opts.on_new_config = function(new_config, new_root_dir)
-  --       new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
-  --     end
-  --   end,
-  -- },
 }

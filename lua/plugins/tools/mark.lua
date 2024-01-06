@@ -43,7 +43,7 @@ return {
         },
         ann = {
           hl = "BookMarksAnn",
-          text = "󰷥",
+          text = "",
           numhl = "BookMarksAnnNr",
           linehl = "BookMarksAnnLn",
         },

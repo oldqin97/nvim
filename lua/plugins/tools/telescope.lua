@@ -27,7 +27,7 @@ return {
   opts = {
     extensions_list = { "bookmarks" },
     defaults = {
-      prompt_prefix = "  ",
+      prompt_prefix = "  ",
       selection_caret = " ",
       initial_mode = "insert",
       mappings = {
