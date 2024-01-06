@@ -16,4 +16,4 @@ function test() {
 }
 ```
 
-![这是测试](assets/test.png)
+![qqq](assets/qqq.png)
