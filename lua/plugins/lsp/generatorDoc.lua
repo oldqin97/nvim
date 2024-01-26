@@ -2,7 +2,7 @@
 vim.cmd([[
   let g:doge_enable_mappings = 1
   let g:doge_mapping = '<A-d>'
-  let g:doge_comment_jump_modes = ['n','s']
+  let g:doge_comment_jump_modes = ['n','s','i']
 ]])
 return {
   "kkoomen/vim-doge",

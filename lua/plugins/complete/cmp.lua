@@ -204,6 +204,7 @@ return {
         sources = {
           { name = "nvim_lsp" },
           { name = "luasnip" },
+          { name = "codeium" },
           -- { name = "cmp_tabnine" },
           { name = "buffer" },
           { name = "nvim_lua" },
@@ -240,9 +241,11 @@ return {
               local strings = vim.split(item.kind, "%s", { trimempty = true })
               item.kind = " " .. (strings[1] or "") .. " "
             end
+
             item.menu = ({
               nvim_lsp = "[LSP]",
               -- cmp_tabnine = "[Tabnine]",
+              codeium = "[Code]",
               luasnip = "[Snippet]",
               buffer = "[Buffer]",
               look = "[Dic]",
@@ -251,6 +254,7 @@ return {
               calc = "[Calculate]",
               nvim_lua = "[Lua]",
             })[_.source.name]
+
             return item
           end,
         },

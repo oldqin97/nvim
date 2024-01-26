@@ -4,7 +4,6 @@ return {
     manual_mode = true,
   },
   event = "VeryLazy",
-
   config = function()
     require("project_nvim").setup({
       manual_mode = false,
