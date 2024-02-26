@@ -2,8 +2,7 @@ return {
   "RaafatTurki/corn.nvim",
   event = "BufReadPost",
   config = function()
-    -- defaults
-    vim.diagnostic.config({ virtual_text = false })
+    -- vim.diagnostic.config({ virtual_text = false })
     require("corn").setup({
       auto_cmds = true,
 
@@ -40,9 +39,9 @@ return {
       end,
 
       -- a hook that executes each time corn is toggled. the current state is provided via `is_hidden`
-      on_toggle = function(is_hidden)
-        vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
-      end,
+      -- on_toggle = function(is_hidden)
+      --   vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
+      -- end,
     })
   end,
 }

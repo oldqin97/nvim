@@ -8,6 +8,7 @@ return {
     vim.cmd([[
     let g:undotree_WindowLayout = 2
     let g:undotree_SetFocusWhenToggle = 1
+
     if has("persistent_undo")
        let target_path = expand('~/.config/nvim/.undodir')
         if !isdirectory(target_path)
