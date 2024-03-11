@@ -35,7 +35,6 @@ return {
       "prettierd",
       "pyright",
       "rust-analyzer",
-      "rustfmt",
       "shfmt",
       "stylua",
       "tailwindcss-language-server",

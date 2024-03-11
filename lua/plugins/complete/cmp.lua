@@ -152,6 +152,7 @@ cmp.setup.cmdline(":", {
 return {
   {
     "hrsh7th/nvim-cmp",
+    -- enabled = false,
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "hrsh7th/nvim-cmp",
@@ -205,7 +206,7 @@ return {
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "codeium" },
-          -- { name = "cmp_tabnine" },
+          { name = "cmp_tabnine" },
           { name = "buffer" },
           { name = "nvim_lua" },
           { name = "path" },
@@ -244,7 +245,7 @@ return {
 
             item.menu = ({
               nvim_lsp = "[LSP]",
-              -- cmp_tabnine = "[Tabnine]",
+              cmp_tabnine = "[Tabnine]",
               codeium = "[Code]",
               luasnip = "[Snippet]",
               buffer = "[Buffer]",

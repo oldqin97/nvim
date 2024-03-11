@@ -1,7 +1,7 @@
 return {
   -- text-status-header
   "utilyre/barbecue.nvim",
-  event = "BufReadPost",
+  event = "VeryLazy",
   name = "barbecue",
   version = "*",
   dependencies = {

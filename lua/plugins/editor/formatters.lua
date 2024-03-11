@@ -6,7 +6,7 @@ return {
     table.insert(opts.sources, nls.builtins.formatting.stylua)
     table.insert(opts.sources, nls.builtins.formatting.shfmt)
     table.insert(opts.sources, nls.builtins.formatting.black)
-    table.insert(opts.sources, nls.builtins.formatting.rustfmt)
+    -- table.insert(opts.sources, nls.builtins.formatting.rustfmt)
     table.insert(opts.sources, nls.builtins.formatting.sql_formatter)
     table.insert(
       opts.sources,
@@ -30,6 +30,7 @@ return {
           "handlebars",
           "toml",
           "svelte",
+          "wxml",
         },
         extra_args = function()
           return {
