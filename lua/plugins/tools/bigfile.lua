@@ -13,6 +13,6 @@ return {
       "matchparen",
       "vimopts",
       "filetype",
-    },
+    },Volta
   },
 }

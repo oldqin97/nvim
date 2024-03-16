@@ -1,9 +1,9 @@
+vim.g.vscode_snippets_path = "~/.config/nvim/snippet/"
 return {
-
   "L3MON4D3/LuaSnip",
   build = (not jit.os:find("Windows"))
       and "echo 'jsregexp is optional, so not a big deal if it fails to build'; make install_jsregexp"
-      or nil,
+    or nil,
   dependencies = {
     "rafamadriz/friendly-snippets",
     config = function()
