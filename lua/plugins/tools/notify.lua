@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   config = function()
     require("notify").setup({
-      background_colour = "FloatShadow",
+      background_colour = "#000000",
       fps = 60,
       icons = {
         DEBUG = "",

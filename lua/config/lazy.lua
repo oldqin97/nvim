@@ -15,7 +15,6 @@ require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim",                                   import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
-    -- { import = "lazyvim.plugins.extras.coding.yanky" },
     { import = "lazyvim.plugins.extras.test.core" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.dap.nlua" },
@@ -25,7 +24,7 @@ require("lazy").setup({
 
     { import = "lazyvim.plugins.extras.editor.outline" },
     { import = "lazyvim.plugins.extras.lazyrc" },
-    { import = "lazyvim.plugins.extras.coding.tabnine" },
+    -- { import = "lazyvim.plugins.extras.coding.tabnine" },
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.lang.cmake" },
     { import = "lazyvim.plugins.extras.lang.markdown" },

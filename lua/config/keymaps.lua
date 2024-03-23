@@ -60,9 +60,9 @@ map("n", "<leader>ct", "<cmd>ConflictMarkerThemselves<CR>", { desc = "Todo list"
 map("n", "<leader>cb", "<cmd>ConflictMarkerBoth<CR>", { desc = "Todo list" })
 
 -- rest
-map("n", "<F1>", function()
-  require("rest-nvim").run()
-end, { desc = "rest" })
+-- map("n", "<F1>", function()
+--   require("rest-nvim").run()
+-- end, { desc = "rest" })
 
 -- html
 -- map("n", "<F4>", "<cmd>BrowserPreview -f --port 9229<CR>", { desc = "preview html file" })
