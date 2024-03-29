@@ -30,6 +30,7 @@
   "cspell.nvim": { "branch": "main", "commit": "2e65904243f41b9002618d1fe0d79def6c795eeb" },
   "css-vars.nvim": { "branch": "main", "commit": "fb1b38ac08fb16583569c32f1e0788017e3a0de5" },
   "dial.nvim": { "branch": "master", "commit": "27eb570085db2ef44bff4f620d3806039184651c" },
+  "diffview.nvim": { "branch": "main", "commit": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f" },
   "dressing.nvim": { "branch": "master", "commit": "18e5beb3845f085b6a33c24112b37988f3f93c06" },
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
   "flutter-tools.nvim": { "branch": "main", "commit": "4f18033c3b78aa5450e538d81dfbbb3e67aeadec" },

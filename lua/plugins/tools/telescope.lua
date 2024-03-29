@@ -19,6 +19,7 @@ return {
       desc = "spell suggest",
     },
     { "<leader>/", false },
+    { "<leader>gc", false },
     { "<leader><leader>", false },
     { "<leader>fc", false },
     { "<leader>sD", false },
