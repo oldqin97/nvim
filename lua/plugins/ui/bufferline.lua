@@ -6,13 +6,13 @@ return {
     { "<leader>bP", false },
     { "<leader>br", false },
     { "<leader>bl", false },
-    { "<S-h>",      false },
-    { "<S-l>",      false },
-    { "[b",         false },
-    { "]b",         false },
+    { "<S-h>", false },
+    { "<S-l>", false },
+    { "[b", false },
+    { "]b", false },
     { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete other buffers" },
-    { "<A-9>",      "<cmd>BufferLineCyclePrev<cr>",   desc = "Prev buffer" },
-    { "<A-0>",      "<cmd>BufferLineCycleNext<cr>",   desc = "Next buffer" },
+    { "<A-9>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
+    { "<A-0>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
   },
   opts = {
     options = {
@@ -27,7 +27,7 @@ return {
       diagnostics_indicator = function(_, _, diag)
         local icons = require("lazyvim.config").icons.diagnostics
         local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-            .. (diag.warning and icons.Warn .. diag.warning or "")
+          .. (diag.warning and icons.Warn .. diag.warning or "")
         return vim.trim(ret)
       end,
       offsets = {
@@ -105,7 +105,7 @@ return {
         diagnostics_indicator = function(_, _, diag)
           local icons = require("lazyvim.config").icons.diagnostics
           local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-              .. (diag.warning and icons.Warn .. diag.warning or "")
+            .. (diag.warning and icons.Warn .. diag.warning or "")
           return vim.trim(ret)
         end,
 

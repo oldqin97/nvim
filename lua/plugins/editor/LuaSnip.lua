@@ -1,4 +1,5 @@
 vim.g.vscode_snippets_path = "~/.config/nvim/snippet/"
+require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.vscode_snippets_path or "" })
 return {
   "L3MON4D3/LuaSnip",
   build = (not jit.os:find("Windows"))
@@ -6,10 +7,10 @@ return {
     or nil,
   dependencies = {
     "rafamadriz/friendly-snippets",
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.vscode_snippets_path or "" })
-    end,
+    -- config = function()
+    --   require("luasnip.loaders.from_vscode").lazy_load()
+    --   require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.vscode_snippets_path or "" })
+    -- end,
   },
   opts = {
     history = true,

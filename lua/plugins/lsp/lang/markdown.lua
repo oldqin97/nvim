@@ -20,9 +20,6 @@ return {
     -- markdown preview
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
     keys = {
       {
         "<leader>mp",
@@ -37,11 +34,5 @@ return {
         desc = "Markdown Preview",
       },
     },
-    config = function()
-      vim.cmd([[
-        do FileType
-        let g:mkdp_auto_close = 0
-    ]])
-    end,
   },
 }

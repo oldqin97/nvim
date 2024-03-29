@@ -1,6 +1,6 @@
 return {
   "tomasky/bookmarks.nvim",
-  after = "telescope.nvim",
+  -- after = "telescope.nvim",
   event = "VeryLazy",
   keys = {
     {
