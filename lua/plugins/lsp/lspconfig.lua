@@ -1,6 +1,5 @@
 local util = require("lspconfig.util")
 
-local ltex_cmd = vim.fn.stdpath("data") .. "/mason/packages/ltex-ls/ltex-ls-16.0.0/bin/ltex-ls"
 local function get_typescript_server_path(root_dir)
   local global_ts = "/Users/qin/.nvm/versions/node/v21.5.0/lib/node_modules/typescript/lib"
   local found_ts = ""
@@ -55,9 +54,9 @@ return {
     servers = {
       rust_analyzer = {
         keys = {
-          { "gh",         "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
-          { "<leader>ca", "<cmd>RustCodeAction<cr>",   desc = "Code Action (Rust)" },
-          { "<leader>dr", "<cmd>RustDebuggables<cr>",  desc = "Run Debuggables (Rust)" },
+          { "gh", "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
+          { "<leader>ca", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
+          { "<leader>dr", "<cmd>RustDebuggables<cr>", desc = "Run Debuggables (Rust)" },
         },
         settings = {
           ["rust-analyzer"] = {
@@ -102,28 +101,45 @@ return {
         -- exclude a filetype from the default_config
         filetypes_exclude = { "markdown", "javascript", "typescript" },
       },
-      volar = {
-        settings = {
-          vue = {
-            autoInsert = {
-              dotValue = true,
-              bracketSpacing = true,
-            },
-            codeLens = {
-              enable = true,
-            },
-            complete = {
-              casing = {
-                props = "kebab",
-                tags = "kebab",
-              },
-            },
-          },
-        },
-        on_new_config = function(new_config, new_root_dir)
-          new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
-        end,
-      },
+      -- tsserver = {
+      --   init_options = {
+      --     plugins = {
+      --       {
+      --         name = "@vue/typescript-plugin",
+      --         location = "/Users/qin/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server",
+      --         languages = {
+      --           "javascript",
+      --           "typescript",
+      --           "vue",
+      --         },
+      --       },
+      --     },
+      --   },
+      --   filetypes = {
+      --     "javascript",
+      --     "typescript",
+      --     "vue",
+      --   },
+      -- },
+
+      -- volar = {
+      --   settings = {
+      --     vue = {
+      --       complete = {
+      --         casing = {
+      --           props = "kebab",
+      --           tags = "kebab",
+      --         },
+      --       },
+      --     },
+      --   },
+      --   filetypes = {
+      --     "vue",
+      --   },
+      --   on_new_config = function(new_config, new_root_dir)
+      --     new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
+      --   end,
+      -- },
     },
   },
 }

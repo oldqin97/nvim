@@ -34,6 +34,7 @@ map("v", "<S-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- save
 map({ "i", "x", "n", "s" }, "<A-s>", function()
   vim.lsp.buf.format()
+  -- require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
 end, { desc = "format file" })
 
 -- 移动光标
