@@ -13,5 +13,9 @@ return {
       false,
       desc = "Treesitter Search",
     },
+    {
+      "<c-s>",
+      false,
+    },
   },
 }
