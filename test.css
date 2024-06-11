@@ -1,0 +1,12 @@
+:root {
+  --font-color: #eee;
+  font-size: var(--font-color);
+}
+
+div {
+  color: var(--font-color);
+}
+
+span {
+  color: var(--font-color);
+}

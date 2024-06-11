@@ -6,7 +6,6 @@ return {
     { "<leader>st", false },
     { "<A-t>", "<cmd>TodoTelescope<CR>", { desc = "Todo list" } },
   },
-  -- TODO: 1231231
   opts = {
     keywords = {
       FIX = {

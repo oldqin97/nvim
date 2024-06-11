@@ -8,12 +8,4 @@ foo.*
 data
 session
 .undodir
-.editorconfig
-qwe.*
-test.*
 .DS_Store
-.dockerfile
-Dockerfile
-qqq.js
-.bookmarks
-.luarc.json

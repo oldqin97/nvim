@@ -34,6 +34,7 @@ return {
       mappings = {
         ["<space>"] = "none",
         ["o"] = "open",
+        ["<cr>"] = "none",
         ["<esc>"] = "cancel",
         ["P"] = { "toggle_preview", config = { use_float = true } },
       },

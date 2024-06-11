@@ -1,5 +1,5 @@
+-- Multi Cursor
 return {
-  -- Multi Cursor
   "mg979/vim-visual-multi",
   event = "BufReadPost",
   init = function()

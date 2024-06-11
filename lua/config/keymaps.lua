@@ -1,3 +1,6 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
 
@@ -61,15 +64,6 @@ map("n", "<leader>co", "<cmd>ConflictMarkerOurselves<CR>", { desc = "Todo list" 
 map("n", "<leader>ct", "<cmd>ConflictMarkerThemselves<CR>", { desc = "Todo list" })
 map("n", "<leader>cb", "<cmd>ConflictMarkerBoth<CR>", { desc = "Todo list" })
 
--- rest
--- map("n", "<F1>", function()
---   require("rest-nvim").run()
--- end, { desc = "rest" })
-
--- html
--- map("n", "<F4>", "<cmd>BrowserPreview -f --port 9229<CR>", { desc = "preview html file" })
--- map("n", "<leader>sh", "<cmd>BrowserStop<CR>", { desc = "close html file" })
-
 -- flash
 map({ "x", "n", "o" }, "f", function()
   require("flash").jump()
@@ -84,3 +78,11 @@ map("n", "sh", "<cmd> vertical resize +5<CR>", { desc = "resize s" })
 map("n", "sl", "<cmd> vertical resize -5<CR>", { desc = "resize s" })
 map("n", "sk", "<cmd> resize +5<CR>", { desc = "resize s" })
 map("n", "sj", "<cmd> resize -5<CR>", { desc = "resize s" })
+
+-- vim.keymap.set("n", "<A-p>", function()
+--   LazyVim.telescope("files")
+-- end, { desc = "Find files" })
+--
+-- vim.keymap.set("n", "<A-n>", function()
+--   LazyVim.telescope("spell_suggest")
+-- end, { desc = "Spell suggest" })
