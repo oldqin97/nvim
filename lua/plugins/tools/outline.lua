@@ -1,5 +1,4 @@
 return {
-  -- "hedyhli/outline.nvim",
   "simrat39/symbols-outline.nvim",
   keys = { { "<A-o>", "<cmd>SymbolsOutline<cr>", desc = "Toggle Outline" } },
 

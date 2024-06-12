@@ -6,5 +6,3 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 | 123 | 333 | qqq |
 | --- | --- | --- |
 | 1   | 1   | 1   |
-
-This is a apple

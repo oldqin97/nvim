@@ -3,7 +3,7 @@ return {
   event = "BufReadPost",
   keys = {
     {
-      "<leader>lp",
+      "<leader>hp",
       ft = "html",
       "<cmd>BrowserPreview -f --port 9229<CR>",
       desc = "BrowserPreview",

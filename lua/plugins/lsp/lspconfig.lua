@@ -1,21 +1,3 @@
-local util = require("lspconfig.util")
-
-local function get_typescript_server_path(root_dir)
-  local global_ts = "/Users/qin/.nvm/versions/node/v21.5.0/lib/node_modules/typescript/lib"
-  local found_ts = ""
-  local function check_dir(path)
-    found_ts = util.path.join(path, "node_modules", "typescript", "lib")
-    if util.path.exists(found_ts) then
-      return path
-    end
-  end
-  if util.search_ancestors(root_dir, check_dir) then
-    return found_ts
-  else
-    return global_ts
-  end
-end
-
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
@@ -98,48 +80,27 @@ return {
         },
       },
       tailwindcss = {
-        -- exclude a filetype from the default_config
         filetypes_exclude = { "markdown", "javascript", "typescript" },
       },
-      -- tsserver = {
-      --   init_options = {
-      --     plugins = {
-      --       {
-      --         name = "@vue/typescript-plugin",
-      --         location = "/Users/qin/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server",
-      --         languages = {
-      --           "javascript",
-      --           "typescript",
-      --           "vue",
-      --         },
-      --       },
-      --     },
-      --   },
-      --   filetypes = {
-      --     "javascript",
-      --     "typescript",
-      --     "vue",
-      --   },
-      -- },
-
-      -- volar = {
-      --   settings = {
-      --     vue = {
-      --       complete = {
-      --         casing = {
-      --           props = "kebab",
-      --           tags = "kebab",
-      --         },
-      --       },
-      --     },
-      --   },
-      --   filetypes = {
-      --     "vue",
-      --   },
-      --   on_new_config = function(new_config, new_root_dir)
-      --     new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
-      --   end,
-      -- },
+      vtsls = {
+        settings = {
+          typescript = {
+            updateImportsOnFileMove = { enabled = "always" },
+            suggest = {
+              completeFunctionCalls = true,
+            },
+            inlayHints = {
+              enumMemberValues = { enabled = false },
+              functionLikeReturnTypes = { enabled = false },
+              -- parameterNames = { enabled = "literals" },
+              parameterNames = { enabled = false },
+              parameterTypes = { enabled = false },
+              propertyDeclarationTypes = { enabled = false },
+              variableTypes = { enabled = false },
+            },
+          },
+        },
+      },
     },
   },
 }

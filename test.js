@@ -7,13 +7,23 @@
  */
 function test(q, w, e) {
   console.log(q, w, e);
+  return 123;
 }
 
 [1, 2, 3].map(item => {
-  console.log(item);
+  return console.log(item);
 });
 
-let q = false;
-// v4.2.9
+/**
+ * test
+ *
+ * @param {string} qwe - string
+ */
+const qwe = qwe => {
+  return qwe;
+};
+
+let q = true;
+// v4.2.8
 
 test(1, 2, 3);
