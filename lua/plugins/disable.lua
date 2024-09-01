@@ -54,7 +54,7 @@ return {
   },
   {
     "MagicDuck/grug-far.nvim",
-    enabled = false,
+    enabled = true,
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",

@@ -22,8 +22,8 @@ const arr = [(1, 2, 3)].map(value => {
   return console.log(value);
 });
 
-const qwe = qwe => {
-  return qwe;
+const test = test => {
+  return test;
 };
 
 let q = false;

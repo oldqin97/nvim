@@ -17,22 +17,33 @@ vim.cmd([[ autocmd BufRead,BufNewFile *.org set filetype=org ]])
 -- })
 
 -- 进入Insert模式切换为绝对行号
-api.nvim_create_autocmd("InsertEnter", {
-  group = augroup,
-  pattern = "*",
-  callback = function()
-    vim.wo.relativenumber = false
-  end,
-})
-
--- 退出Insert模式切换为相对行号
-api.nvim_create_autocmd("InsertLeave", {
-  group = augroup,
-  pattern = "*",
-  callback = function()
-    vim.wo.relativenumber = true
-  end,
-})
+-- api.nvim_create_autocmd("InsertEnter", {
+--   group = augroup,
+--   pattern = "*",
+--   callback = function()
+--     vim.wo.relativenumber = false
+--   end,
+-- })
+--
+-- -- 退出Insert模式切换为相对行号
+-- api.nvim_create_autocmd("InsertLeave", {
+--   group = augroup,
+--   pattern = "*",
+--   callback = function()
+--     vim.wo.relativenumber = true
+--   end,
+-- })
+-- -- 切换到普通模式时启用相对行号
+-- vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
+--   pattern = "*",
+--   command = "set relativenumber",
+-- })
+--
+-- -- 切换到插入模式时启用绝对行号
+-- vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
+--   pattern = "*",
+--   command = "set norelativenumber",
+-- })
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "lua",

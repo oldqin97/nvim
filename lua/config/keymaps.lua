@@ -68,12 +68,12 @@ map("n", "sk", "<cmd> resize +5<CR>", { desc = "resize s" })
 map("n", "sj", "<cmd> resize -5<CR>", { desc = "resize s" })
 
 -- nvim-spectre
-vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-  desc = "Search current word",
-})
-vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-  desc = "Search on current file",
-})
+-- vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+--   desc = "Search current word",
+-- })
+-- vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+--   desc = "Search on current file",
+-- })
 
 map({ "n", "t" }, "<C-h>", "<cmd>lua require('Navigator').left()<cr>", { desc = "Go to left window" })
 map({ "n", "t" }, "<C-j>", "<cmd>lua require('Navigator').down()<cr>", { desc = "Go to lower window" })
