@@ -3,27 +3,31 @@
  *
  * @param {string} q - string
  * @param {string} w - string
- * @param {string} e - string
+ * @param {number} e - number
  */
 function test(q, w, e) {
   console.log(q, w, e);
   return 123;
 }
 
-[1, 2, 3].map(item => {
-  return console.log(item);
+test("hello", "world", 123);
+
+const p = Promise.resolve(1);
+
+p.then(res => {
+  console.log(res);
 });
 
-/**
- * test
- *
- * @param {string} qwe - string
- */
+const arr = [(1, 2, 3)].map(value => {
+  return console.log(value);
+});
+
 const qwe = qwe => {
   return qwe;
 };
 
-let q = true;
-// v4.2.8
+let q = false;
+// v5.3.0
 
 test(1, 2, 3);
+test();

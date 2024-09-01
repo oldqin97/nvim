@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   -- fold
   "kevinhwang91/nvim-ufo",

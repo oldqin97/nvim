@@ -14,17 +14,17 @@ return {
       highlight_url = {
         all_urls = {
           enabled = false,
-          fg = "#21d5ff",
+          -- fg = "#21d5ff",
           -- fg = "text",
-          bg = "#ffffff",
+          -- bg = "#ffffff",
           underline = false,
         },
         cursor_move = {
-          enabled = true,
-          fg = "#199eff",
+          enabled = false,
+          -- fg = "#199eff",
           -- fg = "text",
           -- bg = "#ffffff",
-          bg = nil,
+          -- bg = nil,
           underline = false,
         },
       },

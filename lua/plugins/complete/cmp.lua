@@ -1,5 +1,4 @@
 local setCompHL = function()
-  vim.api.nvim_set_hl(0, "CmpItemKindTabNine", { fg = "#6CC644" })
   vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
   vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
   vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#7E8294", bg = "NONE", strikethrough = true })
@@ -165,10 +164,6 @@ return {
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-calc",
-      -- {
-      --   "tzachar/cmp-tabnine",
-      --   build = "./install.sh",
-      -- },
     },
 
     opts = function(_, opts)
@@ -220,6 +215,7 @@ return {
           },
           { name = "emoji" },
           { name = "calc" },
+          { name = "fittencode", group_index = 1 },
         },
         mapping = cmp.mapping.preset.insert({
           ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -233,6 +229,8 @@ return {
           ["<CR>"] = cmp.mapping({
             i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
           }),
+
+          -- ["<Right>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
         }),
         formatting = {
           fields = { "kind", "abbr", "menu" },
@@ -245,7 +243,6 @@ return {
 
             item.menu = ({
               nvim_lsp = "[LSP]",
-              cmp_tabnine = "[Tabnine]",
               codeium = "[Code]",
               luasnip = "[Snippet]",
               buffer = "[Buffer]",
@@ -254,6 +251,7 @@ return {
               emoji = "[Emoji]",
               calc = "[Calculate]",
               nvim_lua = "[Lua]",
+              fittencode = "[AI]",
             })[_.source.name]
 
             return item

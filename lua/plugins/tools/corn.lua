@@ -5,8 +5,8 @@ return {
     -- vim.diagnostic.config({ virtual_text = false })
     require("corn").setup({
       auto_cmds = true,
-
-      sort_method = "severity",
+      -- sort_method = "severity",
+      sort_method = "line_number",
 
       scope = "line",
 

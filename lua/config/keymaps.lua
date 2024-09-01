@@ -1,18 +1,6 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
+local map = LazyVim.safe_keymap_set
 
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    if opts.remap and not vim.g.vscode then
-      opts.remap = nil
-    end
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
+local del = vim.keymap.del
 
 -- close page
 map("n", "qq", "<cmd>q<CR>", { desc = "close page" })
@@ -79,10 +67,15 @@ map("n", "sl", "<cmd> vertical resize -5<CR>", { desc = "resize s" })
 map("n", "sk", "<cmd> resize +5<CR>", { desc = "resize s" })
 map("n", "sj", "<cmd> resize -5<CR>", { desc = "resize s" })
 
--- vim.keymap.set("n", "<A-p>", function()
---   LazyVim.telescope("files")
--- end, { desc = "Find files" })
---
--- vim.keymap.set("n", "<A-n>", function()
---   LazyVim.telescope("spell_suggest")
--- end, { desc = "Spell suggest" })
+-- nvim-spectre
+vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+  desc = "Search current word",
+})
+vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+  desc = "Search on current file",
+})
+
+map({ "n", "t" }, "<C-h>", "<cmd>lua require('Navigator').left()<cr>", { desc = "Go to left window" })
+map({ "n", "t" }, "<C-j>", "<cmd>lua require('Navigator').down()<cr>", { desc = "Go to lower window" })
+map({ "n", "t" }, "<C-k>", "<cmd>lua require('Navigator').up()<cr>", { desc = "Go to upper window" })
+map({ "n", "t" }, "<C-l>", "<cmd>lua require('Navigator').right()<cr>", { desc = "Go to right window" })

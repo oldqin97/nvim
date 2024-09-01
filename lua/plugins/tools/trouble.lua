@@ -3,8 +3,12 @@ return {
   cmd = { "TroubleTogge", "Trouble" },
   opts = { use_diagnostic_signs = true },
   keys = {
-    { "<leader>bb", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-    -- { "<leader>xt", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
+    { "<leader>bb", "<cmd>Trouble diagnostics toggle focus=true<cr>", desc = "Document Diagnostics (Trouble)" },
+    {
+      "<leader>dd",
+      "<cmd>Trouble diagnostics toggle filter.buf=0 focus=true<cr>",
+      desc = "Buffer Diagnostics (Trouble)",
+    },
     { "<leader>xL", false },
     { "<leader>xQ", false },
     { "<leader>xx", false },

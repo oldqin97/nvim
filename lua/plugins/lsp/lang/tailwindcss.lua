@@ -1,14 +1,6 @@
 return {
   -- tailwindcss
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        tailwindcss = {},
-      },
-    },
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },

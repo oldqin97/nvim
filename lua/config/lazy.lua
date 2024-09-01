@@ -13,7 +13,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- code
     { import = "lazyvim.plugins.extras.coding.luasnip" },
-    { import = "lazyvim.plugins.extras.coding.copilot-chat" },
+
     -- dap
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.dap.nlua" },
@@ -28,7 +28,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.astro" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.markdown" },
+    -- { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.sql" },
@@ -51,7 +51,9 @@ require("lazy").setup({
     -- util
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.util.startuptime" },
+    { import = "lazyvim.plugins.extras.util.rest" },
 
+    -- { import = "lazyvim.plugins.extras.coding.copilot-chat" },
     { import = "plugins" },
   },
   defaults = {

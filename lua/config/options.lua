@@ -1,5 +1,7 @@
 -- local opt = vim.opt
 
+vim.opt.updatetime = 200
+
 -- wrap
 vim.opt.wrap = true
 
@@ -180,4 +182,3 @@ return {
     CircuitBoard = "",
   },
 }
-

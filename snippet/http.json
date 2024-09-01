@@ -1,7 +1,12 @@
 {
-  "json": {
-    "prefix": "json",
+  "cjson": {
+    "prefix": "cjson",
     "body": ["Content-type:application/json"],
+    "description": "application/json"
+  },
+  "ajson": {
+    "prefix": "ajson",
+    "body": ["accept: application/json"],
     "description": "application/json"
   }
 }

@@ -1,6 +1,7 @@
 :root {
   --font-color: #eee;
   font-size: var(--font-color);
+  background-color: #fff;
 }
 
 div {
@@ -9,4 +10,7 @@ div {
 
 span {
   color: var(--font-color);
+}
+p {
+  color: #606060;
 }

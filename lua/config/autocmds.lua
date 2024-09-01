@@ -41,6 +41,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "vue",
     "html",
     "css",
+    "scss",
+    "less",
     "javascriptreact",
     "typescriptreact",
     "rust",

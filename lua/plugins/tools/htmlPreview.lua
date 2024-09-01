@@ -1,6 +1,7 @@
 return {
   "ray-x/web-tools.nvim",
-  event = "BufReadPost",
+  -- event = "BufReadPost",
+  cmd = { "BrowserPreview" },
   keys = {
     {
       "<leader>hp",

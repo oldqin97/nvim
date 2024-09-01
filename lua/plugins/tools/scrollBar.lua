@@ -55,4 +55,9 @@ return {
     --   })
     -- end,
   },
+
+  -- {
+  --   "dstein64/nvim-scrollview",
+  --   event = "VeryLazy",
+  -- },
 }

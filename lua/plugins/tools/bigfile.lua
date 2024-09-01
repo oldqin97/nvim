@@ -1,18 +1,23 @@
 return {
   "LunarVim/bigfile.nvim",
-  lazy = true,
   opts = {
-    filesize = 1, -- size of the file in MiB, the plugin round file sizes to the closest MiB
-    pattern = { "*" }, -- autocmd pattern
-    features = { -- features to disable
+    filesize = 1,
+    pattern = { "*" },
+    features = {
       "indent_blankline",
       "illuminate",
       "lsp",
-      "treesitter",
+      -- "treesitter",
       "syntax",
       "matchparen",
       "vimopts",
-      "filetype",
-    },Volta
+      -- "filetype",
+      {
+        name = "mini_indentscope",
+        disable = function(buf)
+          vim.b[buf].miniindentscope_disable = true
+        end,
+      },
+    },
   },
 }
