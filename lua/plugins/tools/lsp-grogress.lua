@@ -17,4 +17,28 @@ return {
   --     end,
   --   })
   -- end,
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup({
+        progress = {
+          ignore = {
+            "null-ls",
+          },
+        },
+        notification = {
+          window = {
+            normal_hl = "Comment",
+            winblend = 100,
+            border = "single",
+            max_width = 0,
+            max_height = 0,
+            x_padding = 0,
+            y_padding = 0,
+            align = "bottom",
+          },
+        },
+      })
+    end,
+  },
 }

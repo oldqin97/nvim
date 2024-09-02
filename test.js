@@ -7,16 +7,10 @@
  */
 function test(q, w, e) {
   console.log(q, w, e);
-  return 123;
+  return q + w + e;
 }
 
-test("hello", "world", 123);
-
 const p = Promise.resolve(1);
-
-p.then(res => {
-  console.log(res);
-});
 
 const arr = [(1, 2, 3)].map(value => {
   return console.log(value);

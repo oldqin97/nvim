@@ -53,11 +53,11 @@ return {
     enabled = false,
   },
   {
-    "MagicDuck/grug-far.nvim",
-    enabled = true,
+    "MeanderingProgrammer/render-markdown.nvim",
+    enabled = false,
   },
   {
-    "MeanderingProgrammer/render-markdown.nvim",
+    "RRethy/vim-illuminate",
     enabled = false,
   },
 }

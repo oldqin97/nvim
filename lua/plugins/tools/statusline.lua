@@ -17,7 +17,7 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diagnostics" },
         lualine_c = {
-          "filename",
+          -- "filename",
           -- require("lsp-progress").progress,
         },
         lualine_x = {

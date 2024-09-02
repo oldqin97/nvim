@@ -1,4 +1,5 @@
 ---@diagnostic disable: missing-fields
+
 return {
   {
     "luozhiya/fittencode.nvim",
@@ -22,9 +23,13 @@ return {
           },
         },
         use_default_keymaps = true,
+        disable_specific_inline_completion = {
+          suffixes = { "TelescopePrompt", "neo-tree-popup" },
+        },
         keymaps = {
           inline = {
             ["<Right>"] = "accept_all_suggestions",
+            -- ["<Tab>"] = "accept_all_suggestions",
             ["<C-Down>"] = "accept_line",
             ["<C-Right>"] = "accept_word",
             ["<C-Up>"] = "revoke_line",
