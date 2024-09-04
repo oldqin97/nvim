@@ -30,3 +30,9 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 | Item1.2 | Item2.2 | Item3.2 |
 
 # 123
+
+```js
+function helloWorld() {
+  console.log("Hello, World!");
+}
+```

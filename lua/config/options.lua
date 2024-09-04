@@ -2,6 +2,7 @@
 
 vim.opt.updatetime = 200
 
+vim.o.cursorline = false
 -- wrap
 vim.opt.wrap = true
 

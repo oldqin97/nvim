@@ -29,7 +29,7 @@ return {
         notification = {
           window = {
             normal_hl = "Comment",
-            winblend = 100,
+            winblend = 0,
             border = "single",
             max_width = 0,
             max_height = 0,

@@ -21,7 +21,7 @@ const test = test => {
 };
 
 let q = false;
-// v5.3.0
+// v6.3.0
 
 test(1, 2, 3);
 test();

@@ -9,6 +9,11 @@ return {
         LazyVim.pick("live_grep"),
         desc = "live_grep",
       },
+      {
+        "<C-f>",
+        LazyVim.pick("grep_string"),
+        desc = "grep_string",
+      },
       -- {
       --   "<C-n>",
       --   LazyVim.telescope("spell_suggest"),
@@ -27,19 +32,29 @@ return {
       { "<leader>sm", false },
     }
   end,
-  opts = {
-    extensions_list = { "bookmarks" },
-    defaults = {
-      prompt_prefix = "  ",
-      selection_caret = " ",
-      initial_mode = "insert",
-      mappings = {
-        n = { ["<ESC>"] = require("telescope.actions").close },
-        i = {
-          ["<ESC>"] = require("telescope.actions").close,
-          ["<Tab>"] = require("telescope.actions").select_default,
+  opts = function()
+    return {
+      extensions_list = { "bookmarks" },
+      defaults = {
+        prompt_prefix = "  ",
+        selection_caret = " ",
+        initial_mode = "insert",
+        sorting_strategy = "ascending",
+        layout_config = {
+          horizontal = { prompt_position = "top", preview_width = 0.55 },
+          vertical = { mirror = false },
+          width = 0.87,
+          height = 0.80,
+          preview_cutoff = 120,
+        },
+        mappings = {
+          n = { ["<ESC>"] = require("telescope.actions").close },
+          i = {
+            ["<ESC>"] = require("telescope.actions").close,
+            ["<Tab>"] = require("telescope.actions").select_default,
+          },
         },
       },
-    },
-  },
+    }
+  end,
 }

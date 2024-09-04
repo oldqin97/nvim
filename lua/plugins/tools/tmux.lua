@@ -1,6 +1,3 @@
 return {
-  "numToStr/Navigator.nvim",
-  config = function()
-    require("Navigator").setup()
-  end,
+  { "mrjones2014/smart-splits.nvim" },
 }
