@@ -22,7 +22,7 @@ return {
       {
         "<leader>sd",
         LazyVim.pick("diagnostics"),
-        desc = "spell suggest",
+        desc = "diagnostics",
       },
       { "<leader>/", false },
       { "<leader>gc", false },

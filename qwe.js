@@ -1,8 +1,8 @@
 /**
- * This is a test function.
+ * This is a test1 function.
  * @returns {void}
  */
-function test() {
+function test1() {
   console.log("Hello, World!");
 }
 
