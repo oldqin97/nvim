@@ -75,6 +75,7 @@ map("n", "sj", "<cmd> resize -5<CR>", { desc = "resize s" })
 --   desc = "Search on current file",
 -- })
 
+-- tmux navigator
 map({ "n", "t" }, "<C-h>", function()
   require("smart-splits").move_cursor_left()
 end, { desc = "Go to left window or tmux pane" })
@@ -87,3 +88,16 @@ end, { desc = "Go to upper window or tmux pane" })
 map({ "n", "t" }, "<C-l>", function()
   require("smart-splits").move_cursor_right()
 end, { desc = "Go to right window or tmux pane" })
+
+-- vim-visual-multi
+local function visual_cursors_with_delay()
+  -- Execute the vm-visual-cursors command.
+  vim.cmd('silent! execute "normal! \\<Plug>(VM-Visual-Cursors)"')
+  -- Introduce delay via VimScript's 'sleep' (set to 500 milliseconds here).
+  vim.cmd("sleep 200m")
+  -- Press 'A' in normal mode after the delay.
+  vim.cmd('silent! execute "normal! A"')
+end
+map({ "n" }, "ma", "<Plug>(VM-Add-Cursor-At-Pos)", { desc = "Add Cursor At Pos" })
+map({ "n" }, "mo", "<Plug>(VM-Toggle-Mappings)", { desc = "Toggle Mapping" })
+map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
