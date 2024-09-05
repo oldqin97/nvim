@@ -1,7 +1,7 @@
 {
   "LazyVim": { "branch": "main", "commit": "12818a6cb499456f4903c5d8e68af43753ebc869" },
   "LuaSnip": { "branch": "master", "commit": "45db5addf8d0a201e1cf247cae4cdce605ad3768" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "4b1902768bb88ccab1f59c8f8bc582760234a929" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "3436c0514e8c46162d0480c187e2cfcefecdffc6" },
   "Trans.nvim": { "branch": "v2", "commit": "3ebcd7b785dba7faec577b58606eb8a1c46b6260" },
   "alpha-nvim": { "branch": "main", "commit": "b6f4129302db197a7249e67a90de3f2b676de13e" },
   "any-jump.vim": { "branch": "master", "commit": "f95674d9a4251ac02f452d5f1861e4422f4652c7" },
@@ -38,7 +38,7 @@
   "friendly-snippets": { "branch": "main", "commit": "00ebcaa159e817150bd83bfe2d51fa3b3377d5c4" },
   "garbage-day.nvim": { "branch": "main", "commit": "4a1160bfffb2f499fb55a54333f29d160ab3c8a1" },
   "gitsigns.nvim": { "branch": "main", "commit": "1ef74b546732f185d0f806860fa5404df7614f28" },
-  "grug-far.nvim": { "branch": "main", "commit": "1d5dd56ba4037d1096dd9276579dd544035cd8bd" },
+  "grug-far.nvim": { "branch": "main", "commit": "876ba28a4ab61dd5632b34ac6e7432110bd1d899" },
   "gruvbox": { "branch": "main", "commit": "7a1b23e4edf73a39642e77508ee6b9cbb8c60f9e" },
   "img-clip.nvim": { "branch": "main", "commit": "28a32d811d69042f4fa5c3d5fa35571df2bc1623" },
   "import-cost.nvim": { "branch": "main", "commit": "332b9870c7b22dcfb297a0be7d7a87c148181694" },

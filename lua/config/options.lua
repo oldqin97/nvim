@@ -1,5 +1,7 @@
 -- local opt = vim.opt
 
+-- vim.cmd([[highlight Visual guibg=#FFD700 guifg=#FFFFEE]])
+
 vim.opt.updatetime = 200
 
 vim.o.cursorline = false
