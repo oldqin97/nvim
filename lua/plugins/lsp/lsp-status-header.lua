@@ -1,33 +1,33 @@
 return {
   -- text-status-header
-  "utilyre/barbecue.nvim",
-  event = "VeryLazy",
-  name = "barbecue",
-  version = "*",
-  dependencies = {
-    {
-      "SmiteshP/nvim-navic",
-      lazy = true,
-      init = function()
-        vim.g.navic_silence = true
-        LazyVim.lsp.on_attach(function(client, buffer)
-          if client.supports_method("textDocument/documentSymbol") then
-            require("nvim-navic").attach(client, buffer)
-          end
-        end)
-      end,
-      opts = function()
-        return {
-          separator = " ",
-          highlight = true,
-          depth_limit = 5,
-          icons = require("lazyvim.config").icons.kinds,
-          lazy_update_context = true,
-        }
-      end,
-    },
-  },
-  opts = {
-    -- configurations go here
-  },
+  -- "utilyre/barbecue.nvim",
+  -- event = "BufEnter",
+  -- name = "barbecue",
+  -- version = "*",
+  -- dependencies = {
+  --   {
+  --     "SmiteshP/nvim-navic",
+  --     lazy = true,
+  --     init = function()
+  --       vim.g.navic_silence = true
+  --       LazyVim.lsp.on_attach(function(client, buffer)
+  --         if client.supports_method("textDocument/documentSymbol") then
+  --           require("nvim-navic").attach(client, buffer)
+  --         end
+  --       end)
+  --     end,
+  --     opts = function()
+  --       return {
+  --         separator = " ",
+  --         highlight = true,
+  --         depth_limit = 5,
+  --         icons = require("lazyvim.config").icons.kinds,
+  --         lazy_update_context = true,
+  --       }
+  --     end,
+  --   },
+  -- },
+  -- opts = {
+  --   -- configurations go here
+  -- },
 }
