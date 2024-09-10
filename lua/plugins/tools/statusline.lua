@@ -8,7 +8,7 @@ return {
     event = "BufReadPost",
     opts = {
       options = {
-        theme = "onedark",
+        -- theme = "onedark",
         globalstatus = true,
         component_separators = { left = "|", right = "|" },
         section_separators = { left = " ", right = "" },

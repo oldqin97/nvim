@@ -79,12 +79,15 @@ map("n", "sj", "<cmd> resize -5<CR>", { desc = "resize s" })
 map({ "n", "t" }, "<C-h>", function()
   require("smart-splits").move_cursor_left()
 end, { desc = "Go to left window or tmux pane" })
+
 map({ "n", "t" }, "<C-j>", function()
   require("smart-splits").move_cursor_down()
 end, { desc = "Go to lower window or tmux pane" })
+
 map({ "n", "t" }, "<C-k>", function()
   require("smart-splits").move_cursor_up()
 end, { desc = "Go to upper window or tmux pane" })
+
 map({ "n", "t" }, "<C-l>", function()
   require("smart-splits").move_cursor_right()
 end, { desc = "Go to right window or tmux pane" })

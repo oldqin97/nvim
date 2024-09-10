@@ -16,7 +16,7 @@ const arr = [(1, 2, 3)].map(value => {
   return console.log(value);
 });
 
-const test1 = test => {
+const qwe = test => {
   return test;
 };
 

@@ -1,6 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    event = { "BufRead", "BufNewFile" }, -- 在读取文件或新建文件时加载
     opts = {
       autotag = {
         enable = true,

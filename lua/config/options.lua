@@ -1,8 +1,12 @@
 -- local opt = vim.opt
 
 -- vim.cmd([[highlight Visual guibg=#FFD700 guifg=#FFFFEE]])
+-- vim.cmd([[highlight CursorLine guibg=#303030 guifg=#FFFFEE]])
 
+-- ai
 vim.opt.updatetime = 200
+
+vim.opt.startofline = false
 
 vim.o.cursorline = false
 -- wrap

@@ -3,7 +3,8 @@
 return {
   {
     "luozhiya/fittencode.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    event = { "InsertEnter", "CmdlineEnter" },
     keys = {
       { "<leader>ad", "<cmd>Fitten document_code<CR>", desc = "Fitten document code", mode = { "v" } },
       { "<leader>ae", "<cmd>Fitten edit_code<CR>", desc = "Fitten edit code", mode = { "v" } },
