@@ -14,6 +14,17 @@ return {
         LazyVim.pick("grep_string"),
         desc = "grep_string",
       },
+
+      { "<C-r>", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+      -- {
+      --   "<leader>ss",
+      --   function()
+      --     require("telescope.builtin").lsp_document_symbols({
+      --       symbols = LazyVim.config.get_kind_filter(),
+      --     })
+      --   end,
+      --   desc = "Goto Symbol",
+      -- },
       -- {
       --   "<C-n>",
       --   LazyVim.telescope("spell_suggest"),
@@ -30,6 +41,7 @@ return {
       { "<leader>fc", false },
       { "<leader>sD", false },
       { "<leader>sm", false },
+      { "<leader>fr", false },
     }
   end,
   opts = function()

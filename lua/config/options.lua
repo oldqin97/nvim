@@ -8,7 +8,7 @@ vim.opt.updatetime = 200
 
 vim.opt.startofline = false
 
-vim.o.cursorline = false
+-- vim.o.cursorline = false
 -- wrap
 vim.opt.wrap = true
 

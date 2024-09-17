@@ -20,6 +20,7 @@ require("lazy").setup({
     -- editor
     { import = "lazyvim.plugins.extras.editor.illuminate" },
     { import = "lazyvim.plugins.extras.editor.dial" },
+    { import = "lazyvim.plugins.extras.editor.outline" },
 
     -- formatting
     { import = "lazyvim.plugins.extras.formatting.prettier" },

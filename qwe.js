@@ -1,9 +1,16 @@
 /**
- * This is a test1 function.
- * @returns {void}
+ * This is a function to return the input parameter.
+ * @param {any} q - The input parameter.
+ * @returns {any} The input parameter.
  */
-function test1() {
-  console.log("Hello, World!");
+function qwe(q) {
+  return q;
 }
 
+queueMicrotask(callback);
+
 // #fff
+
+apple  = red
+grass += green
+sky   -= blue

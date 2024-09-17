@@ -101,6 +101,13 @@ return {
           },
         },
       },
+      html = {
+        filetypes = { "html", "wxml" },
+      },
+
+      cssls = {
+        filetypes = { "css", "wxss" },
+      },
     },
   },
 }

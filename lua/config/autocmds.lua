@@ -44,6 +44,18 @@ vim.cmd([[ autocmd BufRead,BufNewFile *.org set filetype=org ]])
 --   pattern = "*",
 --   command = "set norelativenumber",
 -- })
+
+-- 将 .wxml 文件识别为 html 文件类型
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.wxml" },
+  command = "setfiletype html",
+})
+
+-- 将 .wxss 文件识别为 css 文件类型
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.wxss" },
+  command = "setfiletype css",
+})
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "lua",

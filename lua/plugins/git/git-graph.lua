@@ -16,7 +16,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
 
     opts = function()
-      vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#f0c9cf", bg = "NONE" })
+      -- vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#f0c9cf", bg = "NONE" })
       return {
         signs = {
           add = { text = "▎" },

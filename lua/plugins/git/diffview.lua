@@ -13,7 +13,7 @@ local function toggle_diffview()
 end
 
 -- 设置快捷键来切换 Diffview 面板
-api.nvim_set_keymap("n", "<leader>dv", ":lua toggle_diffview()<CR>", { noremap = true, silent = true })
+-- api.nvim_set_keymap("n", "<leader>dv", ":lua toggle_diffview()<CR>", { noremap = true, silent = true })
 return {
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen" },

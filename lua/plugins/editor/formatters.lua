@@ -29,7 +29,10 @@ return {
           "handlebars",
           "toml",
           "svelte",
+          "wxss",
+          "wxml",
         },
+        extra_filetypes = { "wxml" },
         extra_args = function()
           return {
             "--jsx-single-quote=true",

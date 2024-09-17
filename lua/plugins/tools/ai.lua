@@ -23,7 +23,7 @@ return {
             size = { width = 0.8, height = 0.8 },
           },
         },
-        use_default_keymaps = true,
+        use_default_keymaps = false,
         disable_specific_inline_completion = {
           suffixes = { "TelescopePrompt", "neo-tree-popup" },
         },

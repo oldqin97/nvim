@@ -1,7 +1,36 @@
-local Util = require("lazyvim.util")
-local icons = require("lazyvim.config").icons
+---@diagnostic disable: undefined-field, deprecated
 
+local Util = require("lazyvim.util")
+
+local colors = {
+  bg = "#202328",
+  fg = "#bbc2cf",
+  yellow = "#ECBE7B",
+  cyan = "#008080",
+  darkblue = "#081633",
+  green = "#98be65",
+  orange = "#FF8800",
+  violet = "#a9a1e1",
+  magenta = "#c678dd",
+  blue = "#51afef",
+  red = "#ec5f67",
+}
+
+local conditions = {
+  buffer_not_empty = function()
+    return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
+  end,
+  hide_in_width = function()
+    return vim.fn.winwidth(0) > 80
+  end,
+  check_git_workspace = function()
+    local filepath = vim.fn.expand("%:p:h")
+    local gitdir = vim.fn.finddir(".git", filepath .. ";")
+    return gitdir and #gitdir > 0 and #gitdir < #filepath
+  end,
+}
 return {
+  { "pnx/lualine-lsp-status" },
   {
     "nvim-lualine/lualine.nvim",
     optional = true,
@@ -18,18 +47,39 @@ return {
         lualine_b = { "branch", "diagnostics" },
         lualine_c = {
           -- "filename",
-          -- require("lsp-progress").progress,
+
+          "lsp-status",
+          -- Lsp server name .
+          -- {
+          --   function()
+          --     local msg = "No Active Lsp"
+          --     local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+          --     local clients = vim.lsp.get_active_clients()
+          --     if next(clients) == nil then
+          --       return msg
+          --     end
+          --     for _, client in ipairs(clients) do
+          --       local filetypes = client.config.filetypes
+          --       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+          --         return client.name
+          --       end
+          --     end
+          --     return msg
+          --   end,
+          --   icon = " LSP:",
+          --   color = { fg = colors.fg, gui = "bold" },
+          -- },
         },
         lualine_x = {
-          {
-            function()
-              return require("noice").api.status.mode.get()
-            end,
-            cond = function()
-              return package.loaded["noice"] and require("noice").api.status.mode.has()
-            end,
-            color = Util.ui.fg("Constant"),
-          },
+          -- {
+          --   function()
+          --     return require("noice").api.status.mode.get()
+          --   end,
+          --   cond = function()
+          --     return package.loaded["noice"] and require("noice").api.status.mode.has()
+          --   end,
+          --   color = Util.ui.fg("Constant"),
+          -- },
           {
             function()
               return "  " .. require("dap").status()
@@ -39,17 +89,29 @@ return {
             end,
             color = Util.ui.fg("Debug"),
           },
+          -- {
+          --   require("lazy.status").updates,
+          --   cond = require("lazy.status").has_updates,
+          --   color = Util.ui.fg("Special"),
+          -- },
           {
-            require("lazy.status").updates,
-            cond = require("lazy.status").has_updates,
-            color = Util.ui.fg("Special"),
+            "o:encoding",
+            fmt = string.upper, -- I'm not sure why it's upper case either ;)
+            cond = conditions.hide_in_width,
+            color = { fg = colors.green, gui = "bold" },
           },
+          -- {
+          --   "fileformat",
+          --   fmt = string.upper,
+          --   icons_enabled = false,
+          --   color = { fg = colors.green, gui = "bold" },
+          -- },
           {
             "diff",
             symbols = {
-              added = icons.git.added,
-              modified = icons.git.modified,
-              removed = icons.git.removed,
+              added = " ",
+              modified = " ",
+              removed = " ",
             },
             source = function()
               local gitsigns = vim.b.gitsigns_status_dict

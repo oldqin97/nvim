@@ -1,4 +1,7 @@
 local logo = [[
+
+
+
     ___________
     < Love CC!  >
     -----------
@@ -34,8 +37,8 @@ local function getGreeting(name)
   end
   return "\t\t\t" .. dateTime .. "\t" .. greetingsTable[greetingIndex] .. ", " .. name
 end
-local userName = "Qin"
-local greeting = getGreeting(userName)
+-- local userName = "Qin"
+-- local greeting = getGreeting(userName)
 return {
   {
     "goolord/alpha-nvim",
@@ -44,7 +47,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = function()
       local startify = require("alpha.themes.startify")
-      startify.section.header.val = vim.split(logo .. "\n" .. greeting, "\n")
+      startify.section.header.val = vim.split(logo .. "\n" .. getGreeting("Qin"), "\n")
 
       startify.section.top_buttons.val = {
         -- startify.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
@@ -65,16 +68,16 @@ return {
       return startify
     end,
     config = function(_, startify)
-      if vim.o.filetype == "lazy" then
-        vim.cmd.close()
-        vim.api.nvim_create_autocmd("User", {
-          once = true,
-          pattern = "AlphaReady",
-          callback = function()
-            require("lazy").show()
-          end,
-        })
-      end
+      -- if vim.o.filetype == "lazy" then
+      --   vim.cmd.close()
+      --   vim.api.nvim_create_autocmd("User", {
+      --     once = true,
+      --     pattern = "AlphaReady",
+      --     callback = function()
+      --       require("lazy").show()
+      --     end,
+      --   })
+      -- end
 
       require("alpha").setup(startify.opts)
 

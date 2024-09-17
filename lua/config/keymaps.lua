@@ -104,3 +104,40 @@ end
 map({ "n" }, "ma", "<Plug>(VM-Add-Cursor-At-Pos)", { desc = "Add Cursor At Pos" })
 map({ "n" }, "mo", "<Plug>(VM-Toggle-Mappings)", { desc = "Toggle Mapping" })
 map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
+
+-- local use_coc = false -- 默认使用 CoC
+-- -- switch coc & lsp
+-- -- 切换函数
+--
+-- function ToggleCompletion()
+--   local cmp = require("cmp")
+--   use_coc = not use_coc
+--   if use_coc then
+--     vim.cmd("CocEnable") -- 启用 CoC
+--     -- vim.lsp.stop_client(vim.lsp.get_active_clients()) -- 停止所有 LSP 客户端
+--     cmp.setup({ enabled = false }) -- 禁用 cmp
+--     -- map({ "n" }, "<A-r>", "<Plug>(coc-rename)", { desc = "rename" })
+--     map({ "n" }, "<A-s>", "<cmd>call CocAction('format')<cr>", { desc = "format" })
+--     vim.api.nvim_set_keymap(
+--       "i",
+--       "<leader><Tab>",
+--       [[coc#_select_confirm()]],
+--       { noremap = true, expr = true, silent = true }
+--     )
+--     -- vim.api.nvim_set_keymap("n", "<leader>gd", "<Plug>(coc-definition)", { noremap = true, silent = true }) -- 跳转到定义
+--     -- vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-references)", { noremap = true, silent = true }) -- 查看引用
+--     -- vim.api.nvim_set_keymap("n", "gy", "<Plug>(coc-type-definition)", { noremap = true, silent = true }) -- 跳转到类型定义
+--     -- vim.api.nvim_set_keymap("n", "gi", "<Plug>(coc-implementation)", { noremap = true, silent = true }) -- 跳转到实现
+--     print("Switched to CoC")
+--   else
+--     vim.cmd("CocDisable") -- 禁用 CoC
+--     cmp.setup({ enabled = true }) -- 禁用 cmp
+--     -- if #clients == 0 then
+--     --   vim.cmd("LspStart") -- 启动 LSP
+--     -- end
+--     print("Switched to LSP")
+--   end
+-- end
+-- vim.cmd("CocDisable") -- 禁用 CoC
+-- 分配快捷键切换
+-- map("n", "<leader>tc", "<cmd>lua ToggleCompletion()<CR>", { desc = "switch coc & lsp" })
