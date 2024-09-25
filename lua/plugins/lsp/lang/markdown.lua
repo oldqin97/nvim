@@ -29,6 +29,12 @@ return {
       require("lazy").load({ plugins = { "markdown-preview.nvim" } })
       vim.fn["mkdp#util#install"]()
     end,
+    config = function()
+      vim.cmd([[do FileType]])
+      vim.cmd([[
+        let g:mkdp_auto_close = 0
+      ]])
+    end,
     keys = {
       {
         "<leader>mp",

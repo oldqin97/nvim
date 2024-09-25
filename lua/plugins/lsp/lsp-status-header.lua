@@ -1,4 +1,5 @@
 return {
+  "SmiteshP/nvim-navic",
   -- text-status-header
   -- "utilyre/barbecue.nvim",
   -- event = "BufEnter",
@@ -6,7 +7,6 @@ return {
   -- version = "*",
   -- dependencies = {
   --   {
-  --     "SmiteshP/nvim-navic",
   --     lazy = true,
   --     init = function()
   --       vim.g.navic_silence = true

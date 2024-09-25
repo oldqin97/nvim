@@ -15,7 +15,7 @@ return {
         desc = "grep_string",
       },
 
-      { "<C-r>", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+      { "<leader>r", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       -- {
       --   "<leader>ss",
       --   function()

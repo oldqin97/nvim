@@ -1,9 +1,10 @@
 /**
- * test
+ * test.js
  *
  * @param {string} q - string
  * @param {string} w - string
- * @param {number} e - number
+ * @param {string} e - string
+ * @returns {string} string
  */
 function test(q, w, e) {
   console.log(q, w, e);

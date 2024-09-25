@@ -82,3 +82,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.b.autoformat = false
   end,
 })
+
+vim.cmd([[highlight IncSearch guibg=#FF8800 guifg=#eeeeee]])
+vim.cmd([[highlight Search guibg=#51afef guifg=#eeeeee]])

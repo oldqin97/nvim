@@ -47,7 +47,10 @@ return {
   --   },
   -- },
 
-  keys = { { "<A-o>", "<cmd>Outline<cr>", desc = "Toggle Outline" } },
+  keys = {
+    { "<A-o>", "<cmd>Outline<cr>", desc = "Toggle Outline" },
+    { "<leader>cs", false },
+  },
   opts = function()
     return {
       outline_window = {
@@ -57,8 +60,9 @@ return {
         jump_highlight_duration = 100,
       },
       keymaps = {
-        peek_location = "<Tab>",
-        goto_location = "<Cr>",
+        peek_location = "l",
+        fold_toggle = "h",
+        goto_location = "<Tab>",
         goto_and_close = "o",
       },
 

@@ -30,17 +30,35 @@ local conditions = {
   end,
 }
 return {
-  { "pnx/lualine-lsp-status" },
   {
     "nvim-lualine/lualine.nvim",
     optional = true,
-    event = "BufReadPost",
+    -- lazy = true,
+    -- event = { "BufReadPre" },
+    dependencies = {
+      "pnx/lualine-lsp-status",
+    },
     opts = {
       options = {
         -- theme = "onedark",
         globalstatus = true,
         component_separators = { left = "|", right = "|" },
         section_separators = { left = " ", right = "" },
+        disabled_filetypes = {
+          "dashboard",
+          "lspinfo",
+          "mason",
+          "startuptime",
+          "checkhealth",
+          "help",
+          "toggleterm",
+          "alpha",
+          "lazy",
+          "packer",
+          "NvimTree",
+          "sagaoutline",
+          "TelescopePrompt",
+        },
       },
       sections = {
         lualine_a = { "mode" },
@@ -136,11 +154,16 @@ return {
   },
   {
     "b0o/incline.nvim",
-    event = "VeryLazy",
+    event = "BufReadPost",
     init = function()
       local helpers = require("incline.helpers")
       local devicons = require("nvim-web-devicons")
       require("incline").setup({
+        hide = {
+          cursorline = true,
+          focused_win = false,
+          only_win = false,
+        },
         window = {
           padding = 0,
           margin = { horizontal = 0, vertical = 0 },

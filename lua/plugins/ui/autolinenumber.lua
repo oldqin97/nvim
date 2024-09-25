@@ -1,5 +1,6 @@
 return {
   "cpea2506/relative-toggle.nvim",
+  event = "BufReadPre",
   config = function()
     require("relative-toggle").setup({
       require("relative-toggle").setup({

@@ -4,13 +4,12 @@
  * @returns {any} The input parameter.
  */
 function qwe(q) {
+  console.log(123);
   return q;
 }
 
 queueMicrotask(callback);
 
-// #fff
-
-apple  = red
-grass += green
-sky   -= blue
+apple = red;
+grass += green;
+sky -= blue;

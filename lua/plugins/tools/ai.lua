@@ -29,7 +29,7 @@ return {
         },
         keymaps = {
           inline = {
-            ["<Right>"] = "accept_all_suggestions",
+            ["<A-n>"] = "accept_all_suggestions",
             -- ["<Tab>"] = "accept_all_suggestions",
             ["<C-Down>"] = "accept_line",
             ["<C-Right>"] = "accept_word",

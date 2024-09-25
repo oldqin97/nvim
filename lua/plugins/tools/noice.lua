@@ -38,6 +38,8 @@ return {
             { find = "^少了 %d+ 行$" },
             { find = "^%d+ more lines$" },
             { find = "^%d+ lines yanked$" },
+            { find = "is not attached to client" },
+            { find = "Client with id" },
           },
         },
         opts = { stop = true },
