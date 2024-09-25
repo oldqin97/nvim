@@ -49,6 +49,7 @@ return {
             transient = true,
             prefills = {
               filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+              search = vim.fn.expand("<cword>"),
             },
             select_word = true,
           })
@@ -59,9 +60,14 @@ return {
       {
         "<leader>sr",
         function()
+          -- require("grug-far").open({
+          --   prefills = { paths = vim.fn.expand("%") },
+          --   select_word = true,
+          -- })
           require("grug-far").open({
             prefills = {
               paths = vim.fn.expand("%"),
+              search = vim.fn.expand("<cword>"),
             },
             select_word = true,
           })

@@ -1,7 +1,5 @@
 local map = LazyVim.safe_keymap_set
 
-local del = vim.keymap.del
-
 -- close page
 map("n", "qq", "<cmd>q<CR>", { desc = "close page" })
 
