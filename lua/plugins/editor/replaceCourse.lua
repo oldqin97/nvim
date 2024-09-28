@@ -1,3 +1,4 @@
+---@diagnostic disable: deprecated
 return {
   -- "nvim-pack/nvim-spectre",
   -- cmd = "Spectre",
@@ -60,15 +61,8 @@ return {
       {
         "<leader>sr",
         function()
-          -- require("grug-far").open({
-          --   prefills = { paths = vim.fn.expand("%") },
-          --   select_word = true,
-          -- })
           require("grug-far").open({
-            prefills = {
-              paths = vim.fn.expand("%"),
-              search = vim.fn.expand("<cword>"),
-            },
+            prefills = { paths = vim.fn.expand("%"), search = vim.fn.expand("<cword>") },
             select_word = true,
           })
         end,

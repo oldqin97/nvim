@@ -1,14 +1,15 @@
 /**
- * This is a function to return the input parameter.
- * @param {any} q - The input parameter.
- * @returns {any} The input parameter.
+ * qwe
+ *
+ * @param {string} q - string
+ * @returns {string} string
  */
 function log(q) {
   console.log(log);
   return q;
 }
 
-console.log(log)
+console.log(log);
 
 apple = red;
 grass += green;

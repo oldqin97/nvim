@@ -33,8 +33,8 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     optional = true,
-    -- lazy = true,
-    -- event = { "BufReadPre" },
+    lazy = true,
+    event = "BufWinEnter", -- 在打开文件缓冲区时加载 lualine
     dependencies = {
       "pnx/lualine-lsp-status",
     },

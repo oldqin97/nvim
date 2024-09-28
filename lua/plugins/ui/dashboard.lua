@@ -42,7 +42,8 @@ end
 return {
   {
     "goolord/alpha-nvim",
-    -- event = "VimEnter",
+    event = "VimEnter",
+    priority = 1000,
     lazy = vim.fn.argc() ~= 0,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = function()

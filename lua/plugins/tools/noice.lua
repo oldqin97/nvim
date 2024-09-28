@@ -3,6 +3,21 @@ return {
   event = "VeryLazy",
   keys = { { "<c-f>", false }, { "<c-b>", false } },
   opts = {
+    cmdline = {
+      enabled = true, -- 启用 cmdline
+      opts = {}, -- 使用默认设置
+      view = "cmdline", -- 使用默认 cmdline 显示
+      -- 过滤指定命令，不显示浮动命令行，直接执行
+      -- format = {
+      --   cmdline = { pattern = "^:", icon = ">", conceal = false, view = "cmdline" }, -- 保持浮动显示
+      --   search_down = { kind = "search", pattern = "^/", icon = "🔍⌄", lang = "regex" },
+      --   search_up = { kind = "search", pattern = "^%?", icon = "🔍⌃", lang = "regex" },
+      --   -- 禁用某些命令的 cmdline 浮动显示
+      --   filter_cmd = { pattern = "^:!.*", icon = "", conceal = true, view = "mini" }, -- 例如，不显示外部命令 (:! 开头的)
+      --   -- 禁用特定命令
+      --   disable_cmd = { pattern = "^:SomeCmd", icon = "", conceal = true }, -- 将 ':SomeCmd' 禁止 cmdline 浮动
+      -- },
+    },
     smart_move = {
       enabled = true,
       excluded_filetypes = { "cmp_menu", "cmp_docs", "notify", "vim-doge" },

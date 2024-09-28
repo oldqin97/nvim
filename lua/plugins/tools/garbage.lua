@@ -1,7 +1,7 @@
 return {
   -- stops inactive LSP clients
   "zeioth/garbage-day.nvim",
-  event = "VeryLazy",
+  event = { "BufRead", "InsertEnter" },
   opts = {
     notifications = true,
     aggressive_mode = false,
