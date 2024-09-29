@@ -15,6 +15,7 @@ end
 
 return {
   "monaqa/dial.nvim",
+  event = "BufReadPost",
   recommended = true,
   desc = "Increment and decrement numbers, dates, and more",
   -- stylua: ignore
