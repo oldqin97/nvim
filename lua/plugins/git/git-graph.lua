@@ -1,16 +1,16 @@
 return {
-  {
-    -- git graph
-    "rbong/vim-flog",
-    lazy = true,
-    cmd = { "Flog", "Flogsplit", "Floggit" },
-    keys = {
-      { "<F3>", "<cmd>Flog<cr>", desc = "git graph" },
-    },
-    dependencies = {
-      "tpope/vim-fugitive",
-    },
-  },
+  -- {
+  --   -- git graph
+  --   "rbong/vim-flog",
+  --   lazy = true,
+  --   cmd = { "Flog", "Flogsplit", "Floggit" },
+  --   keys = {
+  --     { "<F3>", "<cmd>Flog<cr>", desc = "git graph" },
+  --   },
+  --   dependencies = {
+  --     "tpope/vim-fugitive",
+  --   },
+  -- },
   {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },

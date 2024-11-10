@@ -22,7 +22,7 @@ const qwe = test => {
 };
 
 let q = false;
-// v3.3.0
+// v3.0.0
 
 test(1, 2, 3);
 test();

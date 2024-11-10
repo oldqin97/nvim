@@ -30,6 +30,7 @@ return {
     keys[#keys + 1] = { "<leader>cr", false }
     keys[#keys + 1] = { "<leader>ca", false }
     keys[#keys + 1] = { "<leader>cl", false }
+    keys[#keys + 1] = { "<A-p>", false }
   end,
 
   opts = {
@@ -89,15 +90,15 @@ return {
             suggest = {
               completeFunctionCalls = true,
             },
-            inlayHints = {
-              enumMemberValues = { enabled = false },
-              functionLikeReturnTypes = { enabled = false },
-              -- parameterNames = { enabled = "literals" },
-              parameterNames = { enabled = false },
-              parameterTypes = { enabled = false },
-              propertyDeclarationTypes = { enabled = false },
-              variableTypes = { enabled = false },
-            },
+            -- inlayHints = {
+            --   enumMemberValues = { enabled = false },
+            --   functionLikeReturnTypes = { enabled = false },
+            --   -- parameterNames = { enabled = "literals" },
+            --   parameterNames = { enabled = false },
+            --   parameterTypes = { enabled = false },
+            --   propertyDeclarationTypes = { enabled = false },
+            --   variableTypes = { enabled = false },
+            -- },
           },
         },
       },

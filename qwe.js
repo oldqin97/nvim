@@ -4,15 +4,13 @@
  * @param {string} q - string
  * @returns {string} string
  */
-function log(q) {
-  console.log(log);
+function qwe(q) {
+  console.log(q);
   return q;
 }
 
-const q = () => {};
+const q = () => {
+  return 0;
+};
 
-console.log(log);
-
-apple = red;
-grass += green;
-sky -= blue;
+console.log(qwe);

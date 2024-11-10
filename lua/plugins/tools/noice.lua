@@ -52,6 +52,7 @@ return {
             { find = "Exited Visual-Multi." },
             { find = "^少了 %d+ 行$" },
             { find = "^%d+ more lines$" },
+            { find = "^%d+ fewer lines$" },
             { find = "^%d+ lines yanked$" },
             { find = "is not attached to client" },
             { find = "Client with id" },
