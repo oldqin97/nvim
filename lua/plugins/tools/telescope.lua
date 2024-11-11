@@ -15,7 +15,7 @@ return {
         desc = "grep_string",
       },
 
-      { "<leader>r", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+      { "<leader>r", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
       -- {
       --   "<leader>ss",
       --   function()

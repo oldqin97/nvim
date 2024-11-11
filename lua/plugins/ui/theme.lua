@@ -29,23 +29,26 @@ return {
           Search = { bg = "#51afef", fg = "#eeeeee" },
           IncSearch = { bg = "#FF8800", fg = "#eeeeee" },
           MatchParen = { bg = "#458588" },
+          -- LspReferenceText = { bg = "#f9d27d", fg = "#ffffff" },
+          -- LspReferenceRead = { bg = "#f9d27d", fg = "#ffffff" },
+          -- LspReferenceWrite = { bg = "#f9d27d", fg = "#ffffff" },
         },
         dim_inactive = false,
         transparent_mode = true,
       })
     end,
   },
-  {
-    "Mofiqul/vscode.nvim",
-    lazy = true,
-    name = "vscode",
-    config = function()
-      require("vscode").setup({
-        style = "dark",
-        transparent = false,
-      })
-    end,
-  },
+  -- {
+  --   "Mofiqul/vscode.nvim",
+  --   lazy = true,
+  --   name = "vscode",
+  --   config = function()
+  --     require("vscode").setup({
+  --       style = "dark",
+  --       transparent = false,
+  --     })
+  --   end,
+  -- },
 
   {
     "LazyVim/LazyVim",

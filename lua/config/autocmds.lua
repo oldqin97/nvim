@@ -56,6 +56,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.wxss" },
   command = "setfiletype css",
 })
+
+-- 关闭文件时自动保存
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "lua",
@@ -82,3 +84,20 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.b.autoformat = false
   end,
 })
+
+-- -- 设置相同单词的背景高亮颜色
+-- -- vim.cmd([[ highlight LspReferenceText guibg=#FF8800 guifg=#EEEEEE ]])
+-- vim.cmd([[ highlight LspReferenceRead guibg=#FF8800 guifg=#EEEEEE ]])
+-- vim.cmd([[ highlight LspReferenceWrite guibg=#FF8800 guifg=#EEEEEE ]])
+--
+-- -- 自动高亮当前光标下的单词
+-- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+--   callback = function()
+--     vim.lsp.buf.document_highlight()
+--   end,
+-- })
+-- vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+--   callback = function()
+--     vim.lsp.buf.clear_references()
+--   end,
+-- })

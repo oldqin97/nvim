@@ -68,4 +68,9 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
     enabled = false,
   },
+  {
+    -- 颜色拾取器
+    "max397574/colortils.nvim",
+    enabled = false,
+  },
 }
