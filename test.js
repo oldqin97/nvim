@@ -1,3 +1,4 @@
+import ttt from "./qwe";
 /**
  * test.js
  *
@@ -6,7 +7,7 @@
  * @param {string} e - string
  * @returns {string} string
  */
-function test(q, w, e) {
+function ttt(q, w, e) {
   console.log(q, w, e);
   return q + w + e;
 }
@@ -31,6 +32,14 @@ let q = false;
 // true
 // ||
 
-test(1, 2, 3);
-test();
-line
+ttt(1, 2, 3);
+ttt();
+
+// HACK:
+// TODO:
+// NOTE:
+// TEST:
+// FIX:
+// PERF:
+// TODO:
+// WARN:

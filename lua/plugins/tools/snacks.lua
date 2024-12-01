@@ -4,11 +4,34 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    dashboard = {
+      formats = {
+        key = function(item)
+          return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
+        end,
+      },
+      sections = {
+        -- {
+        --   section = "terminal",
+        --   cmd = "pokemonsay '123'",
+        --   -- hl = "header",
+        --   random = 100,
+        --   pane = 2,
+        --   indent = 20,
+        --   height = 20,
+        -- },
+        { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 8 },
+        { title = " Recent", section = "recent_files", cwd = true, limit = 3, padding = 1 },
+
+        { title = " Projects", section = "projects", padding = 1 },
+        { title = " Menu", section = "keys", padding = 1 },
+        { section = "startup" },
+      },
+    },
     bigfile = { enabled = true },
     notifier = {
       enabled = true,
-
-      timeout = 1000,
+      timeout = 2000,
     },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
@@ -69,13 +92,13 @@ return {
       end,
       desc = "Lazygit Log (cwd)",
     },
-    {
-      "<c-/>",
-      function()
-        Snacks.terminal()
-      end,
-      desc = "Toggle Terminal",
-    },
+    -- {
+    --   "<c-/>",
+    --   function()
+    --     Snacks.terminal()
+    --   end,
+    --   desc = "Toggle Terminal",
+    -- },
     {
       "<c-_>",
       function()
@@ -83,13 +106,6 @@ return {
       end,
       desc = "which_key_ignore",
     },
-    -- {
-    --   "<leader>cr",
-    --   function()
-    --     Snacks.rename()
-    --   end,
-    --   desc = "Rename File",
-    -- },
     {
       "]]",
       function()

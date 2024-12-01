@@ -159,9 +159,9 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
       "octaltree/cmp-look",
       "hrsh7th/cmp-emoji",
-      "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-calc",
     },
 
@@ -186,21 +186,11 @@ return {
           documentation = cmp.config.window.bordered({
             winhighlight = "Normal:CmpItemBG,FloatBorder:Pmenu,Search:None",
           }),
-          -- completion = {
-          --   winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None,CursorLine:CmpItemKindLine",
-          --   col_offset = -3,
-          --   side_padding = 0,
-          -- },
-          -- documentation = {
-          --   winhighlight = "Normal:CmpItemBG,FloatBorder:Pmenu,Search:None",
-          -- },
         },
 
         sources = {
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "codeium" },
-          { name = "cmp_tabnine" },
           { name = "buffer" },
           { name = "nvim_lua" },
           { name = "path" },

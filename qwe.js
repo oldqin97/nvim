@@ -4,7 +4,7 @@
  * @param {string} q - string
  * @returns {string} string
  */
-function test(q) {
+function ttt(q) {
   console.log(q);
   return q;
 }
@@ -13,4 +13,6 @@ const q = () => {
   return 0;
 };
 
-console.log();
+console.log(q);
+
+export default ttt;

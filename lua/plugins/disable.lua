@@ -32,6 +32,10 @@ return {
     enabled = false,
   },
   {
+    "echasnovski/mini.starter",
+    enabled = false,
+  },
+  {
     "echasnovski/mini.ai",
     enabled = false,
   },

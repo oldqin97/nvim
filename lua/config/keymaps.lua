@@ -100,6 +100,12 @@ map({ "n" }, "ma", "<Plug>(VM-Add-Cursor-At-Pos)", { desc = "Add Cursor At Pos" 
 map({ "n" }, "mo", "<Plug>(VM-Toggle-Mappings)", { desc = "Toggle Mapping" })
 map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
 
+map("n", "<c-->", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root() })
+end, { desc = "Terminal (Root Dir)" })
+
+map("t", "<C-->", "<cmd>close<cr>", { desc = "Hide Terminal" })
+
 -- local use_coc = false -- 默认使用 CoC
 -- -- switch coc & lsp
 -- -- 切换函数

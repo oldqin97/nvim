@@ -53,7 +53,7 @@ require("lazy").setup({
     -- test
     { import = "lazyvim.plugins.extras.test.core" },
     -- ui
-    { import = "lazyvim.plugins.extras.ui.alpha" },
+    -- { import = "lazyvim.plugins.extras.ui.alpha" },
     { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
     -- util
     { import = "lazyvim.plugins.extras.util.project" },

@@ -1,6 +1,6 @@
 {
   "log": {
-    "prefix": "qwe",
+    "prefix": "qqq",
     "body": ["console.log($1)"],
     "description": "log"
   }

@@ -40,66 +40,66 @@ end
 -- local userName = "Qin"
 -- local greeting = getGreeting(userName)
 return {
-  {
-    "goolord/alpha-nvim",
-    event = "VimEnter",
-    priority = 1000,
-    lazy = vim.fn.argc() ~= 0,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = function()
-      local startify = require("alpha.themes.startify")
-      startify.section.header.val = vim.split(logo .. "\n" .. getGreeting("Qin"), "\n")
-
-      startify.section.top_buttons.val = {
-        -- startify.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-        startify.button("l", "  Plugin manage", "<cmd>Lazy<CR>"),
-        startify.button("s", "  Load session", "<cmd>lua require('persistence').load()<CR>"),
-        startify.button("p", "  Projects", "<cmd>Telescope projects<CR>"),
-      }
-
-      -- startify.section.mru_cwd.val = { { type = "padding", val = 0 } }
-      startify.section.mru.val = { { type = "padding", val = 0 } }
-
-      startify.nvim_web_devicons.enabled = true
-
-      startify.section.bottom_buttons.val = {
-        startify.button("q", "󰅙  Quit", ":qa<CR>"),
-      }
-
-      return startify
-    end,
-    config = function(_, startify)
-      -- if vim.o.filetype == "lazy" then
-      --   vim.cmd.close()
-      --   vim.api.nvim_create_autocmd("User", {
-      --     once = true,
-      --     pattern = "AlphaReady",
-      --     callback = function()
-      --       require("lazy").show()
-      --     end,
-      --   })
-      -- end
-
-      require("alpha").setup(startify.opts)
-
-      vim.api.nvim_create_autocmd("User", {
-        once = true,
-        pattern = "LazyVimStarted",
-        callback = function()
-          local stats = require("lazy").stats()
-          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          startify.section.footer.val = {
-            { type = "padding", val = 1 },
-            { type = "text", val = "The best way to explain it is to do it." },
-            { type = "padding", val = 1 },
-            {
-              type = "text",
-              val = "🚀 Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
-            },
-          }
-          pcall(vim.cmd.AlphaRedraw)
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "goolord/alpha-nvim",
+  --   -- event = "VimEnter",
+  --   priority = 1000,
+  --   lazy = vim.fn.argc() ~= 0,
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   opts = function()
+  --     local startify = require("alpha.themes.startify")
+  --     startify.section.header.val = vim.split(logo .. "\n" .. getGreeting("Qin"), "\n")
+  --
+  --     startify.section.top_buttons.val = {
+  --       -- startify.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+  --       startify.button("l", "  Plugin manage", "<cmd>Lazy<CR>"),
+  --       startify.button("s", "  Load session", "<cmd>lua require('persistence').load()<CR>"),
+  --       startify.button("p", "  Projects", "<cmd>Telescope projects<CR>"),
+  --     }
+  --
+  --     -- startify.section.mru_cwd.val = { { type = "padding", val = 0 } }
+  --     startify.section.mru.val = { { type = "padding", val = 0 } }
+  --
+  --     startify.nvim_web_devicons.enabled = true
+  --
+  --     startify.section.bottom_buttons.val = {
+  --       startify.button("q", "󰅙  Quit", ":qa<CR>"),
+  --     }
+  --
+  --     return startify
+  --   end,
+  --   config = function(_, startify)
+  --     -- if vim.o.filetype == "lazy" then
+  --     --   vim.cmd.close()
+  --     --   vim.api.nvim_create_autocmd("User", {
+  --     --     once = true,
+  --     --     pattern = "AlphaReady",
+  --     --     callback = function()
+  --     --       require("lazy").show()
+  --     --     end,
+  --     --   })
+  --     -- end
+  --
+  --     require("alpha").setup(startify.opts)
+  --
+  --     vim.api.nvim_create_autocmd("User", {
+  --       once = true,
+  --       pattern = "LazyVimStarted",
+  --       callback = function()
+  --         local stats = require("lazy").stats()
+  --         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+  --         startify.section.footer.val = {
+  --           { type = "padding", val = 1 },
+  --           { type = "text", val = "The best way to explain it is to do it." },
+  --           { type = "padding", val = 1 },
+  --           {
+  --             type = "text",
+  --             val = "🚀 Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
+  --           },
+  --         }
+  --         pcall(vim.cmd.AlphaRedraw)
+  --       end,
+  --     })
+  --   end,
+  -- },
 }
