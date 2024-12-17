@@ -38,6 +38,10 @@ return {
         -- ["cmp.entry.get_documentation"] = true,
       },
     },
+    notify = {
+      enabled = false,
+      view = "notify",
+    },
     routes = {
       {
         filter = {

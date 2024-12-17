@@ -1,0 +1,16 @@
+{
+  "bookmark_lists": [
+    {
+      "bookmarks": [],
+      "id": "2024120418325859945699",
+      "is_active": true,
+      "name": "Default"
+    }
+  ],
+  "projects": [
+    {
+      "name": "nvim",
+      "path": "/Users/qin/.config/nvim"
+    }
+  ]
+}

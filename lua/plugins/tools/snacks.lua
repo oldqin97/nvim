@@ -2,47 +2,11 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
-  ---@type snacks.Config
-  opts = {
-    dashboard = {
-      formats = {
-        key = function(item)
-          return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
-        end,
-      },
-      sections = {
-        -- {
-        --   section = "terminal",
-        --   cmd = "pokemonsay '123'",
-        --   -- hl = "header",
-        --   random = 100,
-        --   pane = 2,
-        --   indent = 20,
-        --   height = 20,
-        -- },
-        { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 8 },
-        { title = " Recent", section = "recent_files", cwd = true, limit = 3, padding = 1 },
-
-        { title = " Projects", section = "projects", padding = 1 },
-        { title = " Menu", section = "keys", padding = 1 },
-        { section = "startup" },
-      },
-    },
-    bigfile = { enabled = true },
-    notifier = {
-      enabled = true,
-      timeout = 2000,
-    },
-    quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
-    styles = {
-      notification = {
-        wo = { wrap = true }, -- Wrap notifications
-      },
-    },
-  },
   keys = {
+    {
+      "<leader>bd",
+      false,
+    },
     {
       "<leader>un",
       function()
@@ -92,6 +56,7 @@ return {
       end,
       desc = "Lazygit Log (cwd)",
     },
+
     -- {
     --   "<c-/>",
     --   function()
@@ -122,23 +87,49 @@ return {
       desc = "Prev Reference",
       mode = { "n", "t" },
     },
-    -- {
-    --   "<leader>gn",
-    --   desc = "Neovim News",
-    --   function()
-    --     Snacks.win({
-    --       file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-    --       width = 0.6,
-    --       height = 0.6,
-    --       wo = {
-    --         spell = false,
-    --         wrap = false,
-    --         signcolumn = "yes",
-    --         statuscolumn = " ",
-    --         conceallevel = 3,
-    --       },
-    --     })
-    --   end,
+  },
+
+  opts = {
+    scope = { enabled = false },
+    indent = { enabled = true },
+    input = { enabled = true },
+    scroll = { enabled = false },
+    dashboard = {
+      formats = {
+        key = function(item)
+          return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
+        end,
+      },
+      sections = {
+        -- {
+        --   section = "terminal",
+        --   cmd = "pokemonsay '123'",
+        --   -- hl = "header",
+        --   random = 100,
+        --   pane = 2,
+        --   indent = 20,
+        --   height = 20,
+        -- },
+        { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 8 },
+        { title = " Recent", section = "recent_files", cwd = true, limit = 3, padding = 1 },
+
+        { title = " Projects", section = "projects", padding = 1 },
+        { title = " Menu", section = "keys", padding = 1 },
+        { section = "startup" },
+      },
+    },
+    bigfile = { enabled = true },
+    notifier = {
+      enabled = true,
+      timeout = 2000,
+    },
+    quickfile = { enabled = true },
+    statuscolumn = { enabled = true },
+    words = { enabled = true },
+    -- styles = {
+    --   notification = {
+    --     wo = { wrap = true }, -- Wrap notifications
+    --   },
     -- },
   },
   init = function()

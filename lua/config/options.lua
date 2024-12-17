@@ -32,6 +32,8 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   -- width = 100,
 })
 
+vim.g.ai_cmp = false
+
 return {
   kind = {
     Array = "",

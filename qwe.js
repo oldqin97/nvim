@@ -4,7 +4,7 @@
  * @param {string} q - string
  * @returns {string} string
  */
-function ttt(q) {
+function qwe(q) {
   console.log(q);
   return q;
 }
@@ -15,4 +15,6 @@ const q = () => {
 
 console.log(q);
 
-export default ttt;
+new Promise(resolve => {});
+
+export default qwe;

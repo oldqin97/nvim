@@ -27,7 +27,7 @@ const qwe = test => {
   return test;
 };
 
-let q = false;
+let q = true;
 // v3.0.0
 // true
 // ||
