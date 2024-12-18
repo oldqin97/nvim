@@ -142,3 +142,6 @@ map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
 -- vim.cmd("CocDisable") -- 禁用 CoC
 -- 分配快捷键切换
 -- map("n", "<leader>tc", "<cmd>lua ToggleCompletion()<CR>", { desc = "switch coc & lsp" })
+vim.keymap.del({ "n" }, "<leader>bd")
+vim.keymap.del({ "n" }, "<leader>-")
+vim.keymap.del({ "n" }, "<leader>|")

@@ -56,14 +56,6 @@ return {
       end,
       desc = "Lazygit Log (cwd)",
     },
-
-    -- {
-    --   "<c-/>",
-    --   function()
-    --     Snacks.terminal()
-    --   end,
-    --   desc = "Toggle Terminal",
-    -- },
     {
       "<c-_>",
       function()

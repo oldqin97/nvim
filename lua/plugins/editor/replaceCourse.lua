@@ -33,7 +33,7 @@ return {
         replace = { n = "<leader>r" },
         syncLocations = { n = "<leader>s" },
         historyOpen = { n = "<leader>t" },
-        close = { n = "<leader>c" },
+        close = { i = "<a-q>" },
         refresh = { n = "<leader>f" },
         openLocation = { n = "<Tab>" },
         gotoLocation = { n = "o" },
