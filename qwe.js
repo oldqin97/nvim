@@ -1,8 +1,8 @@
 /**
- * qwe
+ * 将输入参数的值打印到控制台并返回它。
  *
- * @param {string} q - string
- * @returns {string} string
+ * @param {*} q - 要打印和返回的输入参数。
+ * @returns {*} 传入的相同输入参数。
  */
 function qwe(q) {
   console.log(q);
@@ -14,7 +14,5 @@ const q = () => {
 };
 
 console.log(q);
-
-new Promise(resolve => {});
 
 export default qwe;
