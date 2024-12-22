@@ -1,4 +1,6 @@
 return {
+
+  -- run :BookmarksInfo to see the running status of the plugin
   {
     "tomasky/bookmarks.nvim",
     -- after = "telescope.nvim",

@@ -1,4 +1,4 @@
-# 💤 LazyVim
+@!!!!mode💤 LazyVim
 
 A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
@@ -31,14 +31,4 @@ function helloWorld() {
 
 ![](https://raw.githubusercontent.com/oldqin97/cloudImg/main/blogs/picture/20240907000114.png)
 
-- Big new release with a lot of changes and improvements!
-
-- The biggest change is the move of a bunch of core features to
-  [snacks.nvim](https://github.com/folke/snacks.nvim) and fully
-  integrating it into **LazyVim**.
-
-- I highly suggest having a look at the **snacks.nvim** documentation
-  to see all the new features and improvements. Most important changes:
-  - `Snacks.notifier` for notifications instead of `nvim-notify`
-  - `Snacks.terminal` is similar to `lazyterm`, but has more features
-    and creates bottom splits by default (similar to the `edgy` integrating)
+This is a apple
