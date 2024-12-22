@@ -8,11 +8,12 @@ return {
       -- "hrsh7th/cmp-nvim-lsp",
       -- "hrsh7th/cmp-buffer",
       -- "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
       "octaltree/cmp-look",
+      "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-calc",
       "saghen/blink.compat",
+      "giuxtaposition/blink-cmp-copilot",
     },
 
     opts = {
@@ -72,18 +73,17 @@ return {
         },
       },
       sources = {
-        completion = {
-          enabled_providers = {
-            -- "cmp_nvim_lua",
-            "cmdline",
-            "look",
-            "emoji",
-            "calc",
-          },
-        },
-
-        compat = {},
-        default = { "lsp", "path", "snippets", "buffer", "look", "emoji", "calc" },
+        -- completion = {
+        --   enabled_providers = {
+        --     -- "cmp_nvim_lua",
+        --     "cmdline",
+        --     -- "look",
+        --     "emoji",
+        --     "calc",
+        --   },
+        -- },
+        -- compat = {},
+        default = { "lsp", "path", "snippets", "buffer", "emoji", "calc", "look", "copilot" },
         providers = {
           -- lsp = {
           --   name = "lsp",
@@ -110,6 +110,13 @@ return {
             name = "calc",
             module = "blink.compat.source",
             kind = "Math",
+          },
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            kind = "Copilot",
+            score_offset = 100,
+            async = true,
           },
           look = {
             name = "look",

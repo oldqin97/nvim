@@ -9,7 +9,7 @@ return {
     table.insert(opts.sources, nls.builtins.formatting.sql_formatter)
     table.insert(
       opts.sources,
-      nls.builtins.formatting.prettierd.with({
+      nls.builtins.formatting.prettier.with({
         filetypes = {
           "javascript",
           "javascriptreact",
