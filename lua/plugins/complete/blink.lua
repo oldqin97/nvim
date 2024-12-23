@@ -10,19 +10,26 @@ return {
     },
     dependencies = {
       "rafamadriz/friendly-snippets",
-      -- add blink.compat to dependencies
       {
         "saghen/blink.compat",
         optional = true, -- make optional so it's only enabled if any extras need it
         opts = {},
         version = not vim.g.lazyvim_blink_main and "*",
       },
-      "octaltree/cmp-look",
-      "hrsh7th/cmp-cmdline",
+      -- "octaltree/cmp-look",
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-calc",
       "saghen/blink.compat",
       "giuxtaposition/blink-cmp-copilot",
+      {
+        "uga-rosa/cmp-dictionary",
+        config = function()
+          require("cmp_dictionary").setup({
+            paths = { "/usr/share/dict/words" },
+            exact_length = 2,
+          })
+        end,
+      },
     },
 
     event = { "InsertEnter", "CmdlineEnter" },
@@ -79,36 +86,43 @@ return {
         },
       },
       completion = {
-        trigger = {
-          prefetch_on_insert = false,
-          show_in_snippet = true,
-          show_on_keyword = true,
-          show_on_trigger_character = true,
-          show_on_accept_on_trigger_character = false,
-          show_on_insert_on_trigger_character = false,
-          show_on_x_blocked_trigger_characters = {},
-          show_on_blocked_trigger_characters = {},
-        },
-        -- list = {
-        --   selection = "manual",
+        -- trigger = {
+        --   prefetch_on_insert = false,
+        --   show_in_snippet = true,
+        --   show_on_keyword = true,
+        --   show_on_trigger_character = true,
+        --   show_on_accept_on_trigger_character = false,
+        --   show_on_insert_on_trigger_character = false,
+        --   show_on_x_blocked_trigger_characters = {},
+        --   show_on_blocked_trigger_characters = {},
         -- },
       },
-
-      -- experimental signature help support
-      -- signature = { enabled = true },
 
       sources = {
         -- completion = {
         --   enabled_providers = {
         --     -- "cmp_nvim_lua",
-        --     "cmdline",
+        --     -- "cmdline",
         --     -- "look",
-        --     "emoji",
-        --     "calc",
+        --     -- "emoji",
+        --     -- "calc",
+        --     "dictionary",
         --   },
         -- },
+
+        -- "failed to get completions with error: ...share/nvim/lazy/blink.compat/lua/blink/compat/source.lua:87: attempt to index local 'item' (a boolean value)"
         compat = {},
-        default = { "lsp", "path", "cmdline", "snippets", "buffer", "emoji", "calc", "look", "copilot" },
+        default = {
+          "lsp",
+          "path",
+          "cmdline",
+          "snippets",
+          "buffer",
+          "emoji",
+          "calc",
+          "copilot",
+          "dictionary",
+        },
         providers = {
           -- lsp = {
           --   name = "lsp",
@@ -126,7 +140,13 @@ return {
               ignored_filetypes = {},
             },
           },
-
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            kind = "Copilot",
+            score_offset = 100,
+            async = true,
+          },
           emoji = {
             name = "emoji",
             module = "blink.compat.source",
@@ -137,25 +157,19 @@ return {
             module = "blink.compat.source",
             kind = "Math",
           },
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            kind = "Copilot",
-            score_offset = 100,
-            async = true,
-          },
-          look = {
-            name = "look",
+          dictionary = {
+            name = "dictionary",
             module = "blink.compat.source",
+            -- score_offset = 3,
             kind = "Text",
           },
         },
         cmdline = function()
           local type = vim.fn.getcmdtype()
           -- Search forward and backward
-          -- if type == "/" or type == "?" then
-          --   return { "buffer" }
-          -- end
+          if type == "/" or type == "?" then
+            return { "buffer" }
+          end
           -- Commands
           if type == ":" then
             return { "cmdline" }
