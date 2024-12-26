@@ -1,22 +1,8 @@
 return {
   {
     "saghen/blink.cmp",
-    version = not vim.g.lazyvim_blink_main and "*",
-    build = vim.g.lazyvim_blink_main and "cargo build --release",
-    opts_extend = {
-      "sources.completion.enabled_providers",
-      "sources.compat",
-      "sources.default",
-    },
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-      "rafamadriz/friendly-snippets",
-      {
-        "saghen/blink.compat",
-        optional = true, -- make optional so it's only enabled if any extras need it
-        opts = {},
-        version = not vim.g.lazyvim_blink_main and "*",
-      },
-      -- "octaltree/cmp-look",
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-calc",
       "saghen/blink.compat",
@@ -31,17 +17,12 @@ return {
         end,
       },
     },
-
-    event = { "InsertEnter", "CmdlineEnter" },
-    -- event = "InsertEnter",
-
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
     opts = {
-      snippets = {
-        expand = function(snippet, _)
-          return LazyVim.cmp.expand(snippet)
-        end,
+      keymap = {
+        -- preset = "<Tab>",
+        ["<Tab>"] = { "select_and_accept", "fallback" },
+        ["<C-p>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-n>"] = { "scroll_documentation_down", "fallback" },
       },
       appearance = {
         kind_icons = {
@@ -59,7 +40,7 @@ return {
           TypeParameter = "󰊄",
           Text = "󰉿",
           Method = "󰆧",
-          Function = "󰊕",
+          Function = "󰿉",
           Constructor = "",
           Field = "󰜢",
           Variable = "󰀫",
@@ -71,7 +52,6 @@ return {
           Value = "󰎠",
           Enum = "",
           Keyword = "󰌋",
-          Snippet = "",
           Color = "󰏘",
           File = "󰈙",
           Reference = "󰈇",
@@ -81,41 +61,46 @@ return {
           Struct = "󰙅",
           Event = "",
           Operator = "󰆕",
+          Snippet = "",
           Emoji = "󰞅",
-          Math = "󰿉",
+          Math = "",
+          Dic = "",
         },
       },
+
       completion = {
-        -- trigger = {
-        --   prefetch_on_insert = false,
-        --   show_in_snippet = true,
-        --   show_on_keyword = true,
-        --   show_on_trigger_character = true,
-        --   show_on_accept_on_trigger_character = false,
-        --   show_on_insert_on_trigger_character = false,
-        --   show_on_x_blocked_trigger_characters = {},
-        --   show_on_blocked_trigger_characters = {},
-        -- },
+        trigger = {
+          -- prefetch_on_insert = false,
+          -- show_in_snippet = true,
+          -- show_on_keyword = true,
+          -- show_on_trigger_character = true,
+          -- show_on_accept_on_trigger_character = false,
+          -- show_on_insert_on_trigger_character = false,
+          -- show_on_x_blocked_trigger_characters = { "-" },
+          show_on_blocked_trigger_characters = {
+            " ",
+            "'",
+            '"',
+            "=",
+            "--",
+            ".",
+            ",",
+            "/",
+            ":",
+            "{",
+            "(",
+            ")",
+            "#",
+            "*",
+            "@",
+          },
+        },
       },
-
       sources = {
-        -- completion = {
-        --   enabled_providers = {
-        --     -- "cmp_nvim_lua",
-        --     -- "cmdline",
-        --     -- "look",
-        --     -- "emoji",
-        --     -- "calc",
-        --     "dictionary",
-        --   },
-        -- },
-
-        -- "failed to get completions with error: ...share/nvim/lazy/blink.compat/lua/blink/compat/source.lua:87: attempt to index local 'item' (a boolean value)"
         compat = {},
         default = {
           "lsp",
           "path",
-          "cmdline",
           "snippets",
           "buffer",
           "emoji",
@@ -124,14 +109,15 @@ return {
           "dictionary",
         },
         providers = {
-          -- lsp = {
-          --   name = "lsp",
-          --   -- score_offset = 99,
-          -- },
+          lsp = {
+            name = "lsp",
+            score_offset = 5,
+          },
           snippets = {
             name = "snippets",
             module = "blink.cmp.sources.snippets",
-            score_offset = -3,
+            -- score_offset = -3,
+            score_offset = 5,
             opts = {
               friendly_snippets = true,
               search_paths = { vim.fn.stdpath("config") .. "/snippet" },
@@ -160,16 +146,17 @@ return {
           dictionary = {
             name = "dictionary",
             module = "blink.compat.source",
-            -- score_offset = 3,
-            kind = "Text",
+            score_offset = 0,
+            min_keyword_length = 2,
+            kind = "Dic",
           },
         },
         cmdline = function()
           local type = vim.fn.getcmdtype()
           -- Search forward and backward
-          if type == "/" or type == "?" then
-            return { "buffer" }
-          end
+          -- if type == "/" or type == "?" then
+          --   return { "buffer" }
+          -- end
           -- Commands
           if type == ":" then
             return { "cmdline" }
@@ -177,15 +164,7 @@ return {
           return {}
         end,
       },
-
-      keymap = {
-        -- preset = "Tab",
-        ["<Tab>"] = { "select_and_accept" },
-        ["<C-p>"] = { "scroll_documentation_up", "fallback" },
-        ["<C-n>"] = { "scroll_documentation_down", "fallback" },
-      },
     },
-    ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
     config = function(_, opts)
       -- setup compat sources
       local enabled = opts.sources.default
@@ -200,10 +179,11 @@ return {
         end
       end
 
+      -- add ai_accept to <Tab> key
       if not opts.keymap["<S-Tab>"] then
         if opts.keymap.preset == "super-tab" then -- super-tab
           opts.keymap["<S-Tab>"] = {
-            require("blink.cmp.keymap.presets")["super-tab"]["<Tab>"][1],
+            require("blink.cmp.keymap.presets")["super-tab"][1],
             LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
             "fallback",
           }
@@ -249,4 +229,240 @@ return {
       require("blink.cmp").setup(opts)
     end,
   },
+  -- {
+  --   "saghen/blink.cmp",
+  --   version = not vim.g.lazyvim_blink_main and "*",
+  --   build = vim.g.lazyvim_blink_main and "cargo build --release",
+  --   opts_extend = {
+  --     "sources.completion.enabled_providers",
+  --     "sources.compat",
+  --     "sources.default",
+  --   },
+  --   dependencies = {
+  --     "rafamadriz/friendly-snippets",
+  --     {
+  --       "saghen/blink.compat",
+  --       optional = true, -- make optional so it's only enabled if any extras need it
+  --       opts = {},
+  --       version = not vim.g.lazyvim_blink_main and "*",
+  --     },
+  --     -- "octaltree/cmp-look",
+  --     "hrsh7th/cmp-emoji",
+  --     "hrsh7th/cmp-calc",
+  --     "saghen/blink.compat",
+  --     "giuxtaposition/blink-cmp-copilot",
+  --     {
+  --       "uga-rosa/cmp-dictionary",
+  --       config = function()
+  --         require("cmp_dictionary").setup({
+  --           paths = { "/usr/share/dict/words" },
+  --           exact_length = 2,
+  --         })
+  --       end,
+  --     },
+  --   },
+  --
+  --   event = { "InsertEnter", "CmdlineEnter" },
+  --   -- event = "InsertEnter",
+  --
+  --   ---@module 'blink.cmp'
+  --   ---@type blink.cmp.Config
+  --   opts = {
+  --     snippets = {
+  --       expand = function(snippet, _)
+  --         return LazyVim.cmp.expand(snippet)
+  --       end,
+  --     },
+  --     completion = {
+  --       trigger = {
+  --         prefetch_on_insert = false,
+  --         show_in_snippet = true,
+  --         show_on_keyword = true,
+  --         show_on_trigger_character = true,
+  --         show_on_accept_on_trigger_character = false,
+  --         show_on_insert_on_trigger_character = false,
+  --         -- show_on_x_blocked_trigger_characters = { "-" },
+  --         show_on_blocked_trigger_characters = {
+  --           " ",
+  --           "'",
+  --           '"',
+  --           "=",
+  --           "-",
+  --           ".",
+  --           ",",
+  --           "/",
+  --           ":",
+  --           "{",
+  --           "(",
+  --           ")",
+  --           "#",
+  --           "*",
+  --           "@",
+  --         },
+  --       },
+  --
+  --       -- menu = {
+  --       --   scrollbar = false,
+  --       --   border = "rounded",
+  --       --   winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+  --       --   draw = {
+  --       --     treesitter = { "lsp" },
+  --       --     components = {
+  --       --       kind_icon = {
+  --       --         ellipsis = true,
+  --       --         text = function(ctx)
+  --       --           local icon, _, _ = get_icon(ctx)
+  --       --           return icon .. ctx.icon_gap
+  --       --         end,
+  --       --         highlight = function(ctx)
+  --       --           local _, hl, _ = get_icon(ctx)
+  --       --           return hl
+  --       --         end,
+  --       --       },
+  --       --     },
+  --       --   },
+  --       -- },
+  --     },
+  --
+  --     sources = {
+  --       -- completion = {},
+  --
+  --       compat = {},
+  --       default = {
+  --         "lsp",
+  --         "path",
+  --         "cmdline",
+  --         "snippets",
+  --         "buffer",
+  --         "emoji",
+  --         "calc",
+  --         "copilot",
+  --         "dictionary",
+  --       },
+  --       providers = {
+  --         -- lsp = {
+  --         --   name = "lsp",
+  --         --   -- score_offset = 99,
+  --         -- },
+  --         snippets = {
+  --           name = "snippets",
+  --           module = "blink.cmp.sources.snippets",
+  --           score_offset = -3,
+  --           opts = {
+  --             friendly_snippets = true,
+  --             search_paths = { vim.fn.stdpath("config") .. "/snippet" },
+  --             global_snippets = { "all" },
+  --             extended_filetypes = {},
+  --             ignored_filetypes = {},
+  --           },
+  --         },
+  --         copilot = {
+  --           name = "copilot",
+  --           module = "blink-cmp-copilot",
+  --           kind = "Copilot",
+  --           score_offset = 100,
+  --           async = true,
+  --         },
+  --         emoji = {
+  --           name = "emoji",
+  --           module = "blink.compat.source",
+  --           kind = "Emoji",
+  --         },
+  --         calc = {
+  --           name = "calc",
+  --           module = "blink.compat.source",
+  --           kind = "Math",
+  --         },
+  --         dictionary = {
+  --           name = "dictionary",
+  --           module = "blink.compat.source",
+  --           -- score_offset = 3,
+  --           kind = "Dic",
+  --         },
+  --       },
+  --       cmdline = function()
+  --         local type = vim.fn.getcmdtype()
+  --         -- Search forward and backward
+  --         if type == "/" or type == "?" then
+  --           return { "buffer" }
+  --         end
+  --         -- Commands
+  --         if type == ":" then
+  --           return { "cmdline" }
+  --         end
+  --         return {}
+  --       end,
+  --     },
+  --
+  --     keymap = {
+  --       -- preset = "default",
+  --       ["<Tab>"] = { "select_and_accept" },
+  --       ["<C-p>"] = { "scroll_documentation_up", "fallback" },
+  --       ["<C-n>"] = { "scroll_documentation_down", "fallback" },
+  --     },
+  --   },
+  --   ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
+  --   config = function(_, opts)
+  --     -- setup compat sources
+  --     local enabled = opts.sources.default
+  --     for _, source in ipairs(opts.sources.compat or {}) do
+  --       opts.sources.providers[source] = vim.tbl_deep_extend(
+  --         "force",
+  --         { name = source, module = "blink.compat.source" },
+  --         opts.sources.providers[source] or {}
+  --       )
+  --       if type(enabled) == "table" and not vim.tbl_contains(enabled, source) then
+  --         table.insert(enabled, source)
+  --       end
+  --     end
+  --
+  --     if not opts.keymap["<S-Tab>"] then
+  --       if opts.keymap.preset == "super-tab" then -- super-tab
+  --         opts.keymap["<S-Tab>"] = {
+  --           require("blink.cmp.keymap.presets")["super-tab"][1],
+  --           LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
+  --           "fallback",
+  --         }
+  --       else -- other presets
+  --         opts.keymap["<S-Tab>"] = {
+  --           LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
+  --           "fallback",
+  --         }
+  --       end
+  --     end
+  --
+  --     -- Unset custom prop to pass blink.cmp validation
+  --     opts.sources.compat = nil
+  --
+  --     -- check if we need to override symbol kinds
+  --     for _, provider in pairs(opts.sources.providers or {}) do
+  --       ---@cast provider blink.cmp.SourceProviderConfig|{kind?:string}
+  --       if provider.kind then
+  --         local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+  --         local kind_idx = #CompletionItemKind + 1
+  --
+  --         CompletionItemKind[kind_idx] = provider.kind
+  --         ---@diagnostic disable-next-line: no-unknown
+  --         CompletionItemKind[provider.kind] = kind_idx
+  --
+  --         ---@type fun(ctx: blink.cmp.Context, items: blink.cmp.CompletionItem[]): blink.cmp.CompletionItem[]
+  --         local transform_items = provider.transform_items
+  --         ---@param ctx blink.cmp.Context
+  --         ---@param items blink.cmp.CompletionItem[]
+  --         provider.transform_items = function(ctx, items)
+  --           items = transform_items and transform_items(ctx, items) or items
+  --           for _, item in ipairs(items) do
+  --             item.kind = kind_idx or item.kind
+  --           end
+  --           return items
+  --         end
+  --
+  --         -- Unset custom prop to pass blink.cmp validation
+  --         provider.kind = nil
+  --       end
+  --     end
+  --
+  --     require("blink.cmp").setup(opts)
+  --   end,
+  -- },
 }

@@ -82,8 +82,26 @@ return {
   },
 
   opts = {
-    scope = { enabled = false },
-    indent = { enabled = true },
+    scope = { enabled = true },
+    indent = {
+      enabled = true,
+      chunk = {
+        enabled = true,
+        -- only show chunk scopes in the current window
+        only_current = false,
+        priority = 200,
+        hl = "SnacksIndentChunk", ---@type string|string[] hl group for chunk scopes
+        char = {
+          -- corner_top = "┌",
+          -- corner_bottom = "└",
+          corner_top = "╭",
+          corner_bottom = "╰",
+          horizontal = "─",
+          vertical = "│",
+          arrow = ">",
+        },
+      },
+    },
     input = { enabled = true },
     scroll = { enabled = false },
     dashboard = {
@@ -110,7 +128,20 @@ return {
         { section = "startup" },
       },
     },
-    bigfile = { enabled = true },
+    bigfile = {
+      enabled = true,
+      notify = true,
+      size = 1 * 1024 * 1024, -- 1MB
+      ---@param ctx {buf: number, ft:string}
+      setup = function(ctx)
+        vim.cmd([[NoMatchParen]])
+        Snacks.util.wo(0, { foldmethod = "manual", statuscolumn = "", conceallevel = 0 })
+        vim.b.minianimate_disable = true
+        vim.schedule(function()
+          vim.bo[ctx.buf].syntax = ctx.ft
+        end)
+      end,
+    },
     notifier = {
       enabled = true,
       timeout = 2000,
@@ -138,7 +169,7 @@ return {
         vim.print = _G.dd -- Override print to use snacks for `:=` command
 
         -- Create some toggle mappings
-        Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
+        -- Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
         Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
         Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
         Snacks.toggle.diagnostics():map("<leader>ud")

@@ -15,4 +15,9 @@ const q = () => {
 
 console.log(q);
 
+[].map(item => {
+  console.log(item);
+  qwe(item);
+});
+
 export default qwe;
