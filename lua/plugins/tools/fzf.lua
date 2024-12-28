@@ -11,5 +11,6 @@ return {
     { "<leader>ss", false },
     { "<leader>sw", false },
     { "<leader>sW", false },
+    { "<leader>sa", false },
   },
 }

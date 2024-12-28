@@ -15,9 +15,16 @@ const q = () => {
 
 console.log(q);
 
-[].map(item => {
-  console.log(item);
-  qwe(item);
-});
+/**
+ * 计算斐波那契数列的第n项
+ * @param {number} n 斐波那契数列的项数
+ * @returns {number} 第n项的斐波那契数列值
+ */
+function fibonacci(n) {
+  if (n <= 1) {
+    return n;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
 
 export default qwe;

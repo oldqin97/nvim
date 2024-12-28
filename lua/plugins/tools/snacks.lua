@@ -131,7 +131,7 @@ return {
     bigfile = {
       enabled = true,
       notify = true,
-      size = 1 * 1024 * 1024, -- 1MB
+      size = 1.5 * 1024 * 1024, -- 1MB
       ---@param ctx {buf: number, ft:string}
       setup = function(ctx)
         vim.cmd([[NoMatchParen]])

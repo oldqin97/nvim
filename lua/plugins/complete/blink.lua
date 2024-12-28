@@ -6,7 +6,7 @@ return {
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-calc",
       "saghen/blink.compat",
-      "giuxtaposition/blink-cmp-copilot",
+      -- "giuxtaposition/blink-cmp-copilot",
       {
         "uga-rosa/cmp-dictionary",
         config = function()
@@ -67,8 +67,21 @@ return {
           Dic = "",
         },
       },
-
       completion = {
+        menu = {
+          scrollbar = false,
+          border = "rounded",
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+          window = {
+            border = "rounded",
+            scrollbar = false,
+            winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+          },
+        },
         trigger = {
           -- prefetch_on_insert = false,
           -- show_in_snippet = true,
@@ -105,7 +118,7 @@ return {
           "buffer",
           "emoji",
           "calc",
-          "copilot",
+          -- "copilot",
           "dictionary",
         },
         providers = {
@@ -126,13 +139,13 @@ return {
               ignored_filetypes = {},
             },
           },
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            kind = "Copilot",
-            score_offset = 100,
-            async = true,
-          },
+          -- copilot = {
+          --   name = "copilot",
+          --   module = "blink-cmp-copilot",
+          --   kind = "Copilot",
+          --   score_offset = 100,
+          --   async = true,
+          -- },
           emoji = {
             name = "emoji",
             module = "blink.compat.source",
@@ -180,20 +193,20 @@ return {
       end
 
       -- add ai_accept to <Tab> key
-      if not opts.keymap["<S-Tab>"] then
-        if opts.keymap.preset == "super-tab" then -- super-tab
-          opts.keymap["<S-Tab>"] = {
-            require("blink.cmp.keymap.presets")["super-tab"][1],
-            LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
-            "fallback",
-          }
-        else -- other presets
-          opts.keymap["<S-Tab>"] = {
-            LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
-            "fallback",
-          }
-        end
-      end
+      -- if not opts.keymap["<S-Tab>"] then
+      --   if opts.keymap.preset == "super-tab" then -- super-tab
+      --     opts.keymap["<S-Tab>"] = {
+      --       require("blink.cmp.keymap.presets")["super-tab"][1],
+      --       LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
+      --       "fallback",
+      --     }
+      --   else -- other presets
+      --     opts.keymap["<S-Tab>"] = {
+      --       LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
+      --       "fallback",
+      --     }
+      --   end
+      -- end
 
       -- Unset custom prop to pass blink.cmp validation
       opts.sources.compat = nil
