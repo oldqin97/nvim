@@ -25,7 +25,7 @@ return {
         },
         use_default_keymaps = false,
         disable_specific_inline_completion = {
-          suffixes = { "TelescopePrompt", "neo-tree-popup" },
+          suffixes = { "TelescopePrompt", "neo-tree-popup", "SnacksPrompt" },
         },
 
         keymaps = {

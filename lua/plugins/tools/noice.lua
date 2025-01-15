@@ -7,6 +7,7 @@ return {
       enabled = true, -- 启用 cmdline
       opts = {}, -- 使用默认设置
       view = "cmdline", -- 使用默认 cmdline 显示
+      -- view = "cmdline_popup", -- 使用默认 cmdline 显示
       -- 过滤指定命令，不显示浮动命令行，直接执行
       -- format = {
       --   cmdline = { pattern = "^:", icon = ">", conceal = false, view = "cmdline" }, -- 保持浮动显示

@@ -24,7 +24,12 @@ return {
       })
     end,
   },
-
+  -- {
+  --   "wurli/visimatch.nvim",
+  --   opts = {
+  --     chars_lower_limit = 3,
+  --   },
+  -- },
   {
     "mei28/blink-bang-word-light.nvim",
     event = "VeryLazy",

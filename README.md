@@ -24,11 +24,9 @@ def hello_world():
 ```js
 function helloWorld() {
   console.log("Hello, World!");
-}
+
 ```
 
 ![test](assets/test.png)
 
 ![](https://raw.githubusercontent.com/oldqin97/cloudImg/main/blogs/picture/20240907000114.png)
-
-This is a apple

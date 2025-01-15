@@ -9,11 +9,7 @@ function qwe(q) {
   return q;
 }
 
-const q = () => {
-  return 0;
-};
-
-console.log(q);
+console.log(123);
 
 /**
  * 计算斐波那契数列的第n项
@@ -27,4 +23,7 @@ function fibonacci(n) {
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-export default qwe;
+new Promise(() => { });
+
+
+fibonacci(11);

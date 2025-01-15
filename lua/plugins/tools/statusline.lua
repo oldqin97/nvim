@@ -64,9 +64,10 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diagnostics" },
         lualine_c = {
-          -- "filename",
-
           "lsp-status",
+
+          -- lualine: There are some issues with your config. Run :LualineNotices for details
+          -- "filename",
           -- Lsp server name .
           -- {
           --   function()
@@ -98,6 +99,15 @@ return {
           --   end,
           --   color = Util.ui.fg("Constant"),
           -- },
+
+          {
+            function()
+              return require("lazydo").get_lualine_stats()
+            end,
+            cond = function()
+              return require("lazydo")._initialized
+            end,
+          },
           {
             function()
               return "  " .. require("dap").status()

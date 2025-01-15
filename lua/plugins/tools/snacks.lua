@@ -4,9 +4,105 @@ return {
   lazy = false,
   keys = {
     {
-      "<leader>bd",
-      false,
+      "<leader>:",
+      function()
+        Snacks.picker.command_history()
+      end,
+      desc = "Command History",
     },
+    { "<A-p>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+    -- find
+    {
+      "<leader>fb",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Buffers",
+    },
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.git_files()
+      end,
+      desc = "Find Files (git-files)",
+    },
+    { "<leader>fr", LazyVim.pick("oldfiles"), desc = "Recent" },
+    -- git
+    {
+      "<leader>gc",
+      function()
+        Snacks.picker.git_log()
+      end,
+      desc = "Git Log",
+    },
+    {
+      "<leader>gs",
+      function()
+        Snacks.picker.git_status()
+      end,
+      desc = "Git Status",
+    },
+    -- Grep
+    { "<A-f>", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
+    { "<C-f>", LazyVim.pick("grep_word"), desc = "Visual selection or word (Root Dir)", mode = { "n", "x" } },
+    -- search
+    {
+      "<leader>sc",
+      function()
+        Snacks.picker.command_history()
+      end,
+      desc = "Command History",
+    },
+    {
+      "<leader>sd",
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = "Diagnostics",
+    },
+    {
+      "<leader>sh",
+      function()
+        Snacks.picker.help()
+      end,
+      desc = "Help Pages",
+    },
+    {
+      "<leader>sj",
+      function()
+        Snacks.picker.jumps()
+      end,
+      desc = "Jumps",
+    },
+    {
+      "<leader>sk",
+      function()
+        Snacks.picker.keymaps()
+      end,
+      desc = "Keymaps",
+    },
+    {
+      "<leader>sl",
+      function()
+        Snacks.picker.loclist()
+      end,
+      desc = "Location List",
+    },
+    {
+      "<leader>sq",
+      function()
+        Snacks.picker.qflist()
+      end,
+      desc = "Quickfix List",
+    },
+    {
+      "<leader>qp",
+      function()
+        Snacks.picker.projects()
+      end,
+      desc = "Projects",
+    },
+
     {
       "<leader>un",
       function()
@@ -79,9 +175,39 @@ return {
       desc = "Prev Reference",
       mode = { "n", "t" },
     },
+    { "<leader>,", false },
+    { "<leader>/", false },
+    { "<leader>fc", false },
+    { "<leader>ff", false },
+    { "<leader>fF", false },
+    { "<leader>fR", false },
+    { "<leader>sb", false },
+    { "<leader>sB", false },
+    { "<leader>sG", false },
+    { "<leader>sW", false },
+    { '<leader>s"', false },
+    { "<leader>sa", false },
+    { "<leader>sC", false },
+    { "<leader>sH", false },
+    { "<leader>sM", false },
+    { "<leader>sm", false },
+    { "<leader>sR", false },
+    { "<leader>uC", false },
+    { "<leader>bd", false },
   },
 
   opts = {
+    picker = {
+      win = {
+        input = {
+          keys = {
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
+            ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+            ["<c-g>"] = { "toggle_hidden", mode = { "i", "n" } },
+          },
+        },
+      },
+    },
     scope = { enabled = true },
     indent = {
       enabled = true,
@@ -98,7 +224,7 @@ return {
           corner_bottom = "╰",
           horizontal = "─",
           vertical = "│",
-          arrow = ">",
+          arrow = "─",
         },
       },
     },
