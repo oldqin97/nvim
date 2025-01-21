@@ -101,3 +101,36 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --     vim.lsp.buf.clear_references()
 --   end,
 -- })
+if
+  client
+  and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
+  and vim.bo.filetype ~= "bigfile"
+then
+  local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+  vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+    buffer = event.buf,
+    group = highlight_augroup,
+    callback = vim.lsp.buf.document_highlight,
+  })
+
+  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+    buffer = event.buf,
+    group = highlight_augroup,
+    callback = vim.lsp.buf.clear_references,
+  })
+
+  vim.api.nvim_create_autocmd("LspDetach", {
+    group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+    callback = function(event2)
+      vim.lsp.buf.clear_references()
+      vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+    end,
+  })
+end
+
+-- 重新定义 LSP 高亮颜色
+vim.cmd([[
+  highlight LspReferenceText guibg=#7c6f64 gui=bold
+  highlight LspReferenceRead guibg=#7c6f64 gui=bold
+  highlight LspReferenceWrite guibg=#7c6f64 gui=bold
+]])

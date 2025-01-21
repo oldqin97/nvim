@@ -4,11 +4,11 @@ return {
   lazy = false,
   keys = {
     {
-      "<leader>:",
+      "<leader>hh",
       function()
-        Snacks.picker.command_history()
+        Snacks.notifier.show_history()
       end,
-      desc = "Command History",
+      desc = "Notification History",
     },
     { "<A-p>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
     -- find
@@ -175,7 +175,9 @@ return {
       desc = "Prev Reference",
       mode = { "n", "t" },
     },
+    { "<leader>:", false },
     { "<leader>,", false },
+    { "<leader><space>", false },
     { "<leader>/", false },
     { "<leader>fc", false },
     { "<leader>ff", false },
@@ -202,13 +204,30 @@ return {
         input = {
           keys = {
             ["<Esc>"] = { "close", mode = { "n", "i" } },
-            ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
-            ["<c-g>"] = { "toggle_hidden", mode = { "i", "n" } },
+            -- ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+            -- ["<c-g>"] = { "toggle_hidden", mode = { "i", "n" } },
           },
         },
       },
     },
-    scope = { enabled = true },
+    -- scope = { enabled = true },
+    scope = {
+      enabled = true, -- enable highlighting the current scope
+      priority = 200,
+      char = '┊',
+      underline = false, -- underline the start of the scope
+      only_current = true, -- only show scope in the current window
+      hl = {
+        'SnacksIndent1',
+        'SnacksIndent2',
+        'SnacksIndent3',
+        'SnacksIndent4',
+        'SnacksIndent5',
+        'SnacksIndent6',
+        'SnacksIndent7',
+        'SnacksIndent8',
+      },
+    },
     indent = {
       enabled = true,
       chunk = {
@@ -216,7 +235,17 @@ return {
         -- only show chunk scopes in the current window
         only_current = false,
         priority = 200,
-        hl = "SnacksIndentChunk", ---@type string|string[] hl group for chunk scopes
+        -- hl = "SnacksIndentChunk", ---@type string|string[] hl group for chunk scopes
+        hl = {
+          "SnacksIndent1",
+          "SnacksIndent2",
+          "SnacksIndent3",
+          "SnacksIndent4",
+          "SnacksIndent5",
+          "SnacksIndent6",
+          "SnacksIndent7",
+          "SnacksIndent8",
+        },
         char = {
           -- corner_top = "┌",
           -- corner_bottom = "└",

@@ -29,7 +29,6 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.editor.telescope" },
     -- { import = "lazyvim.plugins.extras.editor.Snacks_picker" },
 
-
     -- formatting
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.formatting.black" },
@@ -65,8 +64,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.util.startuptime" },
     { import = "lazyvim.plugins.extras.util.rest" },
-
-    -- { import = "lazyvim.plugins.extras.coding.copilot-chat" },
     { import = "plugins" },
   },
   defaults = {

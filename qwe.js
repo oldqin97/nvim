@@ -4,7 +4,7 @@
  * @param {*} q - 要打印和返回的输入参数。
  * @returns {*} 传入的相同输入参数。
  */
-function qwe(q) {
+function ttt(q) {
   console.log(q);
   return q;
 }
@@ -23,7 +23,5 @@ function fibonacci(n) {
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-new Promise(() => { });
-
-
+fibonacci(10);
 fibonacci(11);
