@@ -153,13 +153,6 @@ return {
       desc = "Lazygit Log (cwd)",
     },
     {
-      "<c-_>",
-      function()
-        Snacks.terminal()
-      end,
-      desc = "which_key_ignore",
-    },
-    {
       "]]",
       function()
         Snacks.words.jump(vim.v.count1)
@@ -204,28 +197,33 @@ return {
         input = {
           keys = {
             ["<Esc>"] = { "close", mode = { "n", "i" } },
-            -- ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
-            -- ["<c-g>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<a-g>"] = { "toggle_ignored", mode = { "i", "n" } },
+            ["<c-g>"] = { "toggle_hidden", mode = { "i", "n" } },
           },
         },
       },
     },
-    -- scope = { enabled = true },
+    animate = {
+      duration = {
+        step = 10,
+        duration = 100,
+      },
+    },
     scope = {
       enabled = true, -- enable highlighting the current scope
       priority = 200,
-      char = '┊',
+      char = "┊",
       underline = false, -- underline the start of the scope
       only_current = true, -- only show scope in the current window
       hl = {
-        'SnacksIndent1',
-        'SnacksIndent2',
-        'SnacksIndent3',
-        'SnacksIndent4',
-        'SnacksIndent5',
-        'SnacksIndent6',
-        'SnacksIndent7',
-        'SnacksIndent8',
+        "SnacksIndent1",
+        "SnacksIndent2",
+        "SnacksIndent3",
+        "SnacksIndent4",
+        "SnacksIndent5",
+        "SnacksIndent6",
+        "SnacksIndent7",
+        "SnacksIndent8",
       },
     },
     indent = {
