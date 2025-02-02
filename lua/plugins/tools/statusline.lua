@@ -65,7 +65,6 @@ return {
         lualine_b = { "branch", "diagnostics" },
         lualine_c = {
           "lsp-status",
-
           -- lualine: There are some issues with your config. Run :LualineNotices for details
           -- "filename",
           -- Lsp server name .

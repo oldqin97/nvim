@@ -42,11 +42,11 @@ return {
   {
 
     "mfussenegger/nvim-lint",
-    enabled = false,
+    enabled = true,
   },
   {
     "stevearc/conform.nvim",
-    enabled = false,
+    enabled = true,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -83,6 +83,14 @@ return {
   },
   {
     "rcarriga/nvim-notify",
+    enabled = false,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    enabled = false,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
     enabled = false,
   },
 }

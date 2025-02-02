@@ -1,4 +1,3 @@
-local api = vim.api
 local view_open = false
 
 -- 定义一个函数切换 Diffview 打开和关闭状态

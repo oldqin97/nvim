@@ -4,7 +4,7 @@ return {
   event = "BufReadPost",
   config = function()
     require("printer").setup({
-      keymap = "<leader>pb",     -- Plugin doesn't have any keymaps by default
+      keymap = "<leader>pb", -- Plugin doesn't have any keymaps by default
       behavior = "insert_below", -- how operator should behave
 
       formatters = {

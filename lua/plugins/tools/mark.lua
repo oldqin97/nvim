@@ -29,7 +29,9 @@ return {
       },
       {
         "<A-b>",
-        "<cmd>Telescope bookmarks list<CR>",
+        function()
+          require("bookmarks").bookmark_list()
+        end,
         { desc = "bookmark list" },
       },
     },

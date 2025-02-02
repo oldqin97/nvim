@@ -1,7 +1,7 @@
 local map = LazyVim.safe_keymap_set
 
 -- close page
-map("n", "<C-q>", "<cmd>q<CR>", { desc = "close page" })
+map({ "n", "i", "v" }, "<C-q>", "<cmd>q<CR>", { desc = "close page" })
 
 -- 移动行
 map("n", "<S-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })

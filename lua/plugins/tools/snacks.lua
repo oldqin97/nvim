@@ -1,8 +1,32 @@
+---@diagnostic disable: undefined-field
 return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
   keys = {
+    -- explorer
+    {
+      "<A-w>",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "explorer",
+    },
+    -- diagnostics
+    {
+      "<leader>bb",
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = "Notification History",
+    },
+    {
+      "<leader>dd",
+      function()
+        Snacks.picker.diagnostics_buffer()
+      end,
+      desc = "Notification History",
+    },
     {
       "<leader>hh",
       function()
@@ -10,8 +34,8 @@ return {
       end,
       desc = "Notification History",
     },
-    { "<A-p>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
     -- find
+    { "<A-p>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
     {
       "<leader>fb",
       function()
@@ -19,29 +43,7 @@ return {
       end,
       desc = "Buffers",
     },
-    {
-      "<leader>fg",
-      function()
-        Snacks.picker.git_files()
-      end,
-      desc = "Find Files (git-files)",
-    },
-    { "<leader>fr", LazyVim.pick("oldfiles"), desc = "Recent" },
-    -- git
-    {
-      "<leader>gc",
-      function()
-        Snacks.picker.git_log()
-      end,
-      desc = "Git Log",
-    },
-    {
-      "<leader>gs",
-      function()
-        Snacks.picker.git_status()
-      end,
-      desc = "Git Status",
-    },
+
     -- Grep
     { "<A-f>", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
     { "<C-f>", LazyVim.pick("grep_word"), desc = "Visual selection or word (Root Dir)", mode = { "n", "x" } },
@@ -54,6 +56,13 @@ return {
       desc = "Command History",
     },
     {
+      "<leader>:",
+      function()
+        Snacks.picker.commands()
+      end,
+      desc = "Commands",
+    },
+    {
       "<leader>sd",
       function()
         Snacks.picker.diagnostics()
@@ -63,9 +72,9 @@ return {
     {
       "<leader>sh",
       function()
-        Snacks.picker.help()
+        Snacks.picker.search_history()
       end,
-      desc = "Help Pages",
+      desc = "search history",
     },
     {
       "<leader>sj",
@@ -117,6 +126,29 @@ return {
       end,
       desc = "Delete Buffer",
     },
+    -- git
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.git_files()
+      end,
+      desc = "Find Files (git-files)",
+    },
+    { "<leader>fr", LazyVim.pick("oldfiles"), desc = "Recent" },
+    {
+      "<leader>gc",
+      function()
+        Snacks.picker.git_log()
+      end,
+      desc = "Git Log",
+    },
+    {
+      "<leader>gs",
+      function()
+        Snacks.picker.git_status()
+      end,
+      desc = "Git Status",
+    },
     {
       "<leader>gg",
       function()
@@ -143,12 +175,19 @@ return {
       function()
         Snacks.lazygit.log_file()
       end,
-      desc = "Lazygit Current File History",
+      desc = "Lazygit Current File History",
     },
     {
       "<leader>gl",
       function()
         Snacks.lazygit.log()
+      end,
+      desc = "Lazygit Log (cwd)",
+    },
+    {
+      "<leader>gb",
+      function()
+        Snacks.picker.git_branches()
       end,
       desc = "Lazygit Log (cwd)",
     },
@@ -168,7 +207,7 @@ return {
       desc = "Prev Reference",
       mode = { "n", "t" },
     },
-    { "<leader>:", false },
+
     { "<leader>,", false },
     { "<leader><space>", false },
     { "<leader>/", false },
@@ -193,9 +232,100 @@ return {
 
   opts = {
     picker = {
+      sources = {
+        explorer = {
+          finder = "explorer",
+          sort = { fields = { "sort" } },
+          tree = true,
+          git_status = true,
+          git_status_open = false,
+          supports_live = true,
+          follow_file = true,
+          focus = "list",
+          auto_close = true,
+          jump = { close = false },
+          formatters = { file = { filename_only = true } },
+          matcher = { sort_empty = true },
+          config = function(opts)
+            return require("snacks.picker.source.explorer").setup(opts)
+          end,
+          win = {
+            list = {
+              keys = {
+                ["<BS>"] = "explorer_up",
+                ["l"] = "confirm",
+                ["o"] = "confirm",
+                ["h"] = "explorer_close", -- close directory
+                ["a"] = "explorer_add",
+                ["d"] = "explorer_del",
+                ["r"] = "explorer_rename",
+                ["c"] = "explorer_copy",
+                ["m"] = "explorer_move",
+                ["<c-o>"] = "explorer_open", -- open with system application
+                ["P"] = "toggle_preview",
+                ["y"] = "explorer_yank",
+                ["u"] = "explorer_update",
+                ["<c-c>"] = "explorer_cd",
+                ["."] = "explorer_focus",
+                ["I"] = "toggle_ignored",
+                ["H"] = "toggle_hidden",
+                ["Z"] = "explorer_close_all",
+                ["]g"] = "explorer_git_next",
+                ["[g"] = "explorer_git_prev",
+                ["/"] = "toggle_focus",
+                ["<2-LeftMouse>"] = "confirm",
+                ["<CR>"] = "confirm",
+                ["<Down>"] = "list_down",
+                ["<Esc>"] = "close",
+                ["<S-CR>"] = { { "pick_win", "jump" } },
+                ["<S-Tab>"] = { "select_and_prev", mode = { "n", "x" } },
+                ["<Tab>"] = { "select_and_next", mode = { "n", "x" } },
+                ["<Up>"] = "list_up",
+                ["<a-d>"] = "inspect",
+                ["<a-f>"] = "toggle_follow",
+                ["<a-h>"] = "toggle_hidden",
+                ["<a-i>"] = "toggle_ignored",
+                ["<a-m>"] = "toggle_maximize",
+                ["<a-p>"] = "toggle_preview",
+                ["<a-w>"] = { "cycle_win", mode = { "i" } },
+                ["<c-a>"] = "select_all",
+                ["<c-b>"] = "preview_scroll_up",
+                ["<c-d>"] = "list_scroll_down",
+                ["<c-f>"] = "preview_scroll_down",
+                ["<c-j>"] = "list_down",
+                ["<c-k>"] = "list_up",
+                ["<c-n>"] = "list_down",
+                ["<c-p>"] = "list_up",
+                ["<c-s>"] = "edit_split",
+                ["<c-u>"] = "list_scroll_up",
+                ["<c-v>"] = "edit_vsplit",
+                ["?"] = "toggle_help_list",
+                ["G"] = "list_bottom",
+                ["gg"] = "list_top",
+                ["i"] = "focus_input",
+                ["j"] = "list_down",
+                ["k"] = "list_up",
+                ["q"] = "close",
+                ["zb"] = "list_scroll_bottom",
+                ["zt"] = "list_scroll_top",
+                ["zz"] = "list_scroll_center",
+              },
+            },
+          },
+          layout = {
+            preset = "sidebar",
+            preview = false,
+            layout = {
+              position = "right",
+            },
+          },
+        },
+      },
       win = {
         input = {
           keys = {
+            ["<Cr>"] = { "confirm", mode = { "i", "n" } },
+            ["<Tab>"] = { "confirm", mode = { "i", "n" } },
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<a-g>"] = { "toggle_ignored", mode = { "i", "n" } },
             ["<c-g>"] = { "toggle_hidden", mode = { "i", "n" } },
@@ -273,7 +403,7 @@ return {
         --   indent = 20,
         --   height = 20,
         -- },
-        { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 8 },
+        { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 0, width = 50 },
         { title = " Recent", section = "recent_files", cwd = true, limit = 3, padding = 1 },
 
         { title = " Projects", section = "projects", padding = 1 },
@@ -284,7 +414,7 @@ return {
     bigfile = {
       enabled = true,
       notify = true,
-      size = 1.5 * 1024 * 1024, -- 1MB
+      size = 1 * 1024 * 1024, -- 1MB
       ---@param ctx {buf: number, ft:string}
       setup = function(ctx)
         vim.cmd([[NoMatchParen]])

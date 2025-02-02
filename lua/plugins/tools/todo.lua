@@ -4,7 +4,13 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
     { "<leader>st", false },
-    { "<A-t>", "<cmd>TodoTelescope<CR>", { desc = "Todo list" } },
+    {
+      "<A-t>",
+      function()
+        Snacks.picker.todo_comments()
+      end,
+      { desc = "Todo list" },
+    },
   },
   opts = {
     keywords = {

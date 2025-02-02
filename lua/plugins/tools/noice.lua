@@ -3,10 +3,22 @@ return {
   event = "VeryLazy",
   keys = { { "<c-f>", false }, { "<c-b>", false } },
   opts = {
+    views = {
+      cmdline_popup = {
+        position = {
+          row = 5,
+          col = "50%",
+        },
+        size = {
+          width = 60,
+          height = "auto",
+        },
+      },
+    },
     cmdline = {
       enabled = true, -- 启用 cmdline
       opts = {}, -- 使用默认设置
-      view = "cmdline", -- 使用默认 cmdline 显示
+      view = "cmdline_popup", -- 使用默认 cmdline 显示
       -- view = "cmdline_popup", -- 使用默认 cmdline 显示
       -- 过滤指定命令，不显示浮动命令行，直接执行
       -- format = {
@@ -25,7 +37,7 @@ return {
     },
     lsp = {
       progress = {
-        enabled = false,
+        enabled = true,
       },
       hover = {
         enabled = false,
@@ -37,6 +49,9 @@ return {
         -- ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
         -- ["vim.lsp.util.stylize_markdown"] = true,
         -- ["cmp.entry.get_documentation"] = true,
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+        ["vim.lsp.util.stylize_markdown"] = false,
+        ["cmp.entry.get_documentation"] = false,
       },
     },
     notify = {
@@ -61,9 +76,37 @@ return {
             { find = "^%d+ lines yanked$" },
             { find = "is not attached to client" },
             { find = "Client with id" },
+            -- {
+            --   cond = function(message)
+            --     local client = vim.tbl_get(message.opts, "progress", "client")
+            --     return client == "null-ls"
+            --   end,
+            -- },
           },
         },
         opts = { stop = true },
+      },
+      -- {
+      --   filter = {
+      --     event = "lsp",
+      --     kind = "progress",
+      --     cond = function(message)
+      --       local client = vim.tbl_get(message.opts, "progress", "client")
+      --       return client == "null-ls"
+      --     end,
+      --   },
+      --   opts = { skip = true },
+      -- },
+      {
+        filter = {
+          event = "lsp",
+          kind = "progress",
+          cond = function(message)
+            local client = vim.tbl_get(message.opts, "progress", "client")
+            return client == "ltex"
+          end,
+        },
+        opts = { skip = true },
       },
     },
 
