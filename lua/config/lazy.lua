@@ -30,7 +30,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.editor.Snacks_picker" },
 
     -- formatting
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    -- { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.formatting.black" },
     -- { import = "lazyvim.plugins.extras.formatting.biome" },
     -- lang

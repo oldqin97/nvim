@@ -39,14 +39,10 @@ return {
     "echasnovski/mini.ai",
     enabled = false,
   },
-  {
 
-    "mfussenegger/nvim-lint",
-    enabled = true,
-  },
   {
     "stevearc/conform.nvim",
-    enabled = true,
+    enabled = false,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -87,10 +83,18 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
-    enabled = false,
+    enabled = true,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    enabled = false,
+  },
+  {
+    "mfussenegger/nvim-lint",
     enabled = false,
   },
 }

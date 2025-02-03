@@ -229,7 +229,6 @@ return {
     { "<leader>uC", false },
     { "<leader>bd", false },
   },
-
   opts = {
     picker = {
       sources = {
@@ -242,7 +241,7 @@ return {
           supports_live = true,
           follow_file = true,
           focus = "list",
-          auto_close = true,
+          auto_close = false,
           jump = { close = false },
           formatters = { file = { filename_only = true } },
           matcher = { sort_empty = true },
@@ -317,6 +316,27 @@ return {
             preview = false,
             layout = {
               position = "right",
+            },
+          },
+        },
+        projects = {
+          finder = "recent_projects",
+          format = "file",
+          dev = { "~/Library/Rime" },
+          confirm = "load_session",
+          patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile", "qyx.config" },
+          recent = true,
+          win = {
+            preview = { minimal = true },
+            input = {
+              keys = {
+                -- every action will always first change the cwd to the project
+                ["<c-e>"] = { { "cd", "picker_explorer" }, mode = { "n", "i" } },
+                ["<c-f>"] = { { "cd", "picker_files" }, mode = { "n", "i" } },
+                ["<c-g>"] = { { "cd", "picker_grep" }, mode = { "n", "i" } },
+                ["<c-r>"] = { { "cd", "picker_recent" }, mode = { "n", "i" } },
+                ["<c-w>"] = { { "cd" }, mode = { "n", "i" } },
+              },
             },
           },
         },

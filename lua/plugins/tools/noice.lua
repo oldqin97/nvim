@@ -86,17 +86,17 @@ return {
         },
         opts = { stop = true },
       },
-      -- {
-      --   filter = {
-      --     event = "lsp",
-      --     kind = "progress",
-      --     cond = function(message)
-      --       local client = vim.tbl_get(message.opts, "progress", "client")
-      --       return client == "null-ls"
-      --     end,
-      --   },
-      --   opts = { skip = true },
-      -- },
+      {
+        filter = {
+          event = "lsp",
+          kind = "progress",
+          cond = function(message)
+            local client = vim.tbl_get(message.opts, "progress", "client")
+            return client == "null-ls"
+          end,
+        },
+        opts = { skip = true },
+      },
       {
         filter = {
           event = "lsp",
