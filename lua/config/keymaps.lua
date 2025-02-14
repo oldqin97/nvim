@@ -1,5 +1,23 @@
 local map = LazyVim.safe_keymap_set
 
+local function comment_line()
+  local line = vim.api.nvim_get_current_line()
+
+  local row = vim.api.nvim_win_get_cursor(0)[1]
+  local commentstring = vim.bo.commentstring
+  local comment = commentstring:gsub("%%s", "")
+  local index = vim.bo.commentstring:find("%%s")
+
+  if not line:find("%S") then
+    vim.api.nvim_buf_set_lines(0, row - 1, row, false, { line .. comment })
+    vim.api.nvim_win_set_cursor(0, { row, #line + index - 1 })
+  else
+    require("vim._comment").toggle_lines(row, row, { row, 0 })
+  end
+end
+
+map("n", "gcc", comment_line)
+
 -- close page
 map({ "n", "i", "v" }, "<C-q>", "<cmd>q<CR>", { desc = "close page" })
 
@@ -100,12 +118,6 @@ map({ "n" }, "ma", "<Plug>(VM-Add-Cursor-At-Pos)", { desc = "Add Cursor At Pos" 
 map({ "n" }, "mo", "<Plug>(VM-Toggle-Mappings)", { desc = "Toggle Mapping" })
 map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
 
--- map("n", "<c-->", function()
---   Snacks.terminal(nil, { cwd = LazyVim.root() })
--- end, { desc = "Terminal (Root Dir)" })
-
--- map("t", "<C-->", "<cmd>close<cr>", { desc = "Hide Terminal" })
-
 -- local use_coc = false -- 默认使用 CoC
 -- -- switch coc & lsp
 -- -- 切换函数
@@ -147,5 +159,3 @@ vim.keymap.del({ "n" }, "<leader>-")
 vim.keymap.del({ "n" }, "<leader>|")
 vim.keymap.del({ "n" }, "<leader>us")
 vim.keymap.del({ "n" }, "<leader>ft")
-vim.keymap.del({ "t" }, "<C-/>")
-vim.keymap.del({ "n" }, "<c-/>")

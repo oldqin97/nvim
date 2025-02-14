@@ -5,6 +5,8 @@ return {
     { "<leader>u", "<cmd>UploadClipboard<cr>", desc = "upload image to upstream" },
   },
   config = function()
-    require("nvim-picgo").setup()
+    require("nvim-picgo").setup({
+      temporary_storage = false,
+    })
   end,
 }

@@ -4,10 +4,7 @@
  * @param {*} q - 要打印和返回的输入参数。
  * @returns {*} 传入的相同输入参数。
  */
-function ttt(q) {
-  console.log(q);
-  return q;
-}
+function ttt(q) {}
 
 console.log(123);
 
@@ -28,7 +25,10 @@ function fibonacci(n) {
   return b;
 }
 
-// 测试用例
+[1].map(item => {
+  console.log(item);
+});
+
 console.log(fibonacci(10)); // 55
 console.log(fibonacci(11)); // 89
 console.log(fibonacci(50)); // 12586269025

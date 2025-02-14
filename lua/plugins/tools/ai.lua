@@ -27,11 +27,13 @@ return {
         },
         use_default_keymaps = false,
         disable_specific_inline_completion = {
+          -- :lua print(vim.bo.filetype)
           suffixes = {
             "TelescopePrompt",
             "neo-tree-popup",
             "AvanteInput",
             "snacks_picker_input",
+            "snacks_input",
           },
         },
 
@@ -74,15 +76,17 @@ return {
         {
           opts.mappings.ask,
           function()
-            if ai_open then
+            -- AvanteInput
+            -- vim.cmd(bo.filetype)
+            if vim.bo.filetype == "AvanteInput" then
               vim.cmd("AvanteAsk")
               vim.schedule(function()
                 vim.api.nvim_feedkeys("\27", "n", false)
               end)
-              ai_open = false
+              -- ai_open = false
             else
               vim.cmd("AvanteAsk")
-              ai_open = true
+              -- ai_open = true
             end
           end,
           desc = "avante: ask",
@@ -146,7 +150,7 @@ return {
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      -- "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",

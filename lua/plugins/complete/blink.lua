@@ -55,18 +55,18 @@ return {
           show_on_keyword = true,
           show_on_trigger_character = true,
           show_on_accept_on_trigger_character = true,
-          show_on_insert_on_trigger_character = true,
+          show_on_insert_on_trigger_character = false,
           -- show_on_x_blocked_trigger_characters = { "-" },
           show_on_blocked_trigger_characters = {
             " ",
             "'",
             '"',
             "=",
-            "--",
+            -- "-",
             -- ".",
             ",",
             "/",
-            ":",
+            -- ":",
             "{",
             "}",
             "(",
@@ -83,7 +83,7 @@ return {
           "path",
           "snippets",
           "buffer",
-          "emoji",
+          -- "emoji",
           "calc",
           "dictionary",
         },
@@ -98,12 +98,12 @@ return {
             score_offset = -1,
             -- score_offset = 9,
           },
-          emoji = {
-            name = "emoji",
-            module = "blink.compat.source",
-            score_offset = 10,
-            kind = "Emoji",
-          },
+          -- emoji = {
+          --   name = "emoji",
+          --   module = "blink.compat.source",
+          --   score_offset = 10,
+          --   kind = "Emoji",
+          -- },
           -- emoji = {
           --   module = "blink-emoji",
           --   name = "Emoji",
@@ -126,9 +126,9 @@ return {
         cmdline = function()
           local type = vim.fn.getcmdtype()
           -- Search forward and backward
-          -- if type == "/" or type == "?" then
-          --   return { "buffer" }
-          -- end
+          if type == "/" or type == "?" then
+            return { "buffer" }
+          end
           -- Commands
           if type == ":" then
             return { "cmdline" }

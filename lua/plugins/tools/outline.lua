@@ -2,7 +2,8 @@ return {
   {
     -- "simrat39/symbols-outline.nvim",
     "hedyhli/outline.nvim",
-    cmd = { "Outline" },
+    -- cmd = { "Outline" },
+    Event = "VeryLazy",
     keys = {
       { "<A-o>", "<cmd>Outline<cr>", desc = "Toggle Outline" },
       { "<leader>cs", false },

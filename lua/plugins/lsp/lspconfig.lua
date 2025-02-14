@@ -90,15 +90,15 @@ return {
             suggest = {
               completeFunctionCalls = true,
             },
-            -- inlayHints = {
-            --   enumMemberValues = { enabled = false },
-            --   functionLikeReturnTypes = { enabled = false },
-            --   -- parameterNames = { enabled = "literals" },
-            --   parameterNames = { enabled = false },
-            --   parameterTypes = { enabled = false },
-            --   propertyDeclarationTypes = { enabled = false },
-            --   variableTypes = { enabled = false },
-            -- },
+            inlayHints = {
+              enumMemberValues = { enabled = false },
+              functionLikeReturnTypes = { enabled = true },
+              -- parameterNames = { enabled = "literals" },
+              parameterNames = { enabled = false },
+              parameterTypes = { enabled = false },
+              propertyDeclarationTypes = { enabled = false },
+              variableTypes = { enabled = false },
+            },
           },
         },
       },
@@ -110,7 +110,17 @@ return {
       },
       ltex = {
         language = "en-US",
-        filetypes = { "markdown", "txt" },
+        filetypes = { "markdown", "text" },
+      },
+      custom_elements_ls = {
+        filetypes = { "html" },
+      },
+      volar = {
+        init_options = {
+          vue = {
+            hybridMode = false,
+          },
+        },
       },
     },
   },

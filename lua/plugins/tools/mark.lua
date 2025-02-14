@@ -30,13 +30,14 @@ return {
       {
         "<A-b>",
         function()
-          require("bookmarks").bookmark_list()
+          require("telescope").extensions.bookmarks.list()
         end,
         { desc = "bookmark list" },
       },
     },
 
     config = function()
+      require("telescope").load_extension("bookmarks")
       require("bookmarks").setup({
         save_file = vim.fn.expand("~/.config/nvim/.bookmarks"),
         signs = {

@@ -27,10 +27,6 @@ function helloWorld() {
 
 ```
 
-![test](assets/test.png)
+![test](/Users/qin/.config/nvim/assets/2025-02-12-18-13-28.png)
 
-![111](https://raw.githubusercontent.com/oldqin97/cloudImg/main/blogs/picture/20240907000114.png)
-
-this is an apple
-
-this is an apple
+![111](/Users/qin/.config/nvim/assets/2025-02-14-18-15-59.png)

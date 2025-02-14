@@ -1,18 +1,17 @@
 return {
   -- "nvim-telescope/telescope.nvim",
   -- event = "VeryLazy",
+  -- keys = {},
   -- keys = function()
   --   return {
-  --     { "<A-p>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+  --     { "<A-p>", false },
   --     {
   --       "<A-f>",
-  --       LazyVim.pick("live_grep"),
-  --       desc = "live_grep",
+  --       false,
   --     },
   --     {
   --       "<C-f>",
-  --       LazyVim.pick("grep_string"),
-  --       desc = "grep_string",
+  --       false,
   --     },
   --
   --     { "<leader>r", false },
@@ -32,8 +31,7 @@ return {
   --     -- },
   --     {
   --       "<leader>sd",
-  --       LazyVim.pick("diagnostics"),
-  --       desc = "diagnostics",
+  --       false,
   --     },
   --     { "<leader>/", false },
   --     { "<leader>gc", false },

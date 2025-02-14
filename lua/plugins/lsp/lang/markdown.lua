@@ -12,8 +12,8 @@ return {
 
   {
     "dkarter/bullets.vim",
-    lazy = true,
-    ft = { "markdown", "txt" },
+    -- event = "VeryLazy",
+    ft = { "markdown", "text" },
   },
 
   {
