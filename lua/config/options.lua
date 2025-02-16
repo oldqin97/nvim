@@ -1,5 +1,6 @@
 -- local opt = vim.opt
 
+vim.g.lazyvim_blink_main = false
 vim.g.lazyvim_picker = "snacks"
 
 -- ai

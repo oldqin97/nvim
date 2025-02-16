@@ -18,6 +18,11 @@ end
 
 map("n", "gcc", comment_line)
 
+-- find
+map({ "n" }, "<a-p>", function()
+  Snacks.picker.smart()
+end, { desc = "Find Files (Root Dir)" })
+
 -- close page
 map({ "n", "i", "v" }, "<C-q>", "<cmd>q<CR>", { desc = "close page" })
 
@@ -52,7 +57,7 @@ map("v", "<S-h>", "^", { desc = "move cursor to begin" })
 map("v", "<S-l>", "$h", { desc = "move cursor to end" })
 
 -- 删除行
-map("n", "dh", "d^x", { desc = "move cursor to end" })
+map("n", "dh", "d^x", { desc = "move cursor to start" })
 map("n", "dl", "d$", { desc = "move cursor to end" })
 
 -- w  b 跳过标点符号

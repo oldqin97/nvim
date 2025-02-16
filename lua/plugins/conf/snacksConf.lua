@@ -39,8 +39,14 @@ return {
       end,
       desc = "Notification History",
     },
-    -- find
-    { "<A-p>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+    -- fihd
+    {
+      "<a-p>",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Find Files (Root Dir)",
+    },
     {
       "<leader>fb",
       function()

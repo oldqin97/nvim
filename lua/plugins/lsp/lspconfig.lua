@@ -10,7 +10,6 @@ return {
       end,
       desc = "Hover",
     }
-    keys[#keys + 1] = { "K", false }
     keys[#keys + 1] = {
       "gi",
       function()
@@ -25,12 +24,13 @@ return {
       end,
       desc = "Code Action",
     }
+    keys[#keys + 1] = { "K", false }
     keys[#keys + 1] = { "gI", false }
     keys[#keys + 1] = { "<A-r>", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
     keys[#keys + 1] = { "<leader>cr", false }
     keys[#keys + 1] = { "<leader>ca", false }
     keys[#keys + 1] = { "<leader>cl", false }
-    keys[#keys + 1] = { "<A-p>", false }
+    keys[#keys + 1] = { "<a-p>", false }
   end,
 
   opts = {
@@ -41,29 +41,6 @@ return {
           { "<leader>ca", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
           { "<leader>dr", "<cmd>RustDebuggables<cr>", desc = "Run Debuggables (Rust)" },
         },
-        -- settings = {
-        --   ["rust-analyzer"] = {
-        --     cargo = {
-        --       allFeatures = true,
-        --       loadOutDirsFromCheck = true,
-        --       runBuildScripts = true,
-        --     },
-        --
-        --     checkOnSave = {
-        --       allFeatures = true,
-        --       command = "clippy",
-        --       extraArgs = { "--no-deps" },
-        --     },
-        --     procMacro = {
-        --       enable = true,
-        --       ignored = {
-        --         ["async-trait"] = { "async_trait" },
-        --         ["napi-derive"] = { "napi" },
-        --         ["async-recursion"] = { "async_recursion" },
-        --       },
-        --     },
-        --   },
-        -- },
       },
       taplo = {
         keys = {
@@ -91,13 +68,13 @@ return {
               completeFunctionCalls = true,
             },
             inlayHints = {
-              enumMemberValues = { enabled = false },
+              enumMemberValues = { enabled = true },
               functionLikeReturnTypes = { enabled = true },
               -- parameterNames = { enabled = "literals" },
-              parameterNames = { enabled = false },
-              parameterTypes = { enabled = false },
-              propertyDeclarationTypes = { enabled = false },
-              variableTypes = { enabled = false },
+              parameterNames = { enabled = true },
+              parameterTypes = { enabled = true },
+              propertyDeclarationTypes = { enabled = true },
+              variableTypes = { enabled = true },
             },
           },
         },
@@ -117,6 +94,11 @@ return {
       },
       volar = {
         init_options = {
+          -- preferences = {
+          --   preferredTagNameCase = "kebab", -- 设置为kebab-case
+          --   preferredAttrNameCase = "kebab-case", -- Props属性名也使用kebab-case
+          --   -- 可选：其他偏好设置
+          -- },
           vue = {
             hybridMode = false,
           },

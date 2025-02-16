@@ -10,9 +10,13 @@ return {
     indent = require("plugins.conf.snacksConf").indent,
     dashboard = require("plugins.conf.snacksConf").dashboard,
     bigfile = require("plugins.conf.snacksConf").bigfile,
-    input = { enabled = true },
+    input = {
+      keys = {
+        n_esc = { "<esc>", { "cancel" }, mode = { "n", "i" }, expr = true },
+      },
+    },
     scroll = { enabled = false },
-    image = { force = true },
+    -- image = { enabled = true },
     animate = { duration = { step = 10, duration = 100 } },
     notifier = { enabled = true, timeout = 2000 },
     quickfile = { enabled = true },
