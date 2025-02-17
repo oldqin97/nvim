@@ -13,6 +13,7 @@ return {
       Emoji = "󰞅",
       Math = "",
       Dic = "",
+      Css = "",
     },
   },
   completion = {
@@ -49,7 +50,7 @@ return {
         -- "-",
         -- ".",
         ",",
-        "/",
+        -- "/",
         -- ":",
         "{",
         "}",
@@ -67,8 +68,12 @@ return {
       "path",
       "snippets",
       "buffer",
-      -- "calc",
-      -- "dictionary",
+      "calc",
+      "dictionary",
+      "emoji",
+      "cmdline",
+      "css_vars",
+      "env",
     },
     providers = {
       lsp = {
@@ -96,18 +101,50 @@ return {
       --   score_offset = 15, -- the higher the number, the higher the priority
       --   opts = { insert = true }, -- Insert emoji (default) or complete its name
       -- },
-      -- calc = {
-      --   name = "calc",
-      --   module = "blink.compat.source",
-      --   kind = "Math",
-      -- },
-      -- dictionary = {
-      --   name = "dictionary",
-      --   module = "blink.compat.source",
-      --   score_offset = -3,
-      --   min_keyword_length = 5,
-      --   kind = "Dic",
-      -- },
+      emoji = {
+        module = "blink-emoji",
+        name = "Emoji",
+        score_offset = 15, -- Tune by preference
+        opts = { insert = true }, -- Insert emoji (default) or complete its name
+        should_show_items = function()
+          return vim.tbl_contains(
+            -- Enable emoji completion only for git commits and markdown.
+            -- By default, enabled for all file-types.
+            { "gitcommit", "markdown" },
+            vim.o.filetype
+          )
+        end,
+      },
+      calc = {
+        name = "calc",
+        module = "blink.compat.source",
+        kind = "Math",
+      },
+      dictionary = {
+        name = "dictionary",
+        module = "blink.compat.source",
+        score_offset = -3,
+        min_keyword_length = 5,
+        kind = "Dic",
+      },
+      css_vars = {
+        name = "css-vars",
+        module = "css-vars.blink",
+        kind = "Css",
+        opts = {
+          search_extensions = { ".js", ".ts", ".jsx", ".tsx" },
+        },
+      },
+      env = {
+        name = "Env",
+        module = "blink-cmp-env",
+        --- @type blink-cmp-env.Options
+        opts = {
+          item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
+          show_braces = false,
+          show_documentation_window = true,
+        },
+      },
     },
   },
   cmdline = {

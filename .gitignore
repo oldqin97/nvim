@@ -9,4 +9,4 @@ data
 session
 .undodir
 .DS_Store
-test.*
+# test.*

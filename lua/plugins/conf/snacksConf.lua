@@ -175,7 +175,7 @@ return {
       desc = "Git Blame Line",
     },
     {
-      "<leader>gb",
+      "<leader>bg",
       function()
         Snacks.gitbrowse()
       end,
