@@ -19,6 +19,7 @@ return {
         end,
       },
     },
+
     opts = {
       keymap = require("plugins.conf.blinkConf").keymaps,
       appearance = require("plugins.conf.blinkConf").appearance,
