@@ -1,14 +1,14 @@
 return {
   keys = {
     --terminal
-    {
-      "<C-o>",
-      mode = { "n", "i", "t" },
-      function()
-        Snacks.terminal.open()
-      end,
-      desc = "terminal open",
-    },
+    -- {
+    --   "<C-o>",
+    --   mode = { "n", "i", "t" },
+    --   function()
+    --     Snacks.terminal.open()
+    --   end,
+    --   desc = "terminal open",
+    -- },
     -- explorer
     {
       "<A-w>",

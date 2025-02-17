@@ -7,3 +7,5 @@
 function ttt(q) {
   return q;
 }
+
+console.log(122)
