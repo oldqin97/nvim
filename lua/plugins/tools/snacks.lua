@@ -17,6 +17,7 @@ return {
     },
     scroll = { enabled = false },
     -- image = { enabled = true },
+
     animate = { duration = { step = 10, duration = 100 } },
     notifier = { enabled = true, timeout = 2000 },
     quickfile = { enabled = true },
