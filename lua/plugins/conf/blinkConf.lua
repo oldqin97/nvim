@@ -14,6 +14,7 @@ return {
       Math = "",
       Dic = "",
       Css = "",
+      R = "ﳒ",
     },
   },
   completion = {
@@ -63,6 +64,7 @@ return {
   },
   sources = {
     -- compat = {},
+
     default = {
       "lsp",
       "path",
@@ -75,6 +77,24 @@ return {
       "css_vars",
       "env",
     },
+    -- per_filetype = {
+    --   toml = {
+    --     "crates",
+    --     "lsp",
+    --     "path",
+    --     "snippets",
+    --     "buffer",
+    --   },
+    --   lua = {
+    --     "lazydev",
+    --     "lsp",
+    --     "path",
+    --     "snippets",
+    --     "buffer",
+    --     "calc",
+    --     "dictionary",
+    --   },
+    -- },
     providers = {
       lsp = {
         name = "LSP",
@@ -89,18 +109,6 @@ return {
         -- score_offset = 9,
       },
 
-      -- emoji = {
-      --   name = "emoji",
-      --   module = "blink.compat.source",
-      --   score_offset = 10,
-      --   kind = "Emoji",
-      -- },
-      -- emoji = {
-      --   module = "blink-emoji",
-      --   name = "Emoji",
-      --   score_offset = 15, -- the higher the number, the higher the priority
-      --   opts = { insert = true }, -- Insert emoji (default) or complete its name
-      -- },
       emoji = {
         module = "blink-emoji",
         name = "Emoji",
@@ -110,7 +118,7 @@ return {
           return vim.tbl_contains(
             -- Enable emoji completion only for git commits and markdown.
             -- By default, enabled for all file-types.
-            { "gitcommit", "markdown" },
+            { "gitcommit", "markdown", "text" },
             vim.o.filetype
           )
         end,
@@ -138,12 +146,23 @@ return {
       env = {
         name = "Env",
         module = "blink-cmp-env",
-        --- @type blink-cmp-env.Options
         opts = {
           item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
           show_braces = false,
           show_documentation_window = true,
         },
+      },
+      -- R = {
+      --   name = "R",
+      --   module = "blink.compat.source",
+      --   kind = "R",
+      --   score_offset = 1,
+      -- },
+      crates = {
+        name = "crates",
+        module = "blink.compat.source",
+        score_offset = 100,
+        -- async = true,
       },
     },
   },

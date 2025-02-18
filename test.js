@@ -1,11 +1,12 @@
 /**
- * test function
+ * 测试函数
  *
- * @param {string} q - string
- * @returns {string} string
+ * @param {string} q - 输入字符串
+ * @returns {string} 返回字符串
  */
 function ttt(q) {
   return q;
 }
 
-console.log(122)
+
+

@@ -9,6 +9,7 @@ return {
       "hrsh7th/cmp-calc",
       "jdrupal-dev/css-vars.nvim",
       "bydlw98/blink-cmp-env",
+      "Saecki/crates.nvim",
       {
         "uga-rosa/cmp-dictionary",
         config = function()
@@ -19,7 +20,6 @@ return {
         end,
       },
     },
-
     opts = {
       keymap = require("plugins.conf.blinkConf").keymaps,
       appearance = require("plugins.conf.blinkConf").appearance,
