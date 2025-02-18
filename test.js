@@ -8,4 +8,3 @@ function ttt(q) {
   return q;
 }
 
-
