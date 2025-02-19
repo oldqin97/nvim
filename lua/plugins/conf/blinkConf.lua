@@ -42,7 +42,7 @@ return {
       show_on_trigger_character = true,
       show_on_accept_on_trigger_character = true,
       show_on_insert_on_trigger_character = false,
-      -- show_on_x_blocked_trigger_characters = { "-" },
+      show_on_x_blocked_trigger_characters = { "-" },
       show_on_blocked_trigger_characters = {
         " ",
         "'",
@@ -63,8 +63,7 @@ return {
     },
   },
   sources = {
-    -- compat = {},
-
+    compat = {},
     default = {
       "lsp",
       "path",
@@ -73,9 +72,9 @@ return {
       "calc",
       "dictionary",
       "emoji",
-      "cmdline",
       "css_vars",
       "env",
+      "crates",
     },
     -- per_filetype = {
     --   toml = {
@@ -112,15 +111,10 @@ return {
       emoji = {
         module = "blink-emoji",
         name = "Emoji",
-        score_offset = 15, -- Tune by preference
-        opts = { insert = true }, -- Insert emoji (default) or complete its name
+        score_offset = 15,
+        opts = { insert = true },
         should_show_items = function()
-          return vim.tbl_contains(
-            -- Enable emoji completion only for git commits and markdown.
-            -- By default, enabled for all file-types.
-            { "gitcommit", "markdown", "text" },
-            vim.o.filetype
-          )
+          return vim.tbl_contains({ "gitcommit", "markdown", "text" }, vim.o.filetype)
         end,
       },
       calc = {
@@ -152,12 +146,6 @@ return {
           show_documentation_window = true,
         },
       },
-      -- R = {
-      --   name = "R",
-      --   module = "blink.compat.source",
-      --   kind = "R",
-      --   score_offset = 1,
-      -- },
       crates = {
         name = "crates",
         module = "blink.compat.source",

@@ -15,6 +15,7 @@ require("lazy").setup({
     -- code
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     { import = "lazyvim.plugins.extras.coding.blink" },
+    -- { import = "lazyvim.plugins.extras.coding.mini-comment" },
 
     -- dap
     { import = "lazyvim.plugins.extras.dap.core" },

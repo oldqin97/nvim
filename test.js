@@ -5,5 +5,40 @@
  * @returns {string} 返回字符串
  */
 function ttt(q) {
+  if ((q = 1)) return;
+  console.log(q);
   return q;
+}
+
+/**
+ * 计算斐波那契数列的第n项
+ *
+ * @param {number} n - 要计算的项数
+ * @returns {number} 斐波那契数列的第n项
+ *
+ * @example
+ * fibonacci(0) // 返回 0
+ * fibonacci(1) // 返回 1
+ * fibonacci(10) // 返回 55
+ */
+function fibonacci(n) {
+  // 处理特殊情况
+  if (n < 0) throw new Error("输入必须是非负整数");
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+
+  // 初始化前两个斐波那契数
+  let prev = 0;
+  let curr = 1;
+
+  // 从第2项开始计算
+  for (let i = 2; i <= n; i++) {
+    // 计算下一个斐波那契数
+    const next = prev + curr;
+    // 更新前两个数的值
+    prev = curr;
+    curr = next;
+  }
+
+  return curr;
 }
