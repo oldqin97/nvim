@@ -12,27 +12,20 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- ai
-    -- { import = "lazyvim.plugins.extras.ai.copilot" },
-    -- { import = "lazyvim.plugins.extras.ai.copilot-chat" },
     -- code
     { import = "lazyvim.plugins.extras.coding.luasnip" },
-    -- { import = "lazyvim.plugins.extras.coding.blink" },
+    { import = "lazyvim.plugins.extras.coding.blink" },
 
     -- dap
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.dap.nlua" },
     -- editor
-    -- { import = "lazyvim.plugins.extras.editor.illuminate" },
     { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "lazyvim.plugins.extras.editor.outline" },
     { import = "lazyvim.plugins.extras.editor.overseer" },
-    -- { import = "lazyvim.plugins.extras.editor.telescope" },
-    -- { import = "lazyvim.plugins.extras.editor.Snacks_picker" },
 
     -- formatting
-    -- { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.formatting.black" },
-    -- { import = "lazyvim.plugins.extras.formatting.biome" },
     -- lang
     { import = "lazyvim.plugins.extras.lang.angular" },
     { import = "lazyvim.plugins.extras.lang.astro" },
@@ -52,7 +45,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.git" },
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.lang.cmake" },
-    -- { import = "lazyvim.plugins.extras.lang.R" },
+
     -- lint
     { import = "lazyvim.plugins.extras.linting.eslint" },
     -- lsp
@@ -60,9 +53,6 @@ require("lazy").setup({
     -- test
     { import = "lazyvim.plugins.extras.test.core" },
     -- ui
-    -- { import = "lazyvim.plugins.extras.ui.alpha" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
-    -- { import = "lazyvim.plugins.extras.ui.smear-cursor" },
     -- util
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.util.startuptime" },

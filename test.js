@@ -7,4 +7,3 @@
 function ttt(q) {
   return q;
 }
-ttt("hello");
