@@ -1,4 +1,7 @@
 -- local opt = vim.opt
+vim.cmd([[
+let g:loaded_perl_provider = 0
+]])
 
 vim.g.lazyvim_blink_main = false
 vim.g.lazyvim_picker = "snacks"

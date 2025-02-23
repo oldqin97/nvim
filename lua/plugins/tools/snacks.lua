@@ -11,8 +11,10 @@ return {
     dashboard = require("plugins.conf.snacksConf").dashboard,
     bigfile = require("plugins.conf.snacksConf").bigfile,
     input = {
+      enabled = true,
       keys = {
-        n_esc = { "<esc>", { "cancel" }, mode = { "n", "i" }, expr = true },
+        n_esc = { "<esc>", { "cancel" }, mode = "n", expr = true },
+        i_esc = { "<esc>", { "cancel" }, mode = "i", expr = true },
       },
     },
     scroll = { enabled = false },

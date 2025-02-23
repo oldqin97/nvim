@@ -6,7 +6,8 @@ return {
       { "<F1>", "<cmd>lua require('kulala').run()<cr>", desc = "rest" },
     },
     opts = {
-      default_view = "headers_body",
+      -- default_view = "headers_body",
+      default_view = "verbose",
     },
     -- config = function()
     --   require("kulala").setup({
