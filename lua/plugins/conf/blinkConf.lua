@@ -174,11 +174,15 @@ return {
   },
   cmdline = {
     enabled = true,
-    keymap = nil, -- Inherits from top level `keymap` config when not set
+    keymap = {
+      ["<Tab>"] = { "select_and_accept" },
+      ["<Up>"] = { "select_prev", "fallback" },
+      ["<Down>"] = { "select_next", "fallback" },
+    },
     sources = function()
       local type = vim.fn.getcmdtype()
       -- Search forward and backward
-      if type == "?" then
+      if type == "/" or type == "?" then
         return { "buffer" }
       end
       -- Commands
@@ -190,14 +194,20 @@ return {
     completion = {
       trigger = {
         show_on_blocked_trigger_characters = {},
-        show_on_x_blocked_trigger_characters = nil,
+        show_on_x_blocked_trigger_characters = {},
       },
-      menu = {
-        auto_show = nil,
-        draw = {
-          columns = { { "label", "label_description", gap = 1 } },
+      list = {
+        selection = {
+          -- When `true`, will automatically select the first item in the completion list
+          preselect = true,
+          -- When `true`, inserts the completion item automatically when selecting it
+          auto_insert = true,
         },
       },
+      -- Whether to automatically show the window when new completion items are available
+      menu = { auto_show = true },
+      -- Displays a preview of the selected item on the current line
+      ghost_text = { enabled = false },
     },
   },
 }

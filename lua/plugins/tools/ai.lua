@@ -4,71 +4,83 @@ local ai_open = false
 
 return {
   {
-    "luozhiya/fittencode.nvim",
-    -- event = "VeryLazy",
-    event = { "InsertEnter", "CmdlineEnter" },
-    keys = {
-      { "<leader>ad", "<cmd>Fitten document_code<CR>", desc = "Fitten document code", mode = { "v" } },
-      -- { "<leader>ae", "<cmd>Fitten edit_code<CR>", desc = "Fitten edit code", mode = { "v" } },
-      { "<leader>tt", "<cmd>Fitten generate_unit_test<CR>", desc = "Fitten generate unit test", mode = { "v" } },
-      { "<leader>ao", "<cmd>Fitten optimize_code<CR>", desc = "Fitten optimize code", mode = { "v" } },
-      { "<leader>af", "<cmd>Fitten find_bugs<CR>", desc = "Fitten find bugs", mode = { "v" } },
-      -- { "<leader>sa", "<cmd>Fitten show_chat<CR>", desc = "Fitten show chat" },
+    "supermaven-inc/supermaven-nvim",
+    opts = {
+      keymaps = {
+        accept_suggestion = nil, -- handled by nvim-cmp / blink.cmp
+        clear_suggestion = "<C-j>",
+      },
+      ignore_filetypes = {
+        "bigfile",
+        "snacks_input",
+        "snacks_notif",
+        "AvanteInput",
+      },
     },
-    config = function()
-      require("fittencode").setup({
-        -- completion_mode = "source",
-        chat = {
-          style = "floating",
-          floating = {
-            border = "rounded",
-            size = { width = 0.8, height = 0.8 },
-          },
-        },
-        use_default_keymaps = false,
-        disable_specific_inline_completion = {
-          -- :lua print(vim.bo.filetype)
-          suffixes = {
-            "TelescopePrompt",
-            "neo-tree-popup",
-            "AvanteInput",
-            "snacks_picker_input",
-            "snacks_input",
-          },
-        },
-
-        keymaps = {
-          inline = {
-            -- ["<A-d>"] = "accept_all_suggestions",
-            ["<S-Tab>"] = "accept_all_suggestions",
-            ["<C-Down>"] = "accept_line",
-            ["<C-Right>"] = "accept_word",
-            ["<C-Up>"] = "revoke_line",
-            ["<C-Left>"] = "revoke_word",
-            ["<A-\\>"] = "triggering_completion",
-          },
-          chat = {
-            ["q"] = "close",
-            ["[c"] = "goto_previous_conversation",
-            ["]c"] = "goto_next_conversation",
-            ["c"] = "copy_conversation",
-            ["C"] = "copy_all_conversations",
-            ["d"] = "delete_conversation",
-            ["D"] = "delete_all_conversations",
-          },
-        },
-      })
-    end,
   },
+  -- {
+  --   "luozhiya/fittencode.nvim",
+  --   -- event = "VeryLazy",
+  --   event = { "InsertEnter", "CmdlineEnter" },
+  --   keys = {
+  --     { "<leader>ad", "<cmd>Fitten document_code<CR>", desc = "Fitten document code", mode = { "v" } },
+  --     -- { "<leader>ae", "<cmd>Fitten edit_code<CR>", desc = "Fitten edit code", mode = { "v" } },
+  --     { "<leader>tt", "<cmd>Fitten generate_unit_test<CR>", desc = "Fitten generate unit test", mode = { "v" } },
+  --     { "<leader>ao", "<cmd>Fitten optimize_code<CR>", desc = "Fitten optimize code", mode = { "v" } },
+  --     { "<leader>af", "<cmd>Fitten find_bugs<CR>", desc = "Fitten find bugs", mode = { "v" } },
+  --     -- { "<leader>sa", "<cmd>Fitten show_chat<CR>", desc = "Fitten show chat" },
+  --   },
+  --   config = function()
+  --     require("fittencode").setup({
+  --       -- completion_mode = "source",
+  --       chat = {
+  --         style = "floating",
+  --         floating = {
+  --           border = "rounded",
+  --           size = { width = 0.8, height = 0.8 },
+  --         },
+  --       },
+  --       use_default_keymaps = false,
+  --       disable_specific_inline_completion = {
+  --         -- :lua print(vim.bo.filetype)
+  --         suffixes = {
+  --           "TelescopePrompt",
+  --           "neo-tree-popup",
+  --           "AvanteInput",
+  --           "snacks_picker_input",
+  --           "snacks_input",
+  --         },
+  --       },
+  --
+  --       keymaps = {
+  --         inline = {
+  --           -- ["<A-d>"] = "accept_all_suggestions",
+  --           ["<S-Tab>"] = "accept_all_suggestions",
+  --           ["<C-Down>"] = "accept_line",
+  --           ["<C-Right>"] = "accept_word",
+  --           ["<C-Up>"] = "revoke_line",
+  --           ["<C-Left>"] = "revoke_word",
+  --           ["<A-\\>"] = "triggering_completion",
+  --         },
+  --         chat = {
+  --           ["q"] = "close",
+  --           ["[c"] = "goto_previous_conversation",
+  --           ["]c"] = "goto_next_conversation",
+  --           ["c"] = "copy_conversation",
+  --           ["C"] = "copy_all_conversations",
+  --           ["d"] = "delete_conversation",
+  --           ["D"] = "delete_all_conversations",
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
+
   {
     "yetone/avante.nvim",
-    -- event = "VeryLazy",
-    cmd = { "AvanteAsk" },
+    event = "VeryLazy",
     lazy = false,
-    version = false, -- set this if you want to always pull the latest change
-    -- keys = {
-    --   { "<leader>cc", "<cmd>AvanteClear<CR>", desc = "clear avante history" },
-    -- },
+    version = "v0.0.19",
     keys = function(_, keys)
       local opts =
         require("lazy.core.plugin").values(require("lazy.core.config").spec.plugins["avante.nvim"], "opts", false)

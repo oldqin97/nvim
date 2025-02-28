@@ -1,23 +1,59 @@
-return {
-  -- print
-  "rareitems/printer.nvim",
-  event = "BufReadPost",
-  config = function()
-    require("printer").setup({
-      keymap = "<leader>pb", -- Plugin doesn't have any keymaps by default
-      behavior = "insert_below", -- how operator should behave
+return {}
+-- return {
+--   -- print
+--   "rareitems/printer.nvim",
+--   event = "BufReadPost",
+--   config = function()
+--     require("printer").setup({
+--       keymap = "<leader>pb", -- Plugin doesn't have any keymaps by default
+--       behavior = "insert_below", -- how operator should behave
+--
+--       formatters = {
+--         lua = function(inside, variable)
+--           return string.format('print("%s: " .. %s)', inside, variable)
+--         end,
+--       },
+--       add_to_inside = function(text)
+--         return string.format("[%s:%s] %s", vim.fn.expand("%"), vim.fn.line("."), text)
+--       end,
+--     })
+--
+--     vim.keymap.set("n", "<leader>pb", "<Plug>(printer_below)iw")
+--     vim.keymap.set("v", "<leader>pb", "<Plug>(printer_below)iw")
+--   end,
+-- }
 
-      formatters = {
-        lua = function(inside, variable)
-          return string.format('print("%s: " .. %s)', inside, variable)
-        end,
-      },
-      add_to_inside = function(text)
-        return string.format("[%s:%s] %s", vim.fn.expand("%"), vim.fn.line("."), text)
-      end,
-    })
-
-    vim.keymap.set("n", "<leader>pb", "<Plug>(printer_below)iw")
-    vim.keymap.set("v", "<leader>pb", "<Plug>(printer_below)iw")
-  end,
-}
+-- return {
+--   "andrewferrier/debugprint.nvim",
+--   opts = {
+--
+--     keymaps = {
+--       normal = {
+--         plain_below = "<leader>pb",
+--         plain_above = "g?P",
+--         variable_below = "g?v",
+--         variable_above = "g?V",
+--         variable_below_alwaysprompt = "",
+--         variable_above_alwaysprompt = "",
+--         textobj_below = "g?o",
+--         textobj_above = "g?O",
+--         toggle_comment_debug_prints = "",
+--         delete_debug_prints = "",
+--       },
+--       insert = {
+--         plain = "<C-G>p",
+--         variable = "<C-G>v",
+--       },
+--       visual = {
+--         variable_below = "g?v",
+--         variable_above = "g?V",
+--       },
+--     },
+--     commands = {
+--       toggle_comment_debug_prints = "ToggleCommentDebugPrints",
+--       delete_debug_prints = "DeleteDebugPrints",
+--       reset_debug_prints_counter = "ResetDebugPrintsCounter",
+--     },
+--     -- … Other options
+--   },
+-- }

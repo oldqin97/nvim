@@ -101,14 +101,6 @@ return {
 
           {
             function()
-              return require("lazydo").get_lualine_stats()
-            end,
-            cond = function()
-              return require("lazydo")._initialized
-            end,
-          },
-          {
-            function()
               return "  " .. require("dap").status()
             end,
             cond = function()

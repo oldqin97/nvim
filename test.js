@@ -1,5 +1,3 @@
-import hello from "./qwe.js";
-
 /**
  * 测试函数
  *
@@ -7,7 +5,6 @@ import hello from "./qwe.js";
  * @returns {string} 返回字符串
  */
 function ttt(q) {
-  if ((q = 1)) return;
   console.log(q);
   return q;
 }
@@ -32,9 +29,7 @@ function fibonacci(n) {
   let curr = 1;
 
   for (let i = 2; i <= n; i++) {
-    const next = prev + curr;
-    prev = curr;
-    curr = next;
+    [prev, curr] = [curr, prev + curr];
   }
 
   return curr;

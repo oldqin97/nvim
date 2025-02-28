@@ -13,7 +13,7 @@ return {
   },
   {
     "folke/which-key.nvim",
-    enabled = true,
+    enabled = false,
   },
   {
     "echasnovski/mini.pairs",

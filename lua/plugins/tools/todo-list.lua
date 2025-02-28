@@ -7,18 +7,18 @@ return {
   --     })
   --   end,
   -- },
-  {
-    "Dan7h3x/LazyDo",
-    -- branch = "main",
-    -- event = "VeryLazy",
-    cmd = { "LazyDoToggle" },
-    keys = {
-      {
-        "<leader>do",
-        "<ESC><CMD>LazyDoToggle<CR>",
-        mode = { "n" },
-      },
-    },
-    opts = {},
-  },
+  -- {
+  --   "Dan7h3x/LazyDo",
+  --   -- branch = "main",
+  --   -- event = "VeryLazy",
+  --   cmd = { "LazyDoToggle" },
+  --   keys = {
+  --     {
+  --       "<leader>do",
+  --       "<ESC><CMD>LazyDoToggle<CR>",
+  --       mode = { "n" },
+  --     },
+  --   },
+  --   opts = {},
+  -- },
 }

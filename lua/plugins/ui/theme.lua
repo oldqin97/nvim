@@ -25,7 +25,7 @@ return {
         contrast = "",
         palette_overrides = {},
         overrides = {
-          -- Comment = { fg = "#83cbac" },
+          Comment = { fg = "#83cbac" },
           Search = { bg = "#51afef", fg = "#eeeeee" },
           IncSearch = { bg = "#FF8800", fg = "#eeeeee" },
           MatchParen = { bg = "#458588" },
@@ -37,12 +37,20 @@ return {
           ["@function"] = { link = "Function" }, -- Treesitter 同步
           ["@keyword.function"] = { fg = "#ea6962" },
 
+          AvanteConflictCurrentLabel = { bg = "#B71C1C", fg = "#FFFFFF" },
+          AvanteConflictCurrent = { bg = "#9e5d55" },
+          AvanteConflictIncoming = { bg = "#6d8fa6" },
+          AvanteConflictIncomingLabel = { bg = "#2376b7", fg = "#FFFFFF" },
+
           -- 对象/类定义（橙色突出）
           ["@constructor"] = { fg = "#FE8019", bold = true }, -- 亮橙色
           Type = { fg = "#FE8019", italic = true }, -- 类型提示
 
+          -- 清除代码片段跳转高亮
+          SnippetTabstop = { fg = NONE, bg = NONE },
+
           LspInlayHint = {
-            fg = "#7C6F64", -- Gruvbox 深灰色（与注释协调）
+            fg = "#7C6F65", -- Gruvbox 深灰色（与注释协调）
             bg = "#3C3836", -- 深灰背景（可选）
           },
 
@@ -52,8 +60,12 @@ return {
           ["@variable"] = { fg = "#B3DAFB" },
           ["@lsp.typemod.variable.readonly"] = { fg = "#6FBFFA" },
 
+          -- unused
+          DiagnosticUnnecessary = { fg = "#bdaead" },
+
           -- 字符串
           String = { fg = "#C5967D" },
+          -- String = { fg = "#FFFFFF" },
           ["@string"] = { link = "String" },
 
           -- 关键字（粉色醒目）
@@ -67,7 +79,7 @@ return {
           ["@number"] = { link = "Number" },
 
           -- boolean
-          Boolean = { fg = "#75739a" },
+          Boolean = { fg = "#fbf1c7" },
           ["@boolean"] = { link = "Boolean" },
 
           TSComment = { fg = "#83cbac" },
