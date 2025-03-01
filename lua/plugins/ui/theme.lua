@@ -29,7 +29,8 @@ return {
           Search = { bg = "#51afef", fg = "#eeeeee" },
           IncSearch = { bg = "#FF8800", fg = "#eeeeee" },
           MatchParen = { bg = "#458588" },
-          Visual = { bg = "#BB4747", fg = "white" },
+          -- Visual = { bg = "#BB4747", fg = "white" },
+          Cursor = { bg = "#FF0000", fg = "#FFFFFF", bold = true },
 
           -- 函数定义/调用（黄色加强版）
           Function = { fg = "#FFD700", bold = true }, -- 亮金色

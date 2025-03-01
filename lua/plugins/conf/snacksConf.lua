@@ -30,7 +30,7 @@ return {
       end,
       desc = "Notification History",
     },
-    -- fihd
+    -- find
     {
       "<a-p>",
       function()
@@ -245,7 +245,9 @@ return {
         git_status = true,
         git_status_open = false,
         supports_live = true,
+        git_untracked = true,
         follow_file = true,
+        diagnostics_open = true,
         focus = "list",
         auto_close = true,
         jump = { close = false },

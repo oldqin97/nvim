@@ -1,7 +1,7 @@
 return {
   {
     "akinsho/bufferline.nvim",
-    event = "BufReadPost",
+    event = "VeryLazy",
     keys = {
       { "<leader>bp", false },
       { "<leader>bP", false },
@@ -15,57 +15,31 @@ return {
       { "<A-9>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
       { "<A-0>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     },
-    opts = {
-      options = {
-        close_command = function(n)
-          require("mini.bufremove").delete(n, false)
-        end,
-        right_mouse_command = function(n)
-          require("mini.bufremove").delete(n, false)
-        end,
-        diagnostics = "nvim_lsp",
-        always_show_bufferline = false,
-        diagnostics_indicator = function(_, _, diag)
-          local icons = require("lazyvim.config").icons.diagnostics
-          local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-            .. (diag.warning and icons.Warn .. diag.warning or "")
-          return vim.trim(ret)
-        end,
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "Neo-tree",
-            highlight = "Directory",
-            text_align = "left",
-          },
-        },
-      },
-    },
+
     config = function()
       require("bufferline").setup({
         highlights = {
           numbers_selected = {
-            fg = "#f9ecdf",
-            bg = "#126bae",
+            fg = "#89b4fa",
+            bg = "#45475a",
           },
           buffer_selected = {
-            fg = "#f9ecdf",
-            bg = "#126bae",
+            fg = "#89b4fa",
+            bg = "#45475a",
             bold = true,
-            italic = true,
           },
           duplicate_selected = {
-            fg = "#f9ecdf",
-            bg = "#126bae",
+            fg = "#89b4fa",
+            bg = "#45475a",
             italic = true,
           },
           close_button_selected = {
             fg = "#f9ecdf",
-            bg = "#825855",
+            bg = "#45475a",
           },
           modified_selected = {
             fg = "#f9ecdf",
-            bg = "#825855",
+            bg = "#45475a",
           },
         },
 
@@ -77,16 +51,17 @@ return {
           view = "multiwindow",
           themable = true,
           show_buffer_icons = true,
-          color_icons = false,
-          modified_icon = " ●",
+          color_icons = true,
+          modified_icon = "",
+
           left_trunc_marker = " ",
           right_trunc_marker = " ",
-          show_close_icon = true,
+          show_close_icon = false,
           close_icon = " ",
 
           show_buffer_close_icons = true,
-          -- buffer_close_icon = "󰅙",
-          buffer_close_icon = " ",
+          buffer_close_icon = "󰅙",
+          -- buffer_close_icon = " ",
 
           tab_size = 10,
 
@@ -101,23 +76,6 @@ return {
           numbers = function(opts)
             return string.format(" %s.", opts.ordinal)
           end,
-
-          diagnostics = false,
-          diagnostics_indicator = function(_, _, diag)
-            local icons = require("lazyvim.config").icons.diagnostics
-            local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-              .. (diag.warning and icons.Warn .. diag.warning or "")
-            return vim.trim(ret)
-          end,
-
-          -- offsets = {
-          --   {
-          --     filetype = "neo-tree",
-          --     text = "Neo-tree",
-          --     highlight = "Directory",
-          --     text_align = "left",
-          --   },
-          -- },
         },
       })
     end,
