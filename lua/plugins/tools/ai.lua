@@ -1,7 +1,5 @@
 ---@diagnostic disable: missing-fields
 
-local ai_open = false
-
 return {
   {
     "supermaven-inc/supermaven-nvim",
@@ -80,7 +78,7 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
-    version = "v0.0.19",
+    -- version = "v0.0.19",
     keys = function(_, keys)
       local opts =
         require("lazy.core.plugin").values(require("lazy.core.config").spec.plugins["avante.nvim"], "opts", false)
@@ -92,17 +90,17 @@ return {
             -- AvanteInput
             -- vim.cmd(bo.filetype)
             if vim.bo.filetype == "AvanteInput" then
-              vim.cmd("AvanteAsk")
+              vim.cmd("AvanteToggle")
               vim.schedule(function()
                 vim.api.nvim_feedkeys("\27", "n", false)
               end)
               -- ai_open = false
             else
-              vim.cmd("AvanteAsk")
+              vim.cmd("AvanteToggle")
               -- ai_open = true
             end
           end,
-          desc = "avante: ask",
+          desc = "avante: toggle",
           mode = { "n", "v", "i" },
         },
         {
@@ -185,9 +183,9 @@ return {
         -- Make sure to set this up properly if you have lazy=true
         "MeanderingProgrammer/render-markdown.nvim",
         opts = {
-          file_types = { "markdown", "Avante" },
+          file_types = { "Avante" },
         },
-        ft = { "markdown", "Avante" },
+        ft = { "Avante" },
       },
     },
   },

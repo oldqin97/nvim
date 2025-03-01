@@ -58,7 +58,7 @@ return {
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    enabled = false,
+    enabled = true,
   },
   {
     "RRethy/vim-illuminate",
