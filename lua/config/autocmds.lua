@@ -79,6 +79,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "yaml",
     "dart",
     "sql",
+    "jsonc",
   },
   callback = function()
     vim.b.autoformat = false
@@ -129,8 +130,8 @@ then
 end
 
 -- 重新定义 LSP 高亮颜色
-vim.cmd([[
-  highlight LspReferenceText guibg=#7c6f64 gui=bold
-  highlight LspReferenceRead guibg=#7c6f64 gui=bold
-  highlight LspReferenceWrite guibg=#7c6f64 gui=bold
-]])
+-- vim.cmd([[
+--   highlight LspReferenceText guibg=#7c6f64 gui=bold
+--   highlight LspReferenceRead guibg=#7c6f64 gui=bold
+--   highlight LspReferenceWrite guibg=#7c6f64 gui=bold
+-- ]])

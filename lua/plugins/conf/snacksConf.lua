@@ -136,7 +136,13 @@ return {
       end,
       desc = "Find Files (git-files)",
     },
-    { "<leader>fr", LazyVim.pick("oldfiles"), desc = "Recent" },
+    {
+      "<leader>fr",
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = "Recent",
+    },
     {
       "<leader>gc",
       function()
@@ -217,7 +223,6 @@ return {
     { "<leader>ff", false },
     { "<leader>fF", false },
     { "<leader>fR", false },
-    -- { "<leader>sb", false },
     { "<leader>sB", false },
     { "<leader>sG", false },
     { "<leader>sW", false },
@@ -409,10 +414,10 @@ return {
       end,
     },
     sections = {
-      { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 0, width = 50 },
-      { title = " Recent", section = "recent_files", cwd = true, limit = 3, padding = 1 },
-
-      { title = " Projects", section = "projects", padding = 1 },
+      { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 8, width = 50 },
+      { icon = " ", title = "Recent", section = "recent_files", cwd = true, limit = 3, padding = 1 },
+      { icon = " ", title = "Projects", section = "projects", padding = 1 },
+      -- { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
       { title = " Menu", section = "keys", padding = 1 },
       { section = "startup" },
     },

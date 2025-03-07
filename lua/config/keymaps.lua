@@ -16,7 +16,7 @@ local function comment_line()
   end
 end
 
-map("n", "gc", comment_line)
+map("n", "gk", comment_line)
 
 -- find
 map({ "n" }, "<a-p>", function()

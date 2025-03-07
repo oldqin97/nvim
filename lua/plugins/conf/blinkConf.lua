@@ -9,7 +9,7 @@ return {
   },
   appearance = {
     kind_icons = {
-      Snippet = "",
+      Snippet = "󰩫",
       Emoji = "󰞅",
       Math = "",
       Dic = "",
@@ -24,7 +24,7 @@ return {
       },
       scrollbar = false,
       border = "rounded",
-      winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+      winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
     },
     documentation = {
       auto_show = true,
@@ -32,7 +32,7 @@ return {
       window = {
         border = "rounded",
         scrollbar = false,
-        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
       },
     },
     trigger = {

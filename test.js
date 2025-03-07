@@ -36,6 +36,20 @@ function fibonacci(n) {
 }
 
 /**
+ * 三数取中法
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @returns {number}
+ */
+function medianOfThree(a, b, c) {
+  if (a > b) [a, b] = [b, a];
+  if (a > c) [a, c] = [c, a];
+  if (b > c) [b, c] = [c, b];
+  return b;
+}
+
+/**
  * 快速排序算法（优化版）
  *
  * @param {number[]} arr - 要排序的数组
@@ -70,18 +84,4 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 
   quickSort(arr, left, j);
   quickSort(arr, i, right);
-}
-
-/**
- * 三数取中法
- * @param {number} a
- * @param {number} b
- * @param {number} c
- * @returns {number}
- */
-function medianOfThree(a, b, c) {
-  if (a > b) [a, b] = [b, a];
-  if (a > c) [a, c] = [c, a];
-  if (b > c) [b, c] = [c, b];
-  return b;
 }

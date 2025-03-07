@@ -2,6 +2,7 @@ return {
   -- package-info
   "vuki656/package-info.nvim",
   event = "BufEnter package.json",
+  -- ft = { "package.json" },
   config = true,
   keys = {
     { "<leader>pt", "<cmd>lua require('package-info').toggle()<CR>", "toggle package.json display info" },
