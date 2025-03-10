@@ -6,6 +6,14 @@
  */
 function ttt(q) {
   console.log(q);
+
+  new Promise(resolve => {
+    let qa = qweqweqqqqqqqqqqqqqqqqqqqqqqq;
+    resolve(1);
+    // setTimeout(() => {
+    //   resolve(q);
+    // }, 1000);
+  });
   return q;
 }
 

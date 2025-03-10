@@ -18,10 +18,57 @@ end
 
 map("n", "gk", comment_line)
 
--- find
-map({ "n" }, "<a-p>", function()
-  Snacks.picker.smart()
-end, { desc = "Find Files (Root Dir)" })
+-- 同时绑定tab到neotab和supermaven上
+-- local function smart_tab()
+--   local suggestion = require("supermaven-nvim.completion_preview")
+--   local keys = vim.api.nvim_replace_termcodes("<Plug>(neotab-out)", true, true, true)
+--
+--   vim.api.nvim_feedkeys(keys, "i", false)
+--   -- vim.schedule(function() end)
+--
+--   if suggestion.has_suggestion() then
+--     suggestion.on_accept_suggestion()
+--   end
+-- end
+local function smart_tab()
+  local suggestion = require("supermaven-nvim.completion_preview")
+
+  -- 判断是否在括号或字符串内的辅助函数
+  local function is_inside_brackets_or_string()
+    local current_line = vim.api.nvim_get_current_line()
+    local col = vim.api.nvim_win_get_cursor(0)[2] + 1 -- 列索引从1开始
+    local syntax_group = vim.fn.synIDattr(vim.fn.synID(vim.fn.line("."), col, 1), "name")
+
+    -- 检查是否在字符串、注释或括号内
+    if syntax_group:match("String$") or syntax_group:match("Comment$") or syntax_group:match("Delimiter$") then
+      return true
+    end
+
+    -- 检查括号配对（需要nvim-treesitter或类似插件支持）
+    local pairs = { ["("] = ")", ["["] = "]", ["{"] = "}" }
+    local char = current_line:sub(col, col)
+
+    if pairs[char] then
+      local _, end_col = vim.fn.searchpairpos(char, "", pairs[char], "nW")
+      return end_col > 0 and end_col ~= col
+    end
+
+    return false
+  end
+
+  -- 优先执行neotab逻辑
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>(neotab-out)", true, true, true), "i", false)
+
+  -- 延迟检查建议（等待neotab执行完成）
+  vim.schedule(function()
+    if not is_inside_brackets_or_string() and suggestion.has_suggestion() then
+      suggestion.on_accept_suggestion()
+    end
+  end)
+end
+
+-- 使用表达式映射覆盖默认的 Tab 键绑定
+map("i", "<Tab>", smart_tab, { desc = "tab" })
 
 -- close page
 map({ "n", "i", "v" }, "<C-q>", "<cmd>q<CR>", { desc = "close page" })
@@ -159,8 +206,9 @@ map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
 -- vim.cmd("CocDisable") -- 禁用 CoC
 -- 分配快捷键切换
 -- map("n", "<leader>tc", "<cmd>lua ToggleCompletion()<CR>", { desc = "switch coc & lsp" })
-vim.keymap.del({ "n" }, "<leader>bd")
-vim.keymap.del({ "n" }, "<leader>-")
-vim.keymap.del({ "n" }, "<leader>|")
-vim.keymap.del({ "n" }, "<leader>us")
-vim.keymap.del({ "n" }, "<leader>ft")
+-- vim.keymap.del({ "n" }, "<leader>bd")
+-- vim.keymap.del({ "n" }, "<leader>-")
+-- vim.keymap.del({ "n" }, "<leader>|")
+-- vim.keymap.del({ "n" }, "<leader>us")
+-- vim.keymap.del({ "n" }, "<leader>ft")
+-- vim.keymap.del({ "n" }, "<leader>ft")

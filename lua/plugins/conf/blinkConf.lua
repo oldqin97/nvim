@@ -8,19 +8,23 @@ return {
     ["<Down>"] = { "select_next", "fallback" },
   },
   appearance = {
+
+    nerd_font_variant = "normal",
     kind_icons = {
       Snippet = "󰩫",
       Emoji = "󰞅",
       Math = "",
       Dic = "",
       Css = "",
-      R = "ﳒ",
+      AI = "",
     },
   },
+
   completion = {
     menu = {
       draw = {
         treesitter = { "lsp" },
+        components = {},
       },
       scrollbar = false,
       border = "rounded",
@@ -146,6 +150,7 @@ return {
           search_extensions = { ".js", ".ts", ".jsx", ".tsx" },
         },
       },
+
       -- env = {
       --   name = "Env",
       --   module = "blink-cmp-env",
@@ -182,7 +187,8 @@ return {
     sources = function()
       local type = vim.fn.getcmdtype()
       -- Search forward and backward
-      if type == "/" or type == "?" then
+      -- if type == "/" or type == "?" then
+      if type == "?" then
         return { "buffer" }
       end
       -- Commands

@@ -6,4 +6,6 @@ return {
     { "<leader>ct", "<cmd>ConflictMarkerThemselves<CR>", desc = "git conflict apply ours" },
     { "<leader>cb", "<cmd>ConflictMarkerBoth<CR>", desc = "git conflict apply both" },
   },
+
+  -- {'akinsho/git-conflict.nvim', version = "*", config = true}
 }

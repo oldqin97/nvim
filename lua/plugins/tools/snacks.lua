@@ -10,11 +10,16 @@ return {
     indent = require("plugins.conf.snacksConf").indent,
     dashboard = require("plugins.conf.snacksConf").dashboard,
     bigfile = require("plugins.conf.snacksConf").bigfile,
+    terminal = {
+      win = {
+        position = "float",
+      },
+    },
     input = {
       enabled = true,
       keys = {
-        n_esc = { "<esc>", { "cancel" }, mode = "n", expr = true },
-        i_esc = { "<esc>", { "cancel" }, mode = "i", expr = true },
+        -- i_esc = { "<esc>", { "cancel" }, mode = "i", expr = true },
+        i_esc = { "<esc>", { "cmp_close", "cancel" }, mode = "n", expr = true },
       },
     },
     scroll = { enabled = false },
@@ -24,7 +29,7 @@ return {
         enabled = false,
       },
     },
-    animate = { duration = { step = 10, duration = 100 } },
+    animate = { enabled = true, duration = { step = 10, duration = 100 } },
     notifier = { enabled = true, timeout = 2000 },
     quickfile = { enabled = true },
     statuscolumn = { enabled = false },

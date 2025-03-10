@@ -31,7 +31,7 @@ return {
           MatchParen = { bg = "#458588" },
           -- Visual = { bg = "#BB4747", fg = "white" },
           Cursor = { bg = "#FF0000", fg = "#FFFFFF", bold = true },
-          BlinkCmpKind = { bg = "#458588", fg = "#FFFFFF" },
+          BlinkCmpKind = { link = "GruvboxYellow" },
 
           -- 函数定义/调用（黄色加强版）
           Function = { fg = "#FFD700", bold = true }, -- 亮金色

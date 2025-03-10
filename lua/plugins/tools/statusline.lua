@@ -1,43 +1,11 @@
 ---@diagnostic disable: undefined-field, deprecated
 
-local Util = require("lazyvim.util")
-
-local colors = {
-  bg = "#202328",
-  fg = "#bbc2cf",
-  yellow = "#ECBE7B",
-  cyan = "#008080",
-  darkblue = "#081633",
-  green = "#98be65",
-  orange = "#FF8800",
-  violet = "#a9a1e1",
-  magenta = "#c678dd",
-  blue = "#51afef",
-  red = "#ec5f67",
-}
-
-local conditions = {
-  buffer_not_empty = function()
-    return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
-  end,
-  hide_in_width = function()
-    return vim.fn.winwidth(0) > 80
-  end,
-  check_git_workspace = function()
-    local filepath = vim.fn.expand("%:p:h")
-    local gitdir = vim.fn.finddir(".git", filepath .. ";")
-    return gitdir and #gitdir > 0 and #gitdir < #filepath
-  end,
-}
 return {
   {
     "nvim-lualine/lualine.nvim",
     optional = true,
     lazy = true,
     event = "BufWinEnter", -- 在打开文件缓冲区时加载 lualine
-    dependencies = {
-      "pnx/lualine-lsp-status",
-    },
     opts = {
       options = {
         -- theme = "onedark",
@@ -60,6 +28,7 @@ return {
           "TelescopePrompt",
         },
       },
+
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diagnostics" },
@@ -75,22 +44,12 @@ return {
             -- color = Util.ui.fg("Debug"),
           },
           -- {
-          --   require("lazy.status").updates,
-          --   cond = require("lazy.status").has_updates,
-          --   color = Util.ui.fg("Special"),
-          -- },
-          {
-            "o:encoding",
-            fmt = string.upper, -- I'm not sure why it's upper case either ;)
-            cond = conditions.hide_in_width,
-            color = { fg = colors.green, gui = "bold" },
-          },
-          -- {
-          --   "fileformat",
-          --   fmt = string.upper,
-          --   icons_enabled = false,
+          --   "o:encoding",
+          --   fmt = string.upper, -- I'm not sure why it's upper case either ;)
+          --   cond = conditions.hide_in_width,
           --   color = { fg = colors.green, gui = "bold" },
           -- },
+
           {
             "diff",
             symbols = {
@@ -119,6 +78,7 @@ return {
       },
     },
   },
+
   {
     "b0o/incline.nvim",
     event = "BufReadPost",

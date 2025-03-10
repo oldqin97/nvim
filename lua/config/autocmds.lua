@@ -12,39 +12,6 @@ api.nvim_create_autocmd("BufEnter", {
 
 vim.cmd([[ autocmd BufRead,BufNewFile *.org set filetype=org ]])
 
--- api.nvim_create_autocmd("BufReadPost", {
---   command = "HlSearchLensDisable",
--- })
-
--- 进入Insert模式切换为绝对行号
--- api.nvim_create_autocmd("InsertEnter", {
---   group = augroup,
---   pattern = "*",
---   callback = function()
---     vim.wo.relativenumber = false
---   end,
--- })
---
--- -- 退出Insert模式切换为相对行号
--- api.nvim_create_autocmd("InsertLeave", {
---   group = augroup,
---   pattern = "*",
---   callback = function()
---     vim.wo.relativenumber = true
---   end,
--- })
--- -- 切换到普通模式时启用相对行号
--- vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
---   pattern = "*",
---   command = "set relativenumber",
--- })
---
--- -- 切换到插入模式时启用绝对行号
--- vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
---   pattern = "*",
---   command = "set norelativenumber",
--- })
-
 -- 将 .wxml 文件识别为 html 文件类型
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.wxml" },
@@ -102,6 +69,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --     vim.lsp.buf.clear_references()
 --   end,
 -- })
+
+-- 大文件自动关闭treesitter
 if
   client
   and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
@@ -128,10 +97,3 @@ then
     end,
   })
 end
-
--- 重新定义 LSP 高亮颜色
--- vim.cmd([[
---   highlight LspReferenceText guibg=#7c6f64 gui=bold
---   highlight LspReferenceRead guibg=#7c6f64 gui=bold
---   highlight LspReferenceWrite guibg=#7c6f64 gui=bold
--- ]])
