@@ -1,4 +1,5 @@
 return {
+  -- diagnostics 提示
   {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "LspAttach", -- Or `LspAttach`
