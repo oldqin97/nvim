@@ -7,14 +7,13 @@
 function ttt(q) {
   console.log(q);
 
-  new Promise(resolve => {
-    let qa = qweqweqqqqqqqqqqqqqqqqqqqqqqq;
-    resolve(1);
-    // setTimeout(() => {
-    //   resolve(q);
-    // }, 1000);
+  let qa = "test";
+
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(q);
+    }, 1000);
   });
-  return q;
 }
 
 /**
@@ -43,6 +42,9 @@ function fibonacci(n) {
   return curr;
 }
 
+fibonacci(1);
+
+fibonacci(2);
 /**
  * 三数取中法
  * @param {number} a

@@ -11,9 +11,9 @@ return {
         bold = true,
         italic = {
           strings = false,
-          emphasis = false,
-          comments = false,
-          operators = false,
+          emphasis = true,
+          comments = true,
+          operators = true,
           folds = true,
         },
         strikethrough = true,
@@ -25,14 +25,14 @@ return {
         contrast = "",
         palette_overrides = {},
         overrides = {
-          Comment = { fg = "#83cbac", italic = true },
+          Comment = { fg = "#83cbac" },
           Search = { bg = "#51afef", fg = "#eeeeee" },
           IncSearch = { bg = "#FF8800", fg = "#eeeeee" },
           MatchParen = { bg = "#458588" },
-          -- Visual = { bg = "#BB4747", fg = "white" },
-          Cursor = { bg = "#FF0000", fg = "#FFFFFF", bold = true },
-          BlinkCmpKind = { link = "GruvboxYellow" },
 
+          -- Cursor = { bg = "#FF0000", fg = "#FFFFFF", bold = true },
+
+          BlinkCmpKind = { link = "GruvboxYellow" },
           -- 函数定义/调用（黄色加强版）
           Function = { fg = "#FFD700", bold = true }, -- 亮金色
           ["@function.call"] = { link = "FunctionCall" },
@@ -50,7 +50,7 @@ return {
 
           -- 对象/类定义（橙色突出）
           ["@constructor"] = { fg = "#FE8019", bold = true }, -- 亮橙色
-          Type = { fg = "#FE8019", italic = false }, -- 类型提示
+          Type = { fg = "#FE8019" }, -- 类型提示
 
           -- 清除代码片段跳转高亮
           SnippetTabstop = { fg = NONE, bg = NONE },
@@ -60,7 +60,7 @@ return {
             bg = "#3C3836", -- 深灰背景（可选）
           },
 
-          ["@lsp.type.class"] = { fg = "#71C7B1" },
+          ["@lsp.type.class"] = { fg = "#71C7B1", italic = true },
 
           -- 对象变量专项配置
           ["@variable"] = { fg = "#B3DAFB" },
@@ -78,7 +78,7 @@ return {
           Keyword = { fg = "#D3869B", bold = true }, -- 粉紫色
           ["@keyword"] = { link = "Keyword" },
 
-          ["@parameter"] = { fg = "#8EC07C", italic = true }, -- 浅绿
+          ["@parameter"] = { fg = "#8EC07C" }, -- 浅绿
 
           -- 数字高亮
           Number = { fg = "#BECDAB", bold = true }, -- 琥珀黄
@@ -88,7 +88,7 @@ return {
           Boolean = { fg = "#fbf1c7" },
           ["@boolean"] = { link = "Boolean" },
 
-          TSComment = { fg = "#83cbac" },
+          TSComment = { fg = "#83cbac", italic = true },
           ["@comment"] = { link = "TSComment" },
 
           -- ========== 特殊增强 ==========
@@ -99,7 +99,7 @@ return {
 
           -- 导入/模块（蓝绿色）
           ["@include"] = { fg = "#83A598" }, -- 导入语句
-          ["@namespace"] = { fg = "#83A598", italic = true }, -- 命名空间
+          ["@namespace"] = { fg = "#83A598" }, -- 命名空间
         },
         dim_inactive = false,
         transparent_mode = true,

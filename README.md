@@ -1,2 +1,2 @@
-This is a apple
-This are a apple
+This is an apple
+These are an apple

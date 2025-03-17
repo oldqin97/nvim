@@ -30,10 +30,10 @@ return {
       },
     },
     animate = { enabled = true, duration = { step = 10, duration = 100 } },
-    notifier = { enabled = true, timeout = 2000 },
+    notifier = { timeout = 2000 },
     quickfile = { enabled = true },
     statuscolumn = { enabled = false },
-    words = { enabled = true },
+    words = { enabled = false },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {

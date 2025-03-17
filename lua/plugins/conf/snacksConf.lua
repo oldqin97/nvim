@@ -128,6 +128,13 @@ return {
       end,
       desc = "Delete Buffer",
     },
+    {
+      "<leader>fr",
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = "Recent",
+    },
     -- git
     {
       "<leader>fg",
@@ -135,13 +142,6 @@ return {
         Snacks.picker.git_files()
       end,
       desc = "Find Files (git-files)",
-    },
-    {
-      "<leader>fr",
-      function()
-        Snacks.picker.recent()
-      end,
-      desc = "Recent",
     },
     {
       "<leader>gc",
@@ -347,7 +347,7 @@ return {
     win = {
       input = {
         keys = {
-          -- ["<CR>"] = { "confirm", mode = { "n", "i" } },
+          ["<CR>"] = { "confirm", mode = { "n", "i" } },
           ["<Tab>"] = { "confirm", mode = { "i", "n" } },
           ["<Esc>"] = { "close", mode = { "n", "i" } },
           ["<a-g>"] = { "toggle_ignored", mode = { "i", "n" } },
@@ -357,6 +357,7 @@ return {
       list = {
         keys = {
           ["<CR>"] = { "confirm", mode = { "n", "i" } },
+          ["<Esc>"] = { "close", mode = { "n", "i" } },
         },
       },
     },

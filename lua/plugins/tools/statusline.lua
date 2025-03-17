@@ -32,7 +32,9 @@ return {
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diagnostics" },
-        lualine_c = {},
+        lualine_c = {
+          "searchcount",
+        },
         lualine_x = {
           {
             function()

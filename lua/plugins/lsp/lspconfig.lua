@@ -1,18 +1,34 @@
 return {
-  "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
-  init = function() end,
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   ft = { "typescript", "typescriptreact" },
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   opts = {},
+  --   config = function()
+  --     require("typescript-tools").setup({
+  --       settings = {
+  --         tsserver_plugins = {
+  --           "@styled/typescript-styled-plugin",
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
+  {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    init = function() end,
 
-  opts = function(_, opts)
-    require("plugins.conf.lspConf").lspKes()
+    opts = function(_, opts)
+      require("plugins.conf.lspConf").lspKes()
 
-    opts = vim.tbl_deep_extend("force", opts, {
-      servers = require("plugins.conf.lspConf").servers,
-    })
+      opts = vim.tbl_deep_extend("force", opts, {
+        servers = require("plugins.conf.lspConf").servers,
+      })
 
-    return opts
-  end,
-
+      return opts
+    end,
+  },
   -- opts = {
   --   servers = {
   --     rust_analyzer = {

@@ -26,6 +26,7 @@ return {
         "dapui_scopes",
         "OverseerList",
         "DiffviewFiles",
+        "qf",
       }
       vim.api.nvim_create_autocmd("FileType", {
         group = augroup,

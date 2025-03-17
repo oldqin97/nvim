@@ -14,6 +14,7 @@ return {
           "snacks_input",
           "snacks_notif",
           "AvanteInput",
+          "snacks_picker_list",
         },
         color = {
           suggestion_color = "#999999",

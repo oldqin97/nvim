@@ -1,5 +1,7 @@
 -- local opt = vim.opt
 
+-- vim.o.termguicolors = true
+
 vim.cmd([[
 let g:loaded_perl_provider = 0
 ]])
