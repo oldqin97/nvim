@@ -24,6 +24,6 @@ return {
   cmd = { "DiffviewOpen" },
   keys = {
     { "<leader>df", mode = { "n" }, toggle_diffview, desc = "toggle diffview window" },
-    { "q", mode = { "n" }, close_diffview, desc = "close diffview window" },
+    -- { "<Esc>", mode = { "n" }, close_diffview, desc = "close diffview window" },
   },
 }

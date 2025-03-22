@@ -4,16 +4,11 @@ import math
 def test():
     print("hello world")
 
-    content = dir(math)
+    content = math.acos(1)
 
-    class A:
-        def __init__(self, a):
-            self.a = a
+    print(content)
 
-        def __str__(self):
-            return self.a
-
-    a = A("hello")
+    a = "hello"
     print(a)
 
 

@@ -112,12 +112,12 @@ return {
         },
       },
     },
-    html = {
-      filetypes = { "html", "wxml" },
-    },
-    cssls = {
-      filetypes = { "css", "wxss" },
-    },
+    -- html = {
+    --   filetypes = { "html", "wxml" },
+    -- },
+    -- cssls = {
+    --   filetypes = { "css", "wxss" },
+    -- },
     ltex = {
       language = "en-US",
       filetypes = { "markdown", "text" },

@@ -26,6 +26,7 @@ return {
         palette_overrides = {},
         overrides = {
           Comment = { fg = "#83cbac" },
+          FlashBackdrop = { fg = "#83cbac" },
           Search = { bg = "#51afef", fg = "#eeeeee" },
           IncSearch = { bg = "#FF8800", fg = "#eeeeee" },
           MatchParen = { bg = "#458588" },

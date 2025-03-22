@@ -13,6 +13,7 @@ return {
     terminal = {
       win = {
         position = "float",
+        height = math.floor(vim.o.lines * 0.7),
       },
     },
     input = {
@@ -30,10 +31,10 @@ return {
       },
     },
     animate = { enabled = true, duration = { step = 10, duration = 100 } },
-    notifier = { timeout = 2000 },
+    notifier = { enabled = true, timeout = 2000 },
     quickfile = { enabled = true },
     statuscolumn = { enabled = false },
-    words = { enabled = false },
+    words = { enabled = true },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {

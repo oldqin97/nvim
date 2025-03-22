@@ -124,9 +124,9 @@ map({ "x", "n", "o" }, "f", function()
   require("flash").jump()
 end, { desc = "Flash" })
 
-map({ "n", "o", "x" }, "R", function()
-  require("flash").treesitter_search()
-end, { desc = "Toggle Flash Search" })
+-- map({ "n", "o", "x" }, "R", function()
+--   require("flash").treesitter_search()
+-- end, { desc = "Toggle Flash Search" })
 
 map("n", "s", "=", { desc = "replace s" })
 map("n", "sh", "<cmd> vertical resize +5<CR>", { desc = "resize s" })

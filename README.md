@@ -1,2 +1,6 @@
-This is an apple
-These are an apple
+This is an Apple
+These are an Apple
+
+Apple;
+banana;
+test

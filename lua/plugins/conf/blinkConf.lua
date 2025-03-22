@@ -39,32 +39,48 @@ return {
         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
       },
     },
+
+    list = {
+      max_items = 100,
+    },
     trigger = {
       prefetch_on_insert = true,
       show_in_snippet = true,
       show_on_keyword = true,
       show_on_trigger_character = true,
+      show_on_blocked_trigger_characters = { " ", "\n", "\t", "<" },
       show_on_accept_on_trigger_character = true,
-      show_on_insert_on_trigger_character = false,
-      show_on_x_blocked_trigger_characters = { "-" },
-      show_on_blocked_trigger_characters = {
-        " ",
-        "'",
-        '"',
-        "=",
-        -- "-",
-        -- ".",
-        ",",
-        -- "/",
-        -- ":",
-        "{",
-        "}",
-        "(",
-        ")",
-        "#",
-        "*",
-      },
+      show_on_insert_on_trigger_character = true,
+      show_on_x_blocked_trigger_characters = { "'", '"', "(" },
     },
+
+    -- trigger = {
+    --   prefetch_on_insert = true,
+    --   show_in_snippet = true,
+    --   show_on_keyword = true,
+    --   show_on_trigger_character = true,
+    --   show_on_accept_on_trigger_character = true,
+    --   show_on_insert_on_trigger_character = false,
+    --   show_on_x_blocked_trigger_characters = { "-" },
+    --   show_on_blocked_trigger_characters = {
+    --     -- "<",
+    --     -- " ",
+    --     -- "'",
+    --     -- '"',
+    --     -- "=",
+    --     -- -- "-",
+    --     -- -- ".",
+    --     -- ",",
+    --     -- -- "/",
+    --     -- -- ":",
+    --     -- "{",
+    --     -- "}",
+    --     -- "(",
+    --     -- ")",
+    --     -- "#",
+    --     -- "*",
+    --   },
+    -- },
   },
   sources = {
     compat = {},
@@ -78,7 +94,7 @@ return {
       "emoji",
       "css_vars",
       "crates",
-      "omni",
+      -- "omni",
       -- "env",
     },
     -- per_filetype = {
@@ -113,6 +129,7 @@ return {
         enabled = true,
         module = "blink.cmp.sources.lsp",
         score_offset = 1,
+        opts = { tailwind_color_icon = "██" },
       },
       snippets = {
         name = "Snippets",
@@ -168,13 +185,18 @@ return {
         score_offset = 100,
         -- async = true,
       },
-      omni = {
-        name = "Omni",
-        module = "blink.cmp.sources.omni",
-        opts = {
-          disable_omnifuncs = { "v:lua.vim.lsp.omnifunc" },
-        },
-      },
+      -- omni = {
+      --   module = "blink.cmp.sources.complete_func",
+      --   enabled = function()
+      --     return vim.bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
+      --   end,
+      --   ---@type blink.cmp.CompleteFuncOpts
+      --   opts = {
+      --     complete_func = function()
+      --       return vim.bo.omnifunc
+      --     end,
+      --   },
+      -- },
     },
   },
   cmdline = {

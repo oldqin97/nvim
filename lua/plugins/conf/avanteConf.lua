@@ -11,8 +11,13 @@ return {
       max_tokens = 4096,
       api_key_name = "OPENAI_API_KEY",
     },
+    behaviour = {
+      enable_token_counting = false,
+    },
     windows = {
       position = "left",
+
+      ask = {},
     },
     mappings = {
       ask = "<c-t>",
@@ -33,6 +38,11 @@ return {
         reverse_switch_windows = "<S-Tab>",
         remove_file = "d",
         add_file = "@",
+        close = { "<Esc>", "q" },
+      },
+      submit = {
+        normal = "<CR>",
+        insert = "<C-s>",
       },
     },
   },
@@ -77,21 +87,17 @@ return {
       {
         opts.mappings.ask,
         function()
-          -- AvanteInput
-          -- vim.cmd(bo.filetype)
           if vim.bo.filetype == "AvanteInput" then
             vim.cmd("AvanteToggle")
             vim.schedule(function()
               vim.api.nvim_feedkeys("\27", "n", false)
             end)
-            -- ai_open = false
           else
             vim.cmd("AvanteToggle")
-            -- ai_open = true
           end
         end,
         desc = "avante: toggle",
-        mode = { "n", "v", "i" },
+        mode = { "n", "i" },
       },
       {
         "<C-c>",

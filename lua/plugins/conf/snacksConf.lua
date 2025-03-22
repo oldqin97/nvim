@@ -51,6 +51,13 @@ return {
     { "<C-f>", LazyVim.pick("grep_word"), desc = "Visual selection or word (Root Dir)", mode = { "n", "x" } },
     -- search
     {
+      "<leader>qq",
+      function()
+        Snacks.picker.registers()
+      end,
+      desc = "Registers",
+    },
+    {
       "<leader>sc",
       function()
         Snacks.picker.command_history()
