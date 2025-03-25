@@ -1,37 +1,37 @@
 return {
-  { -- split window
-    "nvim-zh/colorful-winsep.nvim",
-    lazy = true,
-    event = "WinNew",
-    config = function()
-      require("colorful-winsep").setup({
-
-        no_exec_files = {
-          "packer",
-          "TelescopePrompt",
-          "mason",
-          "CompetiTest",
-          "NvimTree",
-          "snacks_picker_list",
-          "snacks_picker_list",
-          "snacks_terminal",
-          "snacks_terminal",
-          "Outline",
-          "AvanteSelectedFiles",
-          "AvanteInput",
-          "Avante",
-          "dapui_console",
-          "dapui_watches",
-          "dapui_stacks",
-          "dapui_breakpoints",
-          "dapui_scopes",
-          "OverseerList",
-          "DiffviewFiles",
-          "qf",
-        },
-      })
-    end,
-  },
+  -- { -- split window
+  --   "nvim-zh/colorful-winsep.nvim",
+  --   lazy = true,
+  --   event = "WinNew",
+  --   config = function()
+  --     require("colorful-winsep").setup({
+  --
+  --       no_exec_files = {
+  --         "packer",
+  --         "TelescopePrompt",
+  --         "mason",
+  --         "CompetiTest",
+  --         "NvimTree",
+  --         "snacks_picker_list",
+  --         "snacks_picker_list",
+  --         "snacks_terminal",
+  --         "snacks_terminal",
+  --         "Outline",
+  --         "AvanteSelectedFiles",
+  --         "AvanteInput",
+  --         "Avante",
+  --         "dapui_console",
+  --         "dapui_watches",
+  --         "dapui_stacks",
+  --         "dapui_breakpoints",
+  --         "dapui_scopes",
+  --         "OverseerList",
+  --         "DiffviewFiles",
+  --         "qf",
+  --       },
+  --     })
+  --   end,
+  -- },
 
   -- {
   --   "nvim-focus/focus.nvim",

@@ -40,6 +40,8 @@ return {
           ["@function"] = { link = "Function" }, -- Treesitter 同步
           ["@keyword.function"] = { fg = "#ea6962" },
 
+          -- BookMarksAdd = { bg = "#FFD700" },
+
           AvanteConflictCurrentLabel = { bg = "#B71C1C", fg = "#FFFFFF" },
           AvanteConflictCurrent = { bg = "#9e5d55" },
           AvanteConflictIncoming = { bg = "#6d8fa6" },
