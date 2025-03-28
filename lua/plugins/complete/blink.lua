@@ -1,5 +1,4 @@
 return {
-
   {
     "saghen/blink.cmp",
     event = { "InsertEnter", "CmdlineEnter" },
@@ -20,6 +19,16 @@ return {
           })
         end,
       },
+      "mikavilpas/blink-ripgrep.nvim",
+
+      -- {
+      --   "philosofonusus/ecolog.nvim",
+      --   opts = {
+      --     integrations = {
+      --       blink_cmp = true,
+      --     },
+      --   },
+      -- },
     },
     opts = {
       keymap = require("plugins.conf.blinkConf").keymaps,
