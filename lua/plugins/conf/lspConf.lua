@@ -112,19 +112,19 @@ return {
         },
       },
     },
-    -- html = {
-    --   filetypes = { "html", "wxml" },
-    -- },
-    -- cssls = {
-    --   filetypes = { "css", "wxss" },
-    -- },
+    html = {
+      filetypes = { "html", "wxml" },
+    },
+    cssls = {
+      filetypes = { "css", "wxss" },
+    },
     ltex = {
       language = "en-US",
       filetypes = { "markdown", "text" },
     },
-    custom_elements_ls = {
-      filetypes = { "html" },
-    },
+    -- custom_elements_ls = {
+    --   filetypes = { "html" },
+    -- },
     volar = {
       init_options = {
         vue = {

@@ -16,7 +16,7 @@ return {
       Math = "",
       Dic = "",
       Css = "",
-      AI = "",
+      String = "",
     },
   },
 
@@ -44,11 +44,11 @@ return {
       max_items = 100,
     },
     trigger = {
-      prefetch_on_insert = true,
+      prefetch_on_insert = false,
       show_in_snippet = true,
       show_on_keyword = true,
       show_on_trigger_character = true,
-      show_on_blocked_trigger_characters = { " ", "\n", "\t", "<" },
+      show_on_blocked_trigger_characters = { " ", "\n", "\t" },
       show_on_accept_on_trigger_character = true,
       show_on_insert_on_trigger_character = true,
       show_on_x_blocked_trigger_characters = { "'", '"', "(" },
@@ -94,7 +94,9 @@ return {
       "emoji",
       "css_vars",
       "crates",
-      -- "omni",
+      "omni",
+      "ripgrep",
+      -- "ecolog",
       -- "env",
     },
     -- per_filetype = {
@@ -185,18 +187,24 @@ return {
         score_offset = 100,
         -- async = true,
       },
-      -- omni = {
-      --   module = "blink.cmp.sources.complete_func",
-      --   enabled = function()
-      --     return vim.bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
-      --   end,
-      --   ---@type blink.cmp.CompleteFuncOpts
-      --   opts = {
-      --     complete_func = function()
-      --       return vim.bo.omnifunc
-      --     end,
-      --   },
-      -- },
+      omni = {
+        module = "blink.cmp.sources.complete_func",
+        enabled = function()
+          return vim.bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
+        end,
+        ---@type blink.cmp.CompleteFuncOpts
+        opts = {
+          complete_func = function()
+            return vim.bo.omnifunc
+          end,
+        },
+      },
+      ripgrep = {
+        module = "blink-ripgrep",
+        name = "Ripgrep",
+        kind = "String",
+        score_offset = -11,
+      },
     },
   },
   cmdline = {

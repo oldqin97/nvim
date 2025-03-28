@@ -6,7 +6,7 @@ return {
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {
-          accept_suggestion = "<qweqwee>", -- handled by nvim-cmp / blink.cmp
+          accept_suggestion = "<C-a>", -- handled by nvim-cmp / blink.cmp
           clear_suggestion = "<C-j>",
         },
         ignore_filetypes = {
@@ -15,6 +15,7 @@ return {
           "snacks_notif",
           "AvanteInput",
           "snacks_picker_list",
+          "dapui_watches",
         },
         color = {
           suggestion_color = "#999999",
