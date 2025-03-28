@@ -44,7 +44,7 @@ function fibonacci(n) {
 
 fibonacci(1);
 
-fibonacci(2);
+fibonacci(10);
 /**
  * 三数取中法
  * @param {number} a

@@ -6,7 +6,7 @@ return {
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {
-          accept_suggestion = "<C-a>", -- handled by nvim-cmp / blink.cmp
+          accept_suggestion = "<C-l>", -- handled by nvim-cmp / blink.cmp
           clear_suggestion = "<C-j>",
         },
         ignore_filetypes = {

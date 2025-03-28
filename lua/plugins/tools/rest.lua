@@ -7,7 +7,8 @@ return {
     },
     opts = {
       -- default_view = "headers_body",
-      default_view = "verbose",
+      default_view = "body",
+      display_mode = "float",
     },
     -- config = function()
     --   require("kulala").setup({

@@ -4,12 +4,12 @@ return {
   ft = "json",
   keys = {
     {
-      "<leader>cu",
+      "<leader>cf",
       "<CMD>ConvertJSONtoLang typescript<CR>",
       desc = "Convert JSON to TS",
     },
     {
-      "<leader>ct",
+      "<leader>cb",
       "<CMD>ConvertJSONtoLangBuffer typescript<CR>",
       desc = "Convert JSON to TS Buffer",
     },
