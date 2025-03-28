@@ -18,17 +18,17 @@ end
 map("n", "gk", comment_line)
 
 -- 同时绑定tab到neotab和supermaven上
-local function smart_tab()
-  local suggestion = require("supermaven-nvim.completion_preview")
-  local keys = vim.api.nvim_replace_termcodes("<Plug>(neotab-out)", true, true, true)
-
-  vim.api.nvim_feedkeys(keys, "i", false)
-  -- vim.schedule(function() end)
-
-  if suggestion.has_suggestion() then
-    suggestion.on_accept_suggestion()
-  end
-end
+-- local function smart_tab()
+--   local suggestion = require("supermaven-nvim.completion_preview")
+--   local keys = vim.api.nvim_replace_termcodes("<Plug>(neotab-out)", true, true, true)
+--
+--   vim.api.nvim_feedkeys(keys, "i", false)
+--   -- vim.schedule(function() end)
+--
+--   if suggestion.has_suggestion() then
+--     suggestion.on_accept_suggestion()
+--   end
+-- end
 -- local function smart_tab()
 --   local suggestion = require("supermaven-nvim.completion_preview")
 --
@@ -67,7 +67,7 @@ end
 -- end
 
 -- 使用表达式映射覆盖默认的 Tab 键绑定
-map("i", "<Tab>", smart_tab, { desc = "tab" })
+-- map("i", "<Tab>", smart_tab, { desc = "tab" })
 
 -- close page
 map({ "n", "i", "v" }, "<C-q>", "<cmd>q<CR>", { desc = "close page" })
