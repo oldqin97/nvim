@@ -89,94 +89,30 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
   end,
 })
 
--- 当 LSP 附加到缓冲区时，启用光标悬停高亮
--- vim.api.nvim_create_autocmd("LspAttach", {
---   callback = function(args)
---     local bufnr = args.buf
---     local clients = vim.lsp.get_clients({ bufnr = bufnr })
---
---     -- 关键检查 1: 立即过滤无 LSP 的缓冲区
---     if #clients == 0 then
---       return
---     end
---
---     -- 定义安全操作函数
---     local function safe_highlight()
---       -- 关键检查 2: 确认缓冲区仍然有效
---       if not vim.api.nvim_buf_is_valid(bufnr) then
---         return
---       end
---       -- 关键检查 3: 实时检测 LSP 客户端
---       if vim.tbl_isempty(vim.lsp.buf_get_clients(bufnr)) then
---         return
---       end
---       -- 关键措施 4: 异常捕获
---       pcall(vim.lsp.buf.document_highlight)
---     end
---
---     local function safe_clear()
---       if not vim.api.nvim_buf_is_valid(bufnr) then
---         return
---       end
---       if vim.tbl_isempty(vim.lsp.buf_get_clients(bufnr)) then
---         return
---       end
---       pcall(vim.lsp.buf.clear_references)
---     end
---
---     -- 设置自动命令组便于清理
---     local group_name = "LspHighlightGroup_" .. bufnr
---     vim.api.nvim_create_augroup(group_name, { clear = true })
---
---     -- 高亮触发
---     vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
---       group = group_name,
---       buffer = bufnr,
---       callback = safe_highlight,
---     })
---
---     -- 清除触发
---     vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
---       group = group_name,
---       buffer = bufnr,
---       callback = safe_clear,
---     })
---
---     -- 关键措施 5: 缓冲区卸载时自动清理
---     vim.api.nvim_create_autocmd("BufUnload", {
---       group = group_name,
---       buffer = bufnr,
---       callback = function()
---         pcall(vim.lsp.buf.clear_references)
---         vim.api.nvim_del_augroup_by_name(group_name)
---       end,
---     })
---   end,
--- })
 -- 大文件自动关闭treesitter
-if
-  client
-  and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
-  and vim.bo.filetype ~= "bigfile"
-then
-  local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
-  vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-    buffer = event.buf,
-    group = highlight_augroup,
-    callback = vim.lsp.buf.document_highlight,
-  })
-
-  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-    buffer = event.buf,
-    group = highlight_augroup,
-    callback = vim.lsp.buf.clear_references,
-  })
-
-  vim.api.nvim_create_autocmd("LspDetach", {
-    group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
-    callback = function(event2)
-      vim.lsp.buf.clear_references()
-      vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
-    end,
-  })
-end
+-- if
+--   client
+--   and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
+--   and vim.bo.filetype ~= "bigfile"
+-- then
+--   local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+--   vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+--     buffer = event.buf,
+--     group = highlight_augroup,
+--     callback = vim.lsp.buf.document_highlight,
+--   })
+--
+--   vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+--     buffer = event.buf,
+--     group = highlight_augroup,
+--     callback = vim.lsp.buf.clear_references,
+--   })
+--
+--   vim.api.nvim_create_autocmd("LspDetach", {
+--     group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+--     callback = function(event2)
+--       vim.lsp.buf.clear_references()
+--       vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+--     end,
+--   })
+-- end

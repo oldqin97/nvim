@@ -444,7 +444,9 @@ return {
 
         -- Tree-sitter 智能加载
         local is_ts_supported = function(ft)
-          return #vim.treesitter.language.get_lang(ft) > 0
+          -- return #vim.treesitter.language.get_lang(ft) > 0
+          local lang_info = vim.treesitter.language.get_lang(ft)
+          return lang_info and #lang_info > 0
         end
 
         if is_ts_supported(ctx.ft) then
