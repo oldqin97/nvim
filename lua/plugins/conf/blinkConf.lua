@@ -17,6 +17,7 @@ return {
       Dic = "",
       Css = "",
       String = "",
+      AI = "",
     },
   },
 
@@ -53,37 +54,9 @@ return {
       show_on_insert_on_trigger_character = true,
       show_on_x_blocked_trigger_characters = { "'", '"', "(" },
     },
-
-    -- trigger = {
-    --   prefetch_on_insert = true,
-    --   show_in_snippet = true,
-    --   show_on_keyword = true,
-    --   show_on_trigger_character = true,
-    --   show_on_accept_on_trigger_character = true,
-    --   show_on_insert_on_trigger_character = false,
-    --   show_on_x_blocked_trigger_characters = { "-" },
-    --   show_on_blocked_trigger_characters = {
-    --     -- "<",
-    --     -- " ",
-    --     -- "'",
-    --     -- '"',
-    --     -- "=",
-    --     -- -- "-",
-    --     -- -- ".",
-    --     -- ",",
-    --     -- -- "/",
-    --     -- -- ":",
-    --     -- "{",
-    --     -- "}",
-    --     -- "(",
-    --     -- ")",
-    --     -- "#",
-    --     -- "*",
-    --   },
-    -- },
   },
   sources = {
-    compat = {},
+    compat = { "supermaven" },
     default = {
       "lsp",
       "path",
@@ -96,6 +69,7 @@ return {
       "crates",
       "omni",
       "ripgrep",
+      -- "supermaven",
       -- "ecolog",
       -- "env",
     },
@@ -137,7 +111,6 @@ return {
         name = "Snippets",
         module = "blink.cmp.sources.snippets",
         score_offset = -10,
-        -- score_offset = 9,
       },
 
       emoji = {
@@ -154,11 +127,38 @@ return {
         module = "blink.compat.source",
         kind = "Math",
       },
+      -- dictionary = {
+      --   name = "dictionary",
+      --   module = "blink.compat.source",
+      --   score_offset = -5,
+      --   min_keyword_length = 5,
+      --   kind = "Dic",
+      -- },
       dictionary = {
-        name = "dictionary",
-        module = "blink.compat.source",
-        score_offset = -5,
+        module = "blink-cmp-dictionary",
+        name = "Dict",
+        score_offset = 5, -- the higher the number, the higher the priority
+        max_items = 5,
         min_keyword_length = 5,
+        opts = {
+          get_command = "rg",
+          get_command_args = function(prefix)
+            return {
+              "--color=never",
+              "--no-line-number",
+              "--no-messages",
+              "--no-filename",
+              "--ignore-case",
+              "--",
+              prefix,
+            }
+          end,
+          dictionary_files = { vim.fn.expand("~/.config/nvim/dictionary/words.txt") },
+          -- To disable the definitions comment this
+          get_documentation = function(item)
+            return nil
+          end,
+        },
         kind = "Dic",
       },
       css_vars = {
@@ -204,6 +204,13 @@ return {
         name = "Ripgrep",
         kind = "String",
         score_offset = -11,
+      },
+      supermaven = {
+        name = "supermaven",
+        module = "blink.compat.source",
+        score_offset = 100,
+        async = true,
+        kind = "AI",
       },
     },
   },

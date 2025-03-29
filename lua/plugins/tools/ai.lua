@@ -22,7 +22,7 @@ return {
           cterm = 244,
         },
         log_level = "info",
-        disable_inline_completion = false,
+        disable_inline_completion = true,
         disable_keymaps = false,
         condition = function()
           return false

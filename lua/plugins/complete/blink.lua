@@ -11,14 +11,18 @@ return {
       "bydlw98/blink-cmp-env",
       "Saecki/crates.nvim",
       {
-        "uga-rosa/cmp-dictionary",
-        config = function()
-          require("cmp_dictionary").setup({
-            paths = { "/usr/share/dict/words" },
-            exact_length = 5,
-          })
-        end,
+        "Kaiser-Yang/blink-cmp-dictionary",
+        dependencies = { "nvim-lua/plenary.nvim" },
       },
+      -- {
+      --   "uga-rosa/cmp-dictionary",
+      --   config = function()
+      --     require("cmp_dictionary").setup({
+      --       paths = { "/usr/share/dict/words" },
+      --       exact_length = 5,
+      --     })
+      --   end,
+      -- },
       "mikavilpas/blink-ripgrep.nvim",
 
       -- {
