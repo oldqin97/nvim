@@ -2,6 +2,7 @@ return {
 
   {
     "LintaoAmons/bookmarks.nvim",
+    event = "VeryLazy",
     -- pin the plugin at specific version for stability
     -- backup your bookmark sqlite db when there are breaking changes
     -- tag = "v2.3.0",

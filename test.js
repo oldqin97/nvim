@@ -1,13 +1,18 @@
 /**
- * 测试函数
+ * 异步遍历数组并打印每个元素
  *
- * @param {string} q - 输入字符串
- * @returns {string} 返回字符串
+ * @param {Array} q - 要遍历的数组
+ * @returns {Promise<Array>} 返回一个Promise，在1秒后resolve原始数组
+ *
+ * @example
+ * ttt([1, 2, 3]).then(res => console.log(res)); // 打印数组元素后返回[1, 2, 3]
  */
 function ttt(q) {
-  console.log(q);
-
-  let qa = "test";
+  q.forEach(item => {
+    console.log(item);
+  });
+  const qa = "test";
+  console.log(qa);
 
   return new Promise(resolve => {
     setTimeout(() => {

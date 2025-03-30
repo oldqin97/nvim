@@ -12,7 +12,8 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- ai
-    { import = "lazyvim.plugins.extras.ai.supermaven" },
+    -- { import = "lazyvim.plugins.extras.ai.supermaven" },
+    -- { import = "lazyvim.plugins.extras.ai.codeium" },
     -- code
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     { import = "lazyvim.plugins.extras.coding.blink" },

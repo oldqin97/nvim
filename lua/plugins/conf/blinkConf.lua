@@ -56,7 +56,7 @@ return {
     },
   },
   sources = {
-    compat = { "supermaven" },
+    compat = {},
     default = {
       "lsp",
       "path",
@@ -104,7 +104,7 @@ return {
         name = "LSP",
         enabled = true,
         module = "blink.cmp.sources.lsp",
-        score_offset = 1,
+        score_offset = 10,
         opts = { tailwind_color_icon = "██" },
       },
       snippets = {
@@ -155,9 +155,6 @@ return {
           end,
           dictionary_files = { vim.fn.expand("~/.config/nvim/dictionary/words.txt") },
           -- To disable the definitions comment this
-          get_documentation = function(item)
-            return nil
-          end,
         },
         kind = "Dic",
       },
@@ -169,18 +166,6 @@ return {
           search_extensions = { ".js", ".ts", ".jsx", ".tsx" },
         },
       },
-
-      -- env = {
-      --   name = "Env",
-      --   module = "blink-cmp-env",
-      --   -- kind = "Css",
-      --   score_offset = -99,
-      --   opts = {
-      --     -- item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
-      --     show_braces = false,
-      --     show_documentation_window = false,
-      --   },
-      -- },
       crates = {
         name = "crates",
         module = "blink.compat.source",
@@ -204,13 +189,16 @@ return {
         name = "Ripgrep",
         kind = "String",
         score_offset = -11,
-      },
-      supermaven = {
-        name = "supermaven",
-        module = "blink.compat.source",
-        score_offset = 100,
-        async = true,
-        kind = "AI",
+        opts = {
+          prefix_min_len = 3,
+          context_size = 5,
+          max_filesize = "1M",
+          project_root_marker = vim.g.root_markers,
+          search_casing = "--smart-case",
+          project_root_fallback = false,
+          additional_rg_options = {},
+          fallback_to_regex_highlighting = true,
+        },
       },
     },
   },

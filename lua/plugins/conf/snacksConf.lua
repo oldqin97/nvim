@@ -49,6 +49,13 @@ return {
     -- Grep
     { "<A-f>", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
     { "<C-f>", LazyVim.pick("grep_word"), desc = "Visual selection or word (Root Dir)", mode = { "n", "x" } },
+    {
+      "<leader>sb",
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = "Buffer Lines",
+    },
     -- search
     {
       "<leader>qq",
@@ -423,10 +430,18 @@ return {
     },
     sections = {
       { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 8, width = 50 },
-      { icon = " ", title = "Recent", section = "recent_files", cwd = true, limit = 3, padding = 1 },
-      { icon = " ", title = "Projects", section = "projects", padding = 1 },
-      -- { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-      { title = " Menu", section = "keys", padding = 1 },
+      { section = "recent_files", icon = " ", title = "Recent", cwd = true, limit = 3, padding = 1 },
+      { section = "projects", icon = " ", title = "Projects", padding = 1 },
+      -- { section = "keys", title = " Menu", padding = 1 },
+      {
+        title = "Menu",
+        { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+        { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+        { icon = " ", key = "p", desc = "projects", action = ":lua Snacks.picker.projects()" },
+        { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+        { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+        { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+      },
       { section = "startup" },
     },
   },
