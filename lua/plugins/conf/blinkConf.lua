@@ -69,8 +69,7 @@ return {
       "crates",
       "omni",
       "ripgrep",
-      -- "supermaven",
-      -- "ecolog",
+      "ecolog",
       -- "env",
     },
     -- per_filetype = {
@@ -183,6 +182,10 @@ return {
             return vim.bo.omnifunc
           end,
         },
+      },
+      ecolog = {
+        name = "ecolog",
+        module = "ecolog.integrations.cmp.blink_cmp",
       },
       ripgrep = {
         module = "blink-ripgrep",

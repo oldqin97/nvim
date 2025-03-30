@@ -264,7 +264,7 @@ return {
         git_status = true,
         git_status_open = false,
         supports_live = true,
-        git_untracked = true,
+        git_untracked = false,
         follow_file = true,
         diagnostics_open = true,
         focus = "list",
