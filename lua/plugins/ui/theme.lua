@@ -92,7 +92,7 @@ return {
           ["@boolean"] = { link = "Boolean" },
 
           TSComment = { fg = "#83cbac", italic = true },
-          ["@comment"] = { link = "TSComment" },
+          ["@comment"] = { fg = "#83cbac" },
 
           -- ========== 特殊增强 ==========
 
