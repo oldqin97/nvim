@@ -88,6 +88,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
   end,
 })
 
+-- 文件类型自动识别
 vim.filetype.add({
   pattern = {
     [".env.*"] = "sh",
@@ -99,6 +100,60 @@ vim.filetype.add({
     wxml = "html",
     wxss = "css",
   },
+})
+
+-- 创建 namespace，用于清除和更新高亮
+local ns_id = vim.api.nvim_create_namespace("diagnostic_line_highlight")
+
+-- 定义函数：更新整个 buffer 的 diagnostic line 高亮
+local function update_diagnostic_line_highlights(bufnr)
+  vim.api.nvim_buf_clear_namespace(bufnr, ns_id, 0, -1)
+
+  local diagnostics = vim.diagnostic.get(bufnr)
+
+  -- 为每一条 diagnostic 添加高亮（仅高亮整行一次）
+  local seen_lines = {}
+  for _, diagnostic in ipairs(diagnostics) do
+    local lnum = diagnostic.lnum
+    local severity = diagnostic.severity
+
+    if not seen_lines[lnum] then
+      seen_lines[lnum] = true
+
+      local hl_group = ({
+        [vim.diagnostic.severity.ERROR] = "DiagnosticLineError",
+        [vim.diagnostic.severity.WARN] = "DiagnosticLineWarn",
+        [vim.diagnostic.severity.INFO] = "DiagnosticLineInfo",
+        [vim.diagnostic.severity.HINT] = "DiagnosticLineHint",
+      })[severity or vim.diagnostic.severity.ERROR]
+
+      if hl_group then
+        -- vim.api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, lnum, 0, -1)
+
+        -- 获取行文本
+        local line_text = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)[1]
+
+        -- 找到非空字符结束的列（忽略尾部空白）
+        local end_col = #(line_text:match("^(.-)%s*$") or "")
+
+        -- 设置精确高亮
+        vim.api.nvim_buf_set_extmark(bufnr, ns_id, lnum, 0, {
+          end_col = end_col,
+          hl_group = hl_group,
+        })
+      end
+    end
+  end
+end
+
+-- 自动在 diagnostic 更新时调用上面的函数
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+  callback = function(args)
+    local bufnr = args.buf
+    if vim.api.nvim_buf_is_valid(bufnr) then
+      update_diagnostic_line_highlights(bufnr)
+    end
+  end,
 })
 
 -- 大文件自动关闭treesitter

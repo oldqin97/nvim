@@ -71,6 +71,10 @@ return {
 
           -- unused
           DiagnosticUnnecessary = { fg = "#bdaead", strikethrough = true },
+          DiagnosticLineError = { bg = "#51202A" },
+          DiagnosticLineWarn = { bg = "#51412A" },
+          DiagnosticLineInfo = { bg = "#1E535D" },
+          DiagnosticLineHint = { bg = "#1E535D" },
 
           -- 字符串
           String = { fg = "#C5967D" },
