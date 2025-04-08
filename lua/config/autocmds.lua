@@ -12,18 +12,6 @@ api.nvim_create_autocmd("BufEnter", {
 
 vim.cmd([[ autocmd BufRead,BufNewFile *.org set filetype=org ]])
 
--- 将 .wxml 文件识别为 html 文件类型
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*.wxml" },
-  command = "setfiletype html",
-})
-
--- 将 .wxss 文件识别为 css 文件类型
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*.wxss" },
-  command = "setfiletype css",
-})
-
 -- 关闭文件时自动保存
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
@@ -50,6 +38,17 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   },
   callback = function()
     vim.b.autoformat = false
+  end,
+})
+
+-- snacks_input 插件关闭窗口
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*", -- 匹配所有缓冲区
+  callback = function()
+    -- 确认当前窗口是 snacks_input 的窗口（通过文件类型或其他标识）
+    if vim.bo.filetype == "snacks_input" then
+      vim.api.nvim_win_close(0, true) -- 关闭当前窗口
+    end
   end,
 })
 
@@ -87,6 +86,19 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
       end
     end
   end,
+})
+
+vim.filetype.add({
+  pattern = {
+    [".env.*"] = "sh",
+    [".env"] = "sh",
+    -- ["*.wxml"] = "html",
+    -- ["*.wxss"] = "css",
+  },
+  extension = {
+    wxml = "html",
+    wxss = "css",
+  },
 })
 
 -- 大文件自动关闭treesitter

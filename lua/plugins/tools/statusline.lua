@@ -157,13 +157,12 @@ return {
               { get_diagnostic_label() },
               { get_git_diff() },
               { (ft_icon or " ") .. " ", guifg = ft_color, guibg = "none" },
-              -- { filename .. " ", gui = vim.bo[props.buf].modified and "bold,italic" or "bold", guibg = "#44406e" },
               {
                 ft_icon and { " ", ft_icon, " ", guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or "",
                 " ",
                 { filename, gui = modified and "bold,italic" or "bold" },
                 " ",
-                guibg = "#44406e",
+                guibg = "#55506e",
               },
               -- { "┊  " .. vim.api.nvim_win_get_number(props.win), group = "DevIconWindows" },
             }

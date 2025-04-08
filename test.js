@@ -12,7 +12,6 @@ function ttt(q) {
     console.log(item);
   });
   const qa = "test";
-  console.log(qa);
 
   return new Promise(resolve => {
     setTimeout(() => {

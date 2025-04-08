@@ -1,7 +1,5 @@
 return {
   "philosofonusus/ecolog.nvim",
-  -- Optional: you can add some keybindings
-  -- (I personally use lspsaga so check out lspsaga integration or lsp integration for a smoother experience without separate keybindings)
   keys = {
     { "<leader>ge", "<cmd>EcologGoto<cr>", desc = "Go to env file" },
     { "<leader>ep", "<cmd>EcologPeek<cr>", desc = "Ecolog peek variable" },
@@ -16,12 +14,6 @@ return {
     -- Enables shelter mode for sensitive values
     shelter = {
       configuration = {
-        -- Partial mode configuration:
-        -- false: completely mask values (default)
-        -- true: use default partial masking settings
-        -- table: customize partial masking
-        -- partial_mode = false,
-        -- or with custom settings:
         partial_mode = {
           show_start = 3, -- Show first 3 characters
           show_end = 3, -- Show last 3 characters
@@ -31,15 +23,15 @@ return {
         mask_length = nil, -- Optional: fixed length for masked portion (defaults to value length)
       },
       modules = {
-        cmp = true, -- Enabled to mask values in completion
+        cmp = false, -- Enabled to mask values in completion
         peek = false, -- Enable to mask values in peek view
-        files = true, -- Enabled to mask values in file buffers
+        files = false, -- Enabled to mask values in file buffers
         telescope = false, -- Enable to mask values in telescope integration
         telescope_previewer = false, -- Enable to mask values in telescope preview buffers
         fzf = false, -- Enable to mask values in fzf picker
         fzf_previewer = false, -- Enable to mask values in fzf preview buffers
-        snacks_previewer = true, -- Enable to mask values in snacks previewer
-        snacks = true, -- Enable to mask values in snacks picker
+        snacks_previewer = false, -- Enable to mask values in snacks previewer
+        snacks = false, -- Enable to mask values in snacks picker
       },
     },
     -- true by default, enables built-in types (database_url, url, etc.)

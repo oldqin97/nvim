@@ -423,11 +423,11 @@ return {
     },
   },
   dashboard = {
-    formats = {
-      key = function(item)
-        return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
-      end,
-    },
+    -- formats = {
+    --   key = function(item)
+    --     return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
+    --   end,
+    -- },
     sections = {
       { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 8, width = 50 },
       { section = "recent_files", icon = " ", title = "Recent", cwd = true, limit = 3, padding = 1 },

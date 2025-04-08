@@ -4,7 +4,8 @@ return {
     keys[#keys + 1] = {
       "gh",
       function()
-        vim.lsp.buf.hover()
+        -- vim.lsp.buf.hover()
+        require("pretty_hover").hover()
       end,
       desc = "Hover",
     }
@@ -122,13 +123,16 @@ return {
       language = "en-US",
       filetypes = { "markdown", "text" },
     },
-    -- custom_elements_ls = {
-    --   filetypes = { "html" },
-    -- },
-    volar = {
-      init_options = {
-        vue = {
-          hybridMode = false,
+    jsonls = {
+      settings = {
+        json = {
+          schemas = {
+            {
+              description = "微信小程序配置",
+              fileMatch = { "app.json", "project.config.json", "**/page.json" },
+              url = "https://raw.githubusercontent.com/wechat-miniprogram/schemas/master/app.schema.json",
+            },
+          },
         },
       },
     },
