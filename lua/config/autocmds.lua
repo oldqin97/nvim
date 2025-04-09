@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
   callback = function()
     local bufnr = vim.api.nvim_get_current_buf()
-    for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = bufnr })) do
+    for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
       if client.server_capabilities.documentHighlightProvider then
         pcall(vim.lsp.buf.document_highlight)
         break
@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
   callback = function()
     local bufnr = vim.api.nvim_get_current_buf()
-    for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = bufnr })) do
+    for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
       if client.server_capabilities.documentHighlightProvider then
         pcall(vim.lsp.buf.clear_references)
         break

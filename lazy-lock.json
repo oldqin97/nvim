@@ -1,11 +1,11 @@
 {
   "LazyVim": { "branch": "main", "commit": "3f034d0a7f58031123300309f2efd3bb0356ee21" },
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "c61a74033522c3efbb8465fe6e9c75b27f5c3667" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "9961c820c0fb66288056093e8fb8056570a1eb9a" },
   "Trans.nvim": { "branch": "v2", "commit": "3ebcd7b785dba7faec577b58606eb8a1c46b6260" },
   "any-jump.vim": { "branch": "master", "commit": "f95674d9a4251ac02f452d5f1861e4422f4652c7" },
   "auto-save.nvim": { "branch": "main", "commit": "979b6c82f60cfa80f4cf437d77446d0ded0addf0" },
-  "avante.nvim": { "branch": "main", "commit": "8cca147b94d9b2b7a4e955388a227e40930c5b9d" },
+  "avante.nvim": { "branch": "main", "commit": "04336913b32f66f45b20a6ba2f033dd742f04374" },
   "blink-cmp-dictionary": { "branch": "master", "commit": "3d49f934059fb59f657b547d90a526d00540634e" },
   "blink-cmp-env": { "branch": "main", "commit": "700b6d9542b9d5deea80121abbb46b1400ace302" },
   "blink-emoji.nvim": { "branch": "master", "commit": "a77aebc092ebece1eed108f301452ae774d6b67a" },

@@ -37,7 +37,7 @@ return {
           -- 函数定义/调用（黄色加强版）
           Function = { fg = "#FFD700", bold = true }, -- 亮金色
           ["@function.call"] = { link = "FunctionCall" },
-          ["@function"] = { link = "Function" }, -- Treesitter 同步
+          ["@function"] = { link = "Function" },      -- Treesitter 同步
           ["@keyword.function"] = { fg = "#ea6962" },
 
           -- BookMarksAdd = { bg = "#FFD700" },
@@ -53,7 +53,7 @@ return {
 
           -- 对象/类定义（橙色突出）
           ["@constructor"] = { fg = "#FE8019", bold = true }, -- 亮橙色
-          Type = { fg = "#FE8019" }, -- 类型提示
+          Type = { fg = "#FE8019" },                          -- 类型提示
 
           -- 清除代码片段跳转高亮
           SnippetTabstop = { fg = NONE, bg = NONE },
@@ -71,10 +71,10 @@ return {
 
           -- unused
           DiagnosticUnnecessary = { fg = "#bdaead", strikethrough = true },
-          DiagnosticLineError = { bg = "#51202A" },
-          DiagnosticLineWarn = { bg = "#51412A" },
-          DiagnosticLineInfo = { bg = "#1E535D" },
-          DiagnosticLineHint = { bg = "#1E535D" },
+          DiagnosticLineError = { bg = "#3c0000" },
+          DiagnosticLineWarn = { bg = "#3c3c00" },
+          DiagnosticLineInfo = { bg = "#003c3c" },
+          DiagnosticLineHint = { bg = "#003c00" },
 
           -- 字符串
           String = { fg = "#C5967D" },
@@ -102,10 +102,10 @@ return {
 
           -- 错误/警告（红色系）
           Error = { fg = "#FB4934", undercurl = true }, -- 错误提示
-          Warning = { fg = "#D79921", bold = true }, -- 警告提示
+          Warning = { fg = "#D79921", bold = true },    -- 警告提示
 
           -- 导入/模块（蓝绿色）
-          ["@include"] = { fg = "#83A598" }, -- 导入语句
+          ["@include"] = { fg = "#83A598" },   -- 导入语句
           ["@namespace"] = { fg = "#83A598" }, -- 命名空间
         },
         dim_inactive = false,
