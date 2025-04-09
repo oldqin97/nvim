@@ -131,7 +131,13 @@ local function update_diagnostic_line_highlights(bufnr)
         -- vim.api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, lnum, 0, -1)
 
         -- 获取行文本
-        local line_text = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)[1]
+        -- local line_text = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)[1]
+        -- 获取行内容（需要保护）
+        local lines = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)
+        local line_text = lines[1]
+        if not line_text then
+          return -- 行不存在，跳过
+        end
 
         -- 找到非空字符结束的列（忽略尾部空白）
         local end_col = #(line_text:match("^(.-)%s*$") or "")
