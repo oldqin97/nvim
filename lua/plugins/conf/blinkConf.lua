@@ -65,39 +65,41 @@ return {
       "dictionary",
       "calc",
       "emoji",
-      "css_vars",
       "crates",
       "omni",
       "ripgrep",
       "ecolog",
-      -- "env",
+      "css_vars",
+      -- "html-css",
     },
     -- per_filetype = {
-    -- env = {
-    --   "env",
-    --   "omni",
-    --   "lsp",
-    --   "snippets",
-    --   "buffer",
-    --   "dictionary",
+    --   -- env = {
+    --   --   "env",
+    --   --   "omni",
+    --   --   "lsp",
+    --   --   "snippets",
+    --   --   "buffer",
+    --   --   "dictionary",
+    --   -- },
+    --   -- toml = {
+    --   --   "crates",
+    --   --   "lsp",
+    --   --   "path",
+    --   --   "snippets",
+    --   --   "buffer",
+    --   -- },
+    --   -- lua = {
+    --   --   "lazydev",
+    --   --   "lsp",
+    --   --   "path",
+    --   --   "snippets",
+    --   --   "buffer",
+    --   --   "ripgrep",
+    --   --   "calc",
+    --   --   "dictionary",
+    --   -- },
     -- },
-    -- toml = {
-    --   "crates",
-    --   "lsp",
-    --   "path",
-    --   "snippets",
-    --   "buffer",
-    -- },
-    -- lua = {
-    --   "lazydev",
-    --   "lsp",
-    --   "path",
-    --   "snippets",
-    --   "buffer",
-    --   "calc",
-    --   "dictionary",
-    -- },
-    -- },
+
     providers = {
       lsp = {
         name = "LSP",
@@ -111,7 +113,6 @@ return {
         module = "blink.cmp.sources.snippets",
         score_offset = -10,
       },
-
       emoji = {
         module = "blink-emoji",
         name = "Emoji",
@@ -136,7 +137,7 @@ return {
       dictionary = {
         module = "blink-cmp-dictionary",
         name = "Dict",
-        score_offset = 5, -- the higher the number, the higher the priority
+        score_offset = 5,
         max_items = 5,
         min_keyword_length = 5,
         opts = {
@@ -162,7 +163,7 @@ return {
         module = "css-vars.blink",
         kind = "Css",
         opts = {
-          search_extensions = { ".js", ".ts", ".jsx", ".tsx" },
+          search_extensions = { ".js", ".ts", ".jsx", ".tsx", ".css", ".scss", ".less" },
         },
       },
       crates = {
@@ -176,13 +177,13 @@ return {
         enabled = function()
           return vim.bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
         end,
-        ---@type blink.cmp.CompleteFuncOpts
         opts = {
           complete_func = function()
             return vim.bo.omnifunc
           end,
         },
       },
+
       ecolog = {
         name = "ecolog",
         module = "ecolog.integrations.cmp.blink_cmp",
@@ -196,11 +197,6 @@ return {
           prefix_min_len = 3,
           context_size = 5,
           max_filesize = "1M",
-          project_root_marker = vim.g.root_markers,
-          search_casing = "--smart-case",
-          project_root_fallback = false,
-          additional_rg_options = {},
-          fallback_to_regex_highlighting = true,
         },
       },
     },

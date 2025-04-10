@@ -94,9 +94,9 @@ map("v", "<S-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 --   -- vim.lsp.buf.format()
 --   -- require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
 -- end, { desc = "format file" })
--- map({ "i", "x", "n", "s" }, "<A-s>", "<cmd>LazyFormat<cr>", { desc = "format file" })
+map({ "i", "x", "n", "s" }, "<A-s>", "<cmd>LazyFormat<cr>", { desc = "format file" })
 
-map({ "i", "x", "n", "s" }, "<A-s>", "<cmd>lua vim.lsp.buf.format()<cr>", { desc = "format file" })
+-- map({ "i", "x", "n", "s" }, "<A-s>", "<cmd>lua vim.lsp.buf.format()<cr>", { desc = "format file" })
 
 -- 移动光标
 map("n", "<S-h>", "^", { desc = "move cursor to begin" })
