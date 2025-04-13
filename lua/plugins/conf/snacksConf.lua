@@ -1,3 +1,4 @@
+---@diagnostic disable: assign-type-mismatch
 return {
   keys = {
     -- explorer
@@ -10,16 +11,24 @@ return {
     },
     -- diagnostics
     {
-      "<leader>bb",
+      "<leader>b",
       function()
-        Snacks.picker.diagnostics()
+        Snacks.picker.diagnostics({
+          layout = {
+            preview = false,
+          },
+        })
       end,
       desc = "Notification History",
     },
     {
-      "<leader>dd",
+      "<leader>d",
       function()
-        Snacks.picker.diagnostics_buffer()
+        Snacks.picker.diagnostics_buffer({
+          layout = {
+            preview = false,
+          },
+        })
       end,
       desc = "Notification History",
     },
@@ -52,7 +61,11 @@ return {
     {
       "<leader>sb",
       function()
-        Snacks.picker.lines()
+        Snacks.picker.lines({
+          layout = {
+            preview = false,
+          },
+        })
       end,
       desc = "Buffer Lines",
     },
@@ -109,7 +122,7 @@ return {
     {
       "<leader>sl",
       function()
-        Snacks.picker.loclist()
+        Snacks.picker.lsp_config()
       end,
       desc = "Location List",
     },
@@ -366,12 +379,24 @@ return {
           ["<Esc>"] = { "close", mode = { "n", "i" } },
           ["<a-g>"] = { "toggle_ignored", mode = { "i", "n" } },
           ["<c-g>"] = { "toggle_hidden", mode = { "i", "n" } },
+          -- ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
         },
       },
       list = {
         keys = {
           ["<CR>"] = { "confirm", mode = { "n", "i" } },
+          ["<Tab>"] = { "confirm", mode = { "i", "n" } },
           ["<Esc>"] = { "close", mode = { "n", "i" } },
+          -- ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
+        },
+      },
+      preview = {
+        keys = {
+          ["<Esc>"] = "cancel",
+          ["q"] = "close",
+          ["i"] = "focus_input",
+          -- ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
+          -- ["<a-w>"] = "cycle_win",
         },
       },
     },

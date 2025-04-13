@@ -8,7 +8,6 @@ return {
     ["<Down>"] = { "select_next", "fallback" },
   },
   appearance = {
-
     nerd_font_variant = "normal",
     kind_icons = {
       Snippet = "󰩫",
@@ -41,6 +40,16 @@ return {
       },
     },
 
+    accept = {
+      auto_brackets = {
+        enabled = true,
+        semantic_token_resolution = {
+          enabled = true,
+          blocked_filetypes = { "java", "vue" },
+          timeout_ms = 400,
+        },
+      },
+    },
     list = {
       max_items = 100,
     },
@@ -183,7 +192,6 @@ return {
           end,
         },
       },
-
       ecolog = {
         name = "ecolog",
         module = "ecolog.integrations.cmp.blink_cmp",
@@ -192,7 +200,7 @@ return {
         module = "blink-ripgrep",
         name = "Ripgrep",
         kind = "String",
-        score_offset = -11,
+        score_offset = 5,
         opts = {
           prefix_min_len = 3,
           context_size = 5,
