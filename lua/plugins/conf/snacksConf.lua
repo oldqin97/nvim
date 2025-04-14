@@ -386,6 +386,7 @@ return {
         keys = {
           ["<CR>"] = { "confirm", mode = { "n", "i" } },
           ["<Tab>"] = { "confirm", mode = { "i", "n" } },
+          ["o"] = { "confirm", mode = { "i", "n" } },
           ["<Esc>"] = { "close", mode = { "n", "i" } },
           -- ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
         },

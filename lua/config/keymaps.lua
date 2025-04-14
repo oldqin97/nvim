@@ -213,3 +213,7 @@ map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
 -- vim.keymap.del({ "n" }, "<leader>us")
 -- vim.keymap.del({ "n" }, "<leader>ft")
 -- vim.keymap.del({ "n" }, "<leader>ft")
+
+-- fast move
+map("n", "j", "<Plug>(accelerated_jk_gj)", { desc = "fast move j" })
+map("n", "k", "<Plug>(accelerated_jk_gk)", { desc = "fast move k" })
