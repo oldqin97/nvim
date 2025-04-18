@@ -5,12 +5,13 @@ local cspell_files = {
 }
 
 return {
-  {
-    "davidmh/cspell.nvim",
-    event = "BufReadPost",
-  },
+  -- {
+  --   "davidmh/cspell.nvim",
+  --   event = "BufReadPost",
+  -- },
   {
     "nvimtools/none-ls.nvim",
+    dependencies = { "davidmh/cspell.nvim" },
     opts = function(_, opts)
       local cspell = require("cspell")
       opts.sources = vim.list_extend(opts.sources or {}, {

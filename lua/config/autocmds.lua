@@ -1,12 +1,10 @@
-local augroup = vim.api.nvim_create_augroup("highlight_cmds", { clear = true })
 local vim = vim
 local api = vim.api
 api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
   callback = function()
-    vim.opt.formatoptions = vim.opt.formatoptions
-      - "o" -- O and o, don't continue comments
-      - "r" -- But do continue when pressing enter.
+    vim.opt.formatoptions = vim.opt.formatoptions - "o" -- O and o, don't continue comments
+    -- - "r" -- But do continue when pressing enter.
   end,
 })
 
@@ -128,10 +126,6 @@ local function update_diagnostic_line_highlights(bufnr)
       })[severity or vim.diagnostic.severity.ERROR]
 
       if hl_group then
-        -- vim.api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, lnum, 0, -1)
-
-        -- 获取行文本
-        -- local line_text = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)[1]
         -- 获取行内容（需要保护）
         local lines = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)
         local line_text = lines[1]

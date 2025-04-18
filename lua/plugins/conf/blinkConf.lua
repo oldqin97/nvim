@@ -33,6 +33,14 @@ return {
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 200,
+      draw = function(opts)
+        if opts.item and opts.item.documentation then
+          local out = require("pretty_hover.parser").parse(opts.item.documentation.value)
+          opts.item.documentation.value = out:string()
+        end
+
+        opts.default_implementation(opts)
+      end,
       window = {
         border = "rounded",
         scrollbar = false,
@@ -120,7 +128,7 @@ return {
       snippets = {
         name = "Snippets",
         module = "blink.cmp.sources.snippets",
-        score_offset = -10,
+        score_offset = 10,
       },
       emoji = {
         module = "blink-emoji",

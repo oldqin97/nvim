@@ -14,10 +14,11 @@ function ttt(q) {
   const qa = "test";
 
   return new Promise(resolve => {
-    setTimeout(() => {
+    setInterval(() => {
       resolve(q);
     }, 1000);
   });
+  // qweqweqweqweqw
 }
 
 /**
