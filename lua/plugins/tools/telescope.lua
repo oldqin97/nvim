@@ -2,46 +2,6 @@ return {
   "nvim-telescope/telescope.nvim",
   event = "VeryLazy",
   keys = {},
-  -- keys = function()
-  --   return {
-  --     { "<A-p>", false },
-  --     {
-  --       "<A-f>",
-  --       false,
-  --     },
-  --     {
-  --       "<C-f>",
-  --       false,
-  --     },
-  --
-  --     { "<leader>r", false },
-  --     -- {
-  --     --   "<leader>ss",
-  --     --   function()
-  --     --     require("telescope.builtin").lsp_document_symbols({
-  --     --       symbols = LazyVim.config.get_kind_filter(),
-  --     --     })
-  --     --   end,
-  --     --   desc = "Goto Symbol",
-  --     -- },
-  --     -- {
-  --     --   "<C-n>",
-  --     --   LazyVim.telescope("spell_suggest"),
-  --     --   desc = "Spell suggest",
-  --     -- },
-  --     {
-  --       "<leader>sd",
-  --       false,
-  --     },
-  --     { "<leader>/", false },
-  --     { "<leader>gc", false },
-  --     { "<leader><leader>", false },
-  --     { "<leader>fc", false },
-  --     { "<leader>sD", false },
-  --     { "<leader>sm", false },
-  --     { "<leader>fr", false },
-  --   }
-  -- end,
   opts = function()
     return {
       extensions_list = { "bookmarks" },

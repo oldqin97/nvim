@@ -1,1 +1,1 @@
-{"data":{"/Users/qin/.config/nvim/lua/config/autocmds.lua":{"108":{"m":"  vim.api.nvim_buf_clear_namespace(bufnr, ns_id, 0, -1)"}}}}
+{"data":{"/Users/qin/.config/nvim/lua/plugins/conf/bookmarkConf.lua":{"31":{"m":"          { \"\" .. item.ann, \"BookMarksAnnLn\" },"}},"/Users/qin/.config/nvim/test.js":{"14":{"a":"test.js","m":"  const qa = qwe;"}}}}

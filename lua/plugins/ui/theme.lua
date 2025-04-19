@@ -42,6 +42,7 @@ return {
 
           BookMarksAdd = { fg = "#FFD700" },
           BookMarksAnn = { fg = "#FFD700" },
+          BookMarksSign = { bg = "#504945", fg = "#eeeeee" },
           BookMarksAnnLn = { bg = "#504945" },
           BookMarksAddLn = { bg = "#504945" },
 

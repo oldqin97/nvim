@@ -67,6 +67,7 @@ return {
             "AvanteInput",
             "snacks_picker_list",
             "dapui_watches",
+            "grug-far",
           },
         },
         keymaps = {

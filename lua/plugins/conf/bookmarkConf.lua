@@ -8,21 +8,16 @@ return {
     for filepath, marks in pairs(bk_config.cache.data) do
       for lnum_str, mark in pairs(marks) do
         local lnum = tonumber(lnum_str)
-        -- mark.m 是当时行内容，mark.a 是可选的注释
-        local ann = mark.a or ""
         local text = mark.m or ""
-        -- 显示格式：相对路径:行号 [注释] 行内容
-        local display = string.format(
-          "%s:%d %s %s",
-          vim.fn.fnamemodify(filepath, ":."),
-          lnum,
-          ann ~= "" and ("[" .. ann .. "]") or "",
-          text
-        )
+        local ann = mark.a and ("[ " .. mark.a .. "]") or "[󰄲 temporary]"
+        local path = vim.fn.fnamemodify(filepath, ":.")
         table.insert(items, {
-          filename = filepath,
+          filename = filepath, -- 保留 filename
+          file = filepath,
           lnum = lnum,
-          display = display,
+          text = ann,
+          ann = text,
+          path = path,
         })
       end
     end
@@ -32,16 +27,16 @@ return {
       title = "Bookmarks",
       items = items,
       -- 如何在列表中渲染每一项
-      -- format = function(item)
-      --   return { { item.display, "" } }
-      -- end,
       format = function(item)
         return {
-          { item.display or vim.fn.fnamemodify(item.file, ":."), "" },
+          { "" .. item.text, "BookMarksSign" },
+          { item.ann, "BookMarksAnn" },
+          { "   " .. item.path, "Directory" },
+          { ":" .. item.lnum, "Directory" },
         }
       end,
       -- 强制使用包含预览面板的布局
-      layout = { preset = "select", preview = false },
+      layout = { preset = "ivy" },
       -- 选中后跳转到对应文件和行
       confirm = function(picker, item)
         picker:close()

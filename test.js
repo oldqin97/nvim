@@ -11,7 +11,7 @@ function ttt(q) {
   q.forEach(item => {
     console.log(item);
   });
-  const qa = "test";
+  const qa = qwe;
 
   return new Promise(resolve => {
     setInterval(() => {

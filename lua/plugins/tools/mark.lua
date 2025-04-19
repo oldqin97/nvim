@@ -42,13 +42,13 @@ return {
         signs = {
           add = {
             hl = "BookMarksAdd",
-            text = "󰄲",
+            text = "󰄲 ",
             numhl = "BookMarksAddNr",
             linehl = "BookMarksAddLn",
           },
           ann = {
             hl = "BookMarksAnn",
-            text = "",
+            text = " ",
             numhl = "BookMarksAnnNr",
             linehl = "BookMarksAnnLn",
           },

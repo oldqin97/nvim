@@ -63,7 +63,8 @@ return {
       function()
         Snacks.picker.lines({
           layout = {
-            preview = false,
+            preset = "ivy",
+            preview = true,
           },
         })
       end,
