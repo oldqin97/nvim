@@ -14,6 +14,7 @@ return {
         table.insert(items, {
           filename = filepath, -- 保留 filename
           file = filepath,
+          pos = { lnum, 0 }, -- previewer jumps here
           lnum = lnum,
           text = ann,
           ann = text,
