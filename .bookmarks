@@ -1,1 +1,1 @@
-{"data":{"/Users/qin/.config/nvim/lua/plugins/conf/bookmarkConf.lua":{"31":{"m":"          { \"\" .. item.ann, \"BookMarksAnnLn\" },"}},"/Users/qin/.config/nvim/test.js":{"14":{"a":"test.js","m":"  const qa = qwe;"}}}}
+{"data":{"/Users/qin/.config/nvim/test.js":{"14":{"a":"test.js","m":"  const qa = qwe;"}},"/Users/qin/.config/nvim/lua/plugins/conf/bookmarkConf.lua":{"31":{"m":"          { \"\" .. item.ann, \"BookMarksAnnLn\" },"}}}}

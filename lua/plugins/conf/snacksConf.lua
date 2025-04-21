@@ -1,11 +1,25 @@
----@diagnostic disable: assign-type-mismatch
+---@diagnostic disable: assign-type-mismatch, missing-fields
 return {
   keys = {
     -- explorer
     {
       "<A-w>",
       function()
-        Snacks.explorer()
+        -- Snacks.explorer()
+
+        -- 1. 先禁用 focus.nvim 的自动 resize
+        -- vim.cmd("FocusDisable")
+        vim.g.focus_disable = true
+
+        -- 2. 打开 snacks explorer，并注册 on_close 回调
+        Snacks.explorer({
+          -- 关闭 Explorer 前会被调用
+          on_close = function()
+            -- 重新启用 focus.nvim 的自动 resize
+            -- vim.cmd("FocusEnable")
+            vim.g.focus_disable = false
+          end,
+        })
       end,
       desc = "explorer",
     },
@@ -359,6 +373,7 @@ return {
           preset = "sidebar",
           preview = false,
           layout = {
+            -- width = 10, -- 绝对列数，亦可写 0.3 表示 30% 宽度
             position = "right",
           },
         },
