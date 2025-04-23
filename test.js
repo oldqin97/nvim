@@ -14,12 +14,13 @@ function ttt(q) {
   const qa = qwe;
 
   return new Promise(resolve => {
-    setInterval(() => {
+    setTimeout(() => {
       resolve(q);
     }, 1000);
   });
   // qweqweqweqweqw
 }
+
 
 /**
  * 计算斐波那契数列的第n项

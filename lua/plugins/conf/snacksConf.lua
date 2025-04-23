@@ -25,7 +25,7 @@ return {
     },
     -- diagnostics
     {
-      "<leader>b",
+      "<leader>dd",
       function()
         Snacks.picker.diagnostics({
           layout = {
@@ -36,7 +36,7 @@ return {
       desc = "Notification History",
     },
     {
-      "<leader>d",
+      "<leader>bb",
       function()
         Snacks.picker.diagnostics_buffer({
           layout = {

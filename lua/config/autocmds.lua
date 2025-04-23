@@ -11,33 +11,33 @@ api.nvim_create_autocmd("BufEnter", {
 vim.cmd([[ autocmd BufRead,BufNewFile *.org set filetype=org ]])
 
 -- 关闭文件时自动保存
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = {
-    "lua",
-    "javascript",
-    "typescript",
-    "vue",
-    "html",
-    "css",
-    "scss",
-    "less",
-    "javascriptreact",
-    "typescriptreact",
-    "rust",
-    "python",
-    "json",
-    "markdown",
-    "c",
-    "cpp",
-    "yaml",
-    "dart",
-    "sql",
-    "jsonc",
-  },
-  callback = function()
-    vim.b.autoformat = false
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = {
+--     "lua",
+--     "javascript",
+--     "typescript",
+--     "vue",
+--     "html",
+--     "css",
+--     "scss",
+--     "less",
+--     "javascriptreact",
+--     "typescriptreact",
+--     "rust",
+--     "python",
+--     "json",
+--     "markdown",
+--     "c",
+--     "cpp",
+--     "yaml",
+--     "dart",
+--     "sql",
+--     "jsonc",
+--   },
+--   callback = function()
+--     vim.b.autoformat = false
+--   end,
+-- })
 
 -- snacks_input 插件关闭窗口
 vim.api.nvim_create_autocmd("InsertLeave", {

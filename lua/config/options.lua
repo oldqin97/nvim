@@ -6,6 +6,7 @@ vim.cmd([[
 let g:loaded_perl_provider = 0
 ]])
 
+vim.g.autoformat = false
 vim.g.lazyvim_blink_main = false
 vim.g.lazyvim_picker = "snacks"
 
@@ -34,12 +35,6 @@ vim.opt.spelllang = { "en", "cjk" }
 vim.g.editorconfig = true
 
 -- vim.opt.colorcolumn = "90"
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-  -- border = "single", -- "shadow" , "none", "rounded"
-  -- width = 100,
-})
 
 vim.g.ai_cmp = false
 

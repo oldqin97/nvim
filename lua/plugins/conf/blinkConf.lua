@@ -34,10 +34,10 @@ return {
       auto_show = true,
       auto_show_delay_ms = 200,
       draw = function(opts)
-        if opts.item and opts.item.documentation then
-          local out = require("pretty_hover.parser").parse(opts.item.documentation.value)
-          opts.item.documentation.value = out:string()
-        end
+        -- if opts.item and opts.item.documentation then
+        --   local out = require("pretty_hover.parser").parse(opts.item.documentation.value)
+        --   opts.item.documentation.value = out:string()
+        -- end
 
         opts.default_implementation(opts)
       end,
@@ -87,7 +87,6 @@ return {
       "ripgrep",
       "ecolog",
       "css_vars",
-      -- "html-css",
     },
     -- per_filetype = {
     --   -- env = {
@@ -129,6 +128,13 @@ return {
         name = "Snippets",
         module = "blink.cmp.sources.snippets",
         score_offset = 10,
+        should_show_items = function()
+          local ok, node = pcall(vim.treesitter.get_node)
+          if ok and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
+            return false
+          end
+          return true
+        end,
       },
       emoji = {
         module = "blink-emoji",
