@@ -10,10 +10,6 @@
         "path": "./html.json"
       },
       {
-        "language": "html",
-        "path": "./wxml.json"
-      },
-      {
         "language": "markdown",
         "path": "./markdown.json"
       },

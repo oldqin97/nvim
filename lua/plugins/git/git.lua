@@ -16,7 +16,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
 
     keys = {
-      { "<leader>hp", "<cmd>Gitsigns preview_hunk<cr>", desc = "git graph" },
+      { "<leader>hl", "<cmd>Gitsigns preview_hunk<cr>", desc = "git graph" },
       { "<leader>hr", "<cmd>Gitsigns reset_hunk<cr>", desc = "git graph" },
     },
     -- vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#f0c9cf", bg = "NONE" })

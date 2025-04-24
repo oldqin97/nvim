@@ -21,7 +21,6 @@ function ttt(q) {
   // qweqweqweqweqw
 }
 
-
 /**
  * 计算斐波那契数列的第n项
  *

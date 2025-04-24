@@ -49,6 +49,7 @@ return {
       local save_file = string.format("%s/%s.json", bookmarks_dir, project_name)
 
       require("bookmarks").setup({
+
         -- save_file = vim.fn.expand("~/.config/nvim/.bookmarks"),
         save_file = save_file,
         -- numhl = true,

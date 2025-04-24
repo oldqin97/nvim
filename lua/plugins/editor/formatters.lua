@@ -33,7 +33,10 @@ return {
           "wxss",
         },
         -- extra_filetypes = { "wxml" }, -- 强制处理 .wxml 扩展名
-        extra_args = function()
+        extra_args = function(params)
+          if params.bufname:match("%.wxml$") then
+            return { "--parser", "html" }
+          end
           return {
             "--jsx-single-quote=true",
             "--single-quote=false",

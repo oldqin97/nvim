@@ -6,7 +6,9 @@ vim.cmd([[
 let g:loaded_perl_provider = 0
 ]])
 
+-- 取消自动格式化
 vim.g.autoformat = false
+
 vim.g.lazyvim_blink_main = false
 vim.g.lazyvim_picker = "snacks"
 

@@ -71,8 +71,8 @@ return {
             { find = "^%d+ more lines$" },
             { find = "^%d+ fewer lines$" },
             { find = "^%d+ lines yanked$" },
-            { find = "is not attached to client" },
-            { find = "Client with id" },
+            -- { find = "is not attached to client" },
+            -- { find = "Client with id" },
             -- {
             --   cond = function(message)
             --     local client = vim.tbl_get(message.opts, "progress", "client")
