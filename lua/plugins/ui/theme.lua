@@ -24,6 +24,7 @@ return {
         inverse = false,
         contrast = "",
         palette_overrides = {},
+
         overrides = {
           Comment = { fg = "#83cbac" },
           FlashBackdrop = { fg = "#83cbac" },
@@ -34,6 +35,9 @@ return {
           -- Cursor = { bg = "#FF0000", fg = "#FFFFFF", bold = true },
 
           BlinkCmpKind = { link = "GruvboxYellow" },
+
+          SnacksPickerListCursorLine = { link = "Visual" },
+
           -- 函数定义/调用（黄色加强版）
           Function = { fg = "#FFD700", bold = true }, -- 亮金色
           ["@function.call"] = { link = "FunctionCall" },
@@ -75,10 +79,10 @@ return {
 
           -- unused
           DiagnosticUnnecessary = { fg = "#bdaead", strikethrough = true },
-          DiagnosticLineError = { bg = "#3c0000" },
-          DiagnosticLineWarn = { bg = "#3c3c00" },
-          DiagnosticLineInfo = { bg = "#003c3c" },
-          DiagnosticLineHint = { bg = "#003c00" },
+          DiagnosticLineError = { bg = "#5c0000" },
+          DiagnosticLineWarn = { bg = "#5c5c00" },
+          DiagnosticLineInfo = { bg = "#005c5c" },
+          DiagnosticLineHint = { bg = "#005c00" },
 
           -- 字符串
           String = { fg = "#C5967D" },

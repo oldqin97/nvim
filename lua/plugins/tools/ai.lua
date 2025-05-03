@@ -68,6 +68,7 @@ return {
             "snacks_picker_list",
             "dapui_watches",
             "grug-far",
+            "DressingInput",
           },
         },
         keymaps = {

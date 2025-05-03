@@ -13,8 +13,8 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-
+    -- event = { "BufReadPre", "BufNewFile" },
+    lazy = false,
     keys = {
       { "<leader>hl", "<cmd>Gitsigns preview_hunk<cr>", desc = "git graph" },
       { "<leader>hr", "<cmd>Gitsigns reset_hunk<cr>", desc = "git graph" },

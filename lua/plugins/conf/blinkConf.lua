@@ -7,6 +7,7 @@ return {
     ["<Up>"] = { "select_prev", "fallback" },
     ["<Down>"] = { "select_next", "fallback" },
   },
+
   appearance = {
     nerd_font_variant = "normal",
     kind_icons = {
@@ -17,6 +18,14 @@ return {
       Css = "",
       String = "",
       AI = "",
+    },
+  },
+
+  fuzzy = {
+    sorts = {
+      "exact",
+      "score",
+      "sort_text",
     },
   },
 
@@ -72,6 +81,7 @@ return {
       show_on_x_blocked_trigger_characters = { "'", '"', "(", ">", "<" },
     },
   },
+
   sources = {
     compat = {},
     default = {
