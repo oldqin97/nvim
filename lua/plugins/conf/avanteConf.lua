@@ -1,16 +1,19 @@
 return {
   opts = {
     provider = "openai",
+    providers = {
+      openai = {
+        endpoint = "https://api.deepseek.com/v1",
+        model = "deepseek-chat",
+        timeout = 30000,
+        -- temperature = 0,
+        max_tokens = 4096,
+        api_key_name = "OPENAI_API_KEY",
+        extra_request_body = {},
+      },
+    },
     auto_suggestions_provider = "openai",
     hints = { enabled = false },
-    openai = {
-      endpoint = "https://api.deepseek.com/v1",
-      model = "deepseek-chat",
-      timeout = 30000,
-      temperature = 0,
-      max_tokens = 4096,
-      api_key_name = "OPENAI_API_KEY",
-    },
     behaviour = {
       enable_token_counting = false,
     },
@@ -55,7 +58,6 @@ return {
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     {
       "HakonHarnes/img-clip.nvim",
-      event = "VeryLazy",
       opts = {
         -- recommended settings
         default = {
@@ -72,10 +74,10 @@ return {
     {
       -- Make sure to set this up properly if you have lazy=true
       "MeanderingProgrammer/render-markdown.nvim",
-      opts = {
-        file_types = { "Avante" },
-      },
-      ft = { "Avante" },
+      -- opts = {
+      --   file_types = { "Avante" },
+      -- },
+      -- ft = { "Avante" },
     },
   },
 

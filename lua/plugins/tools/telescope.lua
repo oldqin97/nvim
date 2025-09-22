@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
-  event = "VeryLazy",
+  -- event = "VeryLazy",
+  lazy = true,
   keys = {},
   opts = function()
     return {

@@ -8,7 +8,12 @@ return {
     {
       "<A-t>",
       function()
-        Snacks.picker.todo_comments()
+        Snacks.picker.todo_comments({
+          layout = {
+            preset = "ivy",
+            preview = true,
+          },
+        })
       end,
       { desc = "Todo list" },
     },

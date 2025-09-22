@@ -32,7 +32,7 @@ return {
           IncSearch = { bg = "#FF8800", fg = "#eeeeee" },
           MatchParen = { bg = "#458588" },
 
-          -- Cursor = { bg = "#FF0000", fg = "#FFFFFF", bold = true },
+          Cursor = { bg = "#FF0000", fg = "#FFFFFF", bold = true },
 
           BlinkCmpKind = { link = "GruvboxYellow" },
 

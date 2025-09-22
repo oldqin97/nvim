@@ -97,8 +97,8 @@ return {
 
   {
     "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
+    -- event = "VeryLazy",
+    lazy = true,
     -- version = "v0.0.19",
     dependencies = require("plugins.conf.avanteConf").dependencies,
     keys = require("plugins.conf.avanteConf").keys,

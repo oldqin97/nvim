@@ -1,4 +1,6 @@
 ---@diagnostic disable: assign-type-mismatch, missing-fields
+
+local Snacks_util = require("plugins.utils.closed_buffers")
 return {
   keys = {
     -- explorer
@@ -55,7 +57,7 @@ return {
     },
     -- find
     {
-      "<a-p>",
+      "<A-p>",
       function()
         Snacks.picker.smart()
       end,
@@ -64,7 +66,9 @@ return {
     {
       "<leader>fb",
       function()
-        Snacks.picker.buffers()
+        -- Snacks.picker.buffers()
+        -- Snacks.picker.closed_buffers()
+        Snacks_util.closed_buffers()
       end,
       desc = "Buffers",
     },

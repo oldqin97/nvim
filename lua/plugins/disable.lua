@@ -8,7 +8,7 @@ return {
     enabled = false,
   },
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     enabled = false,
   },
   {
@@ -16,7 +16,7 @@ return {
     enabled = false,
   },
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     enabled = false,
   },
   {
@@ -32,14 +32,17 @@ return {
     enabled = false,
   },
   {
-    "echasnovski/mini.starter",
+    "nvim-mini/mini.starter",
     enabled = false,
   },
-  {
-    "echasnovski/mini.ai",
-    enabled = false,
-  },
-
+  -- {
+  --   "echasnovski/mini.ai",
+  --   enabled = false,
+  -- },
+  -- {
+  --   "nvim-mini/mini.ai",
+  --   enabled = false,
+  -- },
   {
     "stevearc/conform.nvim",
     enabled = false,
@@ -58,7 +61,7 @@ return {
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    enabled = true,
+    enabled = false,
   },
   {
     "RRethy/vim-illuminate",
@@ -67,6 +70,10 @@ return {
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     enabled = false,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    enabled = true,
   },
   {
     -- 颜色拾取器

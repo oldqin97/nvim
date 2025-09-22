@@ -10,27 +10,31 @@ return {
   --   ]])
   -- end,
   {
-    "echasnovski/mini.nvim",
+    "nvim-mini/mini.ai",
     version = false,
     lazy = true,
-    init = function()
-      -- Create your mappings here
-      require("mini.align").setup({})
-
-      -- -- 可视模式下按 '=' 对齐
-      -- vim.api.nvim_set_keymap(
-      --   "v",
-      --   "<Leader>a=",
-      --   ":lua require('mini.align').align_to_char('=')<CR>",
-      --   { noremap = true }
-      -- )
-      -- -- 可视模式下按 ':' 对齐
-      -- vim.api.nvim_set_keymap(
-      --   "v",
-      --   "<Leader>a:",
-      --   ":lua require('mini.align').align_to_string(':')<CR>",
-      --   { noremap = true }
-      -- )
-    end,
+    -- init = function()
+    --   -- Create your mappings here
+    --   require("mini.align").setup({})
+    --
+    --   -- 可视模式下按 '=' 对齐
+    --   vim.api.nvim_set_keymap(
+    --     "v",
+    --     "<Leader>a=",
+    --     ":lua require('mini.align').align_to_char('=')<CR>",
+    --     { noremap = true }
+    --   )
+    --   -- 可视模式下按 ':' 对齐
+    --   vim.api.nvim_set_keymap(
+    --     "v",
+    --     "<Leader>a:",
+    --     ":lua require('mini.align').align_to_string(':')<CR>",
+    --     { noremap = true }
+    --   )
+    -- end,
+  },
+  {
+    "nvim-mini/mini.icons",
+    lazy = true,
   },
 }

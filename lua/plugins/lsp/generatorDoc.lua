@@ -5,6 +5,7 @@ vim.cmd([[
   let g:doge_comment_jump_modes = ['n','s','i']
 ]])
 return {
+
   "kkoomen/vim-doge",
   event = "BufReadPost",
 }

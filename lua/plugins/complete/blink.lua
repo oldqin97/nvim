@@ -1,7 +1,8 @@
 return {
   {
     "saghen/blink.cmp",
-    event = { "InsertEnter", "CmdlineEnter" },
+    -- event = { "InsertEnter", "CmdlineEnter" },
+    event = "VeryLazy",
     dependencies = {
       "moyiz/blink-emoji.nvim",
       "saghen/blink.compat",
@@ -21,6 +22,7 @@ return {
       completion = require("plugins.conf.blinkConf").completion,
       sources = require("plugins.conf.blinkConf").sources,
       cmdline = require("plugins.conf.blinkConf").cmdline,
+      signature = require("plugins.conf.blinkConf").signature,
     },
 
     opts_extend = { "sources.default" },

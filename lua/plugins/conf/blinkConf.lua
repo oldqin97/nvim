@@ -29,11 +29,27 @@ return {
     },
   },
 
+  signature = {
+    enabled = true,
+    window = {
+      min_width = 20, -- 设置提示窗口的最小宽度
+      max_width = 80, -- 设置最大宽度
+      max_height = 8, -- 设置最大高度
+      border = "rounded", -- 设置边框样式：可选值有 "none", "single", "double", "rounded", "solid", "shadow"
+      winblend = 0, -- 设置透明度，0=不透明，100=完全透明
+      winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+      scrollbar = false, -- 是否显示滚动条
+      -- direction_priority = { "n", "s", "e", "w" }, -- 显示窗口时优先考虑的方向
+      treesitter_highlighting = true, -- 启用 Treesitter 高亮
+      show_documentation = true, -- 显示函数的文档信息
+    },
+  },
   completion = {
     menu = {
       draw = {
         treesitter = { "lsp" },
         components = {},
+        columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "kind" } },
       },
       scrollbar = false,
       border = "rounded",
@@ -131,13 +147,13 @@ return {
         name = "LSP",
         enabled = true,
         module = "blink.cmp.sources.lsp",
-        score_offset = 10,
+        score_offset = 100,
         opts = { tailwind_color_icon = "██" },
       },
       snippets = {
         name = "Snippets",
         module = "blink.cmp.sources.snippets",
-        score_offset = 10,
+        score_offset = 1,
         should_show_items = function()
           local ok, node = pcall(vim.treesitter.get_node)
           if ok and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
@@ -170,7 +186,7 @@ return {
       dictionary = {
         module = "blink-cmp-dictionary",
         name = "Dict",
-        score_offset = 5,
+        score_offset = -1,
         max_items = 5,
         min_keyword_length = 5,
         opts = {
@@ -218,18 +234,14 @@ return {
       },
       ecolog = {
         name = "ecolog",
+        score_offset = 11,
         module = "ecolog.integrations.cmp.blink_cmp",
       },
       ripgrep = {
         module = "blink-ripgrep",
         name = "Ripgrep",
-        kind = "String",
-        score_offset = 5,
-        opts = {
-          prefix_min_len = 3,
-          context_size = 5,
-          max_filesize = "1M",
-        },
+        score_offset = 1,
+        opts = {},
       },
     },
   },

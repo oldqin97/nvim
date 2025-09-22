@@ -16,11 +16,14 @@ return {
           auto_jump = true,
           jump_highlight_duration = 100,
         },
+        providers = {
+          priority = { "lsp", "treesitter" }, -- 优先用 LSP，没响应就用 Treesitter
+        },
         keymaps = {
           peek_location = "l",
           fold_toggle = "h",
-          goto_location = "<Tab>",
-          goto_and_close = "o",
+          -- goto_location = "<Tab>",
+          goto_and_close = { "o", "<Tab>" },
         },
 
         symbol_folding = {

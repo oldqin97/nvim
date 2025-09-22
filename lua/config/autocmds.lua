@@ -62,29 +62,29 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 --   end,
 -- })
 
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  callback = function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
-      if client.server_capabilities.documentHighlightProvider then
-        pcall(vim.lsp.buf.document_highlight)
-        break
-      end
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-  callback = function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
-      if client.server_capabilities.documentHighlightProvider then
-        pcall(vim.lsp.buf.clear_references)
-        break
-      end
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+--   callback = function()
+--     local bufnr = vim.api.nvim_get_current_buf()
+--     for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+--       if client.server_capabilities.documentHighlightProvider then
+--         pcall(vim.lsp.buf.document_highlight)
+--         break
+--       end
+--     end
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+--   callback = function()
+--     local bufnr = vim.api.nvim_get_current_buf()
+--     for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+--       if client.server_capabilities.documentHighlightProvider then
+--         pcall(vim.lsp.buf.clear_references)
+--         break
+--       end
+--     end
+--   end,
+-- })
 
 -- 文件类型自动识别
 vim.filetype.add({
@@ -153,3 +153,45 @@ vim.api.nvim_create_autocmd("DiagnosticChanged", {
     end
   end,
 })
+
+-- -- 自动检测并清理旧 swap 文件
+-- local function cleanup_swapfile(fname)
+--   if not fname or fname == "" then
+--     return
+--   end
+--
+--   local swapfile = vim.fn.swapname(fname)
+--   if swapfile == "" then
+--     return
+--   end
+--
+--   -- 检查 swapfile 是否对应一个进程
+--   local f = io.open(swapfile, "r")
+--   if not f then
+--     return
+--   end
+--   local content = f:read("*a")
+--   f:close()
+--
+--   -- 提取进程号 (Neovim swap 文件里会写 PID)
+--   local pid = content:match("process: (%d+)")
+--   if pid then
+--     local is_alive = vim.fn.system({ "ps", "-p", pid })
+--     if is_alive:match(pid) then
+--       -- 进程还在，不能删
+--       vim.notify("Swapfile in use by process " .. pid, vim.log.levels.WARN)
+--       return
+--     end
+--   end
+--
+--   -- 删除旧 swap 文件
+--   os.remove(swapfile)
+--   vim.notify("Removed stale swapfile: " .. swapfile, vim.log.levels.INFO)
+-- end
+--
+-- -- 在 BufReadPre 事件时检测
+-- vim.api.nvim_create_autocmd("BufReadPre", {
+--   callback = function(args)
+--     cleanup_swapfile(args.file)
+--   end,
+-- })

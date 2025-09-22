@@ -30,6 +30,7 @@ return {
     keys[#keys + 1] = { "<leader>ca", false }
     keys[#keys + 1] = { "<leader>cl", false }
     keys[#keys + 1] = { "<a-p>", false }
+    keys[#keys + 1] = { "<a-n>", false }
 
     vim.list_extend(keys, {
       {
@@ -94,6 +95,7 @@ return {
       filetypes_exclude = { "markdown", "javascript", "typescript" },
     },
     vtsls = {
+      -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       settings = {
         typescript = {
           updateImportsOnFileMove = { enabled = "always" },

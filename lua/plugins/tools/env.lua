@@ -1,5 +1,6 @@
 return {
   "philosofonusus/ecolog.nvim",
+  event = { "BufReadPost" },
   keys = {
     { "<leader>ge", "<cmd>EcologGoto<cr>", desc = "Go to env file" },
     { "<leader>ep", "<cmd>EcologPeek<cr>", desc = "Ecolog peek variable" },

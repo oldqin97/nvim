@@ -7,21 +7,21 @@
  * @example
  * ttt([1, 2, 3]).then(res => console.log(res)); // 打印数组元素后返回[1, 2, 3]
  */
-function ttt(q) {
+function qwe(q) {
   q.forEach(item => {
     console.log(item);
   });
-  const qa = qwe;
+  const qa = "qwe";
 
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(q);
     }, 1000);
   });
-  // qweqweqweqweqw
 }
 
-/**
+qwe([1, 2, 3]);
+/*
  * 计算斐波那契数列的第n项
  *
  * @param {number} n - 要计算的项数
@@ -89,14 +89,22 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 
   while (i <= j) {
     while (arr[i] < pivot) i++;
-    while (arr[j] > pivot) j--;
+    while (arr[j] > pivot) j; //;
     if (i <= j) {
       [arr[i], arr[j]] = [arr[j], arr[i]];
       i++;
-      j--;
+      j; //;
     }
   }
 
   quickSort(arr, left, j);
   quickSort(arr, i, right);
 }
+
+// TODO:
+// HACK:
+// FIX:
+// WARN:
+// PERF:
+// NOTE:
+// TEST:

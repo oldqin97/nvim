@@ -3,10 +3,7 @@ import math
 
 def test():
     print("hello world")
-
-    content = math.acos(1)
-
-    print(content)
+    print(math.floor(1.1))
 
     a = "hello"
     print(a)

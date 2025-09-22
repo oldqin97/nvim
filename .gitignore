@@ -10,3 +10,5 @@ session
 .undodir
 .DS_Store
 # test.*
+dictionary
+.annotations
