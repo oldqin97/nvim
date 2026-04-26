@@ -2,6 +2,16 @@
 
 -- vim.o.termguicolors = true
 
+-- 设置neovim光标
+vim.opt.guicursor = table.concat({
+  "n-v-c:block-Cursor/lCursor",
+  "n-v:block",
+  "i:ver25",
+  "i-ci:ver25",
+  "r-cr:hor20",
+  "o:hor50",
+}, ",")
+
 vim.cmd([[
 let g:loaded_perl_provider = 0
 ]])

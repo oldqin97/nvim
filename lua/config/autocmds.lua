@@ -10,6 +10,29 @@ api.nvim_create_autocmd("BufEnter", {
 
 vim.cmd([[ autocmd BufRead,BufNewFile *.org set filetype=org ]])
 
+local function set_cursor_color(mode)
+  if mode == "n" then
+    -- Normal 模式
+    vim.api.nvim_set_hl(0, "Cursor", {
+      fg = "#282828",
+      bg = "#fe8019",
+    })
+  elseif mode == "v" or mode == "V" or mode == "\22" then
+    -- Visual 模式
+    vim.api.nvim_set_hl(0, "Cursor", {
+      fg = "#282828",
+      bg = "#ebdbb2",
+    })
+  end
+end
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+  callback = function()
+    local mode = vim.fn.mode()
+    set_cursor_color(mode)
+  end,
+})
+
 -- 关闭文件时自动保存
 -- vim.api.nvim_create_autocmd({ "FileType" }, {
 --   pattern = {
