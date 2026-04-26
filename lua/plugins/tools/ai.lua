@@ -2,108 +2,98 @@
 
 return {
   -- {
-  --   "supermaven-inc/supermaven-nvim",
-  --   config = function()
-  --     require("supermaven-nvim").setup({
-  --       keymaps = {
-  --         accept_suggestion = "<C-l>", -- handled by nvim-cmp / blink.cmp
-  --         clear_suggestion = "<C-j>",
-  --       },
-  --       ignore_filetypes = {
-  --         "bigfile",
-  --         "snacks_input",
-  --         "snacks_notif",
-  --         "AvanteInput",
-  --         "snacks_picker_list",
-  --         "dapui_watches",
-  --       },
-  --       color = {
-  --         suggestion_color = "#999999",
-  --         cterm = 244,
-  --       },
-  --       log_level = "info",
-  --       disable_inline_completion = true,
-  --       disable_keymaps = false,
-  --       condition = function()
-  --         return false
-  --       end,
-  --     })
-  --   end,
+  --   "yetone/avante.nvim",
+  --   -- event = "VeryLazy",
+  --   lazy = true,
+  --   -- version = "v0.0.19",
+  --   dependencies = require("plugins.conf.avanteConf").dependencies,
+  --   keys = require("plugins.conf.avanteConf").keys,
+  --   opts = require("plugins.conf.avanteConf").opts,
+  --   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+  --   build = "make",
   -- },
-
   {
-    "luozhiya/fittencode.nvim",
-    -- event = "VeryLazy",
-    event = { "InsertEnter", "CmdlineEnter" },
-    keys = {
-      { "<leader>ad", "<cmd>Fitten document_code<CR>", desc = "Fitten document code", mode = { "v" } },
-      -- { "<leader>ae", "<cmd>Fitten edit_code<CR>", desc = "Fitten edit code", mode = { "v" } },
-      { "<leader>tt", "<cmd>Fitten generate_unit_test<CR>", desc = "Fitten generate unit test", mode = { "v" } },
-      { "<leader>ao", "<cmd>Fitten optimize_code<CR>", desc = "Fitten optimize code", mode = { "v" } },
-      { "<leader>af", "<cmd>Fitten find_bugs<CR>", desc = "Fitten find bugs", mode = { "v" } },
-      -- { "<leader>sa", "<cmd>Fitten show_chat<CR>", desc = "Fitten show chat" },
+    "folke/sidekick.nvim",
+    opts = {
+      cli = {
+        win = {
+          layout = "float",
+          float = {
+            width = 0.5,
+            height = 0.7,
+          },
+        },
+        mux = {
+          backend = "tmux",
+          enabled = false,
+        },
+        prompts = {
+          buffers = "当前buffers {buffers}",
+          changes = "对我的代码改动进行审查",
+          fix = "修复这段代码并说明原因：{this}",
+          explain = "用中文解释这段代码：{this}",
+          optimize = "优化这段代码（性能+可读性），给出修改后代码：{this}",
+          tests = "为这段代码写测试用例（含边界情况）：{this}",
+          document = "为这段代码补充规范注释：{function|line}",
+          review = "做代码审查，指出问题和改进建议：{file}",
+          diagnostics = "根据以下报错修复代码：{diagnostics}代码：{file}",
+          refactor = "重构这段代码（保持功能不变）：{this}",
+          commit = "根据修改生成规范 commit message：{this}",
+          file = "当前文件 {file}",
+          line = "当前行 {line}",
+          position = "当前光标 {position}",
+        },
+      },
     },
-    config = function()
-      require("fittencode").setup({
-        chat = {
-          style = "floating",
-          floating = {
-            border = "rounded",
-            size = { width = 0.8, height = 0.8 },
-          },
-        },
-        use_default_keymaps = false,
-        disable_specific_inline_completion = {
-          -- :lua print(vim.bo.filetype)
-          suffixes = {
-            "TelescopePrompt",
-            "neo-tree-popup",
-            "AvanteInput",
-            "snacks_picker_input",
-            "snacks_input",
-            "bigfile",
-            "snacks_input",
-            "snacks_notif",
-            "AvanteInput",
-            "snacks_picker_list",
-            "dapui_watches",
-            "grug-far",
-            "DressingInput",
-          },
-        },
-        keymaps = {
-          inline = {
-            ["<A-d>"] = "accept_all_suggestions",
-            -- ["<Tab>"] = "accept_all_suggestions",
-            ["<C-Down>"] = "accept_line",
-            ["<C-Right>"] = "accept_word",
-            ["<C-Up>"] = "revoke_line",
-            ["<C-Left>"] = "revoke_word",
-            ["<A-\\>"] = "triggering_completion",
-          },
-          chat = {
-            ["q"] = "close",
-            ["[c"] = "goto_previous_conversation",
-            ["]c"] = "goto_next_conversation",
-            ["c"] = "copy_conversation",
-            ["C"] = "copy_all_conversations",
-            ["d"] = "delete_conversation",
-            ["D"] = "delete_all_conversations",
-          },
-        },
-      })
-    end,
-  },
-
-  {
-    "yetone/avante.nvim",
-    -- event = "VeryLazy",
-    lazy = true,
-    -- version = "v0.0.19",
-    dependencies = require("plugins.conf.avanteConf").dependencies,
-    keys = require("plugins.conf.avanteConf").keys,
-    opts = require("plugins.conf.avanteConf").opts,
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = "make",
+    keys = {
+      {
+        "<C-t>",
+        function()
+          require("sidekick.cli").toggle({ name = "claude" })
+        end,
+        mode = { "n", "t", "i", "x" },
+        desc = "Sidekick Toggle CLI",
+      },
+      {
+        "<leader>as",
+        function()
+          require("sidekick.cli").select({ name = "claude" })
+        end,
+        -- Or to select only installed tools:
+        -- require("sidekick.cli").select({ filter = { installed = true } })
+        desc = "Select CLI",
+      },
+      {
+        "<leader>at",
+        function()
+          require("sidekick.cli").send({ name = "claude", msg = "{this}" })
+        end,
+        mode = { "x", "n" },
+        desc = "Send This",
+      },
+      {
+        "<leader>af",
+        function()
+          require("sidekick.cli").send({ name = "claude", msg = "{file}" })
+        end,
+        desc = "Send File",
+      },
+      {
+        "<leader>av",
+        function()
+          require("sidekick.cli").send({ name = "claude", msg = "{selection}" })
+        end,
+        mode = { "x" },
+        desc = "Send Visual Selection",
+      },
+      {
+        "<leader>ap",
+        function()
+          require("sidekick.cli").prompt({ name = "claude" })
+        end,
+        mode = { "n", "x" },
+        desc = "Sidekick Select Prompt",
+      },
+    },
   },
 }
