@@ -73,7 +73,7 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    enabled = true,
+    enabled = false,
   },
   {
     -- 颜色拾取器

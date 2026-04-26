@@ -1,61 +1,35 @@
 /**
  * 异步遍历数组并打印每个元素
- *
- * @param {Array} q - 要遍历的数组
- * @returns {Promise<Array>} 返回一个Promise，在1秒后resolve原始数组
- *
- * @example
- * ttt([1, 2, 3]).then(res => console.log(res)); // 打印数组元素后返回[1, 2, 3]
+ * @param {Array} arr - 要遍历的数组
+ * @returns {Promise<Array>} 1秒后 resolve 原数组
  */
-function qwe(q) {
-  q.forEach(item => {
-    console.log(item);
-  });
-  const qa = "qwe";
-
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(q);
-    }, 1000);
-  });
+function qwe(arr) {
+  if (!Array.isArray(arr)) {
+    return Promise.reject(new TypeError("参数必须是数组"));
+  }
+  arr.forEach(item => console.log(item));
+  return new Promise(resolve => setTimeout(() => resolve(arr), 1000));
 }
 
 qwe([1, 2, 3]);
-/*
- * 计算斐波那契数列的第n项
- *
- * @param {number} n - 要计算的项数
- * @returns {number} 斐波那契数列的第n项
- *
- * @example
- * fibonacci(0) // 返回 0
- * fibonacci(1) // 返回 1
- * fibonacci(10) // 返回 55
+
+/**
+ * 计算斐波那契数列第 n 项（迭代，O(n) 时间，O(1) 空间）
+ * @param {number} n - 非负整数
  */
 function fibonacci(n) {
-  if (n < 0) throw new Error("输入必须是非负整数");
-  if (n === 0) return 0;
-  if (n === 1) return 1;
+  if (n < 0 || !Number.isInteger(n)) throw new Error("输入必须是非负整数");
+  if (n < 2) return n;
 
-  let prev = 0;
-  let curr = 1;
-
+  let [prev, curr] = [0, 1];
   for (let i = 2; i <= n; i++) {
     [prev, curr] = [curr, prev + curr];
   }
-
   return curr;
 }
 
-fibonacci(1);
-
-fibonacci(10);
 /**
- * 三数取中法
- * @param {number} a
- * @param {number} b
- * @param {number} c
- * @returns {number}
+ * 三数取中
  */
 function medianOfThree(a, b, c) {
   if (a > b) [a, b] = [b, a];
@@ -65,35 +39,27 @@ function medianOfThree(a, b, c) {
 }
 
 /**
- * 快速排序算法（优化版）
- *
- * @param {number[]} arr - 要排序的数组
- * @param {number} [left=0] - 左边界
- * @param {number} [right=arr.length-1] - 右边界
- * @returns {void} 原地排序
- *
- * @example
- * const arr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
- * quickSort(arr);
- * console.log(arr); // [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
+ * 快速排序（原地，Hoare 分区 + 三数取中 pivot）
  */
 function quickSort(arr, left = 0, right = arr.length - 1) {
   if (left >= right) return;
 
-  // 三数取中法选择基准值
-  const mid = Math.floor((left + right) / 2);
-  const pivot = medianOfThree(arr[left], arr[mid], arr[right]);
+  // 三数取中选 pivot，同时将 left/mid/right 三位置排序就位
+  const mid = (left + right) >> 1;
+  if (arr[left] > arr[mid]) [arr[left], arr[mid]] = [arr[mid], arr[left]];
+  if (arr[left] > arr[right]) [arr[left], arr[right]] = [arr[right], arr[left]];
+  if (arr[mid] > arr[right]) [arr[mid], arr[right]] = [arr[right], arr[mid]];
+  const pivot = arr[mid];
 
-  let i = left;
-  let j = right;
-
+  let i = left,
+    j = right;
   while (i <= j) {
     while (arr[i] < pivot) i++;
-    while (arr[j] > pivot) j; //;
+    while (arr[j] > pivot) j--;
     if (i <= j) {
       [arr[i], arr[j]] = [arr[j], arr[i]];
       i++;
-      j; //;
+      j--;
     }
   }
 
@@ -101,10 +67,4 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
   quickSort(arr, i, right);
 }
 
-// TODO:
-// HACK:
-// FIX:
-// WARN:
-// PERF:
-// NOTE:
-// TEST:
+module.exports = { qwe, fibonacci, medianOfThree, quickSort };
