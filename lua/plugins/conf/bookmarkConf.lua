@@ -9,7 +9,7 @@ return {
       for lnum_str, mark in pairs(marks) do
         local lnum = tonumber(lnum_str)
         local text = mark.m or ""
-        local ann = mark.a and ("[ " .. mark.a .. "]") or "[󰄲 temporary]"
+        local ann = mark.a and ("[ " .. mark.a .. "]") or "[󰄲 none]"
         local path = vim.fn.fnamemodify(filepath, ":.")
         table.insert(items, {
           filename = filepath, -- 保留 filename
@@ -31,7 +31,7 @@ return {
       format = function(item)
         return {
           { "" .. item.text, "BookMarksSign" },
-          { item.ann, "BookMarksAnn" },
+          -- { item.ann, "BookMarksAnn" },
           { "   " .. item.path, "Directory" },
           { ":" .. item.lnum, "Directory" },
         }
