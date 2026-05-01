@@ -1,6 +1,6 @@
 -- local opt = vim.opt
 
--- vim.o.termguicolors = true
+vim.o.termguicolors = true
 
 -- 设置neovim光标
 vim.opt.guicursor = table.concat({

@@ -1,17 +1,24 @@
----@diagnostic disable: missing-fields
-
 return {
-  -- {
-  --   "yetone/avante.nvim",
-  --   -- event = "VeryLazy",
-  --   lazy = true,
-  --   -- version = "v0.0.19",
-  --   dependencies = require("plugins.conf.avanteConf").dependencies,
-  --   keys = require("plugins.conf.avanteConf").keys,
-  --   opts = require("plugins.conf.avanteConf").opts,
-  --   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-  --   build = "make",
-  -- },
+  {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({
+        keymaps = {
+          accept_suggestion = "<Tab>",
+          accept_word = "<C-j>",
+          clear_suggestion = "<C-]>",
+        },
+        ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
+        color = {
+          suggestion_color = "#928374", -- gruvbox gray
+          cterm = 245,
+        },
+        log_level = "off",
+        disable_inline_completion = false,
+        disable_keymaps = false,
+      })
+    end,
+  },
   {
     "folke/sidekick.nvim",
     opts = {
@@ -57,7 +64,7 @@ return {
       {
         "<leader>as",
         function()
-          require("sidekick.cli").select({ name = "claude" })
+          require("sidekick.cli").select({ name = "claude", auto = true })
         end,
         -- Or to select only installed tools:
         -- require("sidekick.cli").select({ filter = { installed = true } })
@@ -89,7 +96,13 @@ return {
       {
         "<leader>ap",
         function()
-          require("sidekick.cli").prompt({ name = "claude" })
+          require("sidekick.cli").prompt({
+            cb = function(_, text)
+              if text then
+                require("sidekick.cli").send({ text = text, name = "claude" })
+              end
+            end,
+          })
         end,
         mode = { "n", "x" },
         desc = "Sidekick Select Prompt",

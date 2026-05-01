@@ -1,7 +1,18 @@
 return {
   keymaps = {
-    -- preset = "<Tab>",
-    ["<Tab>"] = { "select_and_accept", "fallback" },
+    ["<Tab>"] = {
+      function(cmp)
+        if cmp.is_visible() then
+          return cmp.select_and_accept()
+        end
+        local supermaven = require("supermaven-nvim.completion_preview")
+        if supermaven.has_suggestion() then
+          vim.schedule(supermaven.on_accept_suggestion)
+          return true
+        end
+      end,
+      "fallback",
+    },
     ["<C-p>"] = { "scroll_documentation_up", "fallback" },
     ["<C-n>"] = { "scroll_documentation_down", "fallback" },
     ["<Up>"] = { "select_prev", "fallback" },
@@ -91,7 +102,7 @@ return {
       show_in_snippet = true,
       show_on_keyword = true,
       show_on_trigger_character = true,
-      show_on_blocked_trigger_characters = { " ", "\n", "\t" },
+      show_on_blocked_trigger_characters = { " ", "\n", "\t", ":" },
       show_on_accept_on_trigger_character = true,
       show_on_insert_on_trigger_character = true,
       show_on_x_blocked_trigger_characters = { "'", '"', "(", ">", "<" },
