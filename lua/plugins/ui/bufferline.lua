@@ -17,61 +17,45 @@ return {
     },
 
     config = function()
+      local bg = "#665c54"
+
       require("bufferline").setup({
         highlights = {
-          numbers_selected = {
-            fg = "#89b4fa",
-            bg = "#45475a",
-          },
-          buffer_selected = {
-            fg = "#89b4fa",
-            bg = "#45475a",
-            bold = true,
-          },
-          duplicate_selected = {
-            fg = "#89b4fa",
-            bg = "#45475a",
-            italic = true,
-          },
-          close_button_selected = {
-            fg = "#f9ecdf",
-            bg = "#45475a",
-          },
-          modified_selected = {
-            fg = "#f9ecdf",
-            bg = "#45475a",
-          },
+          buffer_selected = { fg = "#ebdbb2", bg = bg, bold = true, italic = false },
+          numbers_selected = { fg = "#fe8019", bg = bg },
+          duplicate_selected = { fg = "#8ec07c", bg = bg, italic = false },
+          close_button_selected = { fg = "#fb4934", bg = bg },
+          modified_selected = { fg = "#fabd2f", bg = bg },
         },
 
         options = {
+          -- Behavior
           mode = "buffers",
-          -- separator_style = { "|", "|" },
-          separator_style = { "", "" },
+          sort_by = "insert_after_current",
           always_show_bufferline = true,
           view = "multiwindow",
           themable = true,
+
+          -- Icons
+          separator_style = { "", "" },
           show_buffer_icons = true,
           color_icons = true,
           modified_icon = "",
-
-          left_trunc_marker = " ",
-          right_trunc_marker = " ",
           show_close_icon = false,
-          close_icon = " ",
-
           show_buffer_close_icons = true,
           buffer_close_icon = "󰅙",
-          -- buffer_close_icon = " ",
 
+          -- Tabs
           tab_size = 10,
-
           show_tab_indicators = false,
           enforce_regular_tabs = false,
+
+          -- Truncation
           max_name_length = 25,
-          indicator = {
-            icon = "",
-            style = "none",
-          },
+          left_trunc_marker = " ",
+          right_trunc_marker = " ",
+
+          indicator = { icon = "", style = "none" },
 
           numbers = function(opts)
             return string.format(" %s.", opts.ordinal)
