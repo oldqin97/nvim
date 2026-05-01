@@ -1,3 +1,4 @@
+local languages = require("plugins.utils.treesitter_languages")
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -6,49 +7,14 @@ return {
       autotag = {
         enable = true,
       },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          node_incremental = "v",
-          node_decremental = "V",
-        },
-      },
-      ensure_installed = {
-        "bash",
-        "regex",
-        "vim",
-        "lua",
-        "html",
-        "markdown",
-        "markdown_inline",
-        "css",
-        "typescript",
-        "tsx",
-        "javascript",
-        "json",
-        "json5",
-        "jsonc",
-        "graphql",
-        "prisma",
-        "rust",
-        "go",
-        "toml",
-        "c",
-        "cpp",
-        "clojure",
-        "dart",
-        "dockerfile",
-        "scss",
-        "swift",
-        "toml",
-        "vue",
-        "zig",
-        "svelte",
-        "solidity",
-        "http",
-        "dart",
-        "python",
-      },
+      -- incremental_selection = {
+      --   enable = false,
+      --   keymaps = {
+      --     node_incremental = "v",
+      --     node_decremental = "V",
+      --   },
+      -- },
+      ensure_installed = languages,
       auto_install = true,
       ignore_install = { "" },
       sync_install = false,
@@ -71,5 +37,25 @@ return {
         },
       },
     },
+  },
+  {
+    "MeanderingProgrammer/treesitter-modules.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    ---@module 'treesitter-modules'
+    -- opts = {},
+    opts = function()
+      require("treesitter-modules").setup({
+        incremental_selection = {
+          enable = true,
+          disable = false,
+          keymaps = {
+            node_incremental = "v",
+            node_decremental = "V",
+            -- init_selection = "gnn",
+            -- scope_incremental = "grc",
+          },
+        },
+      })
+    end,
   },
 }
