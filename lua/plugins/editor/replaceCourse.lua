@@ -45,8 +45,13 @@ return {
         "<leader>sm",
         function()
           local grug = require("grug-far")
-          local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-          grug.open({ prefills = { search = vim.fn.expand("<cword>") } })
+          -- local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+          grug.open({
+            prefills = {
+              search = vim.fn.expand("<cword>"),
+              args = "--glob '!node_modules' --glob '!.git' --hidden",
+            },
+          })
         end,
         mode = { "n", "v" },
         desc = "Search and Replace all",

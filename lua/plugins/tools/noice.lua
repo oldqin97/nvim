@@ -35,24 +35,34 @@ return {
       enabled = true,
       excluded_filetypes = { "cmp_menu", "cmp_docs", "notify", "vim-doge" },
     },
+    messages = {
+      -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+      -- This is a current Neovim limitation.
+      enabled = true, -- enables the Noice messages UI
+      view = "notify", -- default view for messages
+      view_error = "notify", -- view for errors
+      view_warn = "notify", -- view for warnings
+      view_history = "messages", -- view for :messages
+      view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+    },
     lsp = {
       progress = {
         enabled = true,
       },
       hover = {
-        enabled = false,
+        enabled = true,
       },
       signature = {
         enabled = false,
       },
       override = {
-        ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-        ["vim.lsp.util.stylize_markdown"] = false,
-        ["cmp.entry.get_documentation"] = false,
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+        ["cmp.entry.get_documentation"] = true,
       },
     },
     notify = {
-      enabled = false,
+      enabled = true,
       view = "notify",
     },
     routes = {
@@ -64,13 +74,14 @@ return {
             { find = "; before #%d+" },
             { find = "No information available" },
             { find = "AutoSave: saved at %d+:%d+:%d+" },
-            { find = "Failed to attach to volar for current buffer. Already attached to html" },
-            { find = "Failed to attach to html for current buffer. Already attached to volar" },
+            -- { find = "Failed to attach to volar for current buffer. Already attached to html" },
+            -- { find = "Failed to attach to html for current buffer. Already attached to volar" },
             { find = "Exited Visual-Multi." },
             { find = "^少了 %d+ 行$" },
             { find = "^%d+ more lines$" },
             { find = "^%d+ fewer lines$" },
             { find = "^%d+ lines yanked$" },
+            { find = "Plugin Updates" },
             -- { find = "is not attached to client" },
             -- { find = "Client with id" },
             -- {

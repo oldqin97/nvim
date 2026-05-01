@@ -1,77 +1,65 @@
 return {
-  lspKes = function()
-    local keys = require("lazyvim.plugins.lsp.keymaps").get()
-    keys[#keys + 1] = {
-      "gh",
-      function()
-        -- vim.lsp.buf.hover()
-        require("pretty_hover").hover()
-      end,
-      desc = "Hover",
-    }
-    -- keys[#keys + 1] = {
-    --   "gi",
-    --   function()
-    --     require("telescope.builtin").lsp_implementations({ reuse_win = true })
-    --   end,
-    --   desc = "Goto Implementation",
-    -- }
-    keys[#keys + 1] = {
-      "ca",
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      desc = "Code Action",
-    }
-    keys[#keys + 1] = { "<A-r>", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
-    keys[#keys + 1] = { "K", false }
-    keys[#keys + 1] = { "gI", false }
-    keys[#keys + 1] = { "<leader>cr", false }
-    keys[#keys + 1] = { "<leader>ca", false }
-    keys[#keys + 1] = { "<leader>cl", false }
-    keys[#keys + 1] = { "<a-p>", false }
-    keys[#keys + 1] = { "<a-n>", false }
-
-    vim.list_extend(keys, {
-      {
-        "gd",
-        function()
-          Snacks.picker.lsp_definitions()
-        end,
-        desc = "Goto Definition",
-        has = "definition",
-      },
-      {
-        "gr",
-        function()
-          Snacks.picker.lsp_references()
-        end,
-        nowait = true,
-        desc = "References",
-      },
-      {
-        "gi",
-        function()
-          Snacks.picker.lsp_implementations()
-        end,
-        desc = "Goto Implementation",
-      },
-      {
-        "gy",
-        function()
-          Snacks.picker.lsp_type_definitions()
-        end,
-        desc = "Goto T[y]pe Definition",
-      },
-      { "<leader>ss", false },
-      { "<leader>sS", false },
-    })
-  end,
-
   servers = {
+    ["*"] = {
+      keys = {
+        {
+          "ca",
+          function()
+            vim.lsp.buf.code_action()
+          end,
+          desc = "Code Action",
+        },
+        { "<A-r>", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
+        {
+          "gh",
+          function()
+            require("pretty_hover").hover()
+          end,
+          desc = "Hover",
+        },
+        {
+          "gd",
+          function()
+            Snacks.picker.lsp_definitions()
+          end,
+          desc = "Goto Definition",
+          has = "definition",
+        },
+        {
+          "gr",
+          function()
+            Snacks.picker.lsp_references()
+          end,
+          nowait = true,
+          desc = "References",
+        },
+        {
+          "gi",
+          function()
+            Snacks.picker.lsp_implementations()
+          end,
+          desc = "Goto Implementation",
+        },
+        {
+          "gy",
+          function()
+            Snacks.picker.lsp_type_definitions()
+          end,
+          desc = "Goto T[y]pe Definition",
+        },
+        -- Disable LazyVim default keymaps
+        { "K", false },
+        { "gI", false },
+        { "<leader>cr", false },
+        { "<leader>ca", false },
+        { "<leader>cl", false },
+        { "<a-p>", false },
+        { "<a-n>", false },
+      },
+    },
+
     rust_analyzer = {
       keys = {
-        { "gh", "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
         { "<leader>ca", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
         { "<leader>dr", "<cmd>RustDebuggables<cr>", desc = "Run Debuggables (Rust)" },
       },
@@ -94,8 +82,14 @@ return {
     tailwindcss = {
       filetypes_exclude = { "markdown", "javascript", "typescript" },
     },
+    angularls = {
+      -- 只在存在 angular.json 时启用
+      root_dir = function(fname)
+        local util = require("lspconfig.util")
+        return util.root_pattern("angular.json")(fname)
+      end,
+    },
     vtsls = {
-      -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       settings = {
         typescript = {
           updateImportsOnFileMove = { enabled = "always" },
@@ -106,10 +100,8 @@ return {
             enumMemberValues = { enabled = true },
             functionLikeReturnTypes = { enabled = false },
             parameterNames = { enabled = false },
-            -- parameterNames = { enabled = "literals" },
-            -- parameterNames = { enabled = "all" },
             parameterTypes = { enabled = false },
-            propertyDeclarationTypes = { enabled = true },
+            propertyDeclarationTypes = { enabled = false },
             variableTypes = { enabled = false },
           },
         },

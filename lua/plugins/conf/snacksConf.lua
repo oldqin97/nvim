@@ -285,6 +285,7 @@ return {
     { "<leader>sD", false },
     { "<leader>ss", false },
     { "<leader>sS", false },
+    { "<leader>su", false },
   },
   picker = {
     -- sources = require("plugins.conf.snacksConf").sources,

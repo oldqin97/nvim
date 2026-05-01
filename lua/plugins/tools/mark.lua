@@ -1,8 +1,8 @@
 return {
   {
     "tomasky/bookmarks.nvim",
-    -- event = "VeryLazy",
-    lazy = ture,
+    event = "VeryLazy",
+    -- lazy = ture,
     keys = {
       {
         "mm",

@@ -55,6 +55,8 @@ return {
         "OverseerList",
         "DiffviewFiles",
         "qf",
+        "atone",
+        "sidekick_terminal",
       }
       vim.api.nvim_create_autocmd("FileType", {
         group = augroup,

@@ -10,6 +10,7 @@ api.nvim_create_autocmd("BufEnter", {
 
 vim.cmd([[ autocmd BufRead,BufNewFile *.org set filetype=org ]])
 
+--
 local function set_cursor_color(mode)
   if mode == "n" then
     -- Normal 模式
