@@ -17,6 +17,11 @@ end
 
 map("n", "gk", comment_line)
 
+-- log
+map({ "v", "n" }, "<leader>pb", function()
+  require("plugins.utils.log").insert_log()
+end, { desc = "print variable" })
+
 -- 同时绑定tab到neotab和supermaven上
 -- local function smart_tab()
 --   local suggestion = require("supermaven-nvim.completion_preview")
@@ -170,6 +175,10 @@ end
 map({ "n" }, "ma", "<Plug>(VM-Add-Cursor-At-Pos)", { desc = "Add Cursor At Pos" })
 map({ "n" }, "mo", "<Plug>(VM-Toggle-Mappings)", { desc = "Toggle Mapping" })
 map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
+
+-- test
+-- test
+-- test
 
 -- local use_coc = false -- 默认使用 CoC
 -- -- switch coc & lsp

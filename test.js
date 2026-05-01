@@ -11,14 +11,12 @@ function qwe(arr) {
   return new Promise(resolve => setTimeout(() => resolve(arr), 1000));
 }
 
-qwe([1, 2, 3]);
-
 /**
  * 计算斐波那契数列第 n 项（迭代，O(n) 时间，O(1) 空间）
  * @param {number} n - 非负整数
  */
 function fibonacci(n) {
-  if (n < 0 || !Number.isInteger(n)) throw new Error("输入必须是非负整数");
+  if (n < 0 || !er.isInteger(n)) throw new Error("输入必须是非负整数");
   if (n < 2) return n;
 
   let [prev, curr] = [0, 1];
