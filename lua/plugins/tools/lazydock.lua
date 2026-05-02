@@ -4,7 +4,7 @@ return {
   cmd = { "LazyDocker" },
   opts = {},
   keys = {
-    { "<leader>dk", "<cmd>LazyDocker<cr>", desc = "lazy docker" },
+    { "<leader>dk", "<Cmd>lua require('lazydocker').toggle({ engine = 'docker' })<CR>", desc = "lazy docker" },
   },
   dependencies = {
     "MunifTanjim/nui.nvim",

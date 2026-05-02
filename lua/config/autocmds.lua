@@ -71,9 +71,9 @@ local function update_diagnostic_line_highlights(bufnr)
       -- 根据诊断严重程度选择不同的高亮组
       local hl_group = ({
         [vim.diagnostic.severity.ERROR] = "DiagnosticLineError",
-        [vim.diagnostic.severity.WARN] = "DiagnosticLineWarn",
-        [vim.diagnostic.severity.INFO] = "DiagnosticLineInfo",
-        [vim.diagnostic.severity.HINT] = "DiagnosticLineHint",
+        -- [vim.diagnostic.severity.WARN] = "DiagnosticLineWarn",
+        -- [vim.diagnostic.severity.INFO] = "DiagnosticLineInfo",
+        -- [vim.diagnostic.severity.HINT] = "DiagnosticLineHint",
       })[severity or vim.diagnostic.severity.ERROR]
 
       if hl_group then

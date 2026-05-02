@@ -146,7 +146,7 @@ return {
     },
     -- 项目列表
     {
-      "<leader>qp",
+      "<leader>fp",
       function()
         Snacks.picker.projects()
       end,
@@ -428,8 +428,14 @@ return {
     underline = false,
     only_current = true,
     hl = {
-      "SnacksIndent1", "SnacksIndent2", "SnacksIndent3", "SnacksIndent4",
-      "SnacksIndent5", "SnacksIndent6", "SnacksIndent7", "SnacksIndent8",
+      "SnacksIndent1",
+      "SnacksIndent2",
+      "SnacksIndent3",
+      "SnacksIndent4",
+      "SnacksIndent5",
+      "SnacksIndent6",
+      "SnacksIndent7",
+      "SnacksIndent8",
     },
   },
 
@@ -441,8 +447,14 @@ return {
       only_current = false,
       priority = 200,
       hl = {
-        "SnacksIndent1", "SnacksIndent2", "SnacksIndent3", "SnacksIndent4",
-        "SnacksIndent5", "SnacksIndent6", "SnacksIndent7", "SnacksIndent8",
+        "SnacksIndent1",
+        "SnacksIndent2",
+        "SnacksIndent3",
+        "SnacksIndent4",
+        "SnacksIndent5",
+        "SnacksIndent6",
+        "SnacksIndent7",
+        "SnacksIndent8",
       },
       char = {
         corner_top = "╭",

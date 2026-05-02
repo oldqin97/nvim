@@ -84,6 +84,17 @@ return {
     ltex = {
       language = "en-US",
       filetypes = { "markdown", "text" },
+      on_init = function(client)
+        -- ltex-ls 未在 capabilities 中声明其 command，导致 code action 无法执行
+        local caps = client.server_capabilities
+        if not caps.executeCommandProvider then
+          caps.executeCommandProvider = {}
+        end
+        caps.executeCommandProvider.commands = vim.list_extend(
+          caps.executeCommandProvider.commands or {},
+          { "_ltex.addToDictionary", "_ltex.hideFalsePositives", "_ltex.disableRules" }
+        )
+      end,
     },
     -- JSON 模式支持，包括微信小程序配置
     jsonls = {
