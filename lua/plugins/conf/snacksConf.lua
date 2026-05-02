@@ -1,53 +1,43 @@
 ---@diagnostic disable: assign-type-mismatch, missing-fields
 
+-- Snacks.nvim 全套配置：浏览器、选择器、缩进线、仪表盘、大文件处理
 local Snacks_util = require("plugins.utils.closed_buffers")
 return {
+  -- 快捷键映射
   keys = {
-    -- explorer
+    -- 文件浏览器：使用 snacks.explorer 替代 neo-tree
     {
       "<A-w>",
       function()
-        -- Snacks.explorer()
-
-        -- 1. 先禁用 focus.nvim 的自动 resize
-        -- vim.cmd("FocusDisable")
+        -- 先禁用 focus.nvim 的自动 resize
         vim.g.focus_disable = true
 
-        -- 2. 打开 snacks explorer，并注册 on_close 回调
+        -- 打开 snacks explorer，注册关闭回调以重新启用 focus
         Snacks.explorer({
-          -- 关闭 Explorer 前会被调用
           on_close = function()
-            -- 重新启用 focus.nvim 的自动 resize
-            -- vim.cmd("FocusEnable")
             vim.g.focus_disable = false
           end,
         })
       end,
       desc = "explorer",
     },
-    -- diagnostics
+    -- 诊断信息列表
     {
       "<leader>dd",
       function()
-        Snacks.picker.diagnostics({
-          layout = {
-            preview = false,
-          },
-        })
+        Snacks.picker.diagnostics({ layout = { preview = false } })
       end,
       desc = "Notification History",
     },
+    -- 当前 buffer 诊断
     {
       "<leader>bb",
       function()
-        Snacks.picker.diagnostics_buffer({
-          layout = {
-            preview = false,
-          },
-        })
+        Snacks.picker.diagnostics_buffer({ layout = { preview = false } })
       end,
       desc = "Notification History",
     },
+    -- 通知历史
     {
       "<leader>hh",
       function()
@@ -55,7 +45,7 @@ return {
       end,
       desc = "Notification History",
     },
-    -- find
+    -- 智能查找文件
     {
       "<A-p>",
       function()
@@ -63,32 +53,26 @@ return {
       end,
       desc = "Find Files (Root Dir)",
     },
+    -- 已关闭的 buffer 列表
     {
       "<leader>fb",
       function()
-        -- Snacks.picker.buffers()
-        -- Snacks.picker.closed_buffers()
         Snacks_util.closed_buffers()
       end,
       desc = "Buffers",
     },
-
-    -- Grep
+    -- Grep 搜索
     { "<A-f>", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
     { "<C-f>", LazyVim.pick("grep_word"), desc = "Visual selection or word (Root Dir)", mode = { "n", "x" } },
+    -- Buffer 行搜索
     {
       "<leader>sb",
       function()
-        Snacks.picker.lines({
-          layout = {
-            preset = "ivy",
-            preview = true,
-          },
-        })
+        Snacks.picker.lines({ layout = { preset = "ivy", preview = true } })
       end,
       desc = "Buffer Lines",
     },
-    -- search
+    -- 寄存器内容搜索
     {
       "<leader>qq",
       function()
@@ -96,6 +80,7 @@ return {
       end,
       desc = "Registers",
     },
+    -- 命令历史
     {
       "<leader>sc",
       function()
@@ -103,6 +88,7 @@ return {
       end,
       desc = "Command History",
     },
+    -- 命令搜索
     {
       "<leader>:",
       function()
@@ -110,6 +96,7 @@ return {
       end,
       desc = "Commands",
     },
+    -- 诊断搜索
     {
       "<leader>sd",
       function()
@@ -117,6 +104,7 @@ return {
       end,
       desc = "Diagnostics",
     },
+    -- 搜索历史
     {
       "<leader>sh",
       function()
@@ -124,6 +112,7 @@ return {
       end,
       desc = "search history",
     },
+    -- 跳转列表
     {
       "<leader>sj",
       function()
@@ -131,6 +120,7 @@ return {
       end,
       desc = "Jumps",
     },
+    -- 按键映射搜索
     {
       "<leader>sk",
       function()
@@ -138,6 +128,7 @@ return {
       end,
       desc = "Keymaps",
     },
+    -- LSP 配置搜索
     {
       "<leader>sl",
       function()
@@ -145,6 +136,7 @@ return {
       end,
       desc = "Location List",
     },
+    -- Quickfix 列表
     {
       "<leader>sq",
       function()
@@ -152,6 +144,7 @@ return {
       end,
       desc = "Quickfix List",
     },
+    -- 项目列表
     {
       "<leader>qp",
       function()
@@ -159,7 +152,7 @@ return {
       end,
       desc = "Projects",
     },
-
+    -- 关闭所有通知
     {
       "<leader>un",
       function()
@@ -167,6 +160,7 @@ return {
       end,
       desc = "Dismiss All Notifications",
     },
+    -- 删除当前 buffer
     {
       "<A-q>",
       function()
@@ -174,6 +168,7 @@ return {
       end,
       desc = "Delete Buffer",
     },
+    -- 最近文件
     {
       "<leader>fr",
       function()
@@ -181,7 +176,7 @@ return {
       end,
       desc = "Recent",
     },
-    -- git
+    -- Git 相关快捷键
     {
       "<leader>fg",
       function()
@@ -229,7 +224,7 @@ return {
       function()
         Snacks.lazygit.log_file()
       end,
-      desc = "Lazygit Current File History",
+      desc = "Lazygit Current File History",
     },
     {
       "<leader>gl",
@@ -245,6 +240,7 @@ return {
       end,
       desc = "Lazygit Log (cwd)",
     },
+    -- 单词跳转：下一个/上一个引用
     {
       "]]",
       function()
@@ -261,6 +257,7 @@ return {
       desc = "Prev Reference",
       mode = { "n", "t" },
     },
+    -- 禁用 LazyVim 默认按键映射
     { "<leader>,", false },
     { "<leader><space>", false },
     { "<leader>/", false },
@@ -287,9 +284,11 @@ return {
     { "<leader>sS", false },
     { "<leader>su", false },
   },
+
+  -- 选择器配置
   picker = {
-    -- sources = require("plugins.conf.snacksConf").sources,
     sources = {
+      -- 文件浏览器配置
       explorer = {
         finder = "explorer",
         sort = { fields = { "sort" } },
@@ -315,10 +314,10 @@ return {
           list = {
             keys = {
               ["o"] = "confirm",
-              ["<c-o>"] = "explorer_open", -- open with system application
+              ["<c-o>"] = "explorer_open",
               ["<BS>"] = "explorer_up",
               ["l"] = "confirm",
-              ["h"] = "explorer_close", -- close directory
+              ["h"] = "explorer_close",
               ["a"] = "explorer_add",
               ["d"] = "explorer_del",
               ["r"] = "explorer_rename",
@@ -378,11 +377,11 @@ return {
           preset = "sidebar",
           preview = false,
           layout = {
-            -- width = 10, -- 绝对列数，亦可写 0.3 表示 30% 宽度
             position = "right",
           },
         },
       },
+      -- 项目列表配置
       projects = {
         finder = "recent_projects",
         format = "file",
@@ -392,6 +391,7 @@ return {
         recent = true,
       },
     },
+    -- 全局窗口快捷键
     win = {
       input = {
         keys = {
@@ -400,7 +400,6 @@ return {
           ["<Esc>"] = { "close", mode = { "n", "i" } },
           ["<a-g>"] = { "toggle_ignored", mode = { "i", "n" } },
           ["<c-g>"] = { "toggle_hidden", mode = { "i", "n" } },
-          -- ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
         },
       },
       list = {
@@ -409,7 +408,6 @@ return {
           ["<Tab>"] = { "confirm", mode = { "i", "n" } },
           ["o"] = { "confirm", mode = { "i", "n" } },
           ["<Esc>"] = { "close", mode = { "n", "i" } },
-          -- ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
         },
       },
       preview = {
@@ -417,50 +415,36 @@ return {
           ["<Esc>"] = "cancel",
           ["q"] = "close",
           ["i"] = "focus_input",
-          -- ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
-          -- ["<a-w>"] = "cycle_win",
         },
       },
     },
   },
+
+  -- 当前作用域高亮显示
   scope = {
-    enabled = true, -- enable highlighting the current scope
+    enabled = true,
     priority = 200,
     char = "┊",
-    underline = false, -- underline the start of the scope
-    only_current = true, -- only show scope in the current window
+    underline = false,
+    only_current = true,
     hl = {
-      "SnacksIndent1",
-      "SnacksIndent2",
-      "SnacksIndent3",
-      "SnacksIndent4",
-      "SnacksIndent5",
-      "SnacksIndent6",
-      "SnacksIndent7",
-      "SnacksIndent8",
+      "SnacksIndent1", "SnacksIndent2", "SnacksIndent3", "SnacksIndent4",
+      "SnacksIndent5", "SnacksIndent6", "SnacksIndent7", "SnacksIndent8",
     },
   },
+
+  -- 缩进线显示
   indent = {
     enabled = true,
     chunk = {
       enabled = true,
-      -- only show chunk scopes in the current window
       only_current = false,
       priority = 200,
-      -- hl = "SnacksIndentChunk", ---@type string|string[] hl group for chunk scopes
       hl = {
-        "SnacksIndent1",
-        "SnacksIndent2",
-        "SnacksIndent3",
-        "SnacksIndent4",
-        "SnacksIndent5",
-        "SnacksIndent6",
-        "SnacksIndent7",
-        "SnacksIndent8",
+        "SnacksIndent1", "SnacksIndent2", "SnacksIndent3", "SnacksIndent4",
+        "SnacksIndent5", "SnacksIndent6", "SnacksIndent7", "SnacksIndent8",
       },
       char = {
-        -- corner_top = "┌",
-        -- corner_bottom = "└",
         corner_top = "╭",
         corner_bottom = "╰",
         horizontal = "─",
@@ -469,17 +453,17 @@ return {
       },
     },
   },
+
+  -- 仪表盘首页配置
   dashboard = {
-    -- formats = {
-    --   key = function(item)
-    --     return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
-    --   end,
-    -- },
     sections = {
+      -- 欢迎动画（cowsay）
       { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 8, width = 50 },
+      -- 最近文件
       { section = "recent_files", icon = " ", title = "Recent", cwd = true, limit = 3, padding = 1 },
+      -- 项目列表
       { section = "projects", icon = " ", title = "Projects", padding = 1 },
-      -- { section = "keys", title = " Menu", padding = 1 },
+      -- 快捷菜单
       {
         title = "Menu",
         { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
@@ -492,6 +476,8 @@ return {
       { section = "startup" },
     },
   },
+
+  -- 大文件处理：超过 1MB 自动优化
   bigfile = {
     enabled = true,
     notify = true,
@@ -504,9 +490,8 @@ return {
       vim.schedule(function()
         vim.bo[ctx.buf].syntax = ctx.ft
 
-        -- Tree-sitter 智能加载
+        -- 检查 treesitter 是否支持该文件类型
         local is_ts_supported = function(ft)
-          -- return #vim.treesitter.language.get_lang(ft) > 0
           local lang_info = vim.treesitter.language.get_lang(ft)
           return lang_info and #lang_info > 0
         end
@@ -514,15 +499,8 @@ return {
         if is_ts_supported(ctx.ft) then
           -- 启用增量更新模式
           vim.b[ctx.buf].treesitter_disable_incremental = nil
-
-          -- 安全启动 Tree-sitter
+          -- 安全启动 treesitter 语法高亮
           pcall(vim.treesitter.start, ctx.buf, ctx.ft)
-
-          -- 添加高亮引用
-          -- if vim.treesitter.highlighter then
-          --   vim.bo[ctx.buf].syntax = "off"
-          --   vim.treesitter.highlighter.new(ctx.buf, ctx.ft)
-          -- end
         end
       end)
     end,

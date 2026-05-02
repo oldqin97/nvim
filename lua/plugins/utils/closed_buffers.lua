@@ -1,3 +1,4 @@
+-- 已关闭 Buffer 历史记录与快速恢复
 local Snacks = require("snacks")
 
 local M = {}
@@ -8,21 +9,24 @@ vim.api.nvim_create_autocmd("BufDelete", {
   callback = function(args)
     local filepath = vim.api.nvim_buf_get_name(args.buf)
     if filepath ~= "" then
-      local filename = vim.fn.fnamemodify(filepath, ":t") -- 只取文件名
+      local filename = vim.fn.fnamemodify(filepath, ":t")
 
+      -- 去重：删除旧记录
       for i = #closed_buffers, 1, -1 do
         if closed_buffers[i].filename == filepath then
           table.remove(closed_buffers, i)
         end
       end
 
+      -- 插入到列表头部
       table.insert(closed_buffers, 1, {
-        filename = filepath, -- 文件绝对路径
-        file = filepath, -- snacks 预览器识别的字段
-        text = "   ", -- 前缀标志
-        path = filename, -- 显示用的文件名
+        filename = filepath,
+        file = filepath,
+        text = "   ",
+        path = filename,
         time = os.time(),
       })
+      -- 最多保留 10 条记录
       if #closed_buffers > 10 then
         table.remove(closed_buffers)
       end
@@ -30,7 +34,7 @@ vim.api.nvim_create_autocmd("BufDelete", {
   end,
 })
 
--- 把时间差转成人类可读格式
+-- 时间差转人类可读格式
 local function reltime(t)
   local diff = os.difftime(os.time(), t)
   if diff < 60 then
@@ -44,16 +48,16 @@ local function reltime(t)
   end
 end
 
--- picker
+-- 显示已关闭 buffer 列表的 picker
 function M.closed_buffers()
   Snacks.picker({
     title = "Recently Closed Buffers",
     items = closed_buffers,
     format = function(item)
       return {
-        { item.text .. "", "ErrorMsg" }, -- 红色关闭标志
-        { "[" .. reltime(item.time) .. "] ", "Comment" }, -- 相对时间
-        { item.path, "Directory" }, -- 文件名
+        { item.text .. "", "ErrorMsg" },
+        { "[" .. reltime(item.time) .. "] ", "Comment" },
+        { item.path, "Directory" },
       }
     end,
     layout = { preset = "ivy" },

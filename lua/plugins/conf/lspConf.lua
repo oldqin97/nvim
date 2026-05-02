@@ -1,53 +1,17 @@
+-- LSP 服务器配置：各语言服务器的独立设置
 return {
   servers = {
+    -- 全局 LSP 按键映射
     ["*"] = {
       keys = {
-        {
-          "ca",
-          function()
-            vim.lsp.buf.code_action()
-          end,
-          desc = "Code Action",
-        },
+        { "ca", function() vim.lsp.buf.code_action() end, desc = "Code Action" },
         { "<A-r>", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
-        {
-          "gh",
-          function()
-            require("pretty_hover").hover()
-          end,
-          desc = "Hover",
-        },
-        {
-          "gd",
-          function()
-            Snacks.picker.lsp_definitions()
-          end,
-          desc = "Goto Definition",
-          has = "definition",
-        },
-        {
-          "gr",
-          function()
-            Snacks.picker.lsp_references()
-          end,
-          nowait = true,
-          desc = "References",
-        },
-        {
-          "gi",
-          function()
-            Snacks.picker.lsp_implementations()
-          end,
-          desc = "Goto Implementation",
-        },
-        {
-          "gy",
-          function()
-            Snacks.picker.lsp_type_definitions()
-          end,
-          desc = "Goto T[y]pe Definition",
-        },
-        -- Disable LazyVim default keymaps
+        { "gh", function() require("pretty_hover").hover() end, desc = "Hover" },
+        { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition", has = "definition" },
+        { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+        { "gi", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+        { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+        -- 禁用 LazyVim 默认按键映射
         { "K", false },
         { "gI", false },
         { "<leader>cr", false },
@@ -83,12 +47,13 @@ return {
       filetypes_exclude = { "markdown", "javascript", "typescript" },
     },
     angularls = {
-      -- 只在存在 angular.json 时启用
+      -- 仅在存在 angular.json 时启用
       root_dir = function(fname)
         local util = require("lspconfig.util")
         return util.root_pattern("angular.json")(fname)
       end,
     },
+    -- TypeScript/JavaScript LSP 配置
     vtsls = {
       settings = {
         typescript = {
@@ -107,16 +72,20 @@ return {
         },
       },
     },
+    -- 微信小程序 wxml 文件类型映射
     html = {
       filetypes = { "html", "wxml" },
     },
+    -- 微信小程序 wxss 文件类型映射
     cssls = {
       filetypes = { "css", "wxss" },
     },
+    -- LaTeX 语法检查
     ltex = {
       language = "en-US",
       filetypes = { "markdown", "text" },
     },
+    -- JSON 模式支持，包括微信小程序配置
     jsonls = {
       settings = {
         json = {

@@ -1,3 +1,4 @@
+-- Avante AI 助手插件配置
 return {
   opts = {
     provider = "openai",
@@ -6,20 +7,19 @@ return {
         endpoint = "https://api.deepseek.com/v1",
         model = "deepseek-chat",
         timeout = 30000,
-        -- temperature = 0,
         max_tokens = 4096,
         api_key_name = "OPENAI_API_KEY",
         extra_request_body = {},
       },
     },
     auto_suggestions_provider = "openai",
+    -- 禁用内联提示
     hints = { enabled = false },
     behaviour = {
       enable_token_counting = false,
     },
     windows = {
       position = "left",
-
       ask = {},
     },
     mappings = {
@@ -28,7 +28,6 @@ return {
       refresh = "<leader>ar",
       focus = "<leader>af",
       toggle = {
-        -- default = "<c-t>",
         debug = "<leader>ad",
         hint = "<leader>ah",
         suggestion = "<leader>asqwe",
@@ -55,32 +54,26 @@ return {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+    "nvim-tree/nvim-web-devicons",
     {
       "HakonHarnes/img-clip.nvim",
       opts = {
-        -- recommended settings
         default = {
           embed_image_as_base64 = false,
           prompt_for_file_name = false,
           drag_and_drop = {
             insert_mode = true,
           },
-          -- required for Windows users
           use_absolute_path = true,
         },
       },
     },
     {
-      -- Make sure to set this up properly if you have lazy=true
       "MeanderingProgrammer/render-markdown.nvim",
-      -- opts = {
-      --   file_types = { "Avante" },
-      -- },
-      -- ft = { "Avante" },
     },
   },
 
+  -- 自定义快捷键绑定
   keys = function(_, keys)
     local opts =
       require("lazy.core.plugin").values(require("lazy.core.config").spec.plugins["avante.nvim"], "opts", false)

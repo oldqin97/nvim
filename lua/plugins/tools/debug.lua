@@ -1,7 +1,2 @@
-return {
-  -- "wsdjeg/logger.nvim",
-  -- lazy = true,
-  -- config = function()
-  --   require("logger").setup({})
-  -- end,
-}
+-- 调试日志插件（已禁用）
+return {}

@@ -1,6 +1,6 @@
+-- Flutter/Dart 开发工具配置
 return {
   {
-    -- flutter
     "akinsho/flutter-tools.nvim",
     ft = "dart",
     dependencies = {
@@ -9,15 +9,9 @@ return {
     },
     config = function()
       require("flutter-tools").setup({
-        widget_guides = {
-          enabled = false,
-        },
-        outline = {
-          auto_open = false,
-        },
-        closing_tags = {
-          enabled = false,
-        },
+        widget_guides = { enabled = false },
+        outline = { auto_open = false },
+        closing_tags = { enabled = false },
         lsp = {
           color = {
             enabled = true,

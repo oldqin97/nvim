@@ -1,3 +1,4 @@
+-- 颜色值预览：在代码中直接显示颜色值对应的背景色
 return {
   {
     "NvChad/nvim-colorizer.lua",

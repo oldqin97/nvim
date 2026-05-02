@@ -1,6 +1,6 @@
+-- Telescope 模糊查找器（辅助使用，主要使用 snacks.picker）
 return {
   "nvim-telescope/telescope.nvim",
-  -- event = "VeryLazy",
   lazy = true,
   keys = {},
   opts = function()

@@ -1,6 +1,2 @@
-return {
-  -- "barrett-ruth/import-cost.nvim",
-  -- build = "sh install.sh npm",
-  -- event = "LazyFile",
-  -- config = true,
-}
+-- import-cost 插件（已禁用）
+return {}

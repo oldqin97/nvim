@@ -1,7 +1,7 @@
+-- blink.cmp 补全插件配置
 return {
   {
     "saghen/blink.cmp",
-    -- event = { "InsertEnter", "CmdlineEnter" },
     event = "VeryLazy",
     dependencies = {
       "moyiz/blink-emoji.nvim",

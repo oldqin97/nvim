@@ -1,29 +1,24 @@
-local view_open = false
-
--- 定义一个函数切换 Diffview 打开和关闭状态
+-- Git Diff 视图：可视化比较代码差异
 local function toggle_diffview()
-  if view_open then
+  local diffview_open = false
+  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.bo[buf].filetype == "DiffviewFiles" then
+      diffview_open = true
+      break
+    end
+  end
+  if diffview_open then
     vim.cmd("DiffviewClose")
-    view_open = false
   else
     vim.cmd("DiffviewOpen")
-    view_open = true
   end
 end
 
-local function close_diffview()
-  if vim.bo.filetype == "DiffviewFiles" then -- 判断当前文件是否为 Diffview 打开的文件
-    vim.cmd("DiffviewClose") -- 关闭 Diffview 打开的文件
-  end
-end
-
--- 设置快捷键来切换 Diffview 面板
--- api.nvim_set_keymap("n", "<leader>dv", ":lua toggle_diffview()<CR>", { noremap = true, silent = true })
 return {
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen" },
   keys = {
     { "<leader>df", mode = { "n" }, toggle_diffview, desc = "toggle diffview window" },
-    -- { "<Esc>", mode = { "n" }, close_diffview, desc = "close diffview window" },
   },
 }

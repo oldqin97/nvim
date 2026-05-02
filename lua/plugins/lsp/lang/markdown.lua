@@ -1,42 +1,26 @@
+-- Markdown 增强：列表符号自动补全 + 实时预览
 return {
+  -- Markdown 列表符号自动续行
   {
     "dkarter/bullets.vim",
-    -- event = "VeryLazy",
     ft = { "markdown", "text" },
   },
-
+  -- Markdown 实时预览
   {
-    -- markdown preview
     "iamcco/markdown-preview.nvim",
     ft = { "markdown" },
-    cmd = {
-      "MarkdownPreviewToggle",
-      "MarkdownPreview",
-      "MarkdownPreviewStop",
-    },
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = function()
       require("lazy").load({ plugins = { "markdown-preview.nvim" } })
       vim.fn["mkdp#util#install"]()
     end,
     config = function()
       vim.cmd([[do FileType]])
-      vim.cmd([[
-        let g:mkdp_auto_close = 0
-      ]])
+      vim.cmd([[let g:mkdp_auto_close = 0]])
     end,
     keys = {
-      {
-        "<leader>mp",
-        ft = "markdown",
-        "<cmd>MarkdownPreviewToggle<cr>",
-        desc = "Markdown Preview",
-      },
-      {
-        "<leader>ms",
-        ft = "markdown",
-        "<cmd>MarkdownPreviewStop<cr>",
-        desc = "Markdown Preview",
-      },
+      { "<leader>mp", ft = "markdown", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" },
+      { "<leader>ms", ft = "markdown", "<cmd>MarkdownPreviewStop<cr>", desc = "Markdown Preview" },
     },
   },
 }

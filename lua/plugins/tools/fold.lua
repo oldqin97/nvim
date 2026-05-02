@@ -1,11 +1,13 @@
 ---@diagnostic disable: missing-fields
+
+-- 现代化折叠插件（基于 LSP/treesitter）
 return {
-  -- fold
   "kevinhwang91/nvim-ufo",
   event = "BufReadPost",
   dependencies = { "kevinhwang91/promise-async" },
   config = function()
     require("ufo").setup({
+      -- 折叠行虚拟文本显示：显示折叠行数
       fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
         local newVirtText = {}
         local suffix = ("   %d "):format(endLnum - lnum)
@@ -22,7 +24,6 @@ return {
             local hlGroup = chunk[2]
             table.insert(newVirtText, { chunkText, hlGroup })
             chunkWidth = vim.fn.strdisplaywidth(chunkText)
-            -- str width returned from truncate() may less than 2nd argument, need padding
             if curWidth + chunkWidth < targetWidth then
               suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
             end

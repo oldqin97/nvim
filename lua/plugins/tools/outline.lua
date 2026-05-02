@@ -1,9 +1,8 @@
+-- 代码大纲/符号列表（优先使用 LSP，降级到 Treesitter）
 return {
   {
-    -- "simrat39/symbols-outline.nvim",
     "hedyhli/outline.nvim",
-    -- cmd = { "Outline" },
-    Event = "VeryLazy",
+    event = "VeryLazy",
     keys = {
       { "<A-o>", "<cmd>Outline<cr>", desc = "Toggle Outline" },
       { "<leader>cs", false },
@@ -22,12 +21,9 @@ return {
         keymaps = {
           peek_location = "l",
           fold_toggle = "h",
-          -- goto_location = "<Tab>",
           goto_and_close = { "o", "<Tab>" },
         },
-
         symbol_folding = {
-          -- 默认情况下，超过此深度的节点将折叠。设置为 false 时在打开时展开所有节点。
           autofold_depth = false,
         },
         symbols = {
@@ -69,37 +65,4 @@ return {
       }
     end,
   },
-
-  -- {
-  --   "bassamsdata/namu.nvim",
-  --   config = function()
-  --     require("namu").setup({
-  --       -- Enable the modules you want
-  --       namu_symbols = {
-  --         enable = true,
-  --         options = {}, -- here you can configure namu
-  --       },
-  --       -- Optional: Enable other modules if needed
-  --       colorscheme = {
-  --         enable = false,
-  --         options = {
-  --           persist = true, -- very efficient mechanism to Remember selected colorscheme
-  --           write_shada = false, -- If you open multiple nvim instances, then probably you need to enable this
-  --         },
-  --       },
-  --       ui_select = { enable = false }, -- vim.ui.select() wrapper
-  --     })
-  --     -- === Suggested Keymaps: ===
-  --     local namu = require("namu.namu_symbols")
-  --     local colorscheme = require("namu.colorscheme")
-  --     vim.keymap.set("n", "<leader>pp", namu.show, {
-  --       desc = "Jump to LSP symbol",
-  --       silent = true,
-  --     })
-  --     vim.keymap.set("n", "<leader>th", colorscheme.show, {
-  --       desc = "Colorscheme Picker",
-  --       silent = true,
-  --     })
-  --   end,
-  -- },
 }

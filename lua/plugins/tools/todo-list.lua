@@ -1,24 +1,2 @@
-return {
-  -- {
-  --   "atiladefreitas/dooing",
-  --   config = function()
-  --     require("dooing").setup({
-  --       -- your custom config here (optional)
-  --     })
-  --   end,
-  -- },
-  -- {
-  --   "Dan7h3x/LazyDo",
-  --   -- branch = "main",
-  --   -- event = "VeryLazy",
-  --   cmd = { "LazyDoToggle" },
-  --   keys = {
-  --     {
-  --       "<leader>do",
-  --       "<ESC><CMD>LazyDoToggle<CR>",
-  --       mode = { "n" },
-  --     },
-  --   },
-  --   opts = {},
-  -- },
-}
+-- TODO 列表（已禁用）
+return {}

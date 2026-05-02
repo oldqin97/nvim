@@ -1,3 +1,4 @@
+-- 增强型数字/日期/布尔值增减插件
 local M = {}
 ---@type table<string, table<string, string[]>>
 M.dials_by_ft = {}
@@ -6,7 +7,7 @@ M.dials_by_ft = {}
 ---@param g? boolean
 function M.dial(increment, g)
   local mode = vim.fn.mode(true)
-  -- Use visual commands for VISUAL 'v', VISUAL LINE 'V' and VISUAL BLOCK '\22'
+  -- 根据模式选择正确的增减函数
   local is_visual = mode == "v" or mode == "V" or mode == "\22"
   local func = (increment and "inc" or "dec") .. (g and "_g" or "_") .. (is_visual and "visual" or "normal")
   local group = M.dials_by_ft[vim.bo.filetype] or "default"
@@ -28,72 +29,46 @@ return {
   opts = function()
     local augend = require("dial.augend")
 
+    -- 逻辑运算符别名
     local logical_alias = augend.constant.new({
       elements = { "&&", "||" },
       word = false,
       cyclic = true,
     })
 
+    -- 序数词循环
     local ordinal_numbers = augend.constant.new({
-      -- elements through which we cycle. When we increment, we go down
-      -- On decrement we go up
       elements = {
-        "first",
-        "second",
-        "third",
-        "fourth",
-        "fifth",
-        "sixth",
-        "seventh",
-        "eighth",
-        "ninth",
-        "tenth",
+        "first", "second", "third", "fourth", "fifth",
+        "sixth", "seventh", "eighth", "ninth", "tenth",
       },
-      -- if true, it only matches strings with word boundary. firstDate wouldn't work for example
       word = false,
-      -- do we cycle back and forth (tenth to first on increment, first to tenth on decrement).
-      -- Otherwise nothing will happen when there are no further values
       cyclic = true,
     })
 
+    -- 星期循环
     local weekdays = augend.constant.new({
       elements = {
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
+        "Monday", "Tuesday", "Wednesday", "Thursday",
+        "Friday", "Saturday", "Sunday",
       },
       word = true,
       cyclic = true,
     })
 
+    -- 月份循环
     local months = augend.constant.new({
       elements = {
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December",
       },
       word = true,
       cyclic = true,
     })
 
+    -- 大写布尔值循环
     local capitalized_boolean = augend.constant.new({
-      elements = {
-        "True",
-        "False",
-      },
+      elements = { "True", "False" },
       word = true,
       cyclic = true,
     })
@@ -114,13 +89,13 @@ return {
       },
       groups = {
         default = {
-          augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
-          augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
-          augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
+          augend.integer.alias.decimal,
+          augend.integer.alias.hex,
+          augend.date.alias["%Y/%m/%d"],
         },
         typescript = {
-          augend.integer.alias.decimal, -- nonnegative and negative decimal number
-          augend.constant.alias.bool, -- boolean value (true <-> false)
+          augend.integer.alias.decimal,
+          augend.constant.alias.bool,
           logical_alias,
           augend.constant.new({ elements = { "let", "const" } }),
           ordinal_numbers,
@@ -128,13 +103,9 @@ return {
           months,
         },
         css = {
-          augend.integer.alias.decimal, -- nonnegative and negative decimal number
-          augend.hexcolor.new({
-            case = "lower",
-          }),
-          augend.hexcolor.new({
-            case = "upper",
-          }),
+          augend.integer.alias.decimal,
+          augend.hexcolor.new({ case = "lower" }),
+          augend.hexcolor.new({ case = "upper" }),
         },
         markdown = {
           augend.misc.alias.markdown_header,
@@ -143,23 +114,23 @@ return {
           months,
         },
         json = {
-          augend.integer.alias.decimal, -- nonnegative and negative decimal number
-          augend.semver.alias.semver, -- versioning (v1.1.2)
+          augend.integer.alias.decimal,
+          augend.semver.alias.semver,
         },
         lua = {
-          augend.integer.alias.decimal, -- nonnegative and negative decimal number
-          augend.constant.alias.bool, -- boolean value (true <-> false)
+          augend.integer.alias.decimal,
+          augend.constant.alias.bool,
           augend.constant.new({
             elements = { "and", "or" },
-            word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
-            cyclic = true, -- "or" is incremented into "and".
+            word = true,
+            cyclic = true,
           }),
           ordinal_numbers,
           weekdays,
           months,
         },
         python = {
-          augend.integer.alias.decimal, -- nonnegative and negative decimal number
+          augend.integer.alias.decimal,
           capitalized_boolean,
           logical_alias,
           ordinal_numbers,

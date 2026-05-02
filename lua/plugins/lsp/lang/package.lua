@@ -1,7 +1,6 @@
+-- package.json 依赖管理：安装、删除、更新、版本切换
 return {
-  -- package-info
   "vuki656/package-info.nvim",
-  -- event = "BufEnter package.json",
   ft = "json",
   config = true,
   keys = {

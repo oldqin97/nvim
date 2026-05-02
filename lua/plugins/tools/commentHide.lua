@@ -1,7 +1,8 @@
--- 1. 注释检测函数（基于 commentstring）
+-- 注释隐藏/显示切换插件
+-- 检测当前 buffer 是否包含注释
 local function buffer_has_comments()
-  local cs = vim.bo.commentstring -- e.g. "-- %s"
-  local prefix = cs:match("^(.*)%%s") or cs -- 提取注释前缀，如 "-- "
+  local cs = vim.bo.commentstring
+  local prefix = cs:match("^(.*)%%s") or cs
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   for _, line in ipairs(lines) do
     local trimmed = vim.trim(line)
@@ -12,14 +13,12 @@ local function buffer_has_comments()
   return false
 end
 
--- 2. 用于隐藏/恢复注释的状态和切换函数
+-- 切换注释的隐藏与恢复
 local function toggle_commentHide()
   if buffer_has_comments() then
-    -- 如果检测到有注释
-    vim.cmd("CommentHideSave") -- 隐藏注释
+    vim.cmd("CommentHideSave")
     print("🙈 已隐藏注释")
   else
-    -- 如果检测不到注释，则确保状态同步为“已恢复”
     vim.cmd("CommentHideRestore")
     print("ℹ️ 恢复注释")
   end
@@ -34,7 +33,7 @@ return {
   },
   config = function()
     require("comment-hide").setup({
-      gitignore = true, -- Automatically add .annotations/ to .gitignore.
+      gitignore = true,
     })
   end,
 }

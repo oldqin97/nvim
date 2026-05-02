@@ -1,4 +1,6 @@
+-- blink.cmp 补全详细配置：按键映射、外观、模糊搜索、签名提示、补全菜单、补全源、命令行补全
 return {
+  -- 补全快捷键映射
   keymaps = {
     ["<Tab>"] = {
       function(cmp)
@@ -19,6 +21,7 @@ return {
     ["<Down>"] = { "select_next", "fallback" },
   },
 
+  -- 外观配置
   appearance = {
     nerd_font_variant = "normal",
     kind_icons = {
@@ -32,6 +35,7 @@ return {
     },
   },
 
+  -- 模糊匹配排序
   fuzzy = {
     sorts = {
       "exact",
@@ -40,21 +44,23 @@ return {
     },
   },
 
+  -- 函数签名提示窗口配置
   signature = {
     enabled = true,
     window = {
-      min_width = 20, -- 设置提示窗口的最小宽度
-      max_width = 80, -- 设置最大宽度
-      max_height = 8, -- 设置最大高度
-      border = "rounded", -- 设置边框样式：可选值有 "none", "single", "double", "rounded", "solid", "shadow"
-      winblend = 0, -- 设置透明度，0=不透明，100=完全透明
+      min_width = 20,
+      max_width = 80,
+      max_height = 8,
+      border = "rounded",
+      winblend = 0,
       winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-      scrollbar = false, -- 是否显示滚动条
-      -- direction_priority = { "n", "s", "e", "w" }, -- 显示窗口时优先考虑的方向
-      treesitter_highlighting = true, -- 启用 Treesitter 高亮
-      show_documentation = true, -- 显示函数的文档信息
+      scrollbar = false,
+      treesitter_highlighting = true,
+      show_documentation = true,
     },
   },
+
+  -- 补全菜单配置
   completion = {
     menu = {
       draw = {
@@ -70,11 +76,6 @@ return {
       auto_show = true,
       auto_show_delay_ms = 200,
       draw = function(opts)
-        -- if opts.item and opts.item.documentation then
-        --   local out = require("pretty_hover.parser").parse(opts.item.documentation.value)
-        --   opts.item.documentation.value = out:string()
-        -- end
-
         opts.default_implementation(opts)
       end,
       window = {
@@ -109,6 +110,7 @@ return {
     },
   },
 
+  -- 补全源配置
   sources = {
     compat = {},
     default = {
@@ -125,34 +127,6 @@ return {
       "ecolog",
       "css_vars",
     },
-    -- per_filetype = {
-    --   -- env = {
-    --   --   "env",
-    --   --   "omni",
-    --   --   "lsp",
-    --   --   "snippets",
-    --   --   "buffer",
-    --   --   "dictionary",
-    --   -- },
-    --   -- toml = {
-    --   --   "crates",
-    --   --   "lsp",
-    --   --   "path",
-    --   --   "snippets",
-    --   --   "buffer",
-    --   -- },
-    --   -- lua = {
-    --   --   "lazydev",
-    --   --   "lsp",
-    --   --   "path",
-    --   --   "snippets",
-    --   --   "buffer",
-    --   --   "ripgrep",
-    --   --   "calc",
-    --   --   "dictionary",
-    --   -- },
-    -- },
-
     providers = {
       lsp = {
         name = "LSP",
@@ -165,6 +139,7 @@ return {
         name = "Snippets",
         module = "blink.cmp.sources.snippets",
         score_offset = 1,
+        -- 在注释区域不显示代码片段
         should_show_items = function()
           local ok, node = pcall(vim.treesitter.get_node)
           if ok and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
@@ -178,6 +153,7 @@ return {
         name = "Emoji",
         score_offset = 15,
         opts = { insert = true },
+        -- 仅在 gitcommit、markdown、text 文件类型中显示表情符号补全
         should_show_items = function()
           return vim.tbl_contains({ "gitcommit", "markdown", "text" }, vim.o.filetype)
         end,
@@ -187,13 +163,6 @@ return {
         module = "blink.compat.source",
         kind = "Math",
       },
-      -- dictionary = {
-      --   name = "dictionary",
-      --   module = "blink.compat.source",
-      --   score_offset = -5,
-      --   min_keyword_length = 5,
-      --   kind = "Dic",
-      -- },
       dictionary = {
         module = "blink-cmp-dictionary",
         name = "Dict",
@@ -214,7 +183,6 @@ return {
             }
           end,
           dictionary_files = { vim.fn.expand("~/.config/nvim/dictionary/words.txt") },
-          -- To disable the definitions comment this
         },
         kind = "Dic",
       },
@@ -230,7 +198,6 @@ return {
         name = "crates",
         module = "blink.compat.source",
         score_offset = 100,
-        -- async = true,
       },
       omni = {
         module = "blink.cmp.sources.complete_func",
@@ -256,6 +223,8 @@ return {
       },
     },
   },
+
+  -- 命令行补全
   cmdline = {
     enabled = true,
     keymap = {
@@ -265,12 +234,11 @@ return {
     },
     sources = function()
       local type = vim.fn.getcmdtype()
-      -- Search forward and backward
-      -- if type == "/" or type == "?" then
+      -- 反向搜索时使用 buffer 源
       if type == "?" then
         return { "buffer" }
       end
-      -- Commands
+      -- 命令模式使用 cmdline 源
       if type == ":" or type == "@" then
         return { "cmdline" }
       end
@@ -283,15 +251,11 @@ return {
       },
       list = {
         selection = {
-          -- When `true`, will automatically select the first item in the completion list
           preselect = true,
-          -- When `true`, inserts the completion item automatically when selecting it
           auto_insert = true,
         },
       },
-      -- Whether to automatically show the window when new completion items are available
       menu = { auto_show = true },
-      -- Displays a preview of the selected item on the current line
       ghost_text = { enabled = false },
     },
   },

@@ -1,3 +1,4 @@
+-- Treesitter 需要安装的语言解析器列表
 return {
   "bash",
   "regex",
@@ -17,7 +18,6 @@ return {
   "prisma",
   "rust",
   "go",
-  "toml",
   "c",
   "cpp",
   "clojure",
@@ -31,6 +31,5 @@ return {
   "svelte",
   "solidity",
   "http",
-  "dart",
   "python",
 }

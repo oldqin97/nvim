@@ -1,3 +1,4 @@
+-- 导入所有自定义插件分组
 return {
   { import = "plugins.ui" },
   { import = "plugins.complete" },

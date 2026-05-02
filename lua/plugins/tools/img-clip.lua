@@ -1,12 +1,9 @@
+-- 粘贴剪贴板图片并上传
 return {
   "HakonHarnes/img-clip.nvim",
-  -- event = "BufReadPost",
   cmd = { "PasteImage" },
   lazy = true,
-  opts = {
-    -- add options here
-    -- or leave it empty to use the default settings
-  },
+  opts = {},
   keys = {
     { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
   },

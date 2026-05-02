@@ -1,3 +1,4 @@
+-- URL 打开插件：光标移到 URL 上时快速在浏览器中打开
 return {
   "sontungexpt/url-open",
   event = "VeryLazy",
@@ -12,21 +13,8 @@ return {
     end
     url_open.setup({
       highlight_url = {
-        all_urls = {
-          enabled = false,
-          -- fg = "#21d5ff",
-          -- fg = "text",
-          -- bg = "#ffffff",
-          underline = false,
-        },
-        cursor_move = {
-          enabled = false,
-          -- fg = "#199eff",
-          -- fg = "text",
-          -- bg = "#ffffff",
-          -- bg = nil,
-          underline = false,
-        },
+        all_urls = { enabled = false, underline = false },
+        cursor_move = { enabled = false, underline = false },
       },
     })
   end,

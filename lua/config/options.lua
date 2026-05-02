@@ -1,8 +1,7 @@
--- local opt = vim.opt
-
+-- 启用真彩色终端支持
 vim.o.termguicolors = true
 
--- 设置neovim光标
+-- 不同模式下的光标样式配置
 vim.opt.guicursor = table.concat({
   "n-v-c:block-Cursor/lCursor",
   "n-v:block",
@@ -12,195 +11,43 @@ vim.opt.guicursor = table.concat({
   "o:hor50",
 }, ",")
 
-vim.cmd([[
-let g:loaded_perl_provider = 0
-]])
+-- 禁用 perl 提供器以加快启动速度
+vim.g.loaded_perl_provider = 0
 
--- 取消自动格式化
+-- 禁用自动格式化
 vim.g.autoformat = false
-
+-- 使用 blink.cmp 而非 lazyvim 默认的 blink 配置
 vim.g.lazyvim_blink_main = false
+-- 使用 snacks 作为默认选择器
 vim.g.lazyvim_picker = "snacks"
 
--- ai
+-- 缩短写入延迟，提升响应速度
 vim.opt.updatetime = 200
-
+-- 切换 buffer 时光标不跳到行首
 vim.opt.startofline = false
-
-vim.o.cursorline = false
--- wrap
+-- 禁用当前行高亮
+vim.opt.cursorline = false
+-- 启用自动换行
 vim.opt.wrap = true
 
--- fold
+-- 折叠配置：使用 treesitter 语法折叠
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- 默认展开所有折叠
 vim.opt.foldlevel = 99
 
+-- 行号列宽度
 vim.opt.numberwidth = 7
-
+-- 不隐藏任何语法标记
 vim.opt.conceallevel = 0
 
-vim.loader.enable()
+-- 跳过 treesitter 上下文注释字符串模块
 vim.g.skip_ts_context_commentstring_module = true
 
+-- 拼写检查语言：英文 + 中日韩
 vim.opt.spelllang = { "en", "cjk" }
+-- 启用 editorconfig 支持
 vim.g.editorconfig = true
 
--- vim.opt.colorcolumn = "90"
-
+-- 禁用 AI 补全
 vim.g.ai_cmp = false
-
-return {
-  kind = {
-    Array = "",
-    Boolean = "",
-    Class = "",
-    Color = "",
-    Constant = "",
-    Constructor = "",
-    Enum = "",
-    EnumMember = "",
-    Event = "",
-    Field = "",
-    File = "",
-    Folder = "󰉋",
-    Function = "",
-    Interface = "",
-    Key = "",
-    Keyword = "",
-    Method = "",
-    Module = "",
-    Namespace = "",
-    Null = "󰟢",
-    Number = "",
-    Object = "",
-    Operator = "",
-    Package = "",
-    Property = "",
-    Reference = "",
-    Snippet = "",
-    String = "",
-    Struct = "",
-    Text = "",
-    TypeParameter = "",
-    Unit = "",
-    Value = "",
-    Variable = "",
-  },
-  git = {
-    LineAdded = "",
-    LineModified = "",
-    LineRemoved = "",
-    FileDeleted = "",
-    FileIgnored = "◌",
-    FileRenamed = "",
-    FileStaged = "S",
-    FileUnmerged = "",
-    FileUnstaged = "",
-    FileUntracked = "U",
-    Diff = "",
-    Repo = "",
-    Octoface = "",
-    Branch = "",
-  },
-  ui = {
-    ArrowCircleDown = "",
-    ArrowCircleLeft = "",
-    ArrowCircleRight = "",
-    ArrowCircleUp = "",
-    BoldArrowDown = "",
-    BoldArrowLeft = "",
-    BoldArrowRight = "",
-    BoldArrowUp = "",
-    BoldClose = "",
-    BoldDividerLeft = "",
-    BoldDividerRight = "",
-    BoldLineLeft = "▎",
-    BookMark = "",
-    BoxChecked = "",
-    Bug = "",
-    Stacks = "",
-    Scopes = "",
-    Watches = "󰂥",
-    DebugConsole = "",
-    Calendar = "",
-    Check = "",
-    ChevronRight = ">",
-    ChevronShortDown = "",
-    ChevronShortLeft = "",
-    ChevronShortRight = "",
-    ChevronShortUp = "",
-    Circle = "",
-    Close = "",
-    CloudDownload = "",
-    Code = "",
-    Comment = "",
-    Dashboard = "",
-    DividerLeft = "",
-    DividerRight = "",
-    DoubleChevronRight = "»",
-    Ellipsis = "",
-    EmptyFolder = "",
-    EmptyFolderOpen = "",
-    File = "",
-    FileSymlink = "",
-    Files = "",
-    FindFile = "󰈞",
-    FindText = "󱉯",
-    Fire = "",
-    Folder = "󰉋",
-    FolderOpen = "",
-    FolderSymlink = "",
-    Forward = "",
-    Gear = "",
-    History = "",
-    Lightbulb = "",
-    LineLeft = "▏",
-    LineMiddle = "│",
-    List = "",
-    Lock = "",
-    NewFile = "",
-    Note = "",
-    Package = "",
-    Pencil = "",
-    Plus = "",
-    Project = "",
-    Search = "",
-    SignIn = "",
-    SignOut = "",
-    Tab = "󰌒",
-    Table = "",
-    Target = "󰀘",
-    Telescope = "",
-    Text = "",
-    Tree = "",
-    Triangle = "󰐊",
-    TriangleShortArrowDown = "",
-    TriangleShortArrowLeft = "",
-    TriangleShortArrowRight = "",
-    TriangleShortArrowUp = "",
-  },
-  diagnostics = {
-    BoldError = "",
-    Error = "",
-    Robot = "󰚩",
-    BoldWarning = "",
-    Warning = "",
-    BoldInformation = "",
-    Information = "",
-    BoldQuestion = "",
-    Question = "",
-    BoldHint = "",
-    Hint = "󰌵",
-    Debug = "",
-    Trace = "✎",
-  },
-  misc = {
-    Squirrel = "",
-    Tag = "",
-    Watch = "",
-    Smiley = "",
-    Package = "",
-    CircuitBoard = "",
-  },
-}

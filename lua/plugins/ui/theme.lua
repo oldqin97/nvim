@@ -1,3 +1,4 @@
+-- Gruvbox 主题配置（含大量 treesitter/LSP/插件高亮覆盖）
 return {
   {
     "ellisonleao/gruvbox.nvim",
@@ -27,8 +28,9 @@ return {
         dim_inactive = false,
         transparent_mode = true,
 
+        -- 自定义高亮覆盖：光标、搜索、语法、LSP、插件等
         overrides = {
-          -- ══ Base UI ═══════════════════════════════════
+          -- 基础 UI
           Cursor = { fg = "#282828", bg = "#fe8019", bold = false },
           FlashBackdrop = { fg = "#83cbac", bold = true },
           Search = { bg = "#51afef", fg = "#eeeeee" },
@@ -36,47 +38,37 @@ return {
           MatchParen = { bg = "#458588" },
           SnippetTabstop = { fg = vim.NONE, bg = vim.NONE },
 
-          -- ══ Syntax / Treesitter ═══════════════════════
+          -- 语法 / Treesitter 高亮
           Comment = { fg = "#83cbac", bold = true },
           TSComment = { fg = "#83cbac", italic = false, bold = true },
           ["@comment"] = { fg = "#83cbac", bold = true },
-
           String = { fg = "#C5967D" },
           ["@string"] = { link = "String" },
           ["@string.special.url"] = { underline = false },
-
           Number = { fg = "#BECDAB", bold = true },
           ["@number"] = { link = "Number" },
-
           Boolean = { fg = "#fbf1c7" },
           ["@boolean"] = { link = "Boolean" },
-
           Keyword = { fg = "#D3869B", bold = true },
           ["@keyword"] = { link = "Keyword" },
           ["@keyword.function"] = { fg = "#ea6962" },
-
           Function = { fg = "#FFD700", bold = true },
           ["@function"] = { link = "Function" },
           ["@function.call"] = { link = "FunctionCall" },
-
           ["@constructor"] = { fg = "#FE8019", bold = true },
           Type = { fg = "#FE8019" },
-
           ["@parameter"] = { fg = "#8EC07C" },
           ["@variable"] = { fg = "#B3DAFB" },
           ["@lsp.typemod.variable.readonly"] = { fg = "#6FBFFA" },
           ["@lsp.type.class"] = { fg = "#71C7B1", italic = false, bold = true },
-
           ["@include"] = { fg = "#83A598" },
           ["@namespace"] = { fg = "#83A598" },
-
           ["@markup.link"] = { underline = false },
           ["@markup.link.url"] = { underline = false },
-
           Error = { fg = "#FB4934", undercurl = true },
           Warning = { fg = "#D79921", bold = true },
 
-          -- ══ LSP / Diagnostics ═════════════════════════
+          -- LSP / 诊断高亮
           LspReferenceText = { bg = "#7c6f64" },
           LspReferenceRead = { bg = "#7c6f64" },
           LspReferenceWrite = { bg = "#7c6f64" },
@@ -88,7 +80,7 @@ return {
           DiagnosticLineInfo = { bg = "#005c5c" },
           DiagnosticLineHint = { bg = "#005c00" },
 
-          -- ══ Plugins ════════════════════════════════════
+          -- 插件高亮
           SnacksPickerListCursorLine = { link = "Visual" },
           AvanteConflictCurrentLabel = { bg = "#B71C1C", fg = "#FFFFFF" },
           AvanteConflictCurrent = { bg = "#9e5d55" },

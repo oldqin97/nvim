@@ -1,3 +1,4 @@
+-- 数据库管理工具（vim-dadbod UI）
 return {
   {
     "kristijanhusak/vim-dadbod-ui",

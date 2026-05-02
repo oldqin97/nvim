@@ -1,6 +1,7 @@
+-- Git 集成：分支图可视化 + 行内改动标记
 return {
+  -- Git 提交历史图
   {
-    -- git graph
     "rbong/vim-flog",
     lazy = true,
     cmd = { "Flog", "Flogsplit", "Floggit" },
@@ -11,15 +12,14 @@ return {
       "tpope/vim-fugitive",
     },
   },
+  -- Git 行内改动标记（增/删/改）
   {
     "lewis6991/gitsigns.nvim",
-    -- event = { "BufReadPre", "BufNewFile" },
-    lazy = false,
+    event = { "BufReadPre", "BufNewFile" },
     keys = {
-      { "<leader>hl", "<cmd>Gitsigns preview_hunk<cr>", desc = "git graph" },
-      { "<leader>hr", "<cmd>Gitsigns reset_hunk<cr>", desc = "git graph" },
+      { "<leader>hl", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview Hunk" },
+      { "<leader>hr", "<cmd>Gitsigns reset_hunk<cr>", desc = "Reset Hunk" },
     },
-    -- vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#f0c9cf", bg = "NONE" })
     opts = {
       signs = {
         add = { text = "▎" },
@@ -29,19 +29,11 @@ return {
         changedelete = { text = "▎" },
         untracked = { text = "▎" },
       },
-      numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
-      -- signs = {
-      --   add = { text = "" },
-      --   change = { text = "" },
-      --   delete = { text = "󰱢" },
-      --   topdelete = { text = "‾" },
-      --   changedelete = { text = "󱁤" },
-      --   untracked = { text = "" },
-      -- },
+      numhl = true,
       current_line_blame = true,
       current_line_blame_opts = {
         virt_text = true,
-        virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+        virt_text_pos = "eol",
         delay = 1500,
         ignore_whitespace = false,
       },

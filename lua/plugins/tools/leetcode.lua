@@ -1,22 +1,20 @@
--- local leet_arg = "leetcode.nvim"
+-- LeetCode 刷题插件（支持中文题目翻译）
 return {
   {
     "kawre/leetcode.nvim",
-    build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+    build = ":TSUpdate html",
     lazy = true,
     dependencies = {
       "nvim-telescope/telescope.nvim",
-      -- "ibhagwan/fzf-lua",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
     opts = {
-      -- configuration goes here
       lang = "javascript",
       cn = {
-        enabled = true, ---@type boolean
-        translator = true, ---@type boolean
-        translate_problems = true, ---@type boolean
+        enabled = true,
+        translator = true,
+        translate_problems = true,
       },
     },
   },

@@ -1,29 +1,19 @@
+-- HTML 文件浏览器实时预览
 return {
   "ray-x/web-tools.nvim",
-  -- event = "BufReadPost",
   cmd = { "BrowserPreview" },
   keys = {
-    {
-      "<leader>hp",
-      ft = "html",
-      "<cmd>BrowserPreview -f --port 9229<CR>",
-      desc = "BrowserPreview",
-    },
-    {
-      "<leader>hs",
-      ft = "html",
-      "<cmd>BrowserStop<CR>",
-      desc = "BrowserStop",
-    },
+    { "<leader>hp", ft = "html", "<cmd>BrowserPreview -f --port 9229<CR>", desc = "BrowserPreview" },
+    { "<leader>hs", ft = "html", "<cmd>BrowserStop<CR>", desc = "BrowserStop" },
   },
   config = function()
     require("web-tools").setup({
       keymaps = {
-        rename = nil, -- by default use same setup of lspconfig
-        repeat_rename = ".", -- . to repeat
+        rename = nil,
+        repeat_rename = ".",
       },
       hurl = {
-        show_headers = false, -- do not show http headers
+        show_headers = false,
         floating = false,
         formatters = {
           json = { "jq" },

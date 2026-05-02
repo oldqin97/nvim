@@ -1,30 +1,7 @@
 ---@diagnostic disable: deprecated
-return {
-  -- "nvim-pack/nvim-spectre",
-  -- cmd = "Spectre",
-  -- opts = { open_cmd = "noswapfile vnew" },
-  -- keys = {
-  --   -- {
-  --   --   "<leader>sr",
-  --   --   "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
-  --   --   desc = "Replace in files ()",
-  --   --   mode = { "n" },
-  --   -- },
-  --   -- {
-  --   --   "<leader>sr",
-  --   --   "<esc><cmd>lua require('spectre').open_visual()<CR>",
-  --   --   desc = "Replace in files (visual mode)",
-  --   --   mode = { "v" },
-  --   -- },
-  --   {
-  --     "<leader>r",
-  --     function()
-  --       require("spectre.actions").run_replace()
-  --     end,
-  --     desc = "replace all",
-  --   },
-  -- },
 
+-- 全局搜索替换插件（使用 grug-far 替代 spectre）
+return {
   {
     "MagicDuck/grug-far.nvim",
     opts = {
@@ -45,7 +22,6 @@ return {
         "<leader>sm",
         function()
           local grug = require("grug-far")
-          -- local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
           grug.open({
             prefills = {
               search = vim.fn.expand("<cword>"),

@@ -1,6 +1,6 @@
+-- 保存光标位置：切换 buffer 时记住每个文件的光标位置
 return {
-  -- >>> 保存光标位置
   "gbprod/stay-in-place.nvim",
   event = "BufReadPost",
-  config = true,
+  opts = {},
 }

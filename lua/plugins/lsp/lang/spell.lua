@@ -1,3 +1,4 @@
+-- 拼写检查（通过 cspell + none-ls 集成）
 local cspell_files = {
   find_json = function()
     return vim.fn.expand("~/.config/cspell/cspell.json")
@@ -5,10 +6,6 @@ local cspell_files = {
 }
 
 return {
-  -- {
-  --   "davidmh/cspell.nvim",
-  --   event = "BufReadPost",
-  -- },
   {
     "nvimtools/none-ls.nvim",
     dependencies = { "davidmh/cspell.nvim" },
@@ -17,7 +14,7 @@ return {
       opts.sources = vim.list_extend(opts.sources or {}, {
         cspell.diagnostics.with({
           diagnostics_postprocess = function(diagnostic)
-            diagnostic.severity = vim.diagnostic.severity["WARN"] -- ERROR, WARN, INFO, HINT
+            diagnostic.severity = vim.diagnostic.severity["WARN"]
           end,
           config = cspell_files,
         }),

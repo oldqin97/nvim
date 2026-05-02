@@ -1,8 +1,8 @@
+-- Docker 管理界面（lazydocker TUI）
 return {
   "crnvl96/lazydocker.nvim",
-  -- event = "VeryLazy",
   cmd = { "LazyDocker" },
-  opts = {}, -- automatically calls `require("lazydocker").setup()`
+  opts = {},
   keys = {
     { "<leader>dk", "<cmd>LazyDocker<cr>", desc = "lazy docker" },
   },

@@ -1,6 +1,2 @@
-return {
-  -- {
-  --   "neoclide/coc.nvim",
-  --   branch = "release", -- coc.nvim 的稳定版本
-  -- },
-}
+-- coc.nvim（已由 nvim-lspconfig 替代）
+return {}

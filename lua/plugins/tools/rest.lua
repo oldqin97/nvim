@@ -1,3 +1,4 @@
+-- HTTP REST 客户端（支持 .http 文件发送请求）
 return {
   {
     "mistweaverco/kulala.nvim",
@@ -6,18 +7,8 @@ return {
       { "<F1>", "<cmd>lua require('kulala').run()<cr>", desc = "rest" },
     },
     opts = {
-      -- default_view = "headers_body",
       default_view = "body",
       display_mode = "float",
     },
-    -- config = function()
-    --   require("kulala").setup({
-    --     formatters = {
-    --       json = { "jq", "." },
-    --       xml = { "xmllint", "--format", "-" },
-    --       html = { "xmllint", "--format", "--html", "-" },
-    --     },
-    --   })
-    -- end,
   },
 }

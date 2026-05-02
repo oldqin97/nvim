@@ -1,6 +1,9 @@
+-- AI 代码助手：supermaven 代码补全 + sidekick 对话
 return {
+  -- AI 行内代码补全
   {
     "supermaven-inc/supermaven-nvim",
+    event = "VeryLazy",
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {
@@ -10,7 +13,7 @@ return {
         },
         ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
         color = {
-          suggestion_color = "#928374", -- gruvbox gray
+          suggestion_color = "#928374", -- gruvbox 灰色
           cterm = 245,
         },
         log_level = "off",
@@ -19,16 +22,14 @@ return {
       })
     end,
   },
+  -- AI 对话助手（集成 Claude Code）
   {
     "folke/sidekick.nvim",
     opts = {
       cli = {
         win = {
           layout = "float",
-          float = {
-            width = 0.5,
-            height = 0.7,
-          },
+          float = { width = 0.5, height = 0.7 },
         },
         mux = {
           backend = "tmux",
@@ -66,8 +67,6 @@ return {
         function()
           require("sidekick.cli").select({ name = "claude", auto = true })
         end,
-        -- Or to select only installed tools:
-        -- require("sidekick.cli").select({ filter = { installed = true } })
         desc = "Select CLI",
       },
       {

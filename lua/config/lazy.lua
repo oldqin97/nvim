@@ -1,7 +1,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
+-- 如果 lazy.nvim 尚未安装，则通过 git clone 引导安装
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  -- bootstrap lazy.nvim
   -- stylua: ignore
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable",
     lazypath })
@@ -10,29 +10,26 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    -- add LazyVim and import its plugins
+    -- 导入 LazyVim 核心及内置插件
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- ai
-    -- { import = "lazyvim.plugins.extras.ai.supermaven" },
-    -- { import = "lazyvim.plugins.extras.ai.codeium" },
-    -- { import = "lazyvim.plugins.extras.ai.sidekick" },
 
-    -- code
+    -- 代码相关
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     { import = "lazyvim.plugins.extras.coding.blink" },
-    -- { import = "lazyvim.plugins.extras.coding.mini-comment" },
 
-    -- dap
+    -- 调试器支持
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.dap.nlua" },
-    -- editor
+
+    -- 编辑器增强
     { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "lazyvim.plugins.extras.editor.outline" },
     { import = "lazyvim.plugins.extras.editor.overseer" },
 
-    -- formatting
+    -- 格式化
     { import = "lazyvim.plugins.extras.formatting.black" },
-    -- lang
+
+    -- 语言支持
     { import = "lazyvim.plugins.extras.lang.angular" },
     { import = "lazyvim.plugins.extras.lang.astro" },
     { import = "lazyvim.plugins.extras.lang.docker" },
@@ -45,47 +42,40 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.vue" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
-    { import = "lazyvim.plugins.extras.lang.toml" },
     { import = "lazyvim.plugins.extras.lang.prisma" },
     { import = "lazyvim.plugins.extras.lang.git" },
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.lang.cmake" },
-    -- { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.nushell" },
     { import = "lazyvim.plugins.extras.lang.sql" },
 
-    -- lint
+    -- 代码检查
     { import = "lazyvim.plugins.extras.linting.eslint" },
-    -- lsp
+    -- LSP
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
-    -- test
+    -- 测试
     { import = "lazyvim.plugins.extras.test.core" },
-    -- ui
-    -- util
+    -- 工具
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.util.startuptime" },
     { import = "lazyvim.plugins.extras.util.rest" },
+    -- 导入自定义插件
     { import = "plugins" },
   },
   defaults = {
-    -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
-    -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
-    lazy = false,
-    -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
-    -- have outdated releases, which may break your Neovim install.
-    version = false, -- always use the latest git commit
-    -- version = "*", -- try installing the latest stable version for plugins that support semver
+    -- 默认延迟加载以加快启动速度
+    lazy = true,
+    -- 不使用版本锁定，跟踪最新提交
+    version = false,
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  install = { colorscheme = { "gruvbox", "habamax" } },
+  -- 自动检查插件更新
+  checker = { enabled = true },
   performance = {
     rtp = {
-      -- disable some rtp plugins
+      -- 禁用部分内置插件以提升性能
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

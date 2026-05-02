@@ -1,8 +1,6 @@
+-- 自动保存文件
 return {
-    -- auto-save
-    "Pocco81/auto-save.nvim",
-    event = "BufReadPost",
-    config = function()
-      require("auto-save").setup()
-    end,
-  }
+  "Pocco81/auto-save.nvim",
+  event = "BufReadPost",
+  opts = {},
+}

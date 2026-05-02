@@ -1,3 +1,4 @@
+-- PicGo 图床：上传剪贴板图片到图床
 return {
   "askfiy/nvim-picgo",
   cmd = { "UploadClipboard" },

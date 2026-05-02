@@ -1,18 +1,14 @@
+-- Python 虚拟环境选择器
 return {
   "linux-cultist/venv-selector.nvim",
   branch = "main",
-  dependencies = {
-    "neovim/nvim-lspconfig",
-    -- { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } }, -- optional: you can also use fzf-lua, snacks, mini-pick instead.
-  },
-  ft = "python", -- Load when opening Python files
+  dependencies = { "neovim/nvim-lspconfig" },
+  ft = "python",
   keys = {
-    { ",v", "<cmd>VenvSelect<cr>" }, -- Open picker on keymap
+    { ",v", "<cmd>VenvSelect<cr>" },
   },
-  opts = { -- this can be an empty lua table - just showing below for clarity.
-    search = {}, -- if you add your own searches, they go here.
-    options = {
-      picker = "snacks",
-    }, -- if you add plugin options, they go here.
+  opts = {
+    search = {},
+    options = { picker = "snacks" },
   },
 }

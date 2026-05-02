@@ -1,30 +1,17 @@
 ---@diagnostic disable: undefined-field
+
+-- TODO 注释高亮与管理（TODO, FIX, HACK, WARN 等标记）
 return {
   "folke/todo-comments.nvim",
   event = "LazyFile",
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
     { "<leader>st", false },
-    {
-      "<A-t>",
-      function()
-        Snacks.picker.todo_comments({
-          layout = {
-            preset = "ivy",
-            preview = true,
-          },
-        })
-      end,
-      { desc = "Todo list" },
-    },
+    { "<A-t>", function() Snacks.picker.todo_comments({ layout = { preset = "ivy", preview = true } }) end, { desc = "Todo list" } },
   },
   opts = {
     keywords = {
-      FIX = {
-        icon = " ",
-        color = "#DC2626",
-        alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
-      },
+      FIX = { icon = " ", color = "#DC2626", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
       TODO = { icon = " ", color = "#2563EB" },
       HACK = { icon = " ", color = "#909399" },
       WARN = { icon = " ", color = "#FBBF24", alt = { "WARNING" } },

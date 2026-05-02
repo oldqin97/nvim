@@ -1,3 +1,4 @@
+-- Buffer 标签栏：显示和管理打开的 buffer
 return {
   {
     "akinsho/bufferline.nvim",
@@ -29,14 +30,11 @@ return {
         },
 
         options = {
-          -- Behavior
           mode = "buffers",
           sort_by = "insert_after_current",
           always_show_bufferline = true,
           view = "multiwindow",
           themable = true,
-
-          -- Icons
           separator_style = { "", "" },
           show_buffer_icons = true,
           color_icons = true,
@@ -44,19 +42,13 @@ return {
           show_close_icon = false,
           show_buffer_close_icons = true,
           buffer_close_icon = "󰅙",
-
-          -- Tabs
           tab_size = 10,
           show_tab_indicators = false,
           enforce_regular_tabs = false,
-
-          -- Truncation
           max_name_length = 25,
           left_trunc_marker = " ",
           right_trunc_marker = " ",
-
           indicator = { icon = "", style = "none" },
-
           numbers = function(opts)
             return string.format(" %s.", opts.ordinal)
           end,
