@@ -16,7 +16,7 @@ return {
           jump_highlight_duration = 100,
         },
         providers = {
-          priority = { "lsp", "treesitter" }, -- 优先用 LSP，没响应就用 Treesitter
+          priority = { "lsp", "markdown" },
         },
         keymaps = {
           peek_location = "l",

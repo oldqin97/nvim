@@ -93,7 +93,7 @@
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "relative-toggle.nvim": { "branch": "main", "commit": "669743be90a3a3c5fc0eceec478042e2bc7541a4" },
-  "render-markdown.nvim": { "branch": "main", "commit": "f626e90bbc4b3d8f4fd29c909d958b165af13f4a" },
+  "render-markdown.nvim": { "branch": "main", "commit": "3f3eea97b80839f629c951ca660ffd125bfa5b34" },
   "rustaceanvim": { "branch": "main", "commit": "ae5bced54e93149385916efad2fc9d24cdecdc56" },
   "sidekick.nvim": { "branch": "main", "commit": "208e1c5b8170c01fd1d07df0139322a76479b235" },
   "smart-backspace.nvim": { "branch": "main", "commit": "e8fd6e01f10d64a78403d6d27c9bbc746631afc1" },
