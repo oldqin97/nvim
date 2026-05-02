@@ -1,9 +1,43 @@
--- Markdown 增强：列表符号自动补全 + 实时预览
+-- Markdown 增强：列表符号自动补全 + 实时预览 + 所见即所得
 return {
   -- Markdown 列表符号自动续行
   {
     "dkarter/bullets.vim",
     ft = { "markdown", "text" },
+  },
+  -- Markdown 所见即所得渲染
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    opts = {
+      file_types = { "markdown" },
+      render_modes = { "n", "c", "v" },
+      anti_conceal = { enabled = false },
+      heading = {
+        sign = true,
+        icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+      },
+      code = {
+        sign = true,
+        width = "block",
+        right_pad = 1,
+      },
+      checkbox = {
+        enabled = true,
+        unchecked = { icon = " 󰄱 " },
+        checked = { icon = " 󰱒 " },
+      },
+      link = {
+        enabled = true,
+      },
+      bullet = {
+        enabled = true,
+        icons = { "●", "○", "◆", "◇" },
+      },
+      pipe_table = {
+        enabled = true,
+      },
+    },
   },
   -- Markdown 实时预览
   {

@@ -26,8 +26,6 @@ return {
   { "navarasu/onedark.nvim", enabled = false },
   -- 禁用 luarocks
   { "vhyrro/luarocks.nvim", enabled = false },
-  -- 禁用 render-markdown
-  { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
   -- 禁用 vim-illuminate
   { "RRethy/vim-illuminate", enabled = false },
   -- 使用 snacks.picker 替代 telescope
