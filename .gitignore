@@ -12,3 +12,4 @@ session
 # test.*
 dictionary
 .annotations
+test.sh

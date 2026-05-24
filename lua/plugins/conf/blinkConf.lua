@@ -1,4 +1,5 @@
 -- blink.cmp 补全详细配置：按键映射、外观、模糊搜索、签名提示、补全菜单、补全源、命令行补全
+local supermaven
 return {
   -- 补全快捷键映射
   keymaps = {
@@ -7,8 +8,11 @@ return {
         if cmp.is_visible() then
           return cmp.select_and_accept()
         end
-        local supermaven = require("supermaven-nvim.completion_preview")
-        if supermaven.has_suggestion() then
+        if supermaven == nil then
+          local ok, mod = pcall(require, "supermaven-nvim.completion_preview")
+          supermaven = ok and mod or false
+        end
+        if supermaven and supermaven.has_suggestion() then
           vim.schedule(supermaven.on_accept_suggestion)
           return true
         end
@@ -25,13 +29,44 @@ return {
   appearance = {
     nerd_font_variant = "normal",
     kind_icons = {
+      -- 类型
+      Class = "",
+      Interface = "",
+      Struct = "",
+      TypeParameter = "󰉺",
+      -- 函数/方法
+      Function = "",
+      Method = "",
+      Constructor = "",
+      -- 变量/属性
+      -- Variable = "󰫧",
+      Field = "󰂚",
+      Property = "",
+      -- 值/常量
+      Constant = "󰏿",
+      Value = "󰊕",
+      Enum = "󰒻",
+      EnumMember = "󰀽",
+      -- 关键字/操作
+      Keyword = "󰌋",
+      Operator = "󰘧",
+      -- 模块/包
+      Module = "󰏗",
+      Unit = "󰪚",
+      -- 其他
+      Text = "󰉿",
       Snippet = "󰩫",
+      Color = "",
+      File = "",
+      Reference = "󰬲",
+      Folder = "",
+      Event = { "" },
+      -- 自定义 sources
       Emoji = "󰞅",
-      Math = "",
+      Math = "",
       Dic = "",
       Css = "",
-      String = "",
-      AI = "",
+      AI = "󱚟",
     },
   },
 
@@ -142,7 +177,7 @@ return {
         -- 在注释区域不显示代码片段
         should_show_items = function()
           local ok, node = pcall(vim.treesitter.get_node)
-          if ok and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
+          if ok and node and vim.tbl_contains({ "comment" }, node:type()) then
             return false
           end
           return true

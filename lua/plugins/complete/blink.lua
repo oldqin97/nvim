@@ -2,7 +2,10 @@
 return {
   {
     "saghen/blink.cmp",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    -- event = "InsertEnter",
+    -- event = { "InsertEnter", "CmdlineEnter" },
+    event = { "LspAttach" },
     dependencies = {
       "moyiz/blink-emoji.nvim",
       "saghen/blink.compat",
