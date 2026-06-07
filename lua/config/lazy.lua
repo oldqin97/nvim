@@ -47,12 +47,13 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.lang.cmake" },
     { import = "lazyvim.plugins.extras.lang.nushell" },
-    { import = "lazyvim.plugins.extras.lang.sql" },
+    -- { import = "lazyvim.plugins.extras.lang.sql" },
 
     -- 代码检查
     { import = "lazyvim.plugins.extras.linting.eslint" },
     -- LSP
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    { import = "lazyvim.plugins.extras.lsp.neoconf" },
     -- 测试
     { import = "lazyvim.plugins.extras.test.core" },
     -- 工具
@@ -71,6 +72,7 @@ require("lazy").setup({
   install = { colorscheme = { "gruvbox", "habamax" } },
   -- 自动检查插件更新
   checker = { enabled = true },
+  concurrency = 3,
   performance = {
     rtp = {
       -- 禁用部分内置插件以提升性能

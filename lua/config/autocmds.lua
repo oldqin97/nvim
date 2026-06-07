@@ -8,14 +8,6 @@ api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
--- 将 .org 文件识别为 org 文件类型
-api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.org",
-  callback = function()
-    vim.bo.filetype = "org"
-  end,
-})
-
 -- 根据模式切换光标颜色：普通模式为橙色，可视模式为白色
 local function set_cursor_color(mode)
   if mode == "n" then
@@ -41,15 +33,25 @@ api.nvim_create_autocmd("InsertLeave", {
   end,
 })
 
--- 文件类型检测：env 文件识别为 sh，微信小程序文件类型映射
+-- 文件类型检测：env/zsh 文件识别为 sh，微信小程序文件类型映射
 vim.filetype.add({
   pattern = {
     [".env.*"] = "sh",
     [".env"] = "sh",
+    ["%.zsh.*"] = "sh",
+    ["%.org"] = "org",
+  },
+  filename = {
+    [".zshrc"] = "sh",
+    [".zprofile"] = "sh",
+    [".zshenv"] = "sh",
+    [".zlogin"] = "sh",
+    [".zlogout"] = "sh",
   },
   extension = {
     wxml = "html",
     wxss = "css",
+    zsh = "sh",
   },
 })
 
@@ -99,6 +101,26 @@ api.nvim_create_autocmd("DiagnosticChanged", {
     local bufnr = args.buf
     if api.nvim_buf_is_valid(bufnr) then
       update_diagnostic_line_highlights(bufnr)
+    end
+  end,
+})
+
+-- 覆盖 LazyVim 的 wrap_spell autocmd：禁止在所有文件类型中启用内置拼写检查
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.spell = false
+  end,
+})
+
+-- Markdown 和 kulala_ui 文件关闭自动换行，其他文件开启 wrap
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "markdown" or vim.bo.filetype == "kulala_ui" then
+      vim.wo.wrap = false
+    else
+      vim.wo.wrap = true
     end
   end,
 })

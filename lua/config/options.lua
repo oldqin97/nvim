@@ -23,17 +23,20 @@ vim.g.lazyvim_picker = "snacks"
 
 -- 缩短写入延迟，提升响应速度
 vim.opt.updatetime = 200
+-- 光标距离屏幕上下边缘至少保留的行数
+vim.opt.scrolloff = 8
+-- 禁用平滑滚动：smoothscroll 会让底部显示半行残影，破坏 scrolloff 的留白效果
+vim.opt.smoothscroll = false
 -- 切换 buffer 时光标不跳到行首
 vim.opt.startofline = false
 -- 禁用当前行高亮
 vim.opt.cursorline = false
 -- 启用自动换行
-vim.opt.wrap = true
+-- vim.opt.wrap = false
 
--- 折叠配置：使用 treesitter 语法折叠
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- 默认展开所有折叠
+-- 折叠交给 nvim-ufo 异步处理，避免同步 foldexpr 阻塞 UI
+vim.opt.foldmethod = "manual"
+vim.opt.foldexpr = ""
 vim.opt.foldlevel = 99
 
 -- 行号列宽度
@@ -46,6 +49,9 @@ vim.g.skip_ts_context_commentstring_module = true
 
 -- 拼写检查语言：英文 + 中日韩
 vim.opt.spelllang = { "en", "cjk" }
+-- 默认关闭内置拼写检查
+vim.opt.spell = false
+
 -- 启用 editorconfig 支持
 vim.g.editorconfig = true
 
