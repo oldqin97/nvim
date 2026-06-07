@@ -7,6 +7,7 @@ function qwe(arr) {
   if (!Array.isArray(arr)) {
     return Promise.reject(new TypeError("参数必须是数组"));
   }
+  console.log();
   arr.forEach(item => console.log(item));
   return new Promise(resolve => setTimeout(() => resolve(arr), 1000));
 }
@@ -16,7 +17,7 @@ function qwe(arr) {
  * @param {number} n - 非负整数
  */
 function fibonacci(n) {
-  if (n < 0 || !er.isInteger(n)) throw new Error("输入必须是非负整数");
+  if (n < 0 || !n.isInteger(n)) throw new Error("输入必须是非负整数");
   if (n < 2) return n;
 
   let [prev, curr] = [0, 1];

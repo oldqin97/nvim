@@ -1,17 +1,5 @@
-CREATE TABLE users (
-  id INT PRIMARY KEY,
-  name VARCHAR(100),
-  email VARCHAR(100)
-);
-
-INSERT INTO
-  users (id, name, email)
-VALUES
-  (1, 'alice', 'qwe@qwe.com');
-
-SELECT
-  name
-FROM
-  users
+UPDATE "user_tabl"
+set
+  name = '李四'
 WHERE
-  id = 1;
+  name = '张三';
