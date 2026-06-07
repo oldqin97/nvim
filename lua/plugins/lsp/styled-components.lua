@@ -6,7 +6,7 @@ return {
     LazyVim.extend(opts.servers.vtsls, "settings.vtsls.tsserver.globalPlugins", {
       {
         name = "@styled/typescript-styled-plugin",
-        location = "/Users/qin/.volta/tools/image/node/22.13.1/lib/node_modules",
+        -- location = "/Users/qin/.volta/tools/image/node/22.13.1/lib/node_modules",
         enableForWorkspaceTypeScriptVersions = true,
       },
     })

@@ -2,7 +2,9 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
+    -- event = "VeryLazy",
+    event = { "LspAttach" },
     opts = function(_, opts)
       opts = vim.tbl_deep_extend("force", opts, {
         servers = require("plugins.conf.lspConf").servers,

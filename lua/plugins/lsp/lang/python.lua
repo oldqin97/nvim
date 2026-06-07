@@ -7,8 +7,8 @@ return {
   keys = {
     { ",v", "<cmd>VenvSelect<cr>" },
   },
+  cmd = "VenvSelect",
   opts = {
-    search = {},
     options = { picker = "snacks" },
   },
 }

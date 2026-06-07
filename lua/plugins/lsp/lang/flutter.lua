@@ -13,14 +13,6 @@ return {
         outline = { auto_open = false },
         closing_tags = { enabled = false },
         lsp = {
-          color = {
-            enabled = true,
-            background = true,
-            background_color = nil,
-            foreground = false,
-            virtual_text = true,
-            virtual_text_str = "■",
-          },
           settings = {
             autostart = true,
             showTodos = true,
@@ -31,6 +23,7 @@ return {
           },
         },
       })
+      vim.lsp.document_color.enable()
     end,
   },
 }
