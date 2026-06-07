@@ -45,4 +45,9 @@ return {
   { "ahmedkhalf/project.nvim", enabled = false },
   -- 禁用 nvim-lint
   { "mfussenegger/nvim-lint", enabled = false },
+  -- 禁用 mini.ai
+  { "nvim-mini/mini.ai", enabled = false },
+  -- 禁用 nvim-treesitter-textobjects
+  { "nvim-treesitter/nvim-treesitter-textobjects", enabled = false },
+  { "folke/trouble.nvim", enabled = false },
 }
