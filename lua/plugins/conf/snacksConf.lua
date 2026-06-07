@@ -11,7 +11,6 @@ return {
       function()
         -- 先禁用 focus.nvim 的自动 resize
         vim.g.focus_disable = true
-
         -- 打开 snacks explorer，注册关闭回调以重新启用 focus
         Snacks.explorer({
           on_close = function()
@@ -59,7 +58,7 @@ return {
       function()
         Snacks_util.closed_buffers()
       end,
-      desc = "Buffers",
+      desc = "Find Closed Buffers (Root Dir)",
     },
     -- Grep 搜索
     { "<A-f>", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
@@ -290,13 +289,14 @@ return {
     sources = {
       -- 文件浏览器配置
       explorer = {
+        hidden = true,
         finder = "explorer",
         sort = { fields = { "sort" } },
         tree = true,
         git_status = true,
-        git_status_open = false,
+        git_status_open = true,
         supports_live = true,
-        git_untracked = false,
+        git_untracked = true,
         follow_file = true,
         diagnostics_open = true,
         focus = "list",
@@ -374,10 +374,31 @@ return {
           },
         },
         layout = {
-          preset = "sidebar",
           preview = false,
           layout = {
-            position = "right",
+            -- 使用浮动窗口代替真正的分屏，避免文本因宽度变化而重新折行产生抖动
+            -- 浮动窗口覆盖在编辑区域上方，不会挤压底层窗口
+            backdrop = false,
+            relative = "editor",
+            width = 40,
+            min_width = 40,
+            height = 0,
+            row = 0,
+            -- col 使用函数动态计算，保证窗口贴在编辑器右侧边缘
+            col = function(self)
+              return vim.o.columns - self.opts.width
+            end,
+            border = "none",
+            box = "vertical",
+            {
+              win = "input",
+              height = 1,
+              border = true,
+              title = "{title} {live} {flags}",
+              title_pos = "center",
+            },
+            { win = "list", border = "none" },
+            { win = "preview", title = "{preview}", height = 0.4, border = "top" },
           },
         },
       },
@@ -442,6 +463,7 @@ return {
   -- 缩进线显示
   indent = {
     enabled = true,
+    only_scope = false, -- 只在作用域范围内显示缩进线
     chunk = {
       enabled = true,
       only_current = false,
