@@ -12,6 +12,7 @@ return {
     indent = require("plugins.conf.snacksConf").indent,
     dashboard = require("plugins.conf.snacksConf").dashboard,
     bigfile = require("plugins.conf.snacksConf").bigfile,
+    explorer = { enabled = true },
     -- 浮动终端
     terminal = {
       win = {
@@ -39,26 +40,57 @@ return {
     quickfile = { enabled = true },
     statuscolumn = { enabled = false },
     words = { enabled = true },
+    -- toggler = {
+    --   which_key = true, -- integrate with which-key to show enabled/disabled icons and colors
+    --   notify = true, -- show a notification when toggling
+    --   -- icons for enabled/disabled states
+    --   icon = {
+    --     enabled = " ",
+    --     disabled = " ",
+    --   },
+    --   -- colors for enabled/disabled states
+    --   color = {
+    --     enabled = "green",
+    --     disabled = "yellow",
+    --   },
+    --   wk_desc = {
+    --     enabled = "Disable ",
+    --     disabled = "Enable ",
+    --   },
+    -- },
   },
+  -- 显式调用 setup 并覆盖 vim.ui.input / vim.ui.select
+  -- snacks 原本依赖 UIEnter 事件来设置，但 headless 模式下 UIEnter 不触发
+  config = function(_, opts)
+    require("snacks").setup(opts)
+    Snacks.input.enable()
+    Snacks.picker.setup()
+  end,
   -- 初始化：注册调试工具、toggle 开关快捷键
   init = function()
     vim.api.nvim_create_autocmd("User", {
       pattern = "VeryLazy",
       callback = function()
         -- 注册全局调试函数
-        _G.dd = function(...) Snacks.debug.inspect(...) end
-        _G.bt = function() Snacks.debug.backtrace() end
+        _G.dd = function(...)
+          Snacks.debug.inspect(...)
+        end
+        _G.bt = function()
+          Snacks.debug.backtrace()
+        end
         vim.print = _G.dd -- 覆盖 vim.print 使用 snacks 的 inspect
 
         -- 各种 Toggle 开关映射
-        Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-        Snacks.toggle.diagnostics():map("<leader>ud")
-        Snacks.toggle.line_number():map("<leader>ul")
-        Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
-        Snacks.toggle.treesitter():map("<leader>ut")
-        Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
-        Snacks.toggle.inlay_hints():map("<leader>uh")
+        -- Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+        -- Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
+        -- Snacks.toggle.diagnostics():map("<leader>ud")
+        -- Snacks.toggle.line_number():map("<leader>ul")
+        -- Snacks.toggle
+        --   .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
+        --   :map("<leader>uc")
+        -- Snacks.toggle.treesitter():map("<leader>ut")
+        -- Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
+        -- Snacks.toggle.inlay_hints():map("<leader>uh")
       end,
     })
   end,

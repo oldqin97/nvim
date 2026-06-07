@@ -7,8 +7,15 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
     { "<leader>st", false },
-    { "<A-t>", function() Snacks.picker.todo_comments({ layout = { preset = "ivy", preview = true } }) end, { desc = "Todo list" } },
+    {
+      "<A-t>",
+      function()
+        Snacks.picker.todo_comments({ layout = { preset = "ivy", preview = true } })
+      end,
+      { desc = "Todo list" },
+    },
   },
+
   opts = {
     keywords = {
       FIX = { icon = " ", color = "#DC2626", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },

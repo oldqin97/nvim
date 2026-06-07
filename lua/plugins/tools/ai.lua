@@ -1,17 +1,17 @@
 -- AI 代码助手：supermaven 代码补全 + sidekick 对话
 return {
-  -- AI 行内代码补全
   {
     "supermaven-inc/supermaven-nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    event = "InsertEnter",
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {
-          accept_suggestion = "<Tab>",
+          -- accept_suggestion = "<Tab>",
           accept_word = "<C-j>",
           clear_suggestion = "<C-]>",
         },
-        ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
+        ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif", "snacks_picker_input" },
         color = {
           suggestion_color = "#928374", -- gruvbox 灰色
           cterm = 245,
@@ -34,6 +34,24 @@ return {
         mux = {
           backend = "tmux",
           enabled = false,
+        },
+        tools = {
+          -- 自定义 claude -r (--resume) 工具
+          ["claude-r"] = {
+            cmd = { "claude", "--resume" },
+            is_proc = "\\<claude\\>",
+            url = "https://github.com/anthropics/claude-code",
+            format = function(text)
+              local Text = require("sidekick.text")
+              Text.transform(text, function(str)
+                return str:find("[^%w/_%.%-]") and ('"' .. str .. '"') or str
+              end, "SidekickLocFile")
+              local ret = Text.to_string(text)
+              -- transform line ranges to a format that Claude understands
+              ret = ret:gsub("@([^@]-) :L(%d+)%-L(%d+)", "@%1#L%2-%3")
+              return ret
+            end,
+          },
         },
         prompts = {
           buffers = "当前buffers {buffers}",
@@ -59,8 +77,16 @@ return {
         function()
           require("sidekick.cli").toggle({ name = "claude" })
         end,
-        mode = { "n", "t", "i", "x" },
+        mode = { "n", "t", "x" },
         desc = "Sidekick Toggle CLI",
+      },
+      {
+        "<leader>ar",
+        function()
+          require("sidekick.cli").toggle({ name = "claude-r" })
+        end,
+        mode = { "n", "t", "x" },
+        desc = "Sidekick Toggle Claude Resume",
       },
       {
         "<leader>as",

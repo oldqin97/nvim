@@ -10,7 +10,7 @@ return {
         "Outline", "AvanteSelectedFiles", "AvanteInput", "Avante",
         "dapui_console", "dapui_watches", "dapui_stacks", "dapui_breakpoints", "dapui_scopes",
         "OverseerList", "DiffviewFiles", "qf",
-        "atone", "sidekick_terminal",
+        "atone", "sidekick_terminal","leetcode.nvim","dbui"
       }
       vim.api.nvim_create_autocmd("FileType", {
         group = augroup,

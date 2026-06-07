@@ -8,6 +8,10 @@ return {
       require("tiny-inline-diagnostic").setup({
         preset = "simple",
         transparent_bg = false,
+        options = {
+          enable_on_insert = false,
+          enable_on_select = false,
+        },
       })
       vim.diagnostic.config({ virtual_text = false, signs = false })
     end,

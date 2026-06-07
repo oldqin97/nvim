@@ -2,7 +2,7 @@
 return {
   {
     "hedyhli/outline.nvim",
-    event = "VeryLazy",
+    event = "LspAttach",
     keys = {
       { "<A-o>", "<cmd>Outline<cr>", desc = "Toggle Outline" },
       { "<leader>cs", false },

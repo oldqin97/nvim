@@ -4,6 +4,7 @@ return {
   event = "VeryLazy",
   keys = { { "<c-f>", false }, { "<c-b>", false } },
   opts = {
+    throttle = 1000 / 30,
     views = {
       cmdline_popup = {
         position = { row = 5, col = "50%" },
@@ -11,8 +12,6 @@ return {
       },
     },
     cmdline = {
-      enabled = true,
-      opts = {},
       view = "cmdline_popup",
     },
     smart_move = {
@@ -20,7 +19,6 @@ return {
       excluded_filetypes = { "cmp_menu", "cmp_docs", "notify", "vim-doge" },
     },
     messages = {
-      enabled = true,
       view = "notify",
       view_error = "notify",
       view_warn = "notify",
@@ -28,7 +26,7 @@ return {
       view_search = "virtualtext",
     },
     lsp = {
-      progress = { enabled = true },
+      progress = { enabled = false },
       hover = { enabled = true },
       signature = { enabled = false },
       override = {
@@ -39,9 +37,7 @@ return {
     },
     notify = {
       enabled = true,
-      view = "notify",
     },
-    -- 消息路由：过滤不需要显示的噪音消息
     routes = {
       {
         filter = {
@@ -51,24 +47,25 @@ return {
             { find = "; before #%d+" },
             { find = "No information available" },
             { find = "AutoSave: saved at %d+:%d+:%d+" },
-            { find = "Exited Visual-Multi." },
+            { find = "Exited Visual%-Multi." },
             { find = "^少了 %d+ 行$" },
             { find = "^%d+ more lines$" },
             { find = "^%d+ fewer lines$" },
             { find = "^%d+ lines yanked$" },
-            { find = "Plugin Updates" },
+            -- { find = "Plugin Updates" },
           },
         },
         opts = { stop = true },
       },
-      -- 跳过 null-ls 的 LSP 进度消息
       {
-        filter = { event = "lsp", kind = "progress", cond = function(message) local client = vim.tbl_get(message.opts, "progress", "client"); return client == "null-ls" end },
-        opts = { skip = true },
-      },
-      -- 跳过 ltex 的 LSP 进度消息
-      {
-        filter = { event = "lsp", kind = "progress", cond = function(message) local client = vim.tbl_get(message.opts, "progress", "client"); return client == "ltex" end },
+        filter = {
+          event = "lsp",
+          kind = "progress",
+          cond = function(message)
+            local client = vim.tbl_get(message.opts, "progress", "client")
+            return client == "null-ls" or client == "ltex"
+          end,
+        },
         opts = { skip = true },
       },
     },

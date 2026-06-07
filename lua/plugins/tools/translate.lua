@@ -7,6 +7,11 @@ return {
   },
   dependencies = { "kkharji/sqlite.lua" },
   opts = {
+    -- 只使用本地词典，禁用在线翻译后端
+    engine = {
+      youdao = { disable = true },
+      baidu = { disable = true },
+    },
     frontend = {
       default = {
         title = vim.fn.has("nvim-0.9") == 1 and {
@@ -16,7 +21,7 @@ return {
         } or nil,
         auto_play = false,
         animation = { open = "fold", close = "fold", interval = 1 },
-        timeout = 500,
+        timeout = 100,
       },
     },
   },

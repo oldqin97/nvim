@@ -7,7 +7,6 @@ return {
     { "<leader>ep", "<cmd>EcologPeek<cr>", desc = "Ecolog peek variable" },
     { "<leader>es", "<cmd>EcologSelect<cr>", desc = "Switch env file" },
   },
-  lazy = false,
   opts = {
     integrations = { blink_cmp = true },
     -- 敏感值遮蔽模式配置

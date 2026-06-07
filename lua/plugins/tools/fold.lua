@@ -7,6 +7,9 @@ return {
   dependencies = { "kevinhwang91/promise-async" },
   config = function()
     require("ufo").setup({
+      provider_selector = function(bufnr, filetype, buftype)
+        return { "treesitter", "indent" }
+      end,
       -- 折叠行虚拟文本显示：显示折叠行数
       fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
         local newVirtText = {}

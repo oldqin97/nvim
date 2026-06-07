@@ -4,10 +4,34 @@ return {
     "tomasky/bookmarks.nvim",
     event = "VeryLazy",
     keys = {
-      { "mm", function() require("bookmarks").bookmark_toggle() end, desc = "bookmark_toggle" },
-      { "mi", function() require("bookmarks").bookmark_ann() end, desc = "bookmark_ann" },
-      { "mc", function() require("bookmarks").bookmark_clean() end, desc = "bookmark_clean" },
-      { "<A-b>", function() require("plugins.conf.bookmarkConf").bookmarks_pick() end, { desc = "bookmark list" } },
+      {
+        "mm",
+        function()
+          require("bookmarks").bookmark_toggle()
+        end,
+        desc = "bookmark_toggle",
+      },
+      {
+        "mi",
+        function()
+          require("bookmarks").bookmark_ann()
+        end,
+        desc = "bookmark_ann",
+      },
+      {
+        "mc",
+        function()
+          require("bookmarks").bookmark_clean()
+        end,
+        desc = "bookmark_clean",
+      },
+      {
+        "<A-b>",
+        function()
+          require("plugins.conf.bookmarkConf").bookmarks_pick()
+        end,
+        { desc = "bookmark list" },
+      },
     },
     config = function()
       -- 从当前工作目录提取项目名

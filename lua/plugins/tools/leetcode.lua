@@ -3,13 +3,17 @@ return {
   {
     "kawre/leetcode.nvim",
     build = ":TSUpdate html",
-    lazy = true,
+    -- lazy = true,
+    cmd = { "Leet" },
     dependencies = {
-      "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
     opts = {
+      argument = "leetcode.nvim",
+      picker = {
+        provider = "snacks-picker",
+      },
       lang = "javascript",
       cn = {
         enabled = true,
