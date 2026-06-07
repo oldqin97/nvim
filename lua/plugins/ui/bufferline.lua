@@ -2,7 +2,8 @@
 return {
   {
     "akinsho/bufferline.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    lazy = true,
     keys = {
       { "<leader>bp", false },
       { "<leader>bP", false },

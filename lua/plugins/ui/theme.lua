@@ -2,7 +2,8 @@
 return {
   {
     "ellisonleao/gruvbox.nvim",
-    lazy = true,
+    lazy = false,
+    priority = 1000,
     name = "gruvbox",
     config = function()
       require("gruvbox").setup({
@@ -13,7 +14,7 @@ return {
         italic = {
           strings = false,
           emphasis = true,
-          comments = true,
+          comments = false,
           operators = false,
           folds = false,
         },
@@ -39,9 +40,9 @@ return {
           SnippetTabstop = { fg = vim.NONE, bg = vim.NONE },
 
           -- 语法 / Treesitter 高亮
-          Comment = { fg = "#83cbac", bold = true },
-          TSComment = { fg = "#83cbac", italic = false, bold = true },
-          ["@comment"] = { fg = "#83cbac", bold = true },
+          -- Comment = { fg = "#83cbac", bold = true },
+          -- TSComment = { fg = "#83cbac", italic = false, bold = true },
+          -- ["@comment"] = { fg = "#83cbac", bold = true },
           String = { fg = "#C5967D" },
           ["@string"] = { link = "String" },
           ["@string.special.url"] = { underline = false },
@@ -82,6 +83,14 @@ return {
 
           -- 插件高亮
           SnacksPickerListCursorLine = { link = "Visual" },
+          SnacksIndent1 = { fg = "#fb4934" },
+          SnacksIndent2 = { fg = "#b8bb26" },
+          SnacksIndent3 = { fg = "#fabd2f" },
+          SnacksIndent4 = { fg = "#83a598" },
+          SnacksIndent5 = { fg = "#d3869b" },
+          SnacksIndent6 = { fg = "#8ec07c" },
+          SnacksIndent7 = { fg = "#fe8019" },
+          SnacksIndent8 = { fg = "#a89984" },
           AvanteConflictCurrentLabel = { bg = "#B71C1C", fg = "#FFFFFF" },
           AvanteConflictCurrent = { bg = "#9e5d55" },
           AvanteConflictIncoming = { bg = "#6d8fa6" },
@@ -93,6 +102,7 @@ return {
           BookMarksAddLn = { bg = "#504945" },
         },
       })
+      vim.cmd.colorscheme("gruvbox")
     end,
   },
   {

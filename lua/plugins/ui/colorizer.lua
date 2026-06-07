@@ -3,6 +3,7 @@ return {
   {
     "NvChad/nvim-colorizer.lua",
     event = "VeryLazy",
+    -- event = "LspAttach",
     config = function()
       require("colorizer").setup({
         filetypes = { "*" },
