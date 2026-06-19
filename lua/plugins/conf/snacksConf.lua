@@ -289,13 +289,13 @@ return {
     sources = {
       -- 文件浏览器配置
       explorer = {
-        hidden = true,
         finder = "explorer",
         sort = { fields = { "sort" } },
         tree = true,
         git_status = true,
-        git_status_open = true,
-        supports_live = true,
+        git_status_open = false,
+        hidden = true,
+        supports_live = false,
         git_untracked = true,
         follow_file = true,
         diagnostics_open = true,
@@ -491,8 +491,8 @@ return {
   -- 仪表盘首页配置
   dashboard = {
     sections = {
-      -- 欢迎动画（cowsay）
-      { section = "terminal", cmd = "cowsay 'hello'", hl = "header", padding = 1, indent = 8, width = 50 },
+      -- 欢迎动画（pokemonsay，追加空行遮挡退出信息）
+      { section = "terminal", cmd = "pokemonsay 'hello'; printf '\n\n\n\n\n\n\n\n'", hl = "header", height = 22, padding = 1, indent = 15, width = 50, random = 200 },
       -- 最近文件
       { section = "recent_files", icon = " ", title = "Recent", cwd = true, limit = 3, padding = 1 },
       -- 项目列表

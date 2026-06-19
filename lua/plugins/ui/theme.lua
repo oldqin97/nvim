@@ -46,6 +46,8 @@ return {
           String = { fg = "#C5967D" },
           ["@string"] = { link = "String" },
           ["@string.special.url"] = { underline = false },
+          ["@string.special.path"] = { underline = false },
+          ["@string.special.path.link"] = { underline = false },
           Number = { fg = "#BECDAB", bold = true },
           ["@number"] = { link = "Number" },
           Boolean = { fg = "#fbf1c7" },

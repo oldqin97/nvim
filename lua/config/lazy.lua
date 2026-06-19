@@ -28,7 +28,6 @@ require("lazy").setup({
 
     -- 格式化
     { import = "lazyvim.plugins.extras.formatting.black" },
-
     -- 语言支持
     { import = "lazyvim.plugins.extras.lang.angular" },
     { import = "lazyvim.plugins.extras.lang.astro" },

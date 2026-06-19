@@ -13,3 +13,4 @@ session
 dictionary
 .annotations
 test.sh
+*.md

@@ -1,27 +1,27 @@
 -- AI 代码助手：supermaven 代码补全 + sidekick 对话
 return {
-  {
-    "supermaven-inc/supermaven-nvim",
-    -- event = "VeryLazy",
-    event = "InsertEnter",
-    config = function()
-      require("supermaven-nvim").setup({
-        keymaps = {
-          -- accept_suggestion = "<Tab>",
-          accept_word = "<C-j>",
-          clear_suggestion = "<C-]>",
-        },
-        ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif", "snacks_picker_input" },
-        color = {
-          suggestion_color = "#928374", -- gruvbox 灰色
-          cterm = 245,
-        },
-        log_level = "off",
-        disable_inline_completion = false,
-        disable_keymaps = false,
-      })
-    end,
-  },
+  -- {
+  --   "supermaven-inc/supermaven-nvim",
+  --   -- event = "VeryLazy",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("supermaven-nvim").setup({
+  --       keymaps = {
+  --         -- accept_suggestion = "<Tab>",
+  --         accept_word = "<C-j>",
+  --         clear_suggestion = "<C-]>",
+  --       },
+  --       ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif", "snacks_picker_input" },
+  --       color = {
+  --         suggestion_color = "#928374", -- gruvbox 灰色
+  --         cterm = 245,
+  --       },
+  --       log_level = "off",
+  --       disable_inline_completion = false,
+  --       disable_keymaps = false,
+  --     })
+  --   end,
+  -- },
   -- AI 对话助手（集成 Claude Code）
   {
     "folke/sidekick.nvim",
@@ -33,7 +33,7 @@ return {
         },
         mux = {
           backend = "tmux",
-          enabled = false,
+          enabled = true,
         },
         tools = {
           -- 自定义 claude -r (--resume) 工具
