@@ -306,6 +306,27 @@ return {
           file = { filename_only = true },
           severity = { pos = "right" },
         },
+        -- 自定义格式化：在文件名后显示文件大小
+        format = function(item, picker)
+          local format = require("snacks.picker.format")
+          local ret = format.file(item, picker)
+          if not item.dir and item.file then
+            local stat = vim.uv.fs_stat(item.file)
+            if stat then
+              local size = stat.size
+              local size_str
+              if size < 1024 then
+                size_str = size .. "B"
+              elseif size < 1024 * 1024 then
+                size_str = string.format("%.1fK", size / 1024)
+              else
+                size_str = string.format("%.1fM", size / (1024 * 1024))
+              end
+              table.insert(ret, { " " .. size_str, "SnacksPickerComment" })
+            end
+          end
+          return ret
+        end,
         matcher = { sort_empty = false },
         config = function(opts)
           return require("snacks.picker.source.explorer").setup(opts)
