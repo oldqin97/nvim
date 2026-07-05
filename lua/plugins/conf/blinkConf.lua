@@ -50,7 +50,7 @@ return {
 
   -- 函数签名提示窗口配置
   signature = {
-    enabled = true,
+    enabled = false,
     window = {
       min_width = 20,
       max_width = 80,
@@ -68,7 +68,7 @@ return {
   completion = {
     menu = {
       draw = {
-        treesitter = { "lsp" },
+        treesitter = {}, -- 禁用 treesitter 菜单高亮以减少渲染开销
         components = {},
         columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "kind" } },
       },
@@ -77,7 +77,7 @@ return {
       winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
     },
     documentation = {
-      auto_show = true,
+      auto_show = true, -- 关闭自动显示文档，减少后台请求，需要时手动触发
       auto_show_delay_ms = 200,
       draw = function(opts)
         opts.default_implementation(opts)
@@ -91,11 +91,11 @@ return {
 
     accept = {
       auto_brackets = {
-        enabled = true,
+        enabled = false,
         semantic_token_resolution = {
           enabled = true,
           blocked_filetypes = { "java", "vue" },
-          timeout_ms = 400,
+          timeout_ms = 100, -- 降低超时，减少接受补全时的阻塞感
         },
       },
     },
@@ -107,10 +107,10 @@ return {
       show_in_snippet = true,
       show_on_keyword = true,
       show_on_trigger_character = true,
-      show_on_blocked_trigger_characters = { " ", "\n", "\t", ":" },
+      show_on_blocked_trigger_characters = { " ", "\n", "\t", "/" },
       show_on_accept_on_trigger_character = true,
       show_on_insert_on_trigger_character = true,
-      show_on_x_blocked_trigger_characters = { "'", '"', "(", ">", "<" },
+      show_on_x_blocked_trigger_characters = { "'", '"', "(", ")", "{", "}", ">", "<" },
     },
   },
 
@@ -135,12 +135,12 @@ return {
       "path",
       "snippets",
       "buffer",
-      "dictionary",
+      "dictionary", -- 使用 rg 搜索字典文件，开销较大，按需启用
       "calc",
       "emoji",
       "crates",
       "omni",
-      "ripgrep",
+      "ripgrep", -- 使用 rg 搜索项目文本，开销较大，按需启用
       "ecolog",
       "css_vars",
     },
