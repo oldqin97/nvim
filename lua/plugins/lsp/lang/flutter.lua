@@ -16,7 +16,7 @@ return {
           settings = {
             autostart = true,
             showTodos = true,
-            completeFunctionCalls = true,
+            completeFunctionCalls = false,
             renameFilesWithClasses = "always",
             enableSnippets = true,
             updateImportsOnRename = true,

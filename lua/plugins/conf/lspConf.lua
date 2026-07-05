@@ -97,7 +97,7 @@ return {
         typescript = {
           updateImportsOnFileMove = { enabled = "always" },
           suggest = {
-            completeFunctionCalls = true,
+            completeFunctionCalls = false,
           },
           inlayHints = {
             enumMemberValues = { enabled = true },
