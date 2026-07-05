@@ -13,7 +13,7 @@ return {
           enable_on_select = false,
         },
       })
-      vim.diagnostic.config({ virtual_text = false, signs = false })
+      vim.diagnostic.config({ virtual_text = false, signs = false, update_in_insert = false })
     end,
   },
 }

@@ -23,38 +23,6 @@ api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 
--- 离开插入模式时，自动关闭 snacks 输入窗口
-api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype == "snacks_input" then
-      api.nvim_win_close(0, true)
-    end
-  end,
-})
-
--- 文件类型检测：env/zsh 文件识别为 sh，微信小程序文件类型映射
-vim.filetype.add({
-  pattern = {
-    [".env.*"] = "sh",
-    [".env"] = "sh",
-    ["%.zsh.*"] = "sh",
-    ["%.org"] = "org",
-  },
-  filename = {
-    [".zshrc"] = "sh",
-    [".zprofile"] = "sh",
-    [".zshenv"] = "sh",
-    [".zlogin"] = "sh",
-    [".zlogout"] = "sh",
-  },
-  extension = {
-    wxml = "html",
-    wxss = "css",
-    zsh = "sh",
-  },
-})
-
 -- 诊断信息行高亮：在包含诊断信息的行上添加背景高亮
 local ns_id = api.nvim_create_namespace("diagnostic_line_highlight")
 
@@ -96,13 +64,54 @@ local function update_diagnostic_line_highlights(bufnr)
   end
 end
 
+-- 诊断变更时刷新行高亮（插入模式下跳过）
 api.nvim_create_autocmd("DiagnosticChanged", {
   callback = function(args)
+    if vim.api.nvim_get_mode().mode:sub(1, 1) == "i" then
+      return
+    end
     local bufnr = args.buf
     if api.nvim_buf_is_valid(bufnr) then
       update_diagnostic_line_highlights(bufnr)
     end
   end,
+})
+
+-- 离开插入模式时，自动关闭 snacks 输入窗口，并刷新诊断行高亮
+api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "snacks_input" then
+      api.nvim_win_close(0, true)
+    end
+    -- 退出插入模式后刷新诊断行高亮（插入模式期间诊断被缓存，不显示）
+    local bufnr = api.nvim_get_current_buf()
+    if api.nvim_buf_is_valid(bufnr) then
+      update_diagnostic_line_highlights(bufnr)
+    end
+  end,
+})
+
+-- 文件类型检测：env/zsh 文件识别为 sh，微信小程序文件类型映射
+vim.filetype.add({
+  pattern = {
+    [".env.*"] = "sh",
+    [".env"] = "sh",
+    ["%.zsh.*"] = "sh",
+    ["%.org"] = "org",
+  },
+  filename = {
+    [".zshrc"] = "sh",
+    [".zprofile"] = "sh",
+    [".zshenv"] = "sh",
+    [".zlogin"] = "sh",
+    [".zlogout"] = "sh",
+  },
+  extension = {
+    wxml = "html",
+    wxss = "css",
+    zsh = "sh",
+  },
 })
 
 -- 覆盖 LazyVim 的 wrap_spell autocmd：禁止在所有文件类型中启用内置拼写检查
