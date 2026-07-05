@@ -33,7 +33,7 @@ return {
         },
         mux = {
           backend = "tmux",
-          enabled = true,
+          enabled = false,
         },
         tools = {
           -- 自定义 claude -r (--resume) 工具
