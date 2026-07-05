@@ -14,3 +14,5 @@ dictionary
 .annotations
 test.sh
 *.md
+front/
+/qwe/js-lab/todo
