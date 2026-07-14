@@ -176,17 +176,17 @@ return {
     -- HTTP 文件语法支持（.http / .rest）
     kulala_ls = {},
     -- 英语语法和拼写检查（markdown / text）
-    ltex_plus = {
-      filetypes = { "markdown", "text" },
-      settings = {
-        ltex = {
-          language = "en-US",
-          disabledRules = {
-            ["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
-          },
-        },
-      },
-    },
+    -- ltex_plus = {
+    --   filetypes = { "markdown", "text" },
+    --   settings = {
+    --     ltex = {
+    --       language = "en-US",
+    --       disabledRules = {
+    --         ["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
+    --       },
+    --     },
+    --   },
+    -- },
 
     -- JSON 模式支持，包括微信小程序配置
     jsonls = {

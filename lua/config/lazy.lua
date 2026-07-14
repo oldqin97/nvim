@@ -70,7 +70,7 @@ require("lazy").setup({
   },
   install = { colorscheme = { "gruvbox", "habamax" } },
   -- 自动检查插件更新
-  checker = { enabled = true },
+  checker = { enabled = false },
   concurrency = 3,
   performance = {
     rtp = {

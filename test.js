@@ -3,7 +3,7 @@
  * @param {Array} arr - 要遍历的数组
  * @returns {Promise<Array>} 1秒后 resolve 原数组
  */
-async function printArrayAsync(arr) {
+function printArrayAsync(arr) {
   if (!Array.isArray(arr)) {
     throw new TypeError("参数必须是数组");
   }
@@ -11,6 +11,7 @@ async function printArrayAsync(arr) {
 
   return new Promise(resolve => setTimeout(() => resolve(arr), 1000));
 }
+
 /**
  * 计算斐波那契数列第 n 项（迭代，O(n) 时间，O(1) 空间）
  * @param {number} n - 非负整数
@@ -31,7 +32,7 @@ function fibonacci(n) {
 }
 
 /**
- * 三数取中 — 纯函数，返回 a, b, c 的中位数
+ * 三数取中 — 纯函数，返回a,b,c的中位数
  * @param {number} a
  * @param {number} b
  * @param {number} c

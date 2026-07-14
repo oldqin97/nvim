@@ -44,7 +44,7 @@ return {
           -- TSComment = { fg = "#83cbac", italic = false, bold = true },
           -- ["@comment"] = { fg = "#83cbac", bold = true },
 
-          ["@comment"] = { fg = "#B8BB26", bold = true },
+          -- ["@comment"] = { fg = "#B8BB26", bold = true },
 
           String = { fg = "#C5967D" },
           ["@string"] = { link = "String" },

@@ -159,10 +159,23 @@ return {
         module = "blink.cmp.sources.snippets",
         score_offset = 1,
         -- 在注释区域不显示代码片段
-        should_show_items = function()
-          local ok, node = pcall(vim.treesitter.get_node)
-          if ok and node and vim.tbl_contains({ "comment" }, node:type()) then
-            return false
+        should_show_items = function(ctx)
+          -- cursor 来自 nvim_win_get_cursor: {1-indexed row, 0-indexed col}
+          local row = ctx.cursor[1] - 1
+          local col = ctx.cursor[2]
+          -- tree-sitter 的节点区间是左闭右开 [start, end)，
+          -- 光标在 // 单行注释末尾（EOL）时会落在 comment node 的 end_col 边界外，
+          -- 所以往左回退一列确保落在节点内部（col=0 时不退，// 注释从 col=0 开始本身就在节点内）
+          if col > 0 then col = col - 1 end
+          local ok, node = pcall(vim.treesitter.get_node, {
+            bufnr = ctx.bufnr,
+            pos = { row, col },
+          })
+          if not ok or not node then return true end
+          -- 向上遍历祖先节点，处理 injection（如 JSDoc）等嵌套场景
+          while node do
+            if node:type() == "comment" then return false end
+            node = node:parent()
           end
           return true
         end,
