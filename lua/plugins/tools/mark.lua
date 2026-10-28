@@ -61,6 +61,19 @@ return {
           },
         },
       })
+
+      -- 新版插件默认用注释首字符作为 sign，这里强制使用配置的 ann 图标
+      local Signs = require("bookmarks.signs")
+      local add = Signs.add
+      function Signs:add(bufnr, signs)
+        local icon = require("bookmarks.config").config.signs.ann.text
+        for _, s in ipairs(signs) do
+          if s.type == "ann" then
+            s.text = icon
+          end
+        end
+        return add(self, bufnr, signs)
+      end
     end,
   },
 }
