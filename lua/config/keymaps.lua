@@ -89,11 +89,11 @@ map({ "n", "t" }, "<C-l>", function()
 end, { desc = "Go to right window or tmux pane" })
 
 -- vim-visual-multi 多光标操作
-local function visual_cursors_with_delay()
-  vim.cmd('silent! execute "normal! \\<Plug>(VM-Visual-Cursors)"')
-  vim.cmd("sleep 200m")
-  vim.cmd('silent! execute "normal! A"')
-end
-map({ "n" }, "ma", "<Plug>(VM-Add-Cursor-At-Pos)", { desc = "Add Cursor At Pos" })
-map({ "n" }, "mo", "<Plug>(VM-Toggle-Mappings)", { desc = "Toggle Mapping" })
-map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
+-- local function visual_cursors_with_delay()
+--   vim.cmd('silent! execute "normal! \\<Plug>(VM-Visual-Cursors)"')
+--   vim.cmd("sleep 200m")
+--   vim.cmd('silent! execute "normal! A"')
+-- end
+-- map({ "n" }, "ma", "<Plug>(VM-Add-Cursor-At-Pos)", { desc = "Add Cursor At Pos" })
+-- map({ "n" }, "mo", "<Plug>(VM-Toggle-Mappings)", { desc = "Toggle Mapping" })
+-- map({ "v" }, "mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
