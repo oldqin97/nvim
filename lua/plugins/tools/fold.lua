@@ -1,4 +1,4 @@
----@diagnostic disable: missing-fields
+---@diagnostic disable: missing-fields, unused-local
 
 -- 现代化折叠插件（基于 LSP/treesitter）
 return {

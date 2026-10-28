@@ -123,13 +123,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Markdown 和 kulala_ui 文件关闭自动换行，其他文件开启 wrap
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype == "markdown" or vim.bo.filetype == "kulala_ui" then
-      vim.wo.wrap = false
-    else
-      vim.wo.wrap = true
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = "*",
+--   callback = function()
+--     if vim.bo.filetype == "markdown" or vim.bo.filetype == "kulala_ui" then
+--       vim.wo.wrap = false
+--     else
+--       vim.wo.wrap = true
+--     end
+--   end,
+-- })

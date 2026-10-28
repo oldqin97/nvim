@@ -71,7 +71,7 @@ require("lazy").setup({
   install = { colorscheme = { "gruvbox", "habamax" } },
   -- 自动检查插件更新
   checker = { enabled = false },
-  concurrency = 3,
+  concurrency = 1,
   performance = {
     rtp = {
       -- 禁用部分内置插件以提升性能

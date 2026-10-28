@@ -7,6 +7,7 @@ function printArrayAsync(arr) {
   if (!Array.isArray(arr)) {
     throw new TypeError("参数必须是数组");
   }
+  console.log();
   arr.forEach(item => console.log(item));
 
   return new Promise(resolve => setTimeout(() => resolve(arr), 1000));
